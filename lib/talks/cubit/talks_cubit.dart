@@ -2,22 +2,22 @@ import 'package:bloc/bloc.dart';
 import 'package:conference_repository/conference_repository.dart';
 import 'package:equatable/equatable.dart';
 
-part 'home_state.dart';
+part 'talks_state.dart';
 
-class HomeCubit extends Cubit<HomeState> {
-  HomeCubit({required ConferenceRepository conferenceRepository})
+class TalksCubit extends Cubit<TalksState> {
+  TalksCubit({required ConferenceRepository conferenceRepository})
       : _conferenceRepository = conferenceRepository,
-        super(const HomeLoadInProgress());
+        super(const TalksLoadInProgress());
 
   final ConferenceRepository _conferenceRepository;
 
   Future<void> getTalks() async {
-    emit(const HomeLoadInProgress());
+    emit(const TalksLoadInProgress());
     try {
       final talks = await _conferenceRepository.getTalks();
-      emit(HomeLoadSuccess(talks: talks));
+      emit(TalksLoadSuccess(talks: talks));
     } on GetTalksException catch (error) {
-      emit(HomeLoadFailure(message: error.message));
+      emit(TalksLoadFailure(message: error.message));
     }
   }
 }

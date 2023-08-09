@@ -1,6 +1,6 @@
 import 'package:conference_repository/conference_repository.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_and_friends/home/home.dart';
+import 'package:flutter_and_friends/launchpad/launchpad.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() => runApp(const App());
@@ -22,6 +22,9 @@ class AppView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: HomePage());
+    return MaterialApp(
+      home: const LaunchpadPage(),
+      theme: ThemeData(useMaterial3: true),
+    );
   }
 }

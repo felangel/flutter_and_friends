@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:test/test.dart';
 import 'package:conference_repository/conference_repository.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('ConferenceRepository', () {
