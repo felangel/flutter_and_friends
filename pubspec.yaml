@@ -1,6 +1,6 @@
 name: flutter_and_friends
-description: A new Flutter project.
-publish_to: "none"
+description: The official Flutter & Friends conference app.
+publish_to: none
 version: 0.1.0
 
 environment:
