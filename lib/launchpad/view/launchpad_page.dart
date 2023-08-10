@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/launchpad/launchpad.dart';
+import 'package:flutter_and_friends/settings/settings.dart';
 import 'package:flutter_and_friends/talks/talks.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,7 +22,15 @@ class LaunchpadView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Flutter & Friends')),
+      appBar: AppBar(
+        title: const Text('Flutter & Friends'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () => Navigator.of(context).push(SettingsPage.route()),
+          )
+        ],
+      ),
       body: const _LaunchpadBody(),
       bottomNavigationBar: const _BottomNavigationBar(),
     );
@@ -39,8 +48,6 @@ class _LaunchpadBody extends StatelessWidget {
         return const TalksPage();
       case LaunchpadState.sponsors:
         return Container();
-      case LaunchpadState.settings:
-        return Container();
     }
   }
 }
@@ -52,6 +59,7 @@ class _BottomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final state = context.watch<LaunchpadCubit>().state;
     return BottomNavigationBar(
+      enableFeedback: true,
       onTap: (index) => context.read<LaunchpadCubit>().tabTapped(index),
       currentIndex: state.index,
       items: const [
@@ -62,10 +70,6 @@ class _BottomNavigationBar extends StatelessWidget {
         BottomNavigationBarItem(
           icon: Icon(Icons.star),
           label: 'Sponsors',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.settings),
-          label: 'Settings',
         ),
       ],
     );
