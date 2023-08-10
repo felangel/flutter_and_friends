@@ -8,6 +8,7 @@ part of 'talk.dart';
 
 Talk _$TalkFromJson(Map<String, dynamic> json) => Talk(
       name: json['Name'] as String,
+      avatar: json['Avatar'] as String,
       duration: json['Duration'] as String,
       topic: json['Topic'] as String,
       pitch: json['Pitch'] as String,

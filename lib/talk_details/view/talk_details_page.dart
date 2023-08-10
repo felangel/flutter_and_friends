@@ -21,10 +21,10 @@ class TalkDetailsPage extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(8),
         children: [
-          CircleAvatar(
-            radius: 96,
-            child: Image.network(
-              'https://api.dicebear.com/6.x/avataaars/png?seed=${talk.name}',
+          AspectRatio(
+            aspectRatio: 1,
+            child: CircleAvatar(
+              backgroundImage: NetworkImage(talk.avatar),
             ),
           ),
           Text(

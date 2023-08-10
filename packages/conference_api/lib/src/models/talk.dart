@@ -7,6 +7,7 @@ part 'talk.g.dart';
 class Talk extends Equatable {
   const Talk({
     required this.name,
+    required this.avatar,
     required this.duration,
     required this.topic,
     required this.pitch,
@@ -19,6 +20,7 @@ class Talk extends Equatable {
   factory Talk.fromJson(Map<String, dynamic> json) => _$TalkFromJson(json);
 
   final String name;
+  final String avatar;
   final String duration;
   final String topic;
   final String pitch;

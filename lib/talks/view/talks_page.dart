@@ -77,7 +77,7 @@ class TalkItem extends StatelessWidget {
               Text(
                 talk.topic,
                 style: theme.textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               const SizedBox(height: 8),
@@ -85,17 +85,13 @@ class TalkItem extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 48,
-                    child: Image.network(
-                      'https://api.dicebear.com/6.x/avataaars/png?seed=${talk.name}',
-                    ),
+                    backgroundImage: NetworkImage(talk.avatar),
                   ),
-                  const SizedBox(width: 8),
+                  const SizedBox(width: 16),
                   Expanded(
                     child: Text(
                       talk.name,
-                      style: theme.textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: theme.textTheme.titleMedium,
                     ),
                   ),
                 ],
