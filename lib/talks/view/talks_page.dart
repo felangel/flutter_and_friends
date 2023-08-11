@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/talk_details/talk_details.dart';
 import 'package:flutter_and_friends/talks/talks.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 class TalksPage extends StatelessWidget {
   const TalksPage({super.key});
@@ -24,11 +25,7 @@ class TalksView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final state = context.watch<TalksCubit>().state;
-    return switch (state) {
-      TalksLoadInProgress() => const LoadingIndicator(),
-      TalksLoadSuccess() => TalksListView(talks: state.talks),
-      TalksLoadFailure() => Center(child: Text(state.message)),
-    };
+    return TalksListView(talks: state.talks);
   }
 }
 
@@ -76,7 +73,7 @@ class TalkItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    talk.slot,
+                    DateFormat.Hm().add_MMMMd().format(talk.startTime),
                     style: theme.textTheme.labelMedium,
                   ),
                   const IconButton(
@@ -86,7 +83,7 @@ class TalkItem extends StatelessWidget {
                 ],
               ),
               Text(
-                talk.topic,
+                talk.name,
                 style: theme.textTheme.titleLarge?.copyWith(
                   fontWeight: FontWeight.w500,
                 ),
@@ -96,15 +93,26 @@ class TalkItem extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 18,
-                    backgroundImage: NetworkImage(talk.avatar),
+                    backgroundImage: NetworkImage(talk.speaker.avatar),
                   ),
                   const SizedBox(width: 8),
                   Expanded(
-                    child: Text(
-                      talk.name,
-                      style: theme.textTheme.titleMedium?.copyWith(
-                        color: theme.colorScheme.onSurfaceVariant,
-                      ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          talk.speaker.name,
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            color: theme.colorScheme.onSurfaceVariant,
+                          ),
+                        ),
+                        Text(
+                          talk.speaker.title,
+                          style: theme.textTheme.titleSmall?.copyWith(
+                            color: theme.colorScheme.onSurfaceVariant,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],

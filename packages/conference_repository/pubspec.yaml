@@ -6,10 +6,6 @@ publish_to: none
 environment:
   sdk: ">=3.0.0 <4.0.0"
 
-dependencies:
-  conference_api:
-    path: ../conference_api
-
 dev_dependencies:
   mocktail: ^1.0.0
   test: ^1.19.2

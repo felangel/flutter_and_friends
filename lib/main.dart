@@ -12,7 +12,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RepositoryProvider(
-      create: (_) => ConferenceRepository(),
+      create: (_) => const ConferenceRepository(),
       child: BlocProvider(
         create: (_) => ThemeCubit(),
         child: const AppView(),

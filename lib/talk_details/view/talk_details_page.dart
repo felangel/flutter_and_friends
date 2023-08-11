@@ -1,5 +1,6 @@
 import 'package:conference_repository/conference_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class TalkDetailsPage extends StatelessWidget {
   const TalkDetailsPage({required this.talk, super.key});
@@ -29,7 +30,7 @@ class TalkDetailsPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 18),
         children: [
           Text(
-            talk.topic,
+            talk.name,
             style: theme.textTheme.headlineSmall?.copyWith(
               fontWeight: FontWeight.w500,
             ),
@@ -42,7 +43,7 @@ class TalkDetailsPage extends StatelessWidget {
                 backgroundColor: Colors.white,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(38),
-                  child: Image.network(talk.avatar),
+                  child: Image.network(talk.speaker.avatar),
                 ),
               ),
               const SizedBox(width: 16),
@@ -56,25 +57,10 @@ class TalkDetailsPage extends StatelessWidget {
           ),
           const SizedBox(height: 24),
           Text(
-            talk.duration,
+            '${talk.duration.inMinutes} minutes',
             style: theme.textTheme.labelSmall,
           ),
           const SizedBox(height: 8),
-          Row(
-            children: [
-              Chip(
-                visualDensity: VisualDensity.compact,
-                label: Text(talk.level),
-                labelStyle: theme.textTheme.bodySmall,
-              ),
-              const SizedBox(width: 8),
-              Chip(
-                visualDensity: VisualDensity.compact,
-                label: Text(talk.topics),
-                labelStyle: theme.textTheme.bodySmall,
-              )
-            ],
-          ),
           const SizedBox(height: 24),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,7 +71,7 @@ class TalkDetailsPage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(talk.slot),
+              Text(DateFormat.Hm().add_MMMMd().format(talk.startTime)),
               const SizedBox(height: 24),
               Text(
                 'Description',
@@ -93,7 +79,7 @@ class TalkDetailsPage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(talk.pitch),
+              Text(talk.description),
             ],
           ),
         ],
