@@ -68,30 +68,43 @@ class TalkItem extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       child: InkWell(
         child: Padding(
-          padding: const EdgeInsets.all(12),
+          padding: const EdgeInsets.fromLTRB(18, 0, 18, 18),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(talk.slot, style: theme.textTheme.labelMedium),
-              const SizedBox(height: 8),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    talk.slot,
+                    style: theme.textTheme.labelMedium,
+                  ),
+                  const IconButton(
+                    icon: Icon(Icons.favorite_border),
+                    onPressed: null,
+                  )
+                ],
+              ),
               Text(
                 talk.topic,
-                style: theme.textTheme.headlineSmall?.copyWith(
+                style: theme.textTheme.titleLarge?.copyWith(
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 18),
               Row(
                 children: [
                   CircleAvatar(
-                    radius: 48,
+                    radius: 18,
                     backgroundImage: NetworkImage(talk.avatar),
                   ),
-                  const SizedBox(width: 16),
+                  const SizedBox(width: 8),
                   Expanded(
                     child: Text(
                       talk.name,
-                      style: theme.textTheme.titleMedium,
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        color: theme.colorScheme.onSurfaceVariant,
+                      ),
                     ),
                   ),
                 ],

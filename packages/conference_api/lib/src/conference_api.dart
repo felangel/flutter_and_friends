@@ -26,7 +26,7 @@ class ConferenceApi {
 
   Future<List<Talk>> getTalks() async {
     const url =
-        'https://gist.githubusercontent.com/felangel/eea2b2d048d1510b439d1617c31399eb/raw/19b2f81121f119e1e63639acc119dc1886884406/data.json';
+        'https://gist.githubusercontent.com/felangel/eea2b2d048d1510b439d1617c31399eb/raw/cc8163d0d34c8e823286f8808c99f0c8b8fd29dd/data.json';
     final response = await _httpClient.get(Uri.parse(url));
 
     if (response.statusCode != HttpStatus.ok) {

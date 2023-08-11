@@ -17,74 +17,84 @@ class TalkDetailsPage extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Talk')),
-      body: ListView(
-        padding: const EdgeInsets.all(8),
-        children: [
-          AspectRatio(
-            aspectRatio: 1,
-            child: CircleAvatar(
-              backgroundImage: NetworkImage(talk.avatar),
-            ),
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.favorite_outline),
           ),
+        ],
+      ),
+      body: ListView(
+        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 18),
+        children: [
           Text(
             talk.topic,
-            style: theme.textTheme.headlineLarge?.copyWith(
-              fontWeight: FontWeight.bold,
+            style: theme.textTheme.headlineSmall?.copyWith(
+              fontWeight: FontWeight.w500,
             ),
-            textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 8),
-          Text(
-            talk.name,
-            textAlign: TextAlign.center,
-            style: theme.textTheme.headlineSmall,
+          const SizedBox(height: 24),
+          Row(
+            children: [
+              CircleAvatar(
+                radius: 38,
+                backgroundColor: Colors.white,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(38),
+                  child: Image.network(talk.avatar),
+                ),
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: Text(
+                  talk.name,
+                  style: theme.textTheme.titleMedium,
+                ),
+              ),
+            ],
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 24),
           Text(
             talk.duration,
-            textAlign: TextAlign.center,
             style: theme.textTheme.labelSmall,
           ),
           const SizedBox(height: 8),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Chip(
+                visualDensity: VisualDensity.compact,
                 label: Text(talk.level),
                 labelStyle: theme.textTheme.bodySmall,
               ),
               const SizedBox(width: 8),
               Chip(
+                visualDensity: VisualDensity.compact,
                 label: Text(talk.topics),
                 labelStyle: theme.textTheme.bodySmall,
               )
             ],
           ),
-          const SizedBox(height: 8),
-          // Text(talk.twitter),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Date & Time',
-                  style: theme.textTheme.bodyLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+          const SizedBox(height: 24),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Date & Time',
+                style: theme.textTheme.bodyLarge?.copyWith(
+                  fontWeight: FontWeight.bold,
                 ),
-                Text(talk.slot),
-                const SizedBox(height: 8),
-                Text(
-                  'Description',
-                  style: theme.textTheme.bodyLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              ),
+              Text(talk.slot),
+              const SizedBox(height: 24),
+              Text(
+                'Description',
+                style: theme.textTheme.bodyLarge?.copyWith(
+                  fontWeight: FontWeight.bold,
                 ),
-                Text(talk.pitch),
-              ],
-            ),
+              ),
+              Text(talk.pitch),
+            ],
           ),
         ],
       ),
