@@ -158,7 +158,7 @@ const lukasKlingsbo = Speaker(
   twitter: 'spydon',
 );
 
-const speakers = <Speaker>{
+const speakers = <Speaker>[
   felixAngelov,
   majidHajian,
   vyacheslavEgorov,
@@ -179,4 +179,4 @@ const speakers = <Speaker>{
   roaaKhaddam,
   samyakJain,
   lukasKlingsbo,
-};
+];

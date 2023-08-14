@@ -3,8 +3,38 @@ import 'package:flutter_and_friends/theme/theme.dart';
 
 export 'cubit/theme_cubit.dart';
 
-final lightTheme = ThemeData(useMaterial3: true, colorScheme: lightColorScheme);
-final darkTheme = ThemeData(useMaterial3: true, colorScheme: darkColorScheme);
+final lightTheme = ThemeData(
+  appBarTheme: AppBarTheme(
+    scrolledUnderElevation: 2,
+    elevation: 0,
+    shadowColor: lightColorScheme.secondary,
+  ),
+  bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    backgroundColor: lightColorScheme.surface,
+    selectedItemColor: lightColorScheme.primary,
+    unselectedItemColor: lightColorScheme.onSurfaceVariant,
+    showUnselectedLabels: true,
+    type: BottomNavigationBarType.fixed,
+  ),
+  colorScheme: lightColorScheme,
+  useMaterial3: true,
+);
+final darkTheme = ThemeData(
+  appBarTheme: AppBarTheme(
+    scrolledUnderElevation: 2,
+    elevation: 0,
+    shadowColor: darkColorScheme.secondary,
+  ),
+   bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    backgroundColor: darkColorScheme.surface,
+    selectedItemColor: darkColorScheme.primary,
+    unselectedItemColor: darkColorScheme.onSurfaceVariant,
+    type: BottomNavigationBarType.fixed,
+    showUnselectedLabels: true,
+  ),
+  colorScheme: darkColorScheme,
+  useMaterial3: true,
+);
 
 const lightColorScheme = ColorScheme(
   brightness: Brightness.light,

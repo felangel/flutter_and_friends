@@ -2,7 +2,6 @@ import 'package:conference_repository/conference_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
 import 'package:flutter_and_friends/talk_details/talk_details.dart';
-import 'package:flutter_and_friends/talks/talks.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
@@ -11,12 +10,7 @@ class TalksPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => TalksCubit(
-        conferenceRepository: context.read<ConferenceRepository>(),
-      )..getTalks(),
-      child: const TalksView(),
-    );
+    return const TalksView();
   }
 }
 
@@ -25,8 +19,7 @@ class TalksView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final state = context.watch<TalksCubit>().state;
-    return TalksListView(talks: state.talks);
+    return TalksListView(talks: talks);
   }
 }
 
@@ -66,7 +59,7 @@ class TalkItem extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       child: InkWell(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(18, 0, 18, 18),
+          padding: const EdgeInsets.fromLTRB(18, 0, 18, 12),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -78,7 +71,7 @@ class TalkItem extends StatelessWidget {
                       const Icon(Icons.calendar_today, size: 18),
                       const SizedBox(width: 4),
                       Text(
-                        DateFormat.Hm().add_MMMMd().format(talk.startTime),
+                        talk.startTime.prettyPrint(context),
                         style: theme.textTheme.labelMedium,
                       ),
                     ],
@@ -97,6 +90,7 @@ class TalkItem extends StatelessWidget {
                   )
                 ],
               ),
+              const SizedBox(height: 12),
               Text(
                 talk.name,
                 style: theme.textTheme.titleLarge?.copyWith(
@@ -107,7 +101,7 @@ class TalkItem extends StatelessWidget {
               Row(
                 children: [
                   CircleAvatar(
-                    radius: 18,
+                    radius: 24,
                     backgroundImage: NetworkImage(talk.speaker.avatar),
                   ),
                   const SizedBox(width: 8),
@@ -132,6 +126,17 @@ class TalkItem extends StatelessWidget {
                   ),
                 ],
               ),
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  const Icon(Icons.location_on_outlined, size: 18),
+                  Text(
+                    talk.location,
+                    style: theme.textTheme.labelMedium,
+                  ),
+                ],
+              ),
             ],
           ),
         ),
@@ -140,5 +145,11 @@ class TalkItem extends StatelessWidget {
         },
       ),
     );
+  }
+}
+
+extension on DateTime {
+  String prettyPrint(BuildContext context) {
+    return '''${DateFormat.MMMMd().format(this)}, ${TimeOfDay.fromDateTime(this).format(context)}''';
   }
 }

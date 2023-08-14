@@ -20,6 +20,8 @@ class TalkDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    const avatarSize = 192.0;
+    const twitterSize = 32.0;
 
     return Scaffold(
       appBar: AppBar(
@@ -45,31 +47,40 @@ class TalkDetailsPage extends StatelessWidget {
             alignment: Alignment.center,
             children: [
               CircleAvatar(
-                radius: 72,
+                radius: avatarSize / 2,
                 backgroundColor: Colors.white,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(72),
-                  child: Image.network(talk.speaker.avatar),
+                  borderRadius: BorderRadius.circular(avatarSize / 2),
+                  child: Image.network(
+                    talk.speaker.avatar,
+                    width: avatarSize,
+                    height: avatarSize,
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
               if (talk.speaker.twitter != null)
                 Positioned(
                   bottom: 0,
-                  right: 100,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(24),
-                    child: ColoredBox(
-                      color: Colors.lightBlueAccent,
-                      child: IconButton(
-                        icon: const Icon(
-                          FontAwesomeIcons.twitter,
-                          color: Colors.white,
+                  child: Transform.translate(
+                    offset: const Offset(avatarSize / 3, 0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(twitterSize),
+                      child: ColoredBox(
+                        color: Colors.lightBlueAccent,
+                        child: IconButton(
+                          iconSize: twitterSize,
+                          padding: const EdgeInsets.all(twitterSize / 2),
+                          icon: const Icon(
+                            FontAwesomeIcons.twitter,
+                            color: Colors.white,
+                          ),
+                          onPressed: () {
+                            launchUrlString(
+                              'https://twitter.com/${talk.speaker.twitter}',
+                            );
+                          },
                         ),
-                        onPressed: () {
-                          launchUrlString(
-                            'https://twitter.com/${talk.speaker.twitter}',
-                          );
-                        },
                       ),
                     ),
                   ),
@@ -98,31 +109,45 @@ class TalkDetailsPage extends StatelessWidget {
           ),
           const SizedBox(height: 24),
           Wrap(
-            crossAxisAlignment: WrapCrossAlignment.center,
+            alignment: WrapAlignment.center,
+            spacing: 16,
+            runSpacing: 8,
             children: [
-              const Icon(Icons.calendar_today, size: 18),
-              const SizedBox(width: 4),
-              Text(
-                DateFormat.Hm().format(talk.startTime),
-                style: theme.textTheme.labelMedium,
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(Icons.calendar_today, size: 18),
+                  const SizedBox(width: 4),
+                  Text(
+                    talk.startTime.prettyPrint(context),
+                    style: theme.textTheme.labelMedium,
+                  ),
+                ],
               ),
-              const SizedBox(width: 8),
-              const Icon(Icons.schedule, size: 18),
-              const SizedBox(width: 4),
-              Text(
-                '${talk.duration.inMinutes} minutes',
-                style: theme.textTheme.labelSmall,
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(Icons.schedule, size: 18),
+                  const SizedBox(width: 4),
+                  Text(
+                    '${talk.duration.inMinutes}m',
+                    style: theme.textTheme.labelSmall,
+                  ),
+                ],
               ),
-              const SizedBox(width: 8),
-              const Icon(Icons.pin_drop_outlined, size: 18),
-              const SizedBox(width: 4),
-              Text(
-                talk.location,
-                style: theme.textTheme.labelSmall,
-              ),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(Icons.location_on_outlined, size: 18),
+                  const SizedBox(width: 4),
+                  Text(
+                    talk.location,
+                    style: theme.textTheme.labelSmall,
+                  ),
+                ],
+              )
             ],
           ),
-          const SizedBox(height: 8),
           const SizedBox(height: 24),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -139,5 +164,11 @@ class TalkDetailsPage extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+extension on DateTime {
+  String prettyPrint(BuildContext context) {
+    return '''${DateFormat.MMMd().format(this)}, ${TimeOfDay.fromDateTime(this).format(context)}''';
   }
 }
