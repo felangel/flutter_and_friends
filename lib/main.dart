@@ -1,5 +1,6 @@
 import 'package:conference_repository/conference_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_and_friends/favorites/favorites.dart';
 import 'package:flutter_and_friends/launchpad/launchpad.dart';
 import 'package:flutter_and_friends/theme/theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,8 +14,11 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return RepositoryProvider(
       create: (_) => const ConferenceRepository(),
-      child: BlocProvider(
-        create: (_) => ThemeCubit(),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (_) => ThemeCubit()),
+          BlocProvider(create: (_) => FavoritesCubit()),
+        ],
         child: const AppView(),
       ),
     );

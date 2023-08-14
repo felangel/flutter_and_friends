@@ -14,7 +14,9 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.3
+  font_awesome_flutter: ^10.5.0
   intl: ^0.18.1
+  url_launcher: ^6.1.12
 
 dev_dependencies:
   flutter_test:

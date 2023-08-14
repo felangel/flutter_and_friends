@@ -1,5 +1,6 @@
 import 'package:conference_repository/conference_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_and_friends/favorites/favorites.dart';
 import 'package:flutter_and_friends/talk_details/talk_details.dart';
 import 'package:flutter_and_friends/talks/talks.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -72,13 +73,27 @@ class TalkItem extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    DateFormat.Hm().add_MMMMd().format(talk.startTime),
-                    style: theme.textTheme.labelMedium,
+                  Row(
+                    children: [
+                      const Icon(Icons.calendar_today, size: 18),
+                      const SizedBox(width: 4),
+                      Text(
+                        DateFormat.Hm().add_MMMMd().format(talk.startTime),
+                        style: theme.textTheme.labelMedium,
+                      ),
+                    ],
                   ),
-                  const IconButton(
-                    icon: Icon(Icons.favorite_border),
-                    onPressed: null,
+                  BlocSelector<FavoritesCubit, FavoritesState, bool>(
+                    selector: (state) => state.talks.contains(talk),
+                    builder: (context, isFavorite) => IconButton(
+                      icon: Icon(
+                        isFavorite ? Icons.favorite : Icons.favorite_border,
+                        color: isFavorite ? Colors.pinkAccent : null,
+                      ),
+                      onPressed: () {
+                        context.read<FavoritesCubit>().toggleFavorite(talk);
+                      },
+                    ),
                   )
                 ],
               ),
@@ -88,7 +103,7 @@ class TalkItem extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              const SizedBox(height: 18),
+              const SizedBox(height: 16),
               Row(
                 children: [
                   CircleAvatar(
