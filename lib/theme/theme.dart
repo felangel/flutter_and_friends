@@ -2,41 +2,43 @@ import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/theme/theme.dart';
 
 export 'cubit/theme_cubit.dart';
+export 'widgets/widgets.dart';
 
 final lightTheme = ThemeData(
   appBarTheme: AppBarTheme(
     scrolledUnderElevation: 2,
     elevation: 0,
-    shadowColor: lightColorScheme.secondary,
+    shadowColor: _lightColorScheme.secondary,
   ),
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
-    backgroundColor: lightColorScheme.surface,
-    selectedItemColor: lightColorScheme.primary,
-    unselectedItemColor: lightColorScheme.onSurfaceVariant,
+    backgroundColor: _lightColorScheme.surface,
+    selectedItemColor: _lightColorScheme.primary,
+    unselectedItemColor: _lightColorScheme.onSurfaceVariant,
     showUnselectedLabels: true,
     type: BottomNavigationBarType.fixed,
   ),
-  colorScheme: lightColorScheme,
+  colorScheme: _lightColorScheme,
   useMaterial3: true,
 );
+
 final darkTheme = ThemeData(
   appBarTheme: AppBarTheme(
     scrolledUnderElevation: 2,
     elevation: 0,
-    shadowColor: darkColorScheme.secondary,
+    shadowColor: _darkColorScheme.secondary,
   ),
-   bottomNavigationBarTheme: BottomNavigationBarThemeData(
-    backgroundColor: darkColorScheme.surface,
-    selectedItemColor: darkColorScheme.primary,
-    unselectedItemColor: darkColorScheme.onSurfaceVariant,
+  bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    backgroundColor: _darkColorScheme.surface,
+    selectedItemColor: _darkColorScheme.primary,
+    unselectedItemColor: _darkColorScheme.onSurfaceVariant,
     type: BottomNavigationBarType.fixed,
     showUnselectedLabels: true,
   ),
-  colorScheme: darkColorScheme,
+  colorScheme: _darkColorScheme,
   useMaterial3: true,
 );
 
-const lightColorScheme = ColorScheme(
+const _lightColorScheme = ColorScheme(
   brightness: Brightness.light,
   primary: Color(0xFF005AC1),
   onPrimary: Color(0xFFFFFFFF),
@@ -70,7 +72,7 @@ const lightColorScheme = ColorScheme(
   onSurfaceVariant: Color(0xFF44474F),
 );
 
-const darkColorScheme = ColorScheme(
+const _darkColorScheme = ColorScheme(
   brightness: Brightness.dark,
   primary: Color(0xFFADC6FF),
   onPrimary: Color(0xFF002E69),

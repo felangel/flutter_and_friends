@@ -6,9 +6,7 @@ class SponsorsPage extends StatelessWidget {
   const SponsorsPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const SponsorsView();
-  }
+  Widget build(BuildContext context) => const SponsorsView();
 }
 
 class SponsorsView extends StatelessWidget {
@@ -86,7 +84,7 @@ class SponsorItem extends StatelessWidget {
           child: Center(
             child: FractionallySizedBox(
               widthFactor: 0.5,
-              child: Image.network(sponsor.logo),
+              child: Image.asset('assets/sponsors/${sponsor.logo}'),
             ),
           ),
         ),

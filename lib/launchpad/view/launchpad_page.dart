@@ -66,7 +66,7 @@ class _BottomNavigationBar extends StatelessWidget {
     return BottomNavigationBar(
       useLegacyColorScheme: false,
       enableFeedback: true,
-      onTap: (index) => context.read<LaunchpadCubit>().tabTapped(index),
+      onTap: (index) => context.read<LaunchpadCubit>().toggleTab(index),
       currentIndex: state.index,
       items: const [
         BottomNavigationBarItem(

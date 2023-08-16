@@ -1,7 +1,6 @@
 import 'package:conference_repository/conference_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -10,10 +9,17 @@ class TalkDetailsPage extends StatelessWidget {
   const TalkDetailsPage({required this.talk, super.key});
 
   static Route<void> route({required Talk talk}) {
-    return MaterialPageRoute(
-      builder: (_) => TalkDetailsPage(talk: talk),
-    );
+    return MaterialPageRoute(builder: (_) => TalkDetailsPage(talk: talk));
   }
+
+  final Talk talk;
+
+  @override
+  Widget build(BuildContext context) => TalkDetailsView(talk: talk);
+}
+
+class TalkDetailsView extends StatelessWidget {
+  const TalkDetailsView({required this.talk, super.key});
 
   final Talk talk;
 
@@ -24,22 +30,7 @@ class TalkDetailsPage extends StatelessWidget {
     const twitterSize = 32.0;
 
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          BlocSelector<FavoritesCubit, FavoritesState, bool>(
-            selector: (state) => state.talks.contains(talk),
-            builder: (context, isFavorite) => IconButton(
-              icon: Icon(
-                isFavorite ? Icons.favorite : Icons.favorite_border,
-                color: isFavorite ? Colors.pinkAccent : null,
-              ),
-              onPressed: () {
-                context.read<FavoritesCubit>().toggleFavorite(talk);
-              },
-            ),
-          )
-        ],
-      ),
+      appBar: AppBar(actions: [FavoriteButton(talk: talk)]),
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 18),
         children: [
@@ -51,8 +42,8 @@ class TalkDetailsPage extends StatelessWidget {
                 backgroundColor: Colors.white,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(avatarSize / 2),
-                  child: Image.network(
-                    talk.speaker.avatar,
+                  child: Image.asset(
+                    'assets/speakers/${talk.speaker.avatar}',
                     width: avatarSize,
                     height: avatarSize,
                     fit: BoxFit.contain,

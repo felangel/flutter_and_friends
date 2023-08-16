@@ -28,4 +28,6 @@ dev_dependencies:
 flutter:
   assets:
     - assets/
+    - assets/speakers/
+    - assets/sponsors/
   uses-material-design: true
