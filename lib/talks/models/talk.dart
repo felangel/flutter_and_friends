@@ -1,5 +1,5 @@
-import 'package:conference_repository/conference_repository.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_and_friends/talks/talks.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'talk.g.dart';

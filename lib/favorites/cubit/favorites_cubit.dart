@@ -1,4 +1,4 @@
-import 'package:conference_repository/conference_repository.dart';
+import 'package:flutter_and_friends/talks/talks.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 part 'favorites_state.dart';

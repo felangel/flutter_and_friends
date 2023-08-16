@@ -1,4 +1,3 @@
-import 'package:conference_repository/conference_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
 import 'package:flutter_and_friends/talk_details/talk_details.dart';

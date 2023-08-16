@@ -1,4 +1,3 @@
-import 'package:conference_repository/conference_repository.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
@@ -24,15 +23,12 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RepositoryProvider(
-      create: (_) => const ConferenceRepository(),
-      child: MultiBlocProvider(
-        providers: [
-          BlocProvider(create: (_) => ThemeCubit()),
-          BlocProvider(create: (_) => FavoritesCubit()),
-        ],
-        child: const AppView(),
-      ),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => ThemeCubit()),
+        BlocProvider(create: (_) => FavoritesCubit()),
+      ],
+      child: const AppView(),
     );
   }
 }
@@ -51,5 +47,11 @@ class AppView extends StatelessWidget {
       theme: lightTheme,
       darkTheme: darkTheme,
     );
+  }
+}
+
+extension on ThemeState {
+  ThemeMode toThemeMode() {
+    return this == ThemeState.dark ? ThemeMode.dark : ThemeMode.light;
   }
 }

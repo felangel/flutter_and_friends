@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_and_friends/theme/theme.dart';
 
 export 'cubit/theme_cubit.dart';
 export 'widgets/widgets.dart';
@@ -107,9 +106,3 @@ const _darkColorScheme = ColorScheme(
   surfaceVariant: Color(0xFF44474F),
   onSurfaceVariant: Color(0xFFC4C6D0),
 );
-
-extension ThemeStateX on ThemeState {
-  ThemeMode toThemeMode() {
-    return this == ThemeState.dark ? ThemeMode.dark : ThemeMode.light;
-  }
-}

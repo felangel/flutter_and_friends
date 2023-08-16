@@ -1,7 +1,6 @@
-import 'package:conference_repository/conference_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/talk_details/talk_details.dart';
-import 'package:flutter_and_friends/talks/widgets/widgets.dart';
+import 'package:flutter_and_friends/talks/talks.dart';
 
 class TalksPage extends StatelessWidget {
   const TalksPage({super.key});

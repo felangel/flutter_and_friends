@@ -1,4 +1,4 @@
-import 'package:conference_repository/conference_repository.dart';
+import 'package:flutter_and_friends/sponsors/sponsors.dart';
 
 const platinumSponsors = [
   appShack,

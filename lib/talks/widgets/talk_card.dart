@@ -1,6 +1,6 @@
-import 'package:conference_repository/conference_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
+import 'package:flutter_and_friends/talks/talks.dart';
 import 'package:intl/intl.dart';
 
 class TalkCard extends StatelessWidget {
