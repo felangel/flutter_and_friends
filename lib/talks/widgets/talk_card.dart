@@ -30,14 +30,15 @@ class TalkCard extends StatelessWidget {
                       const SizedBox(width: 4),
                       Text(
                         talk.startTime.prettyPrint(context),
-                        style: theme.textTheme.labelMedium,
+                        style: theme.textTheme.labelMedium?.copyWith(
+                          color: theme.colorScheme.secondary,
+                        ),
                       ),
                     ],
                   ),
                   FavoriteButton(talk: talk),
                 ],
               ),
-              const SizedBox(height: 12),
               Text(
                 talk.name,
                 style: theme.textTheme.titleLarge?.copyWith(
@@ -53,7 +54,7 @@ class TalkCard extends StatelessWidget {
                       'assets/speakers/${talk.speaker.avatar}',
                     ),
                   ),
-                  const SizedBox(width: 8),
+                  const SizedBox(width: 16),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,10 +80,16 @@ class TalkCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  const Icon(Icons.location_on_outlined, size: 18),
+                  Icon(
+                    Icons.location_on_outlined,
+                    size: 18,
+                    color: theme.colorScheme.secondary,
+                  ),
                   Text(
                     talk.location,
-                    style: theme.textTheme.labelMedium,
+                    style: theme.textTheme.labelMedium?.copyWith(
+                      color: theme.colorScheme.secondary,
+                    ),
                   ),
                 ],
               ),

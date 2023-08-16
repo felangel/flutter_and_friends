@@ -6,6 +6,7 @@ export 'widgets/widgets.dart';
 
 final lightTheme = ThemeData(
   appBarTheme: AppBarTheme(
+    toolbarHeight: kToolbarHeight + 16,
     scrolledUnderElevation: 2,
     elevation: 0,
     shadowColor: _lightColorScheme.secondary,
@@ -23,6 +24,7 @@ final lightTheme = ThemeData(
 
 final darkTheme = ThemeData(
   appBarTheme: AppBarTheme(
+    toolbarHeight: kToolbarHeight + 16,
     scrolledUnderElevation: 2,
     elevation: 0,
     shadowColor: _darkColorScheme.secondary,

@@ -27,10 +27,16 @@ class TalkDetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     const avatarSize = 192.0;
-    const twitterSize = 32.0;
+    const twitterSize = 16.0;
 
     return Scaffold(
-      appBar: AppBar(actions: [FavoriteButton(talk: talk)]),
+      appBar: AppBar(
+        title: Padding(
+          padding: const EdgeInsets.only(bottom: 8),
+          child: Image.asset('assets/logo.png', height: kToolbarHeight + 8),
+        ),
+        actions: [FavoriteButton(talk: talk)],
+      ),
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 18),
         children: [
@@ -56,12 +62,11 @@ class TalkDetailsView extends StatelessWidget {
                   child: Transform.translate(
                     offset: const Offset(avatarSize / 3, 0),
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(twitterSize),
+                      borderRadius: BorderRadius.circular(twitterSize * 2),
                       child: ColoredBox(
                         color: Colors.lightBlueAccent,
                         child: IconButton(
-                          iconSize: twitterSize,
-                          padding: const EdgeInsets.all(twitterSize / 2),
+                          iconSize: twitterSize * 1.25,
                           icon: const Icon(
                             FontAwesomeIcons.twitter,
                             color: Colors.white,
@@ -78,7 +83,7 @@ class TalkDetailsView extends StatelessWidget {
                 ),
             ],
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 24),
           Text(
             talk.speaker.name,
             style: theme.textTheme.titleLarge,
@@ -90,7 +95,7 @@ class TalkDetailsView extends StatelessWidget {
             style: theme.textTheme.titleMedium,
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 32),
           Text(
             talk.name,
             style: theme.textTheme.headlineSmall?.copyWith(
@@ -140,18 +145,7 @@ class TalkDetailsView extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 24),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Description',
-                style: theme.textTheme.bodyLarge?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text(talk.description),
-            ],
-          ),
+          Text(talk.description),
         ],
       ),
     );

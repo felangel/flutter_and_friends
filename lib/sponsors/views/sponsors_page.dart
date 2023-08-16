@@ -37,7 +37,7 @@ class SponsorsListView extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         ...platinumSponsors.map((sponsor) => SponsorItem(sponsor: sponsor)),
-        const Divider(),
+        const SizedBox(height: 32),
         Text(
           'Gold Sponsors',
           style: headingStyle,
@@ -45,7 +45,7 @@ class SponsorsListView extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         ...goldSponsors.map((sponsor) => SponsorItem(sponsor: sponsor)),
-        const Divider(),
+        const SizedBox(height: 32),
         Text(
           'Silver Sponsors',
           style: headingStyle,
@@ -53,7 +53,7 @@ class SponsorsListView extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         ...silverSponsors.map((sponsor) => SponsorItem(sponsor: sponsor)),
-        const Divider(),
+        const SizedBox(height: 32),
         Text(
           'Together with',
           style: headingStyle,
@@ -79,13 +79,10 @@ class SponsorItem extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       child: InkWell(
         onTap: () => launchUrlString(sponsor.url),
-        child: Padding(
-          padding: const EdgeInsets.all(18),
-          child: Center(
-            child: FractionallySizedBox(
-              widthFactor: 0.5,
-              child: Image.asset('assets/sponsors/${sponsor.logo}'),
-            ),
+        child: Center(
+          child: FractionallySizedBox(
+            widthFactor: 0.5,
+            child: Image.asset('assets/sponsors/${sponsor.logo}'),
           ),
         ),
       ),

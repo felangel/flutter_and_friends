@@ -31,17 +31,18 @@ class EmptyFavorites extends StatelessWidget {
     final theme = Theme.of(context);
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(32),
+        padding: const EdgeInsets.all(48),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Icon(
-              Icons.heart_broken,
+              Icons.heart_broken_sharp,
               color: Colors.pinkAccent,
-              size: 48,
+              size: 64,
             ),
+            const SizedBox(height: 24),
             Text(
-              "You don't have any favorites yet",
+              "You don't have any favorites",
               style: theme.textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
@@ -49,7 +50,7 @@ class EmptyFavorites extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             const Text(
-              'Tap the heart icon on a talk to add it to your favorites',
+              'Tap the heart icon to add a talk to your favorites',
               textAlign: TextAlign.center,
             ),
           ],

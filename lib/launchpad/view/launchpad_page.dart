@@ -26,7 +26,10 @@ class LaunchpadView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Image.asset('assets/logo.png', height: kToolbarHeight),
+        title: Padding(
+          padding: const EdgeInsets.only(bottom: 8),
+          child: Image.asset('assets/logo.png', height: kToolbarHeight + 8),
+        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.settings),
