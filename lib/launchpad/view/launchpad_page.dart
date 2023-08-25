@@ -34,7 +34,7 @@ class LaunchpadView extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.settings),
             onPressed: () => Navigator.of(context).push(SettingsPage.route()),
-          )
+          ),
         ],
       ),
       body: const _LaunchpadBody(),

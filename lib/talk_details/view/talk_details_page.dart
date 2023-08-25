@@ -141,7 +141,7 @@ class TalkDetailsView extends StatelessWidget {
                     style: theme.textTheme.labelSmall,
                   ),
                 ],
-              )
+              ),
             ],
           ),
           const SizedBox(height: 24),
