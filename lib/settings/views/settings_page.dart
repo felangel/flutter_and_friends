@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_and_friends/settings/settings.dart';
 import 'package:flutter_and_friends/theme/theme.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shorebird_code_push/shorebird_code_push_io.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -10,7 +13,14 @@ class SettingsPage extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) => const SettingsView();
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => SettingsCubit(
+        codePush: context.read<ShorebirdCodePush>(),
+      )..init(),
+      child: const SettingsView(),
+    );
+  }
 }
 
 class SettingsView extends StatelessWidget {
@@ -20,51 +30,119 @@ class SettingsView extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final headingStyle = theme.textTheme.titleMedium;
-    return Scaffold(
-      appBar: AppBar(title: const Text('Settings')),
-      body: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-        children: [
-          Text('Preferences', style: headingStyle),
-          const ThemeToggle(),
-          const SizedBox(height: 16),
-          Text('About', style: headingStyle),
-          const ListTile(
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [Text('Version'), Text('1.0.0 (1)')],
-            ),
-          ),
-          const ListTile(
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [Text('Author'), Text('Felix Angelov')],
-            ),
-          ),
-          ListTile(
-            title: const Text('Source Code'),
-            subtitle: const Text('View the full source code on GitHub'),
-            trailing: const Icon(Icons.chevron_right),
-            onTap: () => launchUrlString(
-              'https://github.com/felangel/flutter_and_friends',
-            ),
-          ),
-          ListTile(
-            title: const Text('Licenses'),
-            subtitle: const Text('View the licenses of the libraries used'),
-            trailing: const Icon(Icons.chevron_right),
-            onTap: () => showLicensePage(
-              context: context,
-              applicationIcon: Image.asset(
-                'assets/logo.png',
-                height: 120,
+    return BlocListener<SettingsCubit, SettingsState>(
+      listenWhen: (previous, current) =>
+          previous.status != current.status &&
+          current.status == SettingsStatus.idle,
+      listener: (context, state) {
+        if (state.updateAvailable) {
+          ScaffoldMessenger.of(context)
+            ..hideCurrentMaterialBanner()
+            ..showMaterialBanner(
+              MaterialBanner(
+                content: const Text('Update available'),
+                actions: [
+                  TextButton(
+                    onPressed: () async {
+                      ScaffoldMessenger.of(context).hideCurrentMaterialBanner();
+                      await context.read<SettingsCubit>().downloadUpdate();
+                      if (!context.mounted) return;
+                      ScaffoldMessenger.of(context).hideCurrentMaterialBanner();
+                    },
+                    child: const Text('Download'),
+                  ),
+                ],
               ),
-              applicationName: 'Flutter & Friends',
-              applicationVersion: '1.0.0 (1)',
+            );
+        } else {
+          ScaffoldMessenger.of(context)
+            ..hideCurrentSnackBar()
+            ..showSnackBar(
+              const SnackBar(content: Text('No Update Available')),
+            );
+        }
+      },
+      child: Scaffold(
+        appBar: AppBar(title: const Text('Settings')),
+        body: ListView(
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          children: [
+            Text('Preferences', style: headingStyle),
+            const ThemeToggle(),
+            const SizedBox(height: 16),
+            Text('About', style: headingStyle),
+            ListTile(
+              leading: const Icon(Icons.update),
+              title: const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [Text('Version'), AppVersion()],
+              ),
+              subtitle: const Text('Check for Updates'),
+              onTap: () => context.read<SettingsCubit>().checkForUpdates(),
             ),
-          ),
-        ],
+            const ListTile(
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [Text('Author'), Text('Felix Angelov')],
+              ),
+            ),
+            ListTile(
+              title: const Text('Source Code'),
+              subtitle: const Text('View the full source code on GitHub'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => launchUrlString(
+                'https://github.com/felangel/flutter_and_friends',
+              ),
+            ),
+            ListTile(
+              title: const Text('Licenses'),
+              subtitle: const Text('View the licenses of the libraries used'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => showLicensePage(
+                context: context,
+                applicationIcon: Image.asset(
+                  'assets/logo.png',
+                  height: 120,
+                ),
+                applicationName: 'Flutter & Friends',
+                applicationVersion: '1.0.0 (1)',
+              ),
+            ),
+          ],
+        ),
       ),
     );
+  }
+}
+
+class AppVersion extends StatelessWidget {
+  const AppVersion({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final version = context.select(
+      (SettingsCubit cubit) {
+        final state = cubit.state;
+        final packageVersion =
+            '''${state.version.major}.${state.version.minor}.${state.version.patch}''';
+        final buildNumber = '${state.version.build.singleOrNull ?? 0}';
+        final patchNumber =
+            state.patchNumber != null ? ' #${state.patchNumber}' : '';
+        return '$packageVersion ($buildNumber)$patchNumber';
+      },
+    );
+    return Text(version);
+  }
+}
+
+class AppPatchNumber extends StatelessWidget {
+  const AppPatchNumber({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final patchNumber = context.select(
+      (SettingsCubit cubit) => '${cubit.state.patchNumber ?? 0}',
+    );
+    return Text(patchNumber);
   }
 }

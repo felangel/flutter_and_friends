@@ -6,6 +6,7 @@ import 'package:flutter_and_friends/theme/theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:shorebird_code_push/shorebird_code_push.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,12 +24,15 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (_) => ThemeCubit()),
-        BlocProvider(create: (_) => FavoritesCubit()),
-      ],
-      child: const AppView(),
+    return RepositoryProvider(
+      create: (_) => ShorebirdCodePush(),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (_) => ThemeCubit()),
+          BlocProvider(create: (_) => FavoritesCubit()),
+        ],
+        child: const AppView(),
+      ),
     );
   }
 }

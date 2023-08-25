@@ -489,7 +489,7 @@ packages:
     source: hosted
     version: "6.0.5"
   pub_semver:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: pub_semver
       sha256: "40d3ab1bbd474c4c2328c91e3a7df8c6dd629b79ece4c4bd04bee496a224fb0c"
@@ -520,6 +520,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.4"
+  shorebird_code_push:
+    dependency: "direct main"
+    description:
+      name: shorebird_code_push
+      sha256: "751bac1e53928bd398ed5ad407938e356df8416151c572eaba73fb7d844bdf95"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
   sky_engine:
     dependency: transitive
     description: flutter
