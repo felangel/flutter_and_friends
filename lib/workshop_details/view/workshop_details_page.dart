@@ -5,23 +5,25 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-class TalkDetailsPage extends StatelessWidget {
-  const TalkDetailsPage({required this.talk, super.key});
+class WorkshopDetailsPage extends StatelessWidget {
+  const WorkshopDetailsPage({required this.workshop, super.key});
 
-  static Route<void> route({required Talk talk}) {
-    return MaterialPageRoute(builder: (_) => TalkDetailsPage(talk: talk));
+  static Route<void> route({required Workshop workshop}) {
+    return MaterialPageRoute(
+      builder: (_) => WorkshopDetailsPage(workshop: workshop),
+    );
   }
 
-  final Talk talk;
+  final Workshop workshop;
 
   @override
-  Widget build(BuildContext context) => TalkDetailsView(talk: talk);
+  Widget build(BuildContext context) => WorkshopDetailsView(workshop: workshop);
 }
 
-class TalkDetailsView extends StatelessWidget {
-  const TalkDetailsView({required this.talk, super.key});
+class WorkshopDetailsView extends StatelessWidget {
+  const WorkshopDetailsView({required this.workshop, super.key});
 
-  final Talk talk;
+  final Workshop workshop;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,7 @@ class TalkDetailsView extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 8),
           child: Image.asset('assets/logo.png', height: kToolbarHeight + 8),
         ),
-        actions: [FavoriteButton(event: talk)],
+        actions: [FavoriteButton(event: workshop)],
       ),
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 18),
@@ -49,14 +51,14 @@ class TalkDetailsView extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(avatarSize / 2),
                   child: Image.asset(
-                    talk.speaker.avatar,
+                    workshop.speaker.avatar,
                     width: avatarSize,
                     height: avatarSize,
                     fit: BoxFit.contain,
                   ),
                 ),
               ),
-              if (talk.speaker.twitter != null)
+              if (workshop.speaker.twitter != null)
                 Positioned(
                   bottom: 0,
                   child: Transform.translate(
@@ -73,7 +75,7 @@ class TalkDetailsView extends StatelessWidget {
                           ),
                           onPressed: () {
                             launchUrlString(
-                              'https://twitter.com/${talk.speaker.twitter}',
+                              'https://twitter.com/${workshop.speaker.twitter}',
                             );
                           },
                         ),
@@ -85,19 +87,19 @@ class TalkDetailsView extends StatelessWidget {
           ),
           const SizedBox(height: 24),
           Text(
-            talk.speaker.name,
+            workshop.speaker.name,
             style: theme.textTheme.titleLarge,
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 8),
           Text(
-            talk.speaker.title,
+            workshop.speaker.title,
             style: theme.textTheme.titleMedium,
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 32),
           Text(
-            talk.name,
+            workshop.name,
             style: theme.textTheme.headlineSmall?.copyWith(
               fontWeight: FontWeight.bold,
             ),
@@ -115,7 +117,7 @@ class TalkDetailsView extends StatelessWidget {
                   const Icon(Icons.calendar_today, size: 18),
                   const SizedBox(width: 4),
                   Text(
-                    talk.startTime.prettyPrint(context),
+                    workshop.startTime.prettyPrint(context),
                     style: theme.textTheme.labelMedium,
                   ),
                 ],
@@ -126,26 +128,27 @@ class TalkDetailsView extends StatelessWidget {
                   const Icon(Icons.schedule, size: 18),
                   const SizedBox(width: 4),
                   Text(
-                    '${talk.duration.inMinutes}m',
+                    '${workshop.duration.inMinutes}m',
                     style: theme.textTheme.labelSmall,
                   ),
                 ],
               ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Icon(Icons.location_on_outlined, size: 18),
-                  const SizedBox(width: 4),
-                  Text(
-                    talk.location,
-                    style: theme.textTheme.labelSmall,
-                  ),
-                ],
-              ),
+              if (workshop.location != null)
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(Icons.location_on_outlined, size: 18),
+                    const SizedBox(width: 4),
+                    Text(
+                      workshop.location!,
+                      style: theme.textTheme.labelSmall,
+                    ),
+                  ],
+                ),
             ],
           ),
           const SizedBox(height: 24),
-          Text(talk.description),
+          Text(workshop.description),
         ],
       ),
     );

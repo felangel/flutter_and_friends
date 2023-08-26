@@ -4,7 +4,6 @@ import 'package:flutter_and_friends/launchpad/launchpad.dart';
 import 'package:flutter_and_friends/schedule/schedule.dart';
 import 'package:flutter_and_friends/settings/settings.dart';
 import 'package:flutter_and_friends/sponsors/sponsors.dart';
-import 'package:flutter_and_friends/talks/talks.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LaunchpadPage extends StatelessWidget {
@@ -50,14 +49,12 @@ class _LaunchpadBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final state = context.watch<LaunchpadCubit>().state;
     switch (state) {
-      case LaunchpadState.schedule:
-        return const SchedulePage();
-      case LaunchpadState.talks:
-        return const TalksPage();
-      case LaunchpadState.workshops:
-        return const SponsorsPage();
       case LaunchpadState.favorites:
         return const FavoritesPage();
+      case LaunchpadState.schedule:
+        return const SchedulePage();
+      case LaunchpadState.sponsors:
+        return const SponsorsPage();
     }
   }
 }
@@ -75,20 +72,16 @@ class _BottomNavigationBar extends StatelessWidget {
       currentIndex: state.index,
       items: const [
         BottomNavigationBarItem(
+          icon: Icon(Icons.favorite),
+          label: 'Favorites',
+        ),
+        BottomNavigationBarItem(
           icon: Icon(Icons.calendar_today),
           label: 'Schedule',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.people),
-          label: 'Talks',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.work),
-          label: 'Workshops',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.favorite),
-          label: 'Favorites',
+          icon: Icon(Icons.business),
+          label: 'Sponsors',
         ),
       ],
     );

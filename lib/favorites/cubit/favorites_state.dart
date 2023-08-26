@@ -1,11 +1,11 @@
 part of 'favorites_cubit.dart';
 
 class FavoritesState {
-  const FavoritesState({this.talks = const []});
+  const FavoritesState({this.events = const []});
 
-  final List<Talk> talks;
+  final List<Event> events;
 
-  FavoritesState copyWith({List<Talk>? talks}) {
-    return FavoritesState(talks: talks ?? this.talks);
+  FavoritesState copyWith({List<Event>? events}) {
+    return FavoritesState(events: events ?? this.events);
   }
 }

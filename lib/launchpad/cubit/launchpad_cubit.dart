@@ -3,7 +3,7 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 part 'launchpad_state.dart';
 
 class LaunchpadCubit extends HydratedCubit<LaunchpadState> {
-  LaunchpadCubit() : super(LaunchpadState.talks);
+  LaunchpadCubit() : super(LaunchpadState.schedule);
 
   void toggleTab(int index) => emit(LaunchpadState.values[index]);
 

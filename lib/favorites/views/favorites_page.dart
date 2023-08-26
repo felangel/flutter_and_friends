@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
-import 'package:flutter_and_friends/talks/talks.dart';
+import 'package:flutter_and_friends/schedule/schedule.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FavoritesPage extends StatelessWidget {
@@ -15,9 +15,9 @@ class FavoritesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final talks = context.watch<FavoritesCubit>().state.talks;
-    if (talks.isEmpty) return const EmptyFavorites();
-    return FavoritesListView(talks: talks);
+    final events = context.watch<FavoritesCubit>().state.events;
+    if (events.isEmpty) return const EmptyFavorites();
+    return FavoritesListView(events: events);
   }
 }
 
@@ -59,17 +59,17 @@ class EmptyFavorites extends StatelessWidget {
 }
 
 class FavoritesListView extends StatelessWidget {
-  const FavoritesListView({required this.talks, super.key});
+  const FavoritesListView({required this.events, super.key});
 
-  final List<Talk> talks;
+  final List<Event> events;
 
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
       separatorBuilder: (_, __) => const SizedBox(height: 16),
       padding: const EdgeInsets.all(12),
-      itemCount: talks.length,
-      itemBuilder: (context, index) => TalkCard(talk: talks[index]),
+      itemCount: events.length,
+      itemBuilder: (context, index) => EventCard(event: events[index]),
     );
   }
 }

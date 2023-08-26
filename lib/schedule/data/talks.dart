@@ -1,4 +1,4 @@
-import 'package:flutter_and_friends/talks/talks.dart';
+import 'package:flutter_and_friends/schedule/schedule.dart';
 
 final talks = <Talk>[
   Talk(

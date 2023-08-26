@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_and_friends/schedule/schedule.dart';
-import 'package:flutter_and_friends/talks/talks.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'talk.g.dart';

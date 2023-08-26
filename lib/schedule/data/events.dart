@@ -1,7 +1,6 @@
 import 'package:flutter_and_friends/schedule/schedule.dart';
-import 'package:flutter_and_friends/talks/talks.dart';
 
-final events = <Event>[
+final day1 = <Event>[
   Activity(
     name: 'Stockholm City Bike Tour',
     startTime: DateTime(2023, 9, 3, 13),
@@ -55,6 +54,9 @@ It's the night before conference day and what better way to warm up than with a 
 Pub opens at 19 and quiz starts at 20:15''',
     location: 'International Bar, Norrlandsgatan 23',
   ),
+];
+
+final day2 = <Event>[
   Activity(
     name: 'Check-in at Kulturhuset',
     startTime: DateTime(2023, 9, 4, 9),
@@ -99,4 +101,13 @@ What is next for Flutter and its community? What problems are developers current
     description: '''
 You've been through a long conference day, now you deserve a party! Celebrate the Flutter community with DJ Albin, photo booth, games and beverages.''',
   ),
+];
+
+final day3 = <Event>[
+  Activity(
+    name: 'Check-in at either NoA or Devoteam',
+    startTime: DateTime(2023, 9, 5, 9, 30),
+    duration: const Duration(minutes: 30),
+  ),
+  ...workshops,
 ];
