@@ -49,7 +49,7 @@ class TalkDetailsView extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(avatarSize / 2),
                   child: Image.asset(
-                    'assets/speakers/${talk.speaker.avatar}',
+                    talk.speaker.avatar,
                     width: avatarSize,
                     height: avatarSize,
                     fit: BoxFit.contain,

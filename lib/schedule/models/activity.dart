@@ -1,48 +1,47 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_and_friends/schedule/schedule.dart';
-import 'package:flutter_and_friends/talks/talks.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'talk.g.dart';
+part 'activity.g.dart';
 
 @JsonSerializable()
-class Talk extends Equatable implements Event {
-  const Talk({
+class Activity extends Equatable implements Event {
+  const Activity({
     required this.name,
-    required this.speaker,
     required this.duration,
     required this.startTime,
-    required this.location,
-    required this.description,
+    this.image,
+    this.link,
+    this.description,
+    this.location,
   });
 
-  factory Talk.fromJson(Map<String, dynamic> json) => _$TalkFromJson(json);
+  factory Activity.fromJson(Map<String, dynamic> json) =>
+      _$ActivityFromJson(json);
 
-  Map<String, dynamic> toJson() => _$TalkToJson(this);
+  Map<String, dynamic> toJson() => _$ActivityToJson(this);
 
   @override
   final String name;
-
   @override
   final Duration duration;
-
   @override
   final DateTime startTime;
+  @override
+  final String? location;
+
+  final String? image;
+  final String? link;
+  final String? description;
 
   @override
-  final String location;
-
-  final Speaker speaker;
-
-  final String description;
-
-  @override
-  List<Object> get props => [
+  List<Object?> get props => [
         name,
-        speaker,
         duration,
         startTime,
         location,
+        image,
+        link,
         description,
       ];
 }

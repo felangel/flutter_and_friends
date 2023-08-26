@@ -1,25 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'talk.dart';
+part of 'activity.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Talk _$TalkFromJson(Map<String, dynamic> json) => Talk(
+Activity _$ActivityFromJson(Map<String, dynamic> json) => Activity(
       name: json['name'] as String,
-      speaker: Speaker.fromJson(json['speaker'] as Map<String, dynamic>),
       duration: Duration(microseconds: json['duration'] as int),
       startTime: DateTime.parse(json['startTime'] as String),
-      location: json['location'] as String,
-      description: json['description'] as String,
+      image: json['image'] as String?,
+      link: json['link'] as String?,
+      description: json['description'] as String?,
+      location: json['location'] as String?,
     );
 
-Map<String, dynamic> _$TalkToJson(Talk instance) => <String, dynamic>{
+Map<String, dynamic> _$ActivityToJson(Activity instance) => <String, dynamic>{
       'name': instance.name,
       'duration': instance.duration.inMicroseconds,
       'startTime': instance.startTime.toIso8601String(),
       'location': instance.location,
-      'speaker': instance.speaker,
+      'image': instance.image,
+      'link': instance.link,
       'description': instance.description,
     };

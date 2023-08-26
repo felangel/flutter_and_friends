@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
-import 'package:flutter_and_friends/talk_details/talk_details.dart';
 import 'package:flutter_and_friends/talks/talks.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -70,12 +69,7 @@ class FavoritesListView extends StatelessWidget {
       separatorBuilder: (_, __) => const SizedBox(height: 16),
       padding: const EdgeInsets.all(12),
       itemCount: talks.length,
-      itemBuilder: (context, index) => TalkCard(
-        talk: talks[index],
-        onTap: () => Navigator.of(context).push(
-          TalkDetailsPage.route(talk: talks[index]),
-        ),
-      ),
+      itemBuilder: (context, index) => TalkCard(talk: talks[index]),
     );
   }
 }

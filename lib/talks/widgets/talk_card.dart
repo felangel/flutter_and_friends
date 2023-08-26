@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
+import 'package:flutter_and_friends/talk_details/talk_details.dart';
 import 'package:flutter_and_friends/talks/talks.dart';
 import 'package:intl/intl.dart';
 
 class TalkCard extends StatelessWidget {
-  const TalkCard({required this.talk, required this.onTap, super.key});
+  const TalkCard({required this.talk, super.key});
 
   final Talk talk;
-  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,9 @@ class TalkCard extends StatelessWidget {
     return Card(
       clipBehavior: Clip.hardEdge,
       child: InkWell(
-        onTap: onTap,
+        onTap: () => Navigator.of(context).push(
+          TalkDetailsPage.route(talk: talk),
+        ),
         child: Padding(
           padding: const EdgeInsets.fromLTRB(18, 0, 18, 12),
           child: Column(
@@ -50,9 +52,7 @@ class TalkCard extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 24,
-                    backgroundImage: AssetImage(
-                      'assets/speakers/${talk.speaker.avatar}',
-                    ),
+                    backgroundImage: AssetImage(talk.speaker.avatar),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
