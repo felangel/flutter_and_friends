@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/settings/settings.dart';
 import 'package:flutter_and_friends/theme/theme.dart';
+import 'package:flutter_and_friends/updater/updater.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shorebird_code_push/shorebird_code_push_io.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -15,9 +15,7 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => SettingsCubit(
-        codePush: context.read<ShorebirdCodePush>(),
-      )..init(),
+      create: (_) => SettingsCubit()..init(),
       child: const SettingsView(),
     );
   }
@@ -30,35 +28,18 @@ class SettingsView extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final headingStyle = theme.textTheme.titleMedium;
-    return BlocListener<SettingsCubit, SettingsState>(
+    return BlocListener<UpdaterCubit, UpdaterState>(
       listenWhen: (previous, current) =>
           previous.status != current.status &&
-          current.status == SettingsStatus.idle,
+          current.status == UpdaterStatus.idle,
       listener: (context, state) {
-        if (state.updateAvailable) {
-          ScaffoldMessenger.of(context)
-            ..hideCurrentMaterialBanner()
-            ..showMaterialBanner(
-              MaterialBanner(
-                content: const Text('Update available'),
-                actions: [
-                  TextButton(
-                    onPressed: () async {
-                      ScaffoldMessenger.of(context).hideCurrentMaterialBanner();
-                      await context.read<SettingsCubit>().downloadUpdate();
-                      if (!context.mounted) return;
-                      ScaffoldMessenger.of(context).hideCurrentMaterialBanner();
-                    },
-                    child: const Text('Download'),
-                  ),
-                ],
-              ),
-            );
-        } else {
+        if (!state.updateAvailable) {
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(
-              const SnackBar(content: Text('No Update Available')),
+              const SnackBar(
+                content: Text('No update available'),
+              ),
             );
         }
       },
@@ -78,7 +59,7 @@ class SettingsView extends StatelessWidget {
                 children: [Text('Version'), AppVersion()],
               ),
               subtitle: const Text('Check for Updates'),
-              onTap: () => context.read<SettingsCubit>().checkForUpdates(),
+              onTap: () => context.read<UpdaterCubit>().checkForUpdates(),
             ),
             const ListTile(
               title: Row(

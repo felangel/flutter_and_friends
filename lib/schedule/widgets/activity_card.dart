@@ -12,7 +12,6 @@ class ActivityCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Card(
-      color: theme.colorScheme.tertiaryContainer,
       clipBehavior: Clip.hardEdge,
       child: InkWell(
         child: Padding(

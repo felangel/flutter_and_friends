@@ -19,6 +19,9 @@ final lightTheme = ThemeData(
     type: BottomNavigationBarType.fixed,
   ),
   colorScheme: _lightColorScheme,
+  bannerTheme: MaterialBannerThemeData(
+    backgroundColor: _lightColorScheme.primaryContainer,
+  ),
   useMaterial3: true,
 );
 
@@ -38,6 +41,9 @@ final darkTheme = ThemeData(
     showUnselectedLabels: true,
   ),
   colorScheme: _darkColorScheme,
+  bannerTheme: MaterialBannerThemeData(
+    backgroundColor: _darkColorScheme.primaryContainer,
+  ),
   useMaterial3: true,
 );
 

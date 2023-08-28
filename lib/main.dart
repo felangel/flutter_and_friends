@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
 import 'package:flutter_and_friends/launchpad/launchpad.dart';
 import 'package:flutter_and_friends/theme/theme.dart';
+import 'package:flutter_and_friends/updater/updater.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
@@ -30,6 +31,7 @@ class App extends StatelessWidget {
         providers: [
           BlocProvider(create: (_) => ThemeCubit()),
           BlocProvider(create: (_) => FavoritesCubit()),
+          BlocProvider(create: (_) => UpdaterCubit()..checkForUpdates()),
         ],
         child: const AppView(),
       ),
@@ -46,7 +48,7 @@ class AppView extends StatelessWidget {
       (ThemeCubit cubit) => cubit.state.toThemeMode(),
     );
     return MaterialApp(
-      home: const LaunchpadPage(),
+      home: const UpdateListener(child: LaunchpadPage()),
       themeMode: themeMode,
       theme: lightTheme,
       darkTheme: darkTheme,
