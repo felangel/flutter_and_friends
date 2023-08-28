@@ -9,6 +9,7 @@ class FavoritesCubit extends HydratedCubit<FavoritesState> {
   void toggleFavorite(Event event) {
     final events = [...state.events];
     events.contains(event) ? events.remove(event) : events.add(event);
+    events.sort((a, b) => a.startTime.compareTo(b.startTime));
     emit(state.copyWith(events: events));
   }
 

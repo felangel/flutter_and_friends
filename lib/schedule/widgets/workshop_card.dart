@@ -13,6 +13,7 @@ class WorkshopCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Card(
+      color: theme.colorScheme.secondaryContainer,
       clipBehavior: Clip.hardEdge,
       child: InkWell(
         onTap: () => Navigator.of(context).push(

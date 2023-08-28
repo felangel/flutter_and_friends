@@ -12,7 +12,7 @@ class ActivityCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Card(
-      surfaceTintColor: theme.colorScheme.tertiaryContainer,
+      color: theme.colorScheme.tertiaryContainer,
       clipBehavior: Clip.hardEdge,
       child: InkWell(
         child: Padding(
@@ -67,10 +67,12 @@ class ActivityCard extends StatelessWidget {
                       size: 18,
                       color: theme.colorScheme.secondary,
                     ),
-                    Text(
-                      activity.location!,
-                      style: theme.textTheme.labelMedium?.copyWith(
-                        color: theme.colorScheme.secondary,
+                    Flexible(
+                      child: Text(
+                        activity.location!,
+                        style: theme.textTheme.labelMedium?.copyWith(
+                          color: theme.colorScheme.secondary,
+                        ),
                       ),
                     ),
                   ],
