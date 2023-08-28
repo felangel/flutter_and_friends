@@ -1,11 +1,11 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_and_friends/talks/talks.dart';
+import 'package:flutter_and_friends/schedule/schedule.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'talk.g.dart';
 
 @JsonSerializable()
-class Talk extends Equatable {
+class Talk extends Equatable implements Event {
   const Talk({
     required this.name,
     required this.speaker,
@@ -19,11 +19,20 @@ class Talk extends Equatable {
 
   Map<String, dynamic> toJson() => _$TalkToJson(this);
 
+  @override
   final String name;
-  final Speaker speaker;
+
+  @override
   final Duration duration;
+
+  @override
   final DateTime startTime;
+
+  @override
   final String location;
+
+  final Speaker speaker;
+
   final String description;
 
   @override

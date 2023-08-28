@@ -1,4 +1,4 @@
-import 'package:flutter_and_friends/talks/talks.dart';
+import 'package:flutter_and_friends/schedule/schedule.dart';
 
 final talks = <Talk>[
   Talk(
@@ -183,137 +183,137 @@ In this engaging talk, we will explore the diverse use cases of conversational A
 const felixAngelov = Speaker(
   name: 'Felix Angelov',
   title: 'Founding Engineer at Shorebird',
-  avatar: '1_felix.jpg',
+  avatar: 'assets/speakers/1_felix.jpg',
   twitter: 'felangelov',
 );
 const majidHajian = Speaker(
   name: 'Majid Hajian',
   title: 'Head of DevRel at Invertase',
-  avatar: '2_majid.jpg',
+  avatar: 'assets/speakers/2_majid.jpg',
   twitter: 'mhadaily',
 );
 
 const vyacheslavEgorov = Speaker(
   name: 'Vyacheslav Egorov',
   title: 'Dart Lead (AOT & JIT) at Google',
-  avatar: '3_vyacheslav.jpg',
+  avatar: 'assets/speakers/3_vyacheslav.jpg',
   twitter: 'mraleph',
 );
 
 const akankshaSingh = Speaker(
   name: 'Akanksha Singh',
   title: 'Software Engineer at J.P. Morgan',
-  avatar: '4_akanksha.jpg',
+  avatar: 'assets/speakers/4_akanksha.jpg',
   twitter: 'coder_jedi',
 );
 
 const dominikRoszkowski = Speaker(
   name: 'Dominik Roszkowski',
   title: 'Flutter GDE / Lead Mobile Engineer at Visible',
-  avatar: '5_dominik.png',
+  avatar: 'assets/speakers/5_dominik.png',
   twitter: 'OrestesGaolin',
 );
 
 const darjaOrlova = Speaker(
   name: 'Darja Orlova',
   title: 'Mobile Tech Lead at Chili Labs',
-  avatar: '6_darja.jpg',
+  avatar: 'assets/speakers/6_darja.jpg',
   twitter: 'dariadroid',
 );
 
 const scottStoll = Speaker(
   name: 'Scott Stoll',
   title: 'Founder, Good Dog Apps',
-  avatar: '7_scott.jpg',
+  avatar: 'assets/speakers/7_scott.jpg',
   twitter: 'scottstoll2017',
 );
 
 const mateuszWojtczak = Speaker(
   name: 'Mateusz Wojtczak',
   title: 'Head of Mobile at LeanCode',
-  avatar: '11_mateusz.jpg',
+  avatar: 'assets/speakers/11_mateusz.jpg',
   twitter: 'matiwojt',
 );
 
 const viktorLidholt = Speaker(
   name: 'Viktor Lidholt',
   title: 'Founder of Serverpod',
-  avatar: '8_viktor.jpg',
+  avatar: 'assets/speakers/8_viktor.jpg',
   twitter: 'viktorlidholt',
 );
 
 const lucasJosefiak = Speaker(
   name: 'Lucas Josefiak',
   title: 'CEO & Co-Founder at Widgetbook',
-  avatar: '9_lucas.jpg',
+  avatar: 'assets/speakers/9_lucas.jpg',
   twitter: 'LucasJosefiak',
 );
 
 const wiktoriaSobczyk = Speaker(
   name: 'Wiktoria Sobczyk',
   title: 'Senior Flutter Developer at itCraft',
-  avatar: '10_wiktoria.jpg',
+  avatar: 'assets/speakers/10_wiktoria.jpg',
   twitter: 'wiktoria-sobczyk',
 );
 
 const albertWolszon = Speaker(
   name: 'Albert Wolszon',
   title: 'Senior Flutter Developer at LeanCode',
-  avatar: '11_albert.jpg',
+  avatar: 'assets/speakers/11_albert.jpg',
   twitter: 'albert_wolszon',
 );
 
 const filipeABarroso = Speaker(
   name: 'Filipe A. Barroso',
   title: 'Senior Flutter Developer at Carv.com',
-  avatar: '12_filipe.jpg',
+  avatar: 'assets/speakers/12_filipe.jpg',
   twitter: 'ABarroso',
 );
 
 const kamilKlyta = Speaker(
   name: 'Kamil Klyta',
   title: 'Flutter Developer at HTD',
-  avatar: '13_kamil.jpg',
+  avatar: 'assets/speakers/13_kamil.jpg',
 );
 
 const jochumvanderPloeg = Speaker(
   name: 'Jochum van der Ploeg',
   title: 'Senior Open Source Engineer at Very Good Ventures',
-  avatar: '14_jochum.jpg',
+  avatar: 'assets/speakers/14_jochum.jpg',
   twitter: 'wolfenrain',
 );
 
 const annaLeushchenko = Speaker(
   name: 'Anna Leushchenko',
   title: 'Flutter & Dart GDE,',
-  avatar: '15_anna.png',
+  avatar: 'assets/speakers/15_anna.png',
   twitter: 'AnnaLeushchenko',
 );
 
 const mikeRydstrom = Speaker(
   name: 'Mike Rydstrom',
   title: 'CTO at Eneron Oy',
-  avatar: '16_mike.jpg',
+  avatar: 'assets/speakers/16_mike.jpg',
   twitter: 'RydMike',
 );
 
 const roaaKhaddam = Speaker(
   name: 'Roaa Khaddam',
   title: 'Flutter & Dart GDE / Software Engineer at Widgetbook',
-  avatar: '17_roaa.jpg',
+  avatar: 'assets/speakers/17_roaa.jpg',
   twitter: 'roaakdm',
 );
 
 const samyakJain = Speaker(
   name: 'Samyak Jain',
   title: 'Founder of welltested.ai',
-  avatar: '19_samyak.jpg',
+  avatar: 'assets/speakers/19_samyak.jpg',
   twitter: 'samyakjain963',
 );
 
 const lukasKlingsbo = Speaker(
   name: 'Lukas Klingsbo',
   title: 'Flame Developer',
-  avatar: '18_lukas.jpg',
+  avatar: 'assets/speakers/18_lukas.jpg',
   twitter: 'spydon',
 );

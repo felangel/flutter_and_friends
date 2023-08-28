@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
-import 'package:flutter_and_friends/talks/talks.dart';
+import 'package:flutter_and_friends/schedule/schedule.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FavoriteButton extends StatelessWidget {
-  const FavoriteButton({required this.talk, super.key});
+  const FavoriteButton({required this.event, super.key});
 
-  final Talk talk;
+  final Event event;
 
   @override
   Widget build(BuildContext context) {
     return BlocSelector<FavoritesCubit, FavoritesState, bool>(
-      selector: (state) => state.talks.contains(talk),
+      selector: (state) => state.events.contains(event),
       builder: (context, isFavorite) => IconButton(
         icon: Icon(
           isFavorite ? Icons.favorite : Icons.favorite_border,
           color: isFavorite ? Colors.pinkAccent : null,
         ),
         onPressed: () {
-          context.read<FavoritesCubit>().toggleFavorite(talk);
+          context.read<FavoritesCubit>().toggleFavorite(event);
         },
       ),
     );

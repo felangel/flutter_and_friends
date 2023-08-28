@@ -17,9 +17,9 @@ Talk _$TalkFromJson(Map<String, dynamic> json) => Talk(
 
 Map<String, dynamic> _$TalkToJson(Talk instance) => <String, dynamic>{
       'name': instance.name,
-      'speaker': instance.speaker,
       'duration': instance.duration.inMicroseconds,
       'startTime': instance.startTime.toIso8601String(),
       'location': instance.location,
+      'speaker': instance.speaker,
       'description': instance.description,
     };

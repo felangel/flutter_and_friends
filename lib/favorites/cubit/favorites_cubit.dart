@@ -1,4 +1,4 @@
-import 'package:flutter_and_friends/talks/talks.dart';
+import 'package:flutter_and_friends/schedule/schedule.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 part 'favorites_state.dart';
@@ -6,22 +6,23 @@ part 'favorites_state.dart';
 class FavoritesCubit extends HydratedCubit<FavoritesState> {
   FavoritesCubit() : super(const FavoritesState());
 
-  void toggleFavorite(Talk talk) {
-    final talks = [...state.talks];
-    talks.contains(talk) ? talks.remove(talk) : talks.add(talk);
-    emit(state.copyWith(talks: talks));
+  void toggleFavorite(Event event) {
+    final events = [...state.events];
+    events.contains(event) ? events.remove(event) : events.add(event);
+    events.sort((a, b) => a.startTime.compareTo(b.startTime));
+    emit(state.copyWith(events: events));
   }
 
   @override
   FavoritesState? fromJson(Map<String, dynamic> json) {
-    final talks = (json['talks'] as List)
-        .map((e) => Talk.fromJson(e as Map<String, dynamic>))
+    final events = (json['events'] as List)
+        .map((e) => Event.fromJson(e as Map<String, dynamic>))
         .toList();
-    return FavoritesState(talks: talks);
+    return FavoritesState(events: events);
   }
 
   @override
   Map<String, dynamic>? toJson(FavoritesState state) {
-    return {'talks': state.talks.map((e) => e.toJson()).toList()};
+    return {'events': state.events.map(Event.toJson).toList()};
   }
 }
