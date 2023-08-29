@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:pusher_beams/pusher_beams.dart';
 import 'package:shorebird_code_push/shorebird_code_push_io.dart';
 
 part 'updater_state.dart';
@@ -10,6 +11,16 @@ class UpdaterCubit extends Cubit<UpdaterState> {
         super(const UpdaterState());
 
   final ShorebirdCodePush _codePush;
+
+  Future<void> init() async {
+    await PusherBeams.instance.start('cdd88306-52d6-4264-b082-e62fd453cf25');
+    await PusherBeams.instance.addDeviceInterest('patch_available');
+    await PusherBeams.instance.onMessageReceivedInTheForeground(
+      (_) => checkForUpdates(),
+    );
+    final initialMessage = await PusherBeams.instance.getInitialMessage();
+    if (initialMessage != null) await checkForUpdates();
+  }
 
   Future<void> checkForUpdates() async {
     emit(state.copyWith(status: UpdaterStatus.updateCheckInProgress));
