@@ -78,7 +78,13 @@ class WorkshopCard extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 16),
-              LocationDetails(location: workshop.location),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  LocationDetails(location: workshop.location),
+                  const Text('Workshop'),
+                ],
+              ),
             ],
           ),
         ),

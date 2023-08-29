@@ -58,7 +58,13 @@ class ActivityCard extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 16),
-              LocationDetails(location: activity.location),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  LocationDetails(location: activity.location),
+                  const Text('Activity'),
+                ],
+              ),
             ],
           ),
         ),

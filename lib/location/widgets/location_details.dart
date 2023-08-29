@@ -12,7 +12,6 @@ class LocationDetails extends StatelessWidget {
     final theme = Theme.of(context);
     return Row(
       mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Icon(
           Icons.location_on_outlined,

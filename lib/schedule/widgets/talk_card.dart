@@ -78,7 +78,13 @@ class TalkCard extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 16),
-              LocationDetails(location: talk.location),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  LocationDetails(location: talk.location),
+                  const Text('Talk'),
+                ],
+              ),
             ],
           ),
         ),
