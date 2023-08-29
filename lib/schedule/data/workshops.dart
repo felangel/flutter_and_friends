@@ -4,10 +4,10 @@ const devoteam = Location(
   name: 'Devoteam',
   coordinates: (59.3308268, 18.0633923),
 );
-const noA = Location(
-  name: 'NoA',
-  coordinates: (59.3422061, 18.0620781),
-);
+Location noA({required int floor}) => Location(
+      name: 'NoA (Floor $floor)',
+      coordinates: (59.3422061, 18.0620781),
+    );
 
 final workshops = <Workshop>[
   Workshop(
@@ -26,7 +26,7 @@ By the end of the workshop, you should have Shorebird’s code push solution int
     speaker: roaaKhaddam,
     duration: const Duration(minutes: 90),
     startTime: DateTime(2023, 9, 5, 10),
-    location: noA,
+    location: noA(floor: 4),
     description: '''
 User interfaces without animations are like food without salt, just tasteless. In this workshop, you will learn how to add animations with various complexity to your Flutter UIs. We will start by covering the most basic and subtle animations created with built-in widgets, and make our way up to complex animated user interactions with advanced and customized widgets. Along the way, you will learn best practices, performance optimization, and tips on how to make your development experience and flow smoother.
 
@@ -37,7 +37,7 @@ Lastly, just like too much salt can ruin a meal, you don’t want to overcrowd o
     speaker: mikeRydstrom,
     duration: const Duration(minutes: 90),
     startTime: DateTime(2023, 9, 5, 13),
-    location: noA,
+    location: noA(floor: 4),
     description: '''
 In this workshop we go from basic light/dark Material 3 theme setup and defining the color system’s ColorScheme, using different ways to seed generate it, while respecting desired brand colors and increasing colorfulness. To, showing how to seed generate mono hue-based themes, that have only one brand color but are still color expressive.
 
@@ -50,7 +50,7 @@ Next, we make the same design again, but this time by using the Themes Playgroun
     speaker: lukasKlingsbo,
     duration: const Duration(minutes: 90),
     startTime: DateTime(2023, 9, 5, 13),
-    location: noA,
+    location: noA(floor: 3),
     description: '''
 In this session we will build an awesome and addictive space shooter game with Flutter and Flame engine.
 
@@ -87,7 +87,7 @@ We'll be looking at AI tools specialized for Flutter, while also exploring chall
     speaker: akankshaSingh,
     duration: const Duration(minutes: 90),
     startTime: DateTime(2023, 9, 5, 15),
-    location: noA,
+    location: noA(floor: 4),
     description: '''
 Join us in an enlightening workshop where we plunge into the realm of conversational AI and its harmonious fusion with Flutter apps. Traverse through real-world applications and unravel the toolkit and strategies that seamlessly weave voice interaction into your projects. Together we'll uncover how this innovation adds a 'dash' of futuristic charm to your creations while amplifying their accessibility and reach.
 

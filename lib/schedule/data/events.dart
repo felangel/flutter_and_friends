@@ -62,7 +62,7 @@ final day1 = <Event>[
     ),
   ),
   Activity(
-    name: 'Dinner with Strangers',
+    name: '🍽️ Dinner with Strangers',
     startTime: DateTime(2023, 9, 3, 18),
     duration: const Duration(hours: 2),
     description: '''
@@ -73,7 +73,7 @@ After an afternoon of activities it's time to grab some food! If you signed up f
     ),
   ),
   Activity(
-    name: 'Pre-conference Pub w/ Flutter Pub Quiz',
+    name: '🎯 Pre-conference Pub w/ Flutter Pub Quiz',
     startTime: DateTime(2023, 9, 3, 19),
     duration: const Duration(hours: 4),
     description: '''
@@ -89,7 +89,7 @@ Pub opens at 19 and quiz starts at 20:15''',
 
 final day2 = <Event>[
   Activity(
-    name: 'Check-in at Kulturhuset',
+    name: '✅ Check-in at Kulturhuset',
     startTime: DateTime(2023, 9, 4, 9),
     duration: const Duration(hours: 1),
     location: const Location(
@@ -98,7 +98,7 @@ final day2 = <Event>[
     ),
   ),
   Activity(
-    name: 'Welcome to Flutter & Friends!',
+    name: '👋 Welcome to Flutter & Friends!',
     startTime: DateTime(2023, 9, 4, 10),
     duration: const Duration(minutes: 10),
     location: const Location(
@@ -108,7 +108,7 @@ final day2 = <Event>[
   ),
   ...talks.sublist(0, 3),
   Activity(
-    name: 'Lunch',
+    name: '🍽️ Lunch',
     startTime: DateTime(2023, 9, 4, 11, 30),
     duration: const Duration(minutes: 90),
     location: const Location(
@@ -120,7 +120,7 @@ Enjoy our buffet lunch. Remember there are lunch talks in the main atrium!''',
   ),
   ...talks.sublist(3),
   Activity(
-    name: 'Panel discussion',
+    name: '🎙️ Panel discussion',
     startTime: DateTime(2023, 9, 4, 17, 20),
     duration: const Duration(minutes: 30),
     location: const Location(
@@ -131,7 +131,7 @@ Enjoy our buffet lunch. Remember there are lunch talks in the main atrium!''',
 What is next for Flutter and its community? What problems are developers currently facing and how do we solve them? Join us as we finish the conference day with a panel of community members.''',
   ),
   Activity(
-    name: 'Closing Remarks',
+    name: '🎬 Closing Remarks',
     startTime: DateTime(2023, 9, 4, 17, 50),
     duration: const Duration(minutes: 10),
     location: const Location(
@@ -140,12 +140,12 @@ What is next for Flutter and its community? What problems are developers current
     ),
   ),
   Activity(
-    name: 'Party!',
-    startTime: DateTime(2023, 9, 4, 20),
+    name: '🎉 Party',
+    startTime: DateTime(2023, 9, 4, 19, 30),
     duration: const Duration(hours: 4),
     location: const Location(
-      name: 'Hus 7',
-      coordinates: (59.2928276, 18.0775777),
+      name: 'Slaktkyrkan',
+      coordinates: (59.2925902, 18.0776807),
     ),
     description: '''
 You've been through a long conference day, now you deserve a party! Celebrate the Flutter community with DJ Albin, photo booth, games and beverages.''',
@@ -154,7 +154,7 @@ You've been through a long conference day, now you deserve a party! Celebrate th
 
 final day3 = <Event>[
   Activity(
-    name: 'Check-in at either NoA or Devoteam',
+    name: '✅ Check-in at either NoA or Devoteam',
     startTime: DateTime(2023, 9, 5, 9, 30),
     duration: const Duration(minutes: 30),
     location: const Location(
