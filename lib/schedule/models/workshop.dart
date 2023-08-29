@@ -12,7 +12,7 @@ class Workshop extends Equatable implements Event {
     required this.duration,
     required this.startTime,
     required this.description,
-    this.location,
+    required this.location,
   });
 
   factory Workshop.fromJson(Map<String, dynamic> json) =>
@@ -30,14 +30,14 @@ class Workshop extends Equatable implements Event {
   final DateTime startTime;
 
   @override
-  final String? location;
+  final Location location;
 
   final Speaker speaker;
 
   final String description;
 
   @override
-  List<Object?> get props => [
+  List<Object> get props => [
         name,
         speaker,
         duration,

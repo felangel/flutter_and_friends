@@ -10,10 +10,10 @@ class Activity extends Equatable implements Event {
     required this.name,
     required this.duration,
     required this.startTime,
+    required this.location,
     this.image,
     this.link,
     this.description,
-    this.location,
   });
 
   factory Activity.fromJson(Map<String, dynamic> json) =>
@@ -28,7 +28,7 @@ class Activity extends Equatable implements Event {
   @override
   final DateTime startTime;
   @override
-  final String? location;
+  final Location location;
 
   final String? image;
   final String? link;

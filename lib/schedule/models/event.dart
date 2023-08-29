@@ -5,7 +5,7 @@ interface class Event {
     required this.name,
     required this.duration,
     required this.startTime,
-    this.location,
+    required this.location,
   });
 
   factory Event.fromJson(Map<String, dynamic> json) {
@@ -47,5 +47,5 @@ interface class Event {
   final String name;
   final Duration duration;
   final DateTime startTime;
-  final String? location;
+  final Location location;
 }

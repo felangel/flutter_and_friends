@@ -31,7 +31,7 @@ class SponsorsListView extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       children: [
         Text(
-          '🌟 Platinum Sponsors',
+          'Platinum Sponsors',
           style: headingStyle,
           textAlign: TextAlign.center,
         ),
@@ -39,7 +39,7 @@ class SponsorsListView extends StatelessWidget {
         ...platinumSponsors.map((sponsor) => SponsorItem(sponsor: sponsor)),
         const SizedBox(height: 32),
         Text(
-          '🥇 Gold Sponsors',
+          'Gold Sponsors',
           style: headingStyle,
           textAlign: TextAlign.center,
         ),
@@ -47,7 +47,7 @@ class SponsorsListView extends StatelessWidget {
         ...goldSponsors.map((sponsor) => SponsorItem(sponsor: sponsor)),
         const SizedBox(height: 32),
         Text(
-          '🥈 Silver Sponsors',
+          'Silver Sponsors',
           style: headingStyle,
           textAlign: TextAlign.center,
         ),
@@ -55,7 +55,7 @@ class SponsorsListView extends StatelessWidget {
         ...silverSponsors.map((sponsor) => SponsorItem(sponsor: sponsor)),
         const SizedBox(height: 32),
         Text(
-          '💖 Together with',
+          'Together with',
           style: headingStyle,
           textAlign: TextAlign.center,
         ),

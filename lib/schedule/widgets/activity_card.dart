@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
+import 'package:flutter_and_friends/location/location.dart';
 import 'package:flutter_and_friends/schedule/schedule.dart';
 import 'package:intl/intl.dart';
 
@@ -57,25 +58,7 @@ class ActivityCard extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 16),
-              if (activity.location != null)
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Icon(
-                      Icons.location_on_outlined,
-                      size: 18,
-                      color: theme.colorScheme.secondary,
-                    ),
-                    Flexible(
-                      child: Text(
-                        activity.location!,
-                        style: theme.textTheme.labelMedium?.copyWith(
-                          color: theme.colorScheme.secondary,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+              LocationDetails(location: activity.location),
             ],
           ),
         ),

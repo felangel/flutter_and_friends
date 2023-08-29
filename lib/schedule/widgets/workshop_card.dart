@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
+import 'package:flutter_and_friends/location/location.dart';
 import 'package:flutter_and_friends/schedule/schedule.dart';
 import 'package:flutter_and_friends/workshop_details/workshop_details.dart';
 import 'package:intl/intl.dart';
@@ -77,23 +78,7 @@ class WorkshopCard extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 16),
-              if (workshop.location != null)
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Icon(
-                      Icons.location_on_outlined,
-                      size: 18,
-                      color: theme.colorScheme.secondary,
-                    ),
-                    Text(
-                      workshop.location!,
-                      style: theme.textTheme.labelMedium?.copyWith(
-                        color: theme.colorScheme.secondary,
-                      ),
-                    ),
-                  ],
-                ),
+              LocationDetails(location: workshop.location),
             ],
           ),
         ),

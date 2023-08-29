@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
+import 'package:flutter_and_friends/location/location.dart';
 import 'package:flutter_and_friends/schedule/schedule.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_and_friends/twitter/twitter.dart';
 import 'package:intl/intl.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 class TalkDetailsPage extends StatelessWidget {
   const TalkDetailsPage({required this.talk, super.key});
@@ -27,7 +27,6 @@ class TalkDetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     const avatarSize = 192.0;
-    const twitterSize = 16.0;
 
     return Scaffold(
       appBar: AppBar(
@@ -61,24 +60,7 @@ class TalkDetailsView extends StatelessWidget {
                   bottom: 0,
                   child: Transform.translate(
                     offset: const Offset(avatarSize / 3, 0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(twitterSize * 2),
-                      child: ColoredBox(
-                        color: Colors.lightBlueAccent,
-                        child: IconButton(
-                          iconSize: twitterSize * 1.25,
-                          icon: const Icon(
-                            FontAwesomeIcons.twitter,
-                            color: Colors.white,
-                          ),
-                          onPressed: () {
-                            launchUrlString(
-                              'https://twitter.com/${talk.speaker.twitter}',
-                            );
-                          },
-                        ),
-                      ),
-                    ),
+                    child: TwitterIconButton(handle: talk.speaker.twitter!),
                   ),
                 ),
             ],
@@ -131,17 +113,7 @@ class TalkDetailsView extends StatelessWidget {
                   ),
                 ],
               ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Icon(Icons.location_on_outlined, size: 18),
-                  const SizedBox(width: 4),
-                  Text(
-                    talk.location,
-                    style: theme.textTheme.labelSmall,
-                  ),
-                ],
-              ),
+              LocationDetails(location: talk.location),
             ],
           ),
           const SizedBox(height: 24),

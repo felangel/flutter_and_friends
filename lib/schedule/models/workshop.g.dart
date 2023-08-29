@@ -1,5 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
+// ignore_for_file: strict_raw_type, require_trailing_commas, cast_nullable_to_non_nullable, lines_longer_than_80_chars
+
 part of 'workshop.dart';
 
 // **************************************************************************
@@ -12,7 +14,7 @@ Workshop _$WorkshopFromJson(Map<String, dynamic> json) => Workshop(
       duration: Duration(microseconds: json['duration'] as int),
       startTime: DateTime.parse(json['startTime'] as String),
       description: json['description'] as String,
-      location: json['location'] as String?,
+      location: Location.fromJson(json['location'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$WorkshopToJson(Workshop instance) => <String, dynamic>{

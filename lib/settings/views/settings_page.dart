@@ -53,19 +53,11 @@ class SettingsView extends StatelessWidget {
             const SizedBox(height: 16),
             Text('About', style: headingStyle),
             ListTile(
-              leading: const Icon(Icons.update),
               title: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [Text('Version'), AppVersion()],
               ),
-              subtitle: const Text('Check for Updates'),
               onTap: () => context.read<UpdaterCubit>().checkForUpdates(),
-            ),
-            const ListTile(
-              title: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [Text('Author'), Text('Felix Angelov')],
-              ),
             ),
             ListTile(
               title: const Text('Source Code'),
@@ -84,6 +76,12 @@ class SettingsView extends StatelessWidget {
                 applicationIcon: Image.asset('assets/logo.png', height: 120),
                 applicationName: 'Flutter & Friends',
               ),
+            ),
+            ListTile(
+              title: const Text('Developed By Felix Angelov'),
+              subtitle: const Text('Powered by Shorebird'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => launchUrlString('https://shorebird.dev'),
             ),
           ],
         ),

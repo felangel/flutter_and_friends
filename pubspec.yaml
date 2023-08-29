@@ -12,7 +12,10 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.3
-  font_awesome_flutter: ^10.5.0
+  font_awesome_flutter:
+    git:
+      url: https://github.com/fluttercommunity/font_awesome_flutter
+      ref: bef4f3f829117241202486f8a0d836e89d167376
   hydrated_bloc: ^9.1.2
   intl: ^0.18.1
   json_annotation: ^4.8.1

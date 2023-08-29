@@ -29,7 +29,7 @@ class Talk extends Equatable implements Event {
   final DateTime startTime;
 
   @override
-  final String location;
+  final Location location;
 
   final Speaker speaker;
 
