@@ -22,9 +22,10 @@ class LaunchpadView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: _LaunchpadBody(),
-      bottomNavigationBar: _BottomNavigationBar(),
+    return Scaffold(
+      appBar: AppBar(toolbarHeight: 0, shadowColor: Colors.transparent),
+      body: const _LaunchpadBody(),
+      bottomNavigationBar: const _BottomNavigationBar(),
     );
   }
 }

@@ -13,9 +13,9 @@ class UpdateListener extends StatelessWidget {
       listeners: [
         BlocListener<UpdaterCubit, UpdaterState>(
           listenWhen: (previous, current) =>
-          previous.status == UpdaterStatus.downloadInProgress &&
-          current.status == UpdaterStatus.idle &&
-          current.isNewPatchReadyToInstall,
+              previous.status == UpdaterStatus.downloadInProgress &&
+              current.status == UpdaterStatus.idle &&
+              current.isNewPatchReadyToInstall,
           listener: (context, state) {
             ScaffoldMessenger.of(context)
               ..hideCurrentMaterialBanner()
