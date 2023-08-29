@@ -21,50 +21,11 @@ class UpdateListener extends StatelessWidget {
               ..hideCurrentMaterialBanner()
               ..showMaterialBanner(
                 const MaterialBanner(
-                  content: Text('A new patch is ready!'),
+                  content: Text('A new update is ready!'),
                   actions: [
                     TextButton(
                       onPressed: Restart.restartApp,
                       child: Text('Restart app'),
-                    ),
-                  ],
-                ),
-              );
-          },
-        ),
-        BlocListener<UpdaterCubit, UpdaterState>(
-          listenWhen: (previous, current) =>
-              previous.status == UpdaterStatus.updateCheckInProgress &&
-              current.status == UpdaterStatus.idle &&
-              current.updateAvailable,
-          listener: (context, state) {
-            ScaffoldMessenger.of(context)
-              ..hideCurrentMaterialBanner()
-              ..showMaterialBanner(
-                MaterialBanner(
-                  content: const Text('Update available'),
-                  actions: [
-                    TextButton(
-                      onPressed: () async {
-                        ScaffoldMessenger.of(context)
-                          ..hideCurrentMaterialBanner()
-                          ..showMaterialBanner(
-                            const MaterialBanner(
-                              content: Text('Downloading...'),
-                              actions: [
-                                SizedBox(
-                                  height: 14,
-                                  width: 14,
-                                  child: CircularProgressIndicator(
-                                    strokeWidth: 2,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          );
-                        await context.read<UpdaterCubit>().downloadUpdate();
-                      },
-                      child: const Text('Download'),
                     ),
                   ],
                 ),

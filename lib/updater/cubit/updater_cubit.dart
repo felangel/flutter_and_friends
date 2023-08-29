@@ -31,13 +31,14 @@ class UpdaterCubit extends Cubit<UpdaterState> {
           updateAvailable: updateAvailable,
         ),
       );
+      if (updateAvailable) await _downloadUpdate();
     } catch (error, stackTrace) {
       addError(error, stackTrace);
       emit(state.copyWith(status: UpdaterStatus.idle));
     }
   }
 
-  Future<void> downloadUpdate() async {
+  Future<void> _downloadUpdate() async {
     emit(state.copyWith(status: UpdaterStatus.downloadInProgress));
     try {
       await _codePush.downloadUpdateIfAvailable();
