@@ -81,12 +81,8 @@ class SettingsView extends StatelessWidget {
               trailing: const Icon(Icons.chevron_right),
               onTap: () => showLicensePage(
                 context: context,
-                applicationIcon: Image.asset(
-                  'assets/logo.png',
-                  height: 120,
-                ),
+                applicationIcon: Image.asset('assets/logo.png', height: 120),
                 applicationName: 'Flutter & Friends',
-                applicationVersion: '1.0.0 (1)',
               ),
             ),
           ],
