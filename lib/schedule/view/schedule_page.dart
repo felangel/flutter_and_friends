@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/schedule/schedule.dart';
+import 'package:flutter_and_friends/theme/theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SchedulePage extends StatelessWidget {
@@ -24,8 +25,7 @@ class ScheduleView extends StatelessWidget {
       initialIndex: state.index,
       length: ScheduleState.values.length,
       child: Scaffold(
-        appBar: AppBar(
-          toolbarHeight: 0,
+        appBar: FFAppBar(
           bottom: TabBar(
             onTap: (index) => context.read<ScheduleCubit>().toggleTab(index),
             tabs: const <Widget>[

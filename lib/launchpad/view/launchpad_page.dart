@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
 import 'package:flutter_and_friends/launchpad/launchpad.dart';
 import 'package:flutter_and_friends/schedule/schedule.dart';
-import 'package:flutter_and_friends/settings/settings.dart';
 import 'package:flutter_and_friends/sponsors/sponsors.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -23,21 +22,9 @@ class LaunchpadView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Padding(
-          padding: const EdgeInsets.only(bottom: 8),
-          child: Image.asset('assets/logo.png', height: kToolbarHeight + 8),
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () => Navigator.of(context).push(SettingsPage.route()),
-          ),
-        ],
-      ),
-      body: const _LaunchpadBody(),
-      bottomNavigationBar: const _BottomNavigationBar(),
+    return const Scaffold(
+      body: _LaunchpadBody(),
+      bottomNavigationBar: _BottomNavigationBar(),
     );
   }
 }

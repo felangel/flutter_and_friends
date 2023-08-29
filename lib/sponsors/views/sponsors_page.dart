@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/sponsors/sponsors.dart';
+import 'package:flutter_and_friends/theme/widgets/widgets.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class SponsorsPage extends StatelessWidget {
@@ -14,7 +15,10 @@ class SponsorsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SponsorsListView();
+    return Scaffold(
+      appBar: FFAppBar(),
+      body: const SponsorsListView(),
+    );
   }
 }
 

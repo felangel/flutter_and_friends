@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
 import 'package:flutter_and_friends/schedule/schedule.dart';
+import 'package:flutter_and_friends/theme/widgets/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FavoritesPage extends StatelessWidget {
@@ -15,9 +16,15 @@ class FavoritesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final events = context.watch<FavoritesCubit>().state.events;
-    if (events.isEmpty) return const EmptyFavorites();
-    return FavoritesListView(events: events);
+    return Scaffold(
+      appBar: FFAppBar(),
+      body: BlocBuilder<FavoritesCubit, FavoritesState>(
+        builder: (context, state) {
+          if (state.events.isEmpty) return const EmptyFavorites();
+          return FavoritesListView(events: state.events);
+        },
+      ),
+    );
   }
 }
 

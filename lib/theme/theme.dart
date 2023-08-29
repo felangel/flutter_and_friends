@@ -7,8 +7,8 @@ final lightTheme = ThemeData(
   appBarTheme: AppBarTheme(
     centerTitle: true,
     toolbarHeight: kToolbarHeight + 16,
-    scrolledUnderElevation: 2,
-    elevation: 0,
+    scrolledUnderElevation: 1,
+    elevation: 1,
     shadowColor: _lightColorScheme.secondary,
   ),
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
@@ -29,8 +29,8 @@ final darkTheme = ThemeData(
   appBarTheme: AppBarTheme(
     centerTitle: true,
     toolbarHeight: kToolbarHeight + 16,
-    scrolledUnderElevation: 2,
-    elevation: 0,
+    scrolledUnderElevation: 1,
+    elevation: 1,
     shadowColor: _darkColorScheme.secondary,
   ),
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
