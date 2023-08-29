@@ -16,9 +16,7 @@ import 'package:shorebird_code_push/shorebird_code_push.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   HydratedBloc.storage = await HydratedStorage.build(
-    storageDirectory: kIsWeb
-        ? HydratedStorage.webStorageDirectory
-        : await getTemporaryDirectory(),
+    storageDirectory: await getTemporaryDirectory(),
   );
   if (kDebugMode) await HydratedBloc.storage.clear();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
@@ -53,6 +51,7 @@ class AppView extends StatelessWidget {
       (ThemeCubit cubit) => cubit.state.toThemeMode(),
     );
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: const UpdateListener(child: LaunchpadPage()),
       themeMode: themeMode,
       theme: lightTheme,
