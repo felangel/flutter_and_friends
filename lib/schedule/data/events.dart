@@ -106,7 +106,7 @@ final day2 = <Event>[
       coordinates: (59.3318138, 18.0589957),
     ),
   ),
-  ...talks.sublist(0, 3),
+  ...talks.sublist(0, 2),
   Activity(
     name: '🍽️ Lunch',
     startTime: DateTime(2023, 9, 4, 11, 30),
@@ -118,7 +118,7 @@ final day2 = <Event>[
     description: '''
 Enjoy our buffet lunch. Remember there are lunch talks in the main atrium!''',
   ),
-  ...talks.sublist(3),
+  ...talks.sublist(2),
   Activity(
     name: '🎙️ Panel discussion',
     startTime: DateTime(2023, 9, 4, 17, 20),

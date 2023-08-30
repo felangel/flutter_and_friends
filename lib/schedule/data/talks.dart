@@ -30,28 +30,6 @@ RenderFlex errors? No problem. Whether the Flexible in the Flex is going to flex
 This is the talk you've been waiting for since the day you started Flutter. This is the talk that translates all of this jibberish into something a human being can understand. See you there!''',
   ),
   Talk(
-    name: 'Flutter on the Server: Why & How it is Interesting',
-    speaker: jochumvanderPloeg,
-    duration: const Duration(minutes: 20),
-    startTime: DateTime(2023, 9, 4, 10, 50),
-    location: exhibitionStage,
-    description: '''
-Running Flutter on the server has benefits people not often think about, this talk will explain different ways you can run Flutter headlesssly and why you should. The talk touches on gamedev, sharing code, machine learning and other areas. All while explaining the pros and cons of every part.''',
-  ),
-  Talk(
-    name: 'What hit tests really are',
-    speaker: kamilKlyta,
-    duration: const Duration(minutes: 20),
-    startTime: DateTime(2023, 9, 4, 11, 10),
-    location: exhibitionStage,
-    description: '''
-In this talk we will answer some questions such as:
-
-What are hit tests? How do they work? What do we use them for? Why do they work differently on the web and on mobile devices? Why are there native events, raw gesture detectors, gesture detectors or gesture arenas 🤯‽.
-
-And finally, why they matter and why we need to think about gestures when developing applications.''',
-  ),
-  Talk(
     name: 'Behavior Driven Development with Flutter',
     speaker: filipeABarroso,
     duration: const Duration(minutes: 40),
@@ -111,25 +89,25 @@ Say goodbye 👋 to tedious setup tasks and hello to accelerated development! �
     name: 'A safe bridge to the native side',
     speaker: darjaOrlova,
     duration: const Duration(minutes: 40),
-    startTime: DateTime(2023, 9, 4, 14, 20),
+    startTime: DateTime(2023, 9, 4, 14, 45),
     location: mainStage,
     description: '''
 Flutter is such an amazing cross-platform framework that it’s easy to forget about its connection with the underlying native platforms. For most of your Flutter journey, you won’t touch even a line of native code... until one day a client requires the use of an obscure SDK that doesn’t have a Flutter implementation, or you want to use that shiny new native feature before it gets official framework support. So, unwillingly, you reach for MethodChannels... but let me stop you right there. In this talk, I will show you a better, type-safe, and more enjoyable way to communicate with the native layer with the help of the pigeon code generation tool.''',
   ),
   Talk(
-    name: 'Building a multiplayer game with Flutter and Serverpod',
-    speaker: viktorLidholt,
+    name: 'Flutter on the Server: Why & How it is Interesting',
+    speaker: jochumvanderPloeg,
     duration: const Duration(minutes: 20),
-    startTime: DateTime(2023, 9, 4, 14, 20),
+    startTime: DateTime(2023, 9, 4, 14, 45),
     location: exhibitionStage,
     description: '''
-Using the same computer language for both frontend and backend makes development faster and allows team members to take the role of a full-stack developer more easily. This talk will showcase how to build a multiplayer gaming experience with Dart, Serverpod, and Flutter. Serverpod is a newly released open-source backend written in Dart for the Flutter community. After attending this talk, you will be ready to build your first real-time server with Dart and Serverpod and have a deeper understanding of game development and communication.''',
+Running Flutter on the server has benefits people not often think about, this talk will explain different ways you can run Flutter headlesssly and why you should. The talk touches on gamedev, sharing code, machine learning and other areas. All while explaining the pros and cons of every part.''',
   ),
   Talk(
     name: 'Running Dart around the Globe',
     speaker: majidHajian,
     duration: const Duration(minutes: 20),
-    startTime: DateTime(2023, 9, 4, 14, 40),
+    startTime: DateTime(2023, 9, 4, 15, 05),
     location: exhibitionStage,
     description: '''
 With Globe you can deploy Dart applications on a serverless global edge network with a seamless dev experience to help you easily deploy, scale & configure your Dart server applications. This talk will give you an introduction of how and why you should use it.''',
@@ -175,6 +153,26 @@ Key takeaways:
 - How to collaborate effectively with designers to keep design and code sync''',
   ),
   Talk(
+    name:
+        '''Breaking Barriers in Energy App Development with Flutter and Dart Frog''',
+    speaker: maherJaafar,
+    duration: const Duration(minutes: 20),
+    startTime: DateTime(2023, 9, 4, 16, 20),
+    location: exhibitionStage,
+    description: '''
+Our Solar Cell Charging App’s notable features include utilizing two APIs with a backend built in Dart Frog, implementing HydratedBlocs for data persistence, employing Flutter isolates for real-time updates, reverse engineering the excisting backend API for comprehensive integration, utilizing Shorebird for seamless code push on Android, and creating a visually consistent power flow using a custom painter.''',
+  ),
+  Talk(
+    name:
+        '''Breaking Barriers in Energy App Development with Flutter and Dart Frog''',
+    speaker: antonIjas,
+    duration: const Duration(minutes: 20),
+    startTime: DateTime(2023, 9, 4, 16, 20),
+    location: exhibitionStage,
+    description: '''
+Our Solar Cell Charging App’s notable features include utilizing two APIs with a backend built in Dart Frog, implementing HydratedBlocs for data persistence, employing Flutter isolates for real-time updates, reverse engineering the excisting backend API for comprehensive integration, utilizing Shorebird for seamless code push on Android, and creating a visually consistent power flow using a custom painter.''',
+  ),
+  Talk(
     name: 'Building Voice-Enabled Flutter Apps: A Comprehensive Guide',
     speaker: akankshaSingh,
     duration: const Duration(minutes: 40),
@@ -186,6 +184,19 @@ With the rapid acceleration of digital technology adoption during the COVID-19 p
 Phrases like 'Hey, Google!' and 'Ok, Google' have become some of the earliest words learned by children in today's generation. The preference for voice interaction with virtual assistants is growing rapidly, offering convenience to millions by saving time and reducing the cognitive burden associated with typing queries or tasks.
 
 In this engaging talk, we will explore the diverse use cases of conversational AI and delve into the various methods and packages available to seamlessly integrate this powerful functionality into Flutter apps. By incorporating conversational AI, not only can you enhance the user experience, but you can also make your apps more accessible to a wider audience.''',
+  ),
+  Talk(
+    name: 'What hit tests really are',
+    speaker: kamilKlyta,
+    duration: const Duration(minutes: 20),
+    startTime: DateTime(2023, 9, 4, 16, 40),
+    location: exhibitionStage,
+    description: '''
+In this talk we will answer some questions such as:
+
+What are hit tests? How do they work? What do we use them for? Why do they work differently on the web and on mobile devices? Why are there native events, raw gesture detectors, gesture detectors or gesture arenas 🤯‽.
+
+And finally, why they matter and why we need to think about gestures when developing applications.''',
   ),
 ];
 
@@ -237,20 +248,6 @@ const scottStoll = Speaker(
   twitter: 'scottstoll2017',
 );
 
-const mateuszWojtczak = Speaker(
-  name: 'Mateusz Wojtczak',
-  title: 'Head of Mobile at LeanCode',
-  avatar: 'assets/speakers/11_mateusz.jpg',
-  twitter: 'matiwojt',
-);
-
-const viktorLidholt = Speaker(
-  name: 'Viktor Lidholt',
-  title: 'Founder of Serverpod',
-  avatar: 'assets/speakers/8_viktor.jpg',
-  twitter: 'viktorlidholt',
-);
-
 const lucasJosefiak = Speaker(
   name: 'Lucas Josefiak',
   title: 'CEO & Co-Founder at Widgetbook',
@@ -272,9 +269,16 @@ const albertWolszon = Speaker(
   twitter: 'albert_wolszon',
 );
 
+const mateuszWojtczak = Speaker(
+  name: 'Mateusz Wojtczak',
+  title: 'Head of Mobile at LeanCode',
+  avatar: 'assets/speakers/11_mateusz.jpg',
+  twitter: 'matiwojt',
+);
+
 const filipeABarroso = Speaker(
   name: 'Filipe A. Barroso',
-  title: 'Senior Flutter Developer at Carv.com',
+  title: 'Senior Flutter Developer at Teya',
   avatar: 'assets/speakers/12_filipe.jpg',
   twitter: 'ABarroso',
 );
@@ -292,9 +296,23 @@ const jochumvanderPloeg = Speaker(
   twitter: 'wolfenrain',
 );
 
+const antonIjas = Speaker(
+  name: 'Anton Ijäs',
+  title: 'COO & Co-Founder at Hackberry',
+  avatar: 'assets/speakers/20_anton.jpg',
+  twitter: 'anton_ijas',
+);
+
+const maherJaafar = Speaker(
+  name: 'Maher Jaafar',
+  title: 'Senior Flutter Engineer at Hackberry',
+  avatar: 'assets/speakers/21_maher.jpg',
+  twitter: 'flutterengineer',
+);
+
 const annaLeushchenko = Speaker(
   name: 'Anna Leushchenko',
-  title: 'Flutter & Dart GDE,',
+  title: 'Senior Staff Mobile Engineer at Tide',
   avatar: 'assets/speakers/15_anna.png',
   twitter: 'AnnaLeushchenko',
 );
@@ -315,14 +333,14 @@ const roaaKhaddam = Speaker(
 
 const samyakJain = Speaker(
   name: 'Samyak Jain',
-  title: 'Founder of welltested.ai',
+  title: 'Founder at Welltested AI',
   avatar: 'assets/speakers/19_samyak.jpg',
   twitter: 'samyakjain963',
 );
 
 const lukasKlingsbo = Speaker(
   name: 'Lukas Klingsbo',
-  title: 'Flame Developer',
+  title: 'Open Source Engineer at Blue Fire',
   avatar: 'assets/speakers/18_lukas.jpg',
   twitter: 'spydon',
 );
