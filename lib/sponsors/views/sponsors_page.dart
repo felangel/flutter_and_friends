@@ -57,6 +57,13 @@ class SponsorsListView extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         ...silverSponsors.map((sponsor) => SponsorItem(sponsor: sponsor)),
+        Text(
+          'Streaming Sponsor',
+          style: headingStyle,
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(height: 16),
+        const SponsorItem(sponsor: streamingSponsor),
         const SizedBox(height: 32),
         Text(
           'Together with',
@@ -64,7 +71,7 @@ class SponsorsListView extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 16),
-        ...bronzeSponsors.map((sponsor) => SponsorItem(sponsor: sponsor)),
+        ...togetherWith.map((sponsor) => SponsorItem(sponsor: sponsor)),
       ],
     );
   }
@@ -77,16 +84,19 @@ class SponsorItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: Colors.white,
-      elevation: 0,
-      clipBehavior: Clip.hardEdge,
-      child: InkWell(
-        onTap: () => launchUrlString(sponsor.url),
-        child: Center(
-          child: FractionallySizedBox(
-            widthFactor: 0.5,
-            child: Image.asset('assets/sponsors/${sponsor.logo}'),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: Card(
+        color: Colors.white,
+        elevation: 0,
+        clipBehavior: Clip.hardEdge,
+        child: InkWell(
+          onTap: () => launchUrlString(sponsor.url),
+          child: Center(
+            child: FractionallySizedBox(
+              widthFactor: 0.5,
+              child: Image.asset(sponsor.logo),
+            ),
           ),
         ),
       ),

@@ -11,87 +11,81 @@ const goldSponsors = [
   dcm,
 ];
 
-const silverSponsors = [
-  flutter,
-  tide,
-  leanCode,
-  appwrite,
-];
+const silverSponsors = [flutter, tide, leanCode, appwrite, sas, pettersonApps];
 
-const bronzeSponsors = [
-  serverpod,
+const streamingSponsor = rebelAppStudio;
+
+const togetherWith = [
   blueFire,
   done,
 ];
 
 const appShack = Sponsor(
-  logo: 'appshack.png',
+  logo: 'assets/sponsors/appshack.png',
   url: 'https://appshack.se',
-  tier: Tier.platinum,
 );
 
 const hackBerry = Sponsor(
-  logo: 'hackberry.png',
+  logo: 'assets/sponsors/hackberry.png',
   url: 'https://hackberry.se',
-  tier: Tier.platinum,
 );
 
 const invertase = Sponsor(
-  logo: 'invertase.png',
+  logo: 'assets/sponsors/invertase.png',
   url: 'https://invertase.io',
-  tier: Tier.gold,
 );
 
 const skandia = Sponsor(
-  logo: 'skandia.png',
+  logo: 'assets/sponsors/skandia.png',
   url: 'https://skandia.se',
-  tier: Tier.gold,
 );
 
 const dcm = Sponsor(
-  logo: 'dcm.png',
+  logo: 'assets/sponsors/dcm.png',
   url: 'https://dcm.dev',
-  tier: Tier.gold,
 );
 
 const flutter = Sponsor(
-  logo: 'flutter.png',
+  logo: 'assets/sponsors/flutter.png',
   url: 'https://flutter.dev',
-  tier: Tier.silver,
 );
 
 const tide = Sponsor(
-  logo: 'tide.png',
+  logo: 'assets/sponsors/tide.png',
   url: 'https://tide.co',
-  tier: Tier.silver,
 );
 
 const leanCode = Sponsor(
-  logo: 'leancode.png',
+  logo: 'assets/sponsors/leancode.png',
   url: 'https://leancode.co',
-  tier: Tier.silver,
 );
 
 const appwrite = Sponsor(
-  logo: 'appwrite.png',
+  logo: 'assets/sponsors/appwrite.png',
   url: 'https://appwrite.io',
-  tier: Tier.silver,
 );
 
-const serverpod = Sponsor(
-  logo: 'serverpod.png',
-  url: 'https://serverpod.dev',
-  tier: Tier.bronze,
+const sas = Sponsor(
+  logo: 'assets/sponsors/sas.png',
+  url: 'https://sas.se',
+);
+
+const pettersonApps = Sponsor(
+  logo: 'assets/sponsors/pettersonapps.png',
+  url: 'https://pettersonapps.com',
+);
+
+const rebelAppStudio = Sponsor(
+  logo: 'assets/sponsors/rebelappstudio.png',
+  url: 'https://rebelappstudio.com',
 );
 
 const blueFire = Sponsor(
-  logo: 'bluefire.png',
+  logo: 'assets/sponsors/bluefire.png',
   url: 'https://opencollective.com/blue-fire',
-  tier: Tier.bronze,
 );
 
 const done = Sponsor(
-  logo: 'done.png',
+  logo: 'assets/sponsors/done.png',
   url: 'https://doneservices.se',
-  tier: Tier.bronze,
 );
