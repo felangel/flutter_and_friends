@@ -12,7 +12,7 @@ const exhibitionStage = Location(
 final talks = <Talk>[
   Talk(
     name: 'Why and how we built code push for Flutter at Shorebird',
-    speaker: felixAngelov,
+    speakers: const [felixAngelov],
     duration: const Duration(minutes: 40),
     startTime: DateTime(2023, 9, 4, 10, 10),
     location: mainStage,
@@ -21,7 +21,7 @@ In this talk we'll learn about what code push is, why it matters, how it works, 
   ),
   Talk(
     name: 'The 6-Step Flex Layout Algorithm, for Humans',
-    speaker: scottStoll,
+    speakers: const [scottStoll],
     duration: const Duration(minutes: 40),
     startTime: DateTime(2023, 9, 4, 10, 50),
     location: mainStage,
@@ -31,7 +31,7 @@ This is the talk you've been waiting for since the day you started Flutter. This
   ),
   Talk(
     name: 'Behavior Driven Development with Flutter',
-    speaker: filipeABarroso,
+    speakers: const [filipeABarroso],
     duration: const Duration(minutes: 40),
     startTime: DateTime(2023, 9, 4, 12, 10),
     location: mainStage,
@@ -40,7 +40,7 @@ If there is something that projects tend to ignore are TESTS. With the same mind
   ),
   Talk(
     name: 'The runtime that makes Dart tick',
-    speaker: vyacheslavEgorov,
+    speakers: const [vyacheslavEgorov],
     duration: const Duration(minutes: 40),
     startTime: DateTime(2023, 9, 4, 13),
     location: mainStage,
@@ -49,7 +49,7 @@ A talk about how the Dart Runtime runs Dart code. Maybe something about performa
   ),
   Talk(
     name: 'From Network Failures to Offline Success: A Journey of Visible App',
-    speaker: dominikRoszkowski,
+    speakers: const [dominikRoszkowski],
     duration: const Duration(minutes: 40),
     startTime: DateTime(2023, 9, 4, 13, 40),
     location: mainStage,
@@ -62,7 +62,7 @@ Join me as I share our journey and offer valuable insights for Flutter developer
   ),
   Talk(
     name: 'Supercharged UI testing with Patrol',
-    speaker: mateuszWojtczak,
+    speakers: const [mateuszWojtczak],
     duration: const Duration(minutes: 20),
     startTime: DateTime(2023, 9, 4, 13, 40),
     location: exhibitionStage,
@@ -76,7 +76,7 @@ In this talk, we’ll take a look at problems with integration testing, how Patr
   Talk(
     name:
         'Efficiency Unleashed: Streamline Flutter Project Setup like a Pro! 🚀',
-    speaker: wiktoriaSobczyk,
+    speakers: const [wiktoriaSobczyk],
     duration: const Duration(minutes: 20),
     startTime: DateTime(2023, 9, 4, 14),
     location: exhibitionStage,
@@ -87,7 +87,7 @@ Say goodbye 👋 to tedious setup tasks and hello to accelerated development! �
   ),
   Talk(
     name: 'A safe bridge to the native side',
-    speaker: darjaOrlova,
+    speakers: const [darjaOrlova],
     duration: const Duration(minutes: 40),
     startTime: DateTime(2023, 9, 4, 14, 45),
     location: mainStage,
@@ -96,7 +96,7 @@ Flutter is such an amazing cross-platform framework that it’s easy to forget a
   ),
   Talk(
     name: 'Flutter on the Server: Why & How it is Interesting',
-    speaker: jochumvanderPloeg,
+    speakers: const [jochumvanderPloeg],
     duration: const Duration(minutes: 20),
     startTime: DateTime(2023, 9, 4, 14, 45),
     location: exhibitionStage,
@@ -105,7 +105,7 @@ Running Flutter on the server has benefits people not often think about, this ta
   ),
   Talk(
     name: 'Running Dart around the Globe',
-    speaker: majidHajian,
+    speakers: const [majidHajian],
     duration: const Duration(minutes: 20),
     startTime: DateTime(2023, 9, 4, 15, 05),
     location: exhibitionStage,
@@ -115,17 +115,7 @@ With Globe you can deploy Dart applications on a serverless global edge network 
   Talk(
     name:
         '''Building a large-scale Flutter mobile banking application with 25 Flutter Devs''',
-    speaker: albertWolszon,
-    duration: const Duration(minutes: 40),
-    startTime: DateTime(2023, 9, 4, 16),
-    location: mainStage,
-    description: '''
-Building a large-scale Flutter mobile banking application with 25 Flutter Devs and 200 other team members has taught us many valuable lessons on how to set up such a project. We would like to give you our perspective on the organization of the project and challenges such as code ownership, communication, and design system, which are vital to ensure high productivity while keeping the team happy.''',
-  ),
-  Talk(
-    name:
-        '''Building a large-scale Flutter mobile banking application with 25 Flutter Devs''',
-    speaker: mateuszWojtczak,
+    speakers: const [albertWolszon, mateuszWojtczak],
     duration: const Duration(minutes: 40),
     startTime: DateTime(2023, 9, 4, 16),
     location: mainStage,
@@ -135,7 +125,7 @@ Building a large-scale Flutter mobile banking application with 25 Flutter Devs a
   Talk(
     name:
         '''Supercharged Design System: Enhancing Widget Cataloging, Testing, and Collaboration with designers''',
-    speaker: lucasJosefiak,
+    speakers: const [lucasJosefiak],
     duration: const Duration(minutes: 20),
     startTime: DateTime(2023, 9, 4, 16),
     location: exhibitionStage,
@@ -155,17 +145,7 @@ Key takeaways:
   Talk(
     name:
         '''Breaking Barriers in Energy App Development with Flutter and Dart Frog''',
-    speaker: maherJaafar,
-    duration: const Duration(minutes: 20),
-    startTime: DateTime(2023, 9, 4, 16, 20),
-    location: exhibitionStage,
-    description: '''
-Our Solar Cell Charging App’s notable features include utilizing two APIs with a backend built in Dart Frog, implementing HydratedBlocs for data persistence, employing Flutter isolates for real-time updates, reverse engineering the excisting backend API for comprehensive integration, utilizing Shorebird for seamless code push on Android, and creating a visually consistent power flow using a custom painter.''',
-  ),
-  Talk(
-    name:
-        '''Breaking Barriers in Energy App Development with Flutter and Dart Frog''',
-    speaker: antonIjas,
+    speakers: const [maherJaafar, antonIjas],
     duration: const Duration(minutes: 20),
     startTime: DateTime(2023, 9, 4, 16, 20),
     location: exhibitionStage,
@@ -174,7 +154,7 @@ Our Solar Cell Charging App’s notable features include utilizing two APIs with
   ),
   Talk(
     name: 'Building Voice-Enabled Flutter Apps: A Comprehensive Guide',
-    speaker: akankshaSingh,
+    speakers: const [akankshaSingh],
     duration: const Duration(minutes: 40),
     startTime: DateTime(2023, 9, 4, 16, 40),
     location: mainStage,
@@ -187,7 +167,7 @@ In this engaging talk, we will explore the diverse use cases of conversational A
   ),
   Talk(
     name: 'What hit tests really are',
-    speaker: kamilKlyta,
+    speakers: const [kamilKlyta],
     duration: const Duration(minutes: 20),
     startTime: DateTime(2023, 9, 4, 16, 40),
     location: exhibitionStage,
