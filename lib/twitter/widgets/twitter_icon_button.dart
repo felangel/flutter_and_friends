@@ -12,17 +12,62 @@ class TwitterIconButton extends StatelessWidget {
     const logoSize = 16.0;
     return ClipRRect(
       borderRadius: BorderRadius.circular(logoSize * 2),
-      child: ColoredBox(
-        color: Colors.lightBlueAccent,
-        child: IconButton(
-          iconSize: logoSize * 1.25,
-          // FIXME: Need to adjust the logo.
-          icon: const Icon(
-            FontAwesomeIcons.twitter,
-            color: Colors.white,
-          ),
-          onPressed: () => launchUrlString('https://twitter.com/$handle'),
+      // FIXME: Need to use the X icon instead.
+      child: TwitterIcon(
+        iconSize: logoSize * 1.25,
+        onPressed: () => launchUrlString('https://twitter.com/$handle'),
+      ),
+    );
+  }
+}
+
+class TwitterIcon extends StatelessWidget {
+  const TwitterIcon({
+    required this.onPressed,
+    required this.iconSize,
+    super.key,
+  });
+
+  final VoidCallback onPressed;
+  final double iconSize;
+
+  @override
+  Widget build(BuildContext context) {
+    return ColoredBox(
+      color: Colors.lightBlueAccent,
+      child: IconButton(
+        iconSize: iconSize,
+        icon: const Icon(
+          FontAwesomeIcons.twitter,
+          color: Colors.white,
         ),
+        onPressed: onPressed,
+      ),
+    );
+  }
+}
+
+class XIcon extends StatelessWidget {
+  const XIcon({
+    required this.onPressed,
+    required this.iconSize,
+    super.key,
+  });
+
+  final VoidCallback onPressed;
+  final double iconSize;
+
+  @override
+  Widget build(BuildContext context) {
+    return ColoredBox(
+      color: Colors.black,
+      child: IconButton(
+        iconSize: iconSize,
+        icon: const Icon(
+          FontAwesomeIcons.xTwitter,
+          color: Colors.white,
+        ),
+        onPressed: onPressed,
       ),
     );
   }

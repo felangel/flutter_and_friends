@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_and_friends/extensions/extensions.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
 import 'package:flutter_and_friends/location/location.dart';
 import 'package:flutter_and_friends/schedule/schedule.dart';
 import 'package:flutter_and_friends/workshop_details/workshop_details.dart';
-import 'package:intl/intl.dart';
 
 class WorkshopCard extends StatelessWidget {
   const WorkshopCard({required this.workshop, super.key});
@@ -29,10 +29,17 @@ class WorkshopCard extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      const Icon(Icons.calendar_today, size: 18),
+                      Icon(
+                        Icons.calendar_today,
+                        size: 18,
+                        color: theme.colorScheme.secondary,
+                      ),
                       const SizedBox(width: 4),
                       Text(
-                        workshop.startTime.prettyPrint(context),
+                        workshop.startTime.prettyPrint(
+                          context,
+                          workshop.duration,
+                        ),
                         style: theme.textTheme.labelMedium?.copyWith(
                           color: theme.colorScheme.secondary,
                         ),
@@ -90,11 +97,5 @@ class WorkshopCard extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-extension on DateTime {
-  String prettyPrint(BuildContext context) {
-    return '''${DateFormat.MMMMd().format(this)}, ${TimeOfDay.fromDateTime(this).format(context)}''';
   }
 }

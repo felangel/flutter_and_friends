@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_and_friends/extensions/extensions.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
 import 'package:flutter_and_friends/location/location.dart';
 import 'package:flutter_and_friends/schedule/schedule.dart';
 import 'package:flutter_and_friends/talk_details/talk_details.dart';
-import 'package:intl/intl.dart';
 
 class TalkCard extends StatelessWidget {
   const TalkCard({required this.talk, super.key});
@@ -29,14 +29,19 @@ class TalkCard extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      const Icon(Icons.calendar_today, size: 18),
+                      Icon(
+                        Icons.calendar_today,
+                        size: 18,
+                        color: theme.colorScheme.secondary,
+                      ),
                       const SizedBox(width: 4),
                       Text(
-                        talk.startTime.prettyPrint(context),
+                        talk.startTime.prettyPrint(context, talk.duration),
                         style: theme.textTheme.labelMedium?.copyWith(
                           color: theme.colorScheme.secondary,
                         ),
                       ),
+                      const SizedBox(width: 16),
                     ],
                   ),
                   FavoriteButton(event: talk),
@@ -95,11 +100,5 @@ class TalkCard extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-extension on DateTime {
-  String prettyPrint(BuildContext context) {
-    return '''${DateFormat.MMMMd().format(this)}, ${TimeOfDay.fromDateTime(this).format(context)}''';
   }
 }

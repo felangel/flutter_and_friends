@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/sponsors/sponsors.dart';
-import 'package:flutter_and_friends/theme/widgets/widgets.dart';
+import 'package:flutter_and_friends/theme/theme.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class SponsorsPage extends StatelessWidget {
@@ -87,7 +87,7 @@ class SponsorItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Card(
-        color: Colors.white,
+        color: lightTheme.colorScheme.background,
         elevation: 0,
         clipBehavior: Clip.hardEdge,
         child: InkWell(

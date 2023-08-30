@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_and_friends/extensions/extensions.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
 import 'package:flutter_and_friends/location/location.dart';
 import 'package:flutter_and_friends/schedule/schedule.dart';
-import 'package:intl/intl.dart';
 
 class ActivityCard extends StatelessWidget {
   const ActivityCard({required this.activity, super.key});
@@ -25,14 +25,22 @@ class ActivityCard extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      const Icon(Icons.calendar_today, size: 18),
+                      Icon(
+                        Icons.calendar_today,
+                        size: 18,
+                        color: theme.colorScheme.secondary,
+                      ),
                       const SizedBox(width: 4),
                       Text(
-                        activity.startTime.prettyPrint(context),
+                        activity.startTime.prettyPrint(
+                          context,
+                          activity.duration,
+                        ),
                         style: theme.textTheme.labelMedium?.copyWith(
                           color: theme.colorScheme.secondary,
                         ),
                       ),
+                      const SizedBox(width: 16),
                     ],
                   ),
                   FavoriteButton(event: activity),
@@ -70,11 +78,5 @@ class ActivityCard extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-extension on DateTime {
-  String prettyPrint(BuildContext context) {
-    return '''${DateFormat.MMMMd().format(this)}, ${TimeOfDay.fromDateTime(this).format(context)}''';
   }
 }
