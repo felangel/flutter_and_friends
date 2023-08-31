@@ -95,13 +95,15 @@ Say goodbye 👋 to tedious setup tasks and hello to accelerated development! �
 Flutter is such an amazing cross-platform framework that it’s easy to forget about its connection with the underlying native platforms. For most of your Flutter journey, you won’t touch even a line of native code... until one day a client requires the use of an obscure SDK that doesn’t have a Flutter implementation, or you want to use that shiny new native feature before it gets official framework support. So, unwillingly, you reach for MethodChannels... but let me stop you right there. In this talk, I will show you a better, type-safe, and more enjoyable way to communicate with the native layer with the help of the pigeon code generation tool.''',
   ),
   Talk(
-    name: 'Flutter on the Server: Why & How it is Interesting',
-    speakers: const [jochumvanderPloeg],
+    name: 'Quick Guide to Multi Page Modals for Flutter',
+    speakers: const [cagatayUlusoy],
     duration: const Duration(minutes: 20),
     startTime: DateTime(2023, 9, 4, 14, 45),
     location: exhibitionStage,
     description: '''
-Running Flutter on the server has benefits people not often think about, this talk will explain different ways you can run Flutter headlesssly and why you should. The talk touches on gamedev, sharing code, machine learning and other areas. All while explaining the pros and cons of every part.''',
+In this session, we will explore the multi-page modal sheets in Flutter. We'll kick things off by dissecting the modal sheet UI pattern, including design guidelines and best practices by showing real-world examples highlighting what to do—and what not to do.
+
+Next, we will shift from design to implementation. We will detail the process of ensuring modal sheet responsiveness, emphasizing its compatibility with declarative navigation. Additionally, participants will gain insights into the integration of built-in motion animations, specifically tailored for scrolling and pagination.''',
   ),
   Talk(
     name: 'Running Dart around the Globe',
@@ -269,11 +271,11 @@ const kamilKlyta = Speaker(
   avatar: 'assets/speakers/13_kamil.jpg',
 );
 
-const jochumvanderPloeg = Speaker(
-  name: 'Jochum van der Ploeg',
-  title: 'Senior Open Source Engineer at Very Good Ventures',
-  avatar: 'assets/speakers/14_jochum.jpg',
-  twitter: 'wolfenrain',
+const cagatayUlusoy = Speaker(
+  name: 'Cagatay Ulusoy',
+  title: 'Flutter Competence Lead at Wolt',
+  avatar: 'assets/speakers/14_cagatay.jpg',
+  twitter: 'ulusoyapps',
 );
 
 const antonIjas = Speaker(

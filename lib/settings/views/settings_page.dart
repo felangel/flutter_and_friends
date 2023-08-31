@@ -3,6 +3,7 @@ import 'package:flutter_and_friends/settings/settings.dart';
 import 'package:flutter_and_friends/theme/theme.dart';
 import 'package:flutter_and_friends/updater/updater.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -76,6 +77,17 @@ class SettingsView extends StatelessWidget {
                 applicationIcon: Image.asset('assets/logo.png', height: 120),
                 applicationName: 'Flutter & Friends',
               ),
+            ),
+            ListTile(
+              title: const Row(
+                children: [
+                  Text('Follow on'),
+                  Icon(FontAwesomeIcons.xTwitter),
+                ],
+              ),
+              subtitle: const Text('Formerly known as Twitter'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => launchUrlString('https://shorebird.dev'),
             ),
             ListTile(
               title: const Text('Developed By Felix Angelov'),
