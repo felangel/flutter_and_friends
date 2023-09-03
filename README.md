@@ -1,4 +1,15 @@
 <h1 align="center">Flutter & Friends</h1>
+<p align="center">
+  <a href="https://pub.dev/packages/very_good_analysis">
+    <img alt="style: very good analysis" src="https://img.shields.io/badge/style-very_good_analysis-B22C89.svg">
+  </a>  
+  <a href="https://opensource.org/licenses/MIT">    
+    <img alt="MIT License" src="https://img.shields.io/badge/License-MIT-blue.svg">
+  </a>
+  <a href="https://shorebird.dev">    
+    <img alt="Powered by Shorebird" src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/felangel/67cb21c7c09a56d0236d51dd4015cc67/raw/dc6eb96057c75f1c8e5a7774438e453954827a6b/badge.json">
+  </a>
+</p>
 
 ![hero](./art/hero.png)
 
