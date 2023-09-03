@@ -7,7 +7,7 @@
     <img alt="MIT License" src="https://img.shields.io/badge/License-MIT-blue.svg">
   </a>
   <a href="https://shorebird.dev">    
-    <img alt="Powered by Shorebird" src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/felangel/67cb21c7c09a56d0236d51dd4015cc67/raw/dc6eb96057c75f1c8e5a7774438e453954827a6b/badge.json">
+    <img alt="Powered by Shorebird" src="https://img.shields.io/endpoint?url=https://tinyurl.com/shorebirddev">
   </a>
 </p>
 
