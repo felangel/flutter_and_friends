@@ -87,7 +87,9 @@ class SettingsView extends StatelessWidget {
               ),
               subtitle: const Text('Formerly known as Twitter'),
               trailing: const Icon(Icons.chevron_right),
-              onTap: () => launchUrlString('https://shorebird.dev'),
+              onTap: () => launchUrlString(
+                'https://twitter.com/FlutterNFriends',
+              ),
             ),
             ListTile(
               title: const Text('Developed By Felix Angelov'),

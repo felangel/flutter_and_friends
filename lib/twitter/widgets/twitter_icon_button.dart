@@ -12,8 +12,7 @@ class TwitterIconButton extends StatelessWidget {
     const logoSize = 16.0;
     return ClipRRect(
       borderRadius: BorderRadius.circular(logoSize * 2),
-      // FIXME: Need to use the X icon instead.
-      child: TwitterIcon(
+      child: XIcon(
         iconSize: logoSize * 1.25,
         onPressed: () => launchUrlString('https://twitter.com/$handle'),
       ),

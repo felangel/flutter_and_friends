@@ -55,7 +55,7 @@ class EmptyFavorites extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             const Text(
-              'Tap the heart icon to add a talk to your favorites',
+              'Tap the heart icon to add an event to your favorites',
               textAlign: TextAlign.center,
             ),
           ],
