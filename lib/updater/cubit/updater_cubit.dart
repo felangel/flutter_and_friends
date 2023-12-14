@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:pusher_beams/pusher_beams.dart';
-import 'package:shorebird_code_push/shorebird_code_push_io.dart';
+import 'package:shorebird_code_push/shorebird_code_push.dart';
 
 part 'updater_state.dart';
 
