@@ -1,6 +1,6 @@
 part of 'favorites_cubit.dart';
 
-class FavoritesState {
+class FavoritesState extends Equatable {
   const FavoritesState({this.events = const []});
 
   final List<Event> events;
@@ -8,4 +8,7 @@ class FavoritesState {
   FavoritesState copyWith({List<Event>? events}) {
     return FavoritesState(events: events ?? this.events);
   }
+
+  @override
+  List<Object> get props => [events];
 }

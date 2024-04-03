@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter_and_friends/schedule/schedule.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 
