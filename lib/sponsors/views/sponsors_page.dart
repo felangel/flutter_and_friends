@@ -87,7 +87,7 @@ class SponsorItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Card(
-        color: lightTheme.colorScheme.background,
+        color: lightTheme.colorScheme.surface,
         elevation: 0,
         clipBehavior: Clip.hardEdge,
         child: InkWell(

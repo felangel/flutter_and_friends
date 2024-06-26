@@ -32,7 +32,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   json_serializable: ^6.7.1
-  very_good_analysis: ^5.0.0
+  very_good_analysis: ^6.0.0
 
 flutter:
   assets:
