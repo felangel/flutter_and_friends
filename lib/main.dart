@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/config/config.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
@@ -19,7 +20,7 @@ Future<void> main() async {
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getTemporaryDirectory(),
   );
-  // if (kDebugMode) await HydratedBloc.storage.clear();
+  if (kDebugMode) await HydratedBloc.storage.clear();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   HttpOverrides.global = MyHttpOverrides();
   runApp(const App());
