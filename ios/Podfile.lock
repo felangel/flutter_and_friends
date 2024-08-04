@@ -1,4 +1,6 @@
 PODS:
+  - audioplayers_darwin (0.0.1):
+    - Flutter
   - Firebase/CoreOnly (11.0.0):
     - FirebaseCore (= 11.0.0)
   - firebase_core (3.4.0):
@@ -28,15 +30,19 @@ PODS:
   - PushNotifications (4.0.0)
   - restart_app (0.0.1):
     - Flutter
+  - rive_common (0.0.1):
+    - Flutter
   - url_launcher_ios (0.0.1):
     - Flutter
 
 DEPENDENCIES:
+  - audioplayers_darwin (from `.symlinks/plugins/audioplayers_darwin/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - Flutter (from `Flutter`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - pusher_beams_ios (from `.symlinks/plugins/pusher_beams_ios/ios`)
   - restart_app (from `.symlinks/plugins/restart_app/ios`)
+  - rive_common (from `.symlinks/plugins/rive_common/ios`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
 
 SPEC REPOS:
@@ -48,6 +54,8 @@ SPEC REPOS:
     - PushNotifications
 
 EXTERNAL SOURCES:
+  audioplayers_darwin:
+    :path: ".symlinks/plugins/audioplayers_darwin/ios"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
   Flutter:
@@ -58,10 +66,13 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/pusher_beams_ios/ios"
   restart_app:
     :path: ".symlinks/plugins/restart_app/ios"
+  rive_common:
+    :path: ".symlinks/plugins/rive_common/ios"
   url_launcher_ios:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
 SPEC CHECKSUMS:
+  audioplayers_darwin: 877d9a4d06331c5c374595e46e16453ac7eafa40
   Firebase: 9f574c08c2396885b5e7e100ed4293d956218af9
   firebase_core: ceec591a66629daaee82d3321551692c4a871493
   FirebaseCore: 3cf438f431f18c12cdf2aaf64434648b63f7e383
@@ -72,6 +83,7 @@ SPEC CHECKSUMS:
   pusher_beams_ios: 3991e6c6186aa392e2c82687f727ffd5075ea268
   PushNotifications: 2b2174b28bf48b1fe552686d1f95c53d62a4781d
   restart_app: 806659942bf932f6ce51c5372f91ce5e81c8c14a
+  rive_common: cbbac3192af00d7341f19dae2f26298e9e37d99e
   url_launcher_ios: 5334b05cef931de560670eeae103fd3e431ac3fe
 
 PODFILE CHECKSUM: 819463e6a0290f5a72f145ba7cde16e8b6ef0796

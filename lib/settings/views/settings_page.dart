@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_and_friends/puzzles/puzzles.dart';
 import 'package:flutter_and_friends/settings/settings.dart';
 import 'package:flutter_and_friends/theme/theme.dart';
 import 'package:flutter_and_friends/updater/updater.dart';
@@ -61,6 +64,19 @@ class SettingsView extends StatelessWidget {
               onTap: () => launchUrlString(
                 'https://www.google.com/maps/d/u/0/viewer?mid=102KWzlh5enCfJXbgTu8wN8FSfeOzsMw&femb=1&ll=59.32440113540593%2C18.059913600000016&z=13',
               ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.extension),
+              title: const Text('Flutter Puzzle'),
+              subtitle: const Text('Powered by ARKROOT GmbH'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () async {
+                final result = await showFuzzleWarningDialog(context);
+                if (!context.mounted) return;
+                if (result ?? false) {
+                  unawaited(Navigator.of(context).push(PuzzlesPage.route()));
+                }
+              },
             ),
             const SizedBox(height: 16),
             Text('About', style: headingStyle),

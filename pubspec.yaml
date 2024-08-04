@@ -7,6 +7,9 @@ environment:
   sdk: ">=3.5.0 <4.0.0"
 
 dependencies:
+  arkroot_puzzle_api:
+    path: packages/arkroot_puzzle_api
+  audioplayers: ^6.0.0
   bloc: ^8.1.4
   equatable: ^2.0.5
   firebase_core: ^3.4.0
@@ -20,12 +23,19 @@ dependencies:
   hydrated_bloc: ^9.1.5
   intl: ^0.19.0
   json_annotation: ^4.9.0
+  lottie: ^3.1.2
+  nested_scroll_views: ^0.0.11
   path_provider: ^2.1.4
   pub_semver: ^2.1.4
   pusher_beams: ^1.1.1
+  puzzle_repository:
+    path: packages/puzzle_repository
   restart_app: ^1.2.1
+  rive: ^0.13.5
   shorebird_code_push: ^1.1.4
   url_launcher: ^6.3.0
+  uuid: ^3.0.7
+  very_good_infinite_list: ^0.8.0
 
 dev_dependencies:
   build_runner: ^2.4.12
@@ -40,5 +50,8 @@ flutter:
     - assets/activities/
     - assets/speakers/
     - assets/sponsors/
+    - assets/lotties/
+    - assets/rive/
+    - assets/audio/
     - shorebird.yaml
   uses-material-design: true

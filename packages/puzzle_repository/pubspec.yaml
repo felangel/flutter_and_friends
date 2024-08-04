@@ -1,0 +1,19 @@
+name: puzzle_repository
+description: A dart repository which manages the puzzle domain
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: ">=3.5.0 <4.0.0"
+
+dependencies:
+  arkroot_puzzle_api:
+    path: ../arkroot_puzzle_api
+  equatable: ^2.0.5
+  json_annotation: ^4.9.0
+  ntp: ^2.0.0
+
+dev_dependencies:
+  build_runner: ^2.4.11
+  json_serializable: ^6.8.0
+  very_good_analysis: ^6.0.0
