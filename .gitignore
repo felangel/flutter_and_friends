@@ -45,6 +45,3 @@ app.*.map.json
 
 # Secrets
 .secrets/
-
-# FVM Version Cache
-.fvm/
