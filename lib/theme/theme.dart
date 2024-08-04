@@ -77,7 +77,6 @@ const _lightColorScheme = ColorScheme(
   scrim: Color(0xFF000000),
   surface: Color(0xFFFAF9FD),
   onSurface: Color(0xFF1B1B1F),
-  surfaceContainerHighest: Color(0xFFE1E2EC),
   onSurfaceVariant: Color(0xFF44474F),
   surfaceContainerHighest: Color(0xFFFFFFFF),
 );
@@ -110,7 +109,6 @@ const _darkColorScheme = ColorScheme(
   scrim: Color(0xFF000000),
   surface: Color(0xFF121316),
   onSurface: Color(0xFFC7C6CA),
-  surfaceContainerHighest: Color(0xFF44474F),
   onSurfaceVariant: Color(0xFFC4C6D0),
   surfaceContainerHighest: Color(0xFF000000),
 );

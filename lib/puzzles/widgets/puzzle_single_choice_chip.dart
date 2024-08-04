@@ -21,6 +21,7 @@ class _PuzzleSingleChoiceChipsState extends State<PuzzleSingleChoiceChips> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final borderColor = theme.colorScheme.onSecondaryContainer.withOpacity(0.3);
     return Wrap(
       children: List.generate(
         widget.values.length,
@@ -41,11 +42,20 @@ class _PuzzleSingleChoiceChipsState extends State<PuzzleSingleChoiceChips> {
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
-                border: const Border(
-                  bottom: BorderSide(width: 2),
-                  left: BorderSide(),
-                  right: BorderSide(),
-                  top: BorderSide(),
+                border: Border(
+                  bottom: BorderSide(
+                    width: 2,
+                    color: borderColor,
+                  ),
+                  left: BorderSide(
+                    color: borderColor,
+                  ),
+                  right: BorderSide(
+                    color: borderColor,
+                  ),
+                  top: BorderSide(
+                    color: borderColor,
+                  ),
                 ),
               ),
               child: Text(
