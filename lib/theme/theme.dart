@@ -23,6 +23,7 @@ final lightTheme = ThemeData(
     backgroundColor: _lightColorScheme.primaryContainer,
   ),
   useMaterial3: true,
+  fontFamily: 'Poppins',
 );
 
 final darkTheme = ThemeData(
@@ -45,6 +46,7 @@ final darkTheme = ThemeData(
     backgroundColor: _darkColorScheme.primaryContainer,
   ),
   useMaterial3: true,
+  fontFamily: 'Poppins',
 );
 
 const _lightColorScheme = ColorScheme(
@@ -79,6 +81,7 @@ const _lightColorScheme = ColorScheme(
   onSurface: Color(0xFF1B1B1F),
   surfaceVariant: Color(0xFFE1E2EC),
   onSurfaceVariant: Color(0xFF44474F),
+  surfaceContainerHighest: Color(0xFFFFFFFF),
 );
 
 const _darkColorScheme = ColorScheme(
@@ -113,4 +116,5 @@ const _darkColorScheme = ColorScheme(
   onSurface: Color(0xFFC7C6CA),
   surfaceVariant: Color(0xFF44474F),
   onSurfaceVariant: Color(0xFFC4C6D0),
+  surfaceContainerHighest: Color(0xFF000000),
 );

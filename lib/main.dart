@@ -1,11 +1,12 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/config/config.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
 import 'package:flutter_and_friends/launchpad/launchpad.dart';
+import 'package:flutter_and_friends/puzzles/cubit/puzzles_cubit.dart';
 import 'package:flutter_and_friends/theme/theme.dart';
 import 'package:flutter_and_friends/updater/updater.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,8 +19,9 @@ Future<void> main() async {
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getTemporaryDirectory(),
   );
-  if (kDebugMode) await HydratedBloc.storage.clear();
+  // if (kDebugMode) await HydratedBloc.storage.clear();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  HttpOverrides.global = MyHttpOverrides();
   runApp(const App());
 }
 
@@ -35,6 +37,7 @@ class App extends StatelessWidget {
           BlocProvider(create: (_) => ThemeCubit()),
           BlocProvider(create: (_) => FavoritesCubit()),
           BlocProvider(create: (_) => UpdaterCubit()..init()),
+          BlocProvider(create: (_) => PuzzlesCubit()),
         ],
         child: const AppView(),
       ),

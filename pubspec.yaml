@@ -7,7 +7,11 @@ environment:
   sdk: ">=3.0.6 <4.0.0"
 
 dependencies:
+  arkroot_puzzle_api:
+    path: packages/arkroot_puzzle_api
+  audioplayers: ^6.0.0
   bloc: ^8.1.2
+  custom_platform_device_id: ^1.0.8
   equatable: ^2.0.5
   firebase_core: ^2.15.1
   flutter:
@@ -20,12 +24,19 @@ dependencies:
   hydrated_bloc: ^9.1.2
   intl: ^0.18.1
   json_annotation: ^4.8.1
+  lottie: ^3.1.2
+  nested_scroll_views: ^0.0.11
+  particles_flutter: ^0.1.4
   path_provider: ^2.1.0
   pub_semver: ^2.1.4
   pusher_beams: ^1.1.1
+  puzzle_repository:
+    path: packages/puzzle_repository
   restart_app: ^1.2.1
+  rive: ^0.13.5
   shorebird_code_push: ^1.1.0
   url_launcher: ^6.1.12
+  very_good_infinite_list: ^0.7.1
 
 dev_dependencies:
   build_runner: ^2.0.0
@@ -40,5 +51,20 @@ flutter:
     - assets/activities/
     - assets/speakers/
     - assets/sponsors/
+    - assets/lotties/
+    - assets/rive/
+    - assets/audio/
     - shorebird.yaml
   uses-material-design: true
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/poppins/Poppins-Black.ttf
+        - asset: assets/fonts/poppins/Poppins-Bold.ttf
+        - asset: assets/fonts/poppins/Poppins-ExtraBold.ttf
+        - asset: assets/fonts/poppins/Poppins-Light.ttf
+        - asset: assets/fonts/poppins/Poppins-Medium.ttf
+        - asset: assets/fonts/poppins/Poppins-Regular.ttf
+        - asset: assets/fonts/poppins/Poppins-SemiBold.ttf
+        - asset: assets/fonts/poppins/Poppins-Thin.ttf

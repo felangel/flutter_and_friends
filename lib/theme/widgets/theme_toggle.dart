@@ -7,7 +7,7 @@ class ThemeToggle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final state = context.watch<ThemeCubit>().state;    
+    final state = context.watch<ThemeCubit>().state;
     final label = state == ThemeState.light ? 'Light Mode' : 'Dark Mode';
     final icon = state == ThemeState.light ? Icons.light_mode : Icons.dark_mode;
     return SwitchListTile(

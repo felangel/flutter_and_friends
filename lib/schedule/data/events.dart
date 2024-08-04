@@ -145,7 +145,7 @@ What is next for Flutter and its community? What problems are developers current
     duration: const Duration(hours: 4),
     location: const Location(
       name: 'Slaktkyrkan',
-      coordinates: (59.2926134,18.0802178),
+      coordinates: (59.2926134, 18.0802178),
     ),
     description: '''
 You've been through a long conference day, now you deserve a party! Celebrate the Flutter community with DJ Albin, photo booth, games and beverages.''',

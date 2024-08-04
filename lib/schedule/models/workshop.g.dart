@@ -11,7 +11,7 @@ part of 'workshop.dart';
 Workshop _$WorkshopFromJson(Map<String, dynamic> json) => Workshop(
       name: json['name'] as String,
       speaker: Speaker.fromJson(json['speaker'] as Map<String, dynamic>),
-      duration: Duration(microseconds: json['duration'] as int),
+      duration: Duration(microseconds: (json['duration'] as num).toInt()),
       startTime: DateTime.parse(json['startTime'] as String),
       description: json['description'] as String,
       location: Location.fromJson(json['location'] as Map<String, dynamic>),
