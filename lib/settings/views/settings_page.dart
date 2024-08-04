@@ -123,15 +123,3 @@ class AppVersion extends StatelessWidget {
     return Text(version);
   }
 }
-
-class AppPatchNumber extends StatelessWidget {
-  const AppPatchNumber({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final patchNumber = context.select(
-      (SettingsCubit cubit) => '${cubit.state.patchNumber ?? 0}',
-    );
-    return Text(patchNumber);
-  }
-}

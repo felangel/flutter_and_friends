@@ -1,7 +1,7 @@
 name: flutter_and_friends
 description: The official Flutter & Friends conference app.
 publish_to: none
-version: 1.0.0+7
+version: 1.0.1+9
 
 environment:
   sdk: ">=3.0.6 <4.0.0"
@@ -43,7 +43,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   json_serializable: ^6.7.1
-  very_good_analysis: ^5.0.0
+  very_good_analysis: ^6.0.0
 
 flutter:
   assets:
