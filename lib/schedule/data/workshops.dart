@@ -12,7 +12,7 @@ Location noA({required int floor}) => Location(
 final workshops = <Workshop>[
   Workshop(
     name: 'Join the Flock: Add Shorebird to your Flutter apps',
-    speaker: felixAngelov,
+    speaker: craigLabenz,
     duration: const Duration(minutes: 90),
     startTime: DateTime(2023, 9, 5, 10),
     location: devoteam,
@@ -34,7 +34,7 @@ Lastly, just like too much salt can ruin a meal, you don’t want to overcrowd o
   ),
   Workshop(
     name: 'Theming from basics to advanced, the hard and the easy way',
-    speaker: mikeRydstrom,
+    speaker: roaaKhaddam,
     duration: const Duration(minutes: 90),
     startTime: DateTime(2023, 9, 5, 13),
     location: noA(floor: 4),
@@ -47,7 +47,7 @@ Next, we make the same design again, but this time by using the Themes Playgroun
   ),
   Workshop(
     name: 'Building a space shooter game with Flame',
-    speaker: lukasKlingsbo,
+    speaker: roaaKhaddam,
     duration: const Duration(minutes: 90),
     startTime: DateTime(2023, 9, 5, 13),
     location: noA(floor: 3),
@@ -60,7 +60,7 @@ You need no previous experience with Flame or Flutter to attend, a little Dart e
   ),
   Workshop(
     name: 'Basic and advanced networking in Dart and Flutter',
-    speaker: annaLeushchenko,
+    speaker: roaaKhaddam,
     duration: const Duration(minutes: 90),
     startTime: DateTime(2023, 9, 5, 13),
     location: devoteam,
@@ -73,7 +73,7 @@ You will walk away with knowledge about code generation in Dart and its applicat
   ),
   Workshop(
     name: 'Leveraging AI to write quality code 5x faster',
-    speaker: samyakJain,
+    speaker: roaaKhaddam,
     duration: const Duration(minutes: 90),
     startTime: DateTime(2023, 9, 5, 15),
     location: devoteam,

@@ -90,27 +90,18 @@ Pub opens at 19 and quiz starts at 20:15''',
 final day2 = <Event>[
   Activity(
     name: '✅ Check-in at Kulturhuset',
-    startTime: DateTime(2023, 9, 4, 9),
-    duration: const Duration(hours: 1),
+    startTime: DateTime(2024, 9, 2, 8, 45),
+    duration: const Duration(minutes: 45),
     location: const Location(
       name: 'Kulturhuset',
       coordinates: (59.3318138, 18.0589957),
     ),
   ),
-  Activity(
-    name: '👋 Welcome to Flutter & Friends!',
-    startTime: DateTime(2023, 9, 4, 10),
-    duration: const Duration(minutes: 10),
-    location: const Location(
-      name: 'Main Stage',
-      coordinates: (59.3318138, 18.0589957),
-    ),
-  ),
-  ...talks.sublist(0, 2),
+  ...talks.sublist(0, 5),
   Activity(
     name: '🍽️ Lunch',
-    startTime: DateTime(2023, 9, 4, 11, 30),
-    duration: const Duration(minutes: 90),
+    startTime: DateTime(2024, 9, 2, 11, 50),
+    duration: const Duration(minutes: 70),
     location: const Location(
       name: 'Exhibition Area',
       coordinates: (59.3318138, 18.0589957),
@@ -118,37 +109,34 @@ final day2 = <Event>[
     description: '''
 Enjoy our buffet lunch. Remember there are lunch talks in the main atrium!''',
   ),
-  ...talks.sublist(2),
+  ...talks.sublist(5, 11),
+  Activity(
+    name: 'Fika',
+    startTime: DateTime(2023, 9, 2, 15),
+    duration: const Duration(minutes: 40),
+    location: const Location(
+      name: 'Main Stage',
+      coordinates: (59.3318138, 18.0589957),
+    ),
+  ),
+  ...talks.sublist(11),
   Activity(
     name: '🎙️ Panel discussion',
-    startTime: DateTime(2023, 9, 4, 17, 20),
+    startTime: DateTime(2023, 9, 2, 17, 20),
     duration: const Duration(minutes: 30),
     location: const Location(
       name: 'Main Stage',
       coordinates: (59.3318138, 18.0589957),
     ),
-    description: '''
-What is next for Flutter and its community? What problems are developers currently facing and how do we solve them? Join us as we finish the conference day with a panel of community members.''',
   ),
   Activity(
     name: '🎬 Closing Remarks',
-    startTime: DateTime(2023, 9, 4, 17, 50),
+    startTime: DateTime(2023, 9, 2, 17, 50),
     duration: const Duration(minutes: 10),
     location: const Location(
       name: 'Main Stage',
       coordinates: (59.3318138, 18.0589957),
     ),
-  ),
-  Activity(
-    name: '🎉 Party',
-    startTime: DateTime(2023, 9, 4, 19, 30),
-    duration: const Duration(hours: 4),
-    location: const Location(
-      name: 'Slaktkyrkan',
-      coordinates: (59.2926134, 18.0802178),
-    ),
-    description: '''
-You've been through a long conference day, now you deserve a party! Celebrate the Flutter community with DJ Albin, photo booth, games and beverages.''',
   ),
 ];
 
