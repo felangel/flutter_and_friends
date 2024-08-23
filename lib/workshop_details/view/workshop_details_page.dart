@@ -28,8 +28,6 @@ class WorkshopDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    const avatarSize = 192.0;
-
     return Scaffold(
       appBar: AppBar(
         title: Padding(
@@ -41,44 +39,7 @@ class WorkshopDetailsView extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 18),
         children: [
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              CircleAvatar(
-                radius: avatarSize / 2,
-                backgroundColor: Colors.white,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(avatarSize / 2),
-                  child: Image.asset(
-                    workshop.speaker.avatar,
-                    width: avatarSize,
-                    height: avatarSize,
-                    fit: BoxFit.contain,
-                  ),
-                ),
-              ),
-              if (workshop.speaker.twitter != null)
-                Positioned(
-                  bottom: 0,
-                  child: Transform.translate(
-                    offset: const Offset(avatarSize / 3, 0),
-                    child: TwitterIconButton(handle: workshop.speaker.twitter!),
-                  ),
-                ),
-            ],
-          ),
-          const SizedBox(height: 24),
-          Text(
-            workshop.speaker.name,
-            style: theme.textTheme.titleLarge,
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 8),
-          Text(
-            workshop.speaker.title,
-            style: theme.textTheme.titleMedium,
-            textAlign: TextAlign.center,
-          ),
+          ...workshop.speakers.map((speaker) => SpeakerInfo(speaker: speaker)),
           const SizedBox(height: 32),
           Text(
             workshop.name,
@@ -120,6 +81,63 @@ class WorkshopDetailsView extends StatelessWidget {
           ),
           const SizedBox(height: 24),
           Text(workshop.description),
+        ],
+      ),
+    );
+  }
+}
+
+class SpeakerInfo extends StatelessWidget {
+  const SpeakerInfo({required this.speaker, super.key});
+
+  final Speaker speaker;
+
+  @override
+  Widget build(BuildContext context) {
+    const avatarSize = 192.0;
+    final theme = Theme.of(context);
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4),
+      child: Column(
+        children: [
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              CircleAvatar(
+                radius: avatarSize / 2,
+                backgroundColor: Colors.white,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(avatarSize / 2),
+                  child: Image.asset(
+                    speaker.avatar,
+                    width: avatarSize,
+                    height: avatarSize,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              if (speaker.twitter != null)
+                Positioned(
+                  bottom: 0,
+                  child: Transform.translate(
+                    offset: const Offset(avatarSize / 3, 0),
+                    child: TwitterIconButton(handle: speaker.twitter!),
+                  ),
+                ),
+            ],
+          ),
+          const SizedBox(height: 24),
+          Text(
+            speaker.name,
+            style: theme.textTheme.titleLarge,
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 8),
+          Text(
+            speaker.title,
+            style: theme.textTheme.titleMedium,
+            textAlign: TextAlign.center,
+          ),
         ],
       ),
     );

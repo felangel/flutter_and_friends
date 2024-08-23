@@ -8,7 +8,7 @@ part 'workshop.g.dart';
 class Workshop extends Equatable implements Event {
   const Workshop({
     required this.name,
-    required this.speaker,
+    required this.speakers,
     required this.duration,
     required this.startTime,
     required this.description,
@@ -32,14 +32,14 @@ class Workshop extends Equatable implements Event {
   @override
   final Location location;
 
-  final Speaker speaker;
+  final List<Speaker> speakers;
 
   final String description;
 
   @override
   List<Object> get props => [
         name,
-        speaker,
+        speakers,
         duration,
         startTime,
         location,
