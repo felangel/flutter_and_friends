@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -22,7 +21,6 @@ Future<void> main() async {
   );
   if (kDebugMode) await HydratedBloc.storage.clear();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  HttpOverrides.global = MyHttpOverrides();
   runApp(const App());
 }
 

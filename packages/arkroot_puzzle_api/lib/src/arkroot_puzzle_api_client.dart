@@ -19,7 +19,7 @@ class ArkrootPuzzleApiClient {
   final String _apiSecret;
 
   ArkrootPuzzleApiClient({required String apiKey})
-      : _baseUrl = '13.51.151.221',
+      : _baseUrl = 'newsic.ai',
         _apiSecret = apiKey;
 
   Future<User> verifyUser({
