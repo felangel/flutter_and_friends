@@ -1,4 +1,10 @@
 PODS:
+  - audioplayers_darwin (0.0.1):
+    - Flutter
+  - custom_platform_device_id (0.0.1):
+    - Flutter
+  - device_info (0.0.1):
+    - Flutter
   - Firebase/CoreOnly (10.18.0):
     - FirebaseCore (= 10.18.0)
   - firebase_core (2.24.2):
@@ -30,15 +36,21 @@ PODS:
   - PushNotifications (4.0.0)
   - restart_app (0.0.1):
     - Flutter
+  - rive_common (0.0.1):
+    - Flutter
   - url_launcher_ios (0.0.1):
     - Flutter
 
 DEPENDENCIES:
+  - audioplayers_darwin (from `.symlinks/plugins/audioplayers_darwin/ios`)
+  - custom_platform_device_id (from `.symlinks/plugins/custom_platform_device_id/ios`)
+  - device_info (from `.symlinks/plugins/device_info/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - Flutter (from `Flutter`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - pusher_beams_ios (from `.symlinks/plugins/pusher_beams_ios/ios`)
   - restart_app (from `.symlinks/plugins/restart_app/ios`)
+  - rive_common (from `.symlinks/plugins/rive_common/ios`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
 
 SPEC REPOS:
@@ -51,6 +63,12 @@ SPEC REPOS:
     - PushNotifications
 
 EXTERNAL SOURCES:
+  audioplayers_darwin:
+    :path: ".symlinks/plugins/audioplayers_darwin/ios"
+  custom_platform_device_id:
+    :path: ".symlinks/plugins/custom_platform_device_id/ios"
+  device_info:
+    :path: ".symlinks/plugins/device_info/ios"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
   Flutter:
@@ -61,10 +79,15 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/pusher_beams_ios/ios"
   restart_app:
     :path: ".symlinks/plugins/restart_app/ios"
+  rive_common:
+    :path: ".symlinks/plugins/rive_common/ios"
   url_launcher_ios:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
 SPEC CHECKSUMS:
+  audioplayers_darwin: 877d9a4d06331c5c374595e46e16453ac7eafa40
+  custom_platform_device_id: 3b4c2a040c427cc4ce5df7e98c62cdc0c1dc18be
+  device_info: d7d233b645a32c40dfdc212de5cf646ca482f175
   Firebase: 414ad272f8d02dfbf12662a9d43f4bba9bec2a06
   firebase_core: 0af4a2b24f62071f9bf283691c0ee41556dcb3f5
   FirebaseCore: 2322423314d92f946219c8791674d2f3345b598f
@@ -76,6 +99,7 @@ SPEC CHECKSUMS:
   pusher_beams_ios: 3991e6c6186aa392e2c82687f727ffd5075ea268
   PushNotifications: 2b2174b28bf48b1fe552686d1f95c53d62a4781d
   restart_app: 806659942bf932f6ce51c5372f91ce5e81c8c14a
+  rive_common: cbbac3192af00d7341f19dae2f26298e9e37d99e
   url_launcher_ios: 5334b05cef931de560670eeae103fd3e431ac3fe
 
 PODFILE CHECKSUM: 819463e6a0290f5a72f145ba7cde16e8b6ef0796

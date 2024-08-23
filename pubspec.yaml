@@ -10,8 +10,8 @@ dependencies:
   arkroot_puzzle_api:
     path: packages/arkroot_puzzle_api
   audioplayers: ^6.0.0
-  custom_platform_device_id: ^1.0.8
   bloc: ^8.1.4
+  custom_platform_device_id: ^1.0.8
   equatable: ^2.0.5
   firebase_core: ^2.24.2
   flutter:
