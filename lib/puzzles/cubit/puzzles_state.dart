@@ -22,6 +22,7 @@ enum SubmissionStatus {
   failed,
 }
 
+@JsonSerializable()
 class PuzzlesState extends Equatable {
   const PuzzlesState({
     this.user,
@@ -33,6 +34,9 @@ class PuzzlesState extends Equatable {
     this.nextLeaderboardPage = 1,
     this.leaderboardFetchingStatus = FetchStatus.notFetched,
   });
+
+  factory PuzzlesState.fromJson(Map<String, dynamic> json) =>
+      _$PuzzlesStateFromJson(json);
 
   final User? user;
   final UserVerificationStatus userVerificationStatus;
@@ -95,4 +99,6 @@ class PuzzlesState extends Equatable {
 
   bool get fetchingLeaderboard =>
       leaderboardFetchingStatus == FetchStatus.fetching;
+
+  Map<String, dynamic> toJson() => _$PuzzlesStateToJson(this);
 }

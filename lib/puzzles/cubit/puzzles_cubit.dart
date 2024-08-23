@@ -2,9 +2,11 @@ import 'package:arkroot_puzzle_api/arkroot_puzzle_api.dart' as client;
 import 'package:custom_platform_device_id/platform_device_id.dart';
 import 'package:equatable/equatable.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:puzzle_repository/puzzle_repository.dart';
 
 part 'puzzles_state.dart';
+part 'puzzles_cubit.g.dart';
 
 class PuzzlesCubit extends HydratedCubit<PuzzlesState> {
   PuzzlesCubit({PuzzleRepository? puzzleRepository})
@@ -152,40 +154,18 @@ class PuzzlesCubit extends HydratedCubit<PuzzlesState> {
 
   @override
   PuzzlesState? fromJson(Map<String, dynamic> json) {
-    final user = json['user'] != null
-        ? User.fromJson(json['user'] as Map<String, dynamic>)
-        : null;
-    final userVerificationStatus = UserVerificationStatus.values
-        .firstWhere((s) => s.name == json['userVerificationStatus']);
-    final puzzles = (json['puzzles'] as List?)
-        ?.map((p) => Puzzle.fromJson(p as Map<String, dynamic>))
-        .toList();
-    final leaderboard = (json['leaderboard'] as List?)
-        ?.map((p) => User.fromJson(p as Map<String, dynamic>))
-        .toList();
-    final nextLeaderboardPage = json['nextLeaderboardPage'] as int;
-
+    final puzzleState = PuzzlesState.fromJson(json);
     return PuzzlesState(
-      user: user,
-      userVerificationStatus: userVerificationStatus,
-      puzzles: puzzles,
-      leaderboard: leaderboard,
-      nextLeaderboardPage: nextLeaderboardPage,
+      user: puzzleState.user,
+      userVerificationStatus: puzzleState.userVerificationStatus,
+      puzzles: puzzleState.puzzles,
+      leaderboard: puzzleState.leaderboard,
+      nextLeaderboardPage: puzzleState.nextLeaderboardPage,
     );
   }
 
   @override
   Map<String, dynamic>? toJson(PuzzlesState state) {
-    final json = {
-      'user': state.user?.toJson(),
-      'userVerificationStatus': state.userVerificationStatus.name,
-      'puzzles': state.puzzles?.map((p) => p.toJson()).toList(),
-      'puzzlesFetchingStatus': state.puzzlesFetchingStatus.name,
-      'currentPuzzleSubmissionStatus': state.currentPuzzleSubmissionStatus.name,
-      'leaderboard': state.leaderboard?.map((u) => u.toJson()).toList(),
-      'nextLeaderboardPage': state.nextLeaderboardPage,
-      'leaderboardFetchingStatus': state.leaderboardFetchingStatus.name,
-    };
-    return json;
+    return state.toJson();
   }
 }
