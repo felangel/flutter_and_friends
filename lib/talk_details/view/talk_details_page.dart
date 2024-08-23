@@ -111,7 +111,7 @@ class SpeakerInfo extends StatelessWidget {
                     speaker.avatar,
                     width: avatarSize,
                     height: avatarSize,
-                    fit: BoxFit.contain,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
