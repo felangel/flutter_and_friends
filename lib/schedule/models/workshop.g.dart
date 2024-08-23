@@ -10,8 +10,10 @@ part of 'workshop.dart';
 
 Workshop _$WorkshopFromJson(Map<String, dynamic> json) => Workshop(
       name: json['name'] as String,
-      speaker: Speaker.fromJson(json['speaker'] as Map<String, dynamic>),
-      duration: Duration(microseconds: json['duration'] as int),
+      speakers: (json['speakers'] as List<dynamic>)
+          .map((e) => Speaker.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      duration: Duration(microseconds: (json['duration'] as num).toInt()),
       startTime: DateTime.parse(json['startTime'] as String),
       description: json['description'] as String,
       location: Location.fromJson(json['location'] as Map<String, dynamic>),
@@ -22,6 +24,6 @@ Map<String, dynamic> _$WorkshopToJson(Workshop instance) => <String, dynamic>{
       'duration': instance.duration.inMicroseconds,
       'startTime': instance.startTime.toIso8601String(),
       'location': instance.location,
-      'speaker': instance.speaker,
+      'speakers': instance.speakers,
       'description': instance.description,
     };

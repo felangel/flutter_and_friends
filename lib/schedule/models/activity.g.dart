@@ -10,7 +10,7 @@ part of 'activity.dart';
 
 Activity _$ActivityFromJson(Map<String, dynamic> json) => Activity(
       name: json['name'] as String,
-      duration: Duration(microseconds: json['duration'] as int),
+      duration: Duration(microseconds: (json['duration'] as num).toInt()),
       startTime: DateTime.parse(json['startTime'] as String),
       location: Location.fromJson(json['location'] as Map<String, dynamic>),
       image: json['image'] as String?,

@@ -286,3 +286,80 @@ const jochumVanDerPloeg = Speaker(
   avatar: 'assets/speakers/15_jochum.jpeg',
   twitter: 'wolfenrain',
 );
+
+const sashaDenisov = Speaker(
+  name: 'Sasha Denisov',
+  title: 'Chief Software Engineer at EPAM',
+  avatar: 'assets/speakers/16_sasha.jpg',
+  twitter: 'ShuregDenisov',
+);
+
+const mikeDiarmid = Speaker(
+  name: 'Mike Diarmid',
+  title: 'CTO & Co-Founder @ Invertase',
+  avatar: 'assets/speakers/17_mike.jpg',
+  twitter: 'mikediarmid',
+);
+
+const moritzTheis = Speaker(
+  name: 'Moritz Theis',
+  title: 'CEO at Snapp X',
+  avatar: 'assets/speakers/18_moritz.jpeg',
+  twitter: 'MoritzTheis',
+);
+
+const payamZahedi = Speaker(
+  name: 'Payam Zahedi',
+  title: 'Senior Software Engineer at Snapp X',
+  avatar: 'assets/speakers/19_payam.png',
+  twitter: 'payamzahedi95',
+);
+
+const alfredoBautistaSantos = Speaker(
+  name: 'Alfredo Bautista Santos',
+  title: 'Flutter developer at Greenflux',
+  avatar: 'assets/speakers/20_alfredo.png',
+  twitter: 'alfredobs97',
+);
+
+const muhammedSalihGuler = Speaker(
+  name: 'Muhammed Salih Güler',
+  title: 'Senior Developer Advocate at AWS',
+  avatar: 'assets/speakers/21_salih.png',
+  twitter: 'salihgueler',
+);
+
+const cagatayUlusoy = Speaker(
+  name: 'Çağatay Ulusoy',
+  title: 'Flutter Competence Lead at Wolt',
+  avatar: 'assets/speakers/22_cagatay.jpg',
+  twitter: 'ulusoyapps',
+);
+
+const lucasJosefiak = Speaker(
+  name: 'Lucas Josefiak',
+  title: 'Co-Founder & CEO of Widgetbook',
+  avatar: 'assets/speakers/23_lucas.png',
+  twitter: 'LucasJosefiak',
+);
+
+const jensHorstmann = Speaker(
+  name: 'Jens Horstmann',
+  title: 'Co-Founder & CTO of Widgetbook',
+  avatar: 'assets/speakers/24_jens.png',
+  twitter: 'jens_hor',
+);
+
+const juliaBorkowska = Speaker(
+  name: 'Julia Borkowska',
+  title: 'Head of QA at LeanCode',
+  avatar: 'assets/speakers/25_julia.jpg',
+  twitter: 'julia_d_borko',
+);
+
+const mateuszWojtczak = Speaker(
+  name: 'Mateusz Wojtczak',
+  title: 'Head of Mobile at LeanCode',
+  avatar: 'assets/speakers/26_mateusz.jpg',
+  twitter: 'matiwojt',
+);

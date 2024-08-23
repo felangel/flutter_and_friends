@@ -1,96 +1,169 @@
 import 'package:flutter_and_friends/schedule/schedule.dart';
 
-const devoteam = Location(
-  name: 'Devoteam',
+const tbd = Location(
+  name: 'TBD',
   coordinates: (59.3308268, 18.0633923),
 );
-Location noA({required int floor}) => Location(
-      name: 'NoA (Floor $floor)',
-      coordinates: (59.3422061, 18.0620781),
-    );
 
 final workshops = <Workshop>[
   Workshop(
-    name: 'Join the Flock: Add Shorebird to your Flutter apps',
-    speaker: craigLabenz,
-    duration: const Duration(minutes: 90),
-    startTime: DateTime(2023, 9, 5, 10),
-    location: devoteam,
+    name: 'Badge Hack',
+    speakers: const [],
+    duration: const Duration(hours: 6),
+    startTime: DateTime(2023, 9, 3, 10),
+    location: tbd,
     description: '''
-In this workshop we’ll walk through all the steps needed to get Shorebird working on a Flutter app of your choice. Either follow along with a provided Flutter app or bring your own app. Along the way we’ll look at how to manage apps, releases, patches, and more using the Shorebird CLI and Console. We will also cover how to use package:shorebird_code_push to customize the user experience.
+Get together and hack something fun in Flutter with NFC! 👀
 
-By the end of the workshop, you should have Shorebird’s code push solution integrated into a Flutter app and have a solid understanding of how to deliver over the air updates to your users.''',
+Do you want to make cool things like https://x.com/drcoderz/status/...?
+This year at Flutter & Friends you will get the opportunity to! We will provide NFC tags for you to hack around with during the third day at the conference.
+
+The sky is the limits to what you will be able to create with your friends 🎉💙''',
   ),
   Workshop(
-    name: 'Flutter Animations: From Beginner to Advanced',
-    speaker: roaaKhaddam,
+    name: 'Porting your mobile app to TV platforms',
+    speakers: const [sashaDenisov],
     duration: const Duration(minutes: 90),
-    startTime: DateTime(2023, 9, 5, 10),
-    location: noA(floor: 4),
+    startTime: DateTime(2024, 9, 3, 10),
+    location: tbd,
     description: '''
-User interfaces without animations are like food without salt, just tasteless. In this workshop, you will learn how to add animations with various complexity to your Flutter UIs. We will start by covering the most basic and subtle animations created with built-in widgets, and make our way up to complex animated user interactions with advanced and customized widgets. Along the way, you will learn best practices, performance optimization, and tips on how to make your development experience and flow smoother.
+Flutter officially supports six platforms (iOS, Android, Web, MacOS, Linux, and Windows). But what if you need to run the Flutter app on the TV platform? Unfortunately, TV platforms have no official support yet. But the Flutter app can be launched on some TV platforms.
 
-Lastly, just like too much salt can ruin a meal, you don’t want to overcrowd or over-complicate your UI with too much animations, so we will end up our workshop with some important user experience tips to make sure your app has the most optimal impact on your users.''',
+In this workshop, we will go through all the steps of porting your mobile app to the big screen, discuss all the nuances of TV apps, such as controlling the app with a remote control, and finally launch the app on a TV platform, not only on Android TV, but also on Apple TV''',
   ),
   Workshop(
-    name: 'Theming from basics to advanced, the hard and the easy way',
-    speaker: roaaKhaddam,
+    name: 'Learn how to build real-time games with Flutter and Dart Frog',
+    speakers: const [mikeDiarmid, jochumVanDerPloeg],
     duration: const Duration(minutes: 90),
-    startTime: DateTime(2023, 9, 5, 13),
-    location: noA(floor: 4),
+    startTime: DateTime(2024, 9, 3, 10),
+    location: tbd,
     description: '''
-In this workshop we go from basic light/dark Material 3 theme setup and defining the color system’s ColorScheme, using different ways to seed generate it, while respecting desired brand colors and increasing colorfulness. To, showing how to seed generate mono hue-based themes, that have only one brand color but are still color expressive.
+In this workshop you'll discover how fun it is to build a game with Flutter while also exploring real-time communication with Dart Frog.
 
-We will explore best practices for customizing ThemeData, its TextTheme and text styles, how to use using semantic colors and customizing component themes in Material 3. How can we modify Material 3 defaults to make it less opinionated and more platform agnostic?
+You will learn the power of a unified tech stack, where your front-end shares logic with your back-end, using our favourite language Dart. Add a great developer experience to that and you have a recipe for success.
 
-Next, we make the same design again, but this time by using the Themes Playground to visually configure the desired theme and reproduce what we first made manually with vanilla ThemeData. We will copy paste the FlexColorScheme API config code from the Themes Playground and let FCS produce the same ThemeData for us. We also go a step further and look at advanced options in the Playground, like platform adaptive theming.''',
+And the best part? You will have a fun game at the end of it that you can play with your friends! If that isn't the true meaning of Flutter & Friends, we don't know what is.''',
   ),
   Workshop(
-    name: 'Building a space shooter game with Flame',
-    speaker: roaaKhaddam,
+    name: 'Beyond Mobile: Powering Embedded Devices with Flutter',
+    speakers: const [moritzTheis, payamZahedi],
     duration: const Duration(minutes: 90),
-    startTime: DateTime(2023, 9, 5, 13),
-    location: noA(floor: 3),
+    startTime: DateTime(2024, 9, 3, 10),
+    location: tbd,
     description: '''
-In this session we will build an awesome and addictive space shooter game with Flutter and Flame engine.
+This workshop dives into running Flutter on embedded devices, specifically setting it up on the brand new Raspberry Pi 5.
 
-You will learn about sprites, animations, gestures and input, collision detection, effects, the game loop, components, parallaxes and a lot more! In the end of the session you will have a playable game that you can continue to improve on.
+In 3 small groups we will set up Flutter on a Raspberry Pi 5, write our first small App for it and learn to control an externally connected servo-motor to dispense some delicious M&M's trough our Flutter-Application.
 
-You need no previous experience with Flame or Flutter to attend, a little Dart experience will help you a lot though.''',
+I will bring 3 Raspberry Pi 5's and touchscreens for the audience with me so that small groups can work interactively along while we go trough everything.
+
+While the first 90 minutes are the same for all of the audience, the last 30 minutes can be used to explore and build something individual with the servo engines and the Raspberry Pi's for each group.''',
   ),
   Workshop(
-    name: 'Basic and advanced networking in Dart and Flutter',
-    speaker: roaaKhaddam,
+    name: 'Flutter + Gemini: Your AI App Development Launchpad',
+    speakers: const [alfredoBautistaSantos],
     duration: const Duration(minutes: 90),
-    startTime: DateTime(2023, 9, 5, 13),
-    location: devoteam,
+    startTime: DateTime(2024, 9, 3, 13),
+    location: tbd,
     description: '''
-Most applications, be it mobile, web, or desktop, depend on some kind of backend. Thus, an API layer is an integral part of application implementation.
+Supercharge your Flutter apps with AI!
 
-I invite you to this hands-on workshop, where I will present tools and approaches that facilitate an effective API layer implementation in Flutter and Dart applications. We will apply this knowledge together to create a Flutter application that displays data obtained from hosted REST API.
-
-You will walk away with knowledge about code generation in Dart and its application examples, and learn a few cool hacks on how to turn its principles to your advantage.''',
+This workshop dives into Gemini, Google's cutting-edge large language model (LLM), and shows you how to seamlessly integrate it with Flutter. We'll break down LLMs, explore Gemini's multimodality, and build a real AI-powered Flutter app prototype – all from scratch! No prior experience needed, just bring your app idea and walk away with the skills to make it a reality.''',
   ),
   Workshop(
-    name: 'Leveraging AI to write quality code 5x faster',
-    speaker: roaaKhaddam,
+    name: 'Building a Cloud-Powered Diary Application with Flutter',
+    speakers: const [muhammedSalihGuler],
     duration: const Duration(minutes: 90),
-    startTime: DateTime(2023, 9, 5, 15),
-    location: devoteam,
+    startTime: DateTime(2024, 9, 3, 13),
+    location: tbd,
     description: '''
-We're living in the interesting times of ChatGPT where AI is capable of writing code just like humans. In this hands-on workshop, we will be seeing how we as Flutter Developers can embrace AI to increase our efficiency by together using AI to automate tasks like building widgets, writing and refactoring business logic and adding tests to our code.
+In today's world, having an idea is important, but going to market quickly is as important as having an idea. To achieve this, you need to support iOS, Android, Web, and even Desktop. Fortunately, Flutter is there to help you with that. However, an app without a backend is never enough. To power up your application with a scalable backend, AWS Amplify is there to help you out.
 
-We'll be looking at AI tools specialized for Flutter, while also exploring challenges like syntax, hallucination, deprecated code, and code security in LLMs. The goal of the workshop is to explore how AI is here to empower us by taking care of repetitive work and helping us build stronger codebases with ease.''',
+In this workshop, you will build a diary application in Flutter that targets iOS, Android, Web, and Desktop. The application will include Authentication, a GraphQL API with database connection, and File Storage. Additionally, there will be a bonus feature at the end, related to the hot topic of our times (starts with A and ends with I)! :)
+
+Come join us and discover a new technology!''',
   ),
   Workshop(
-    name: 'Voice-enabled apps',
-    speaker: akankshaSingh,
+    name: 'Advanced Flutter Navigation: Mastering Declarative Navigation',
+    speakers: const [cagatayUlusoy],
     duration: const Duration(minutes: 90),
-    startTime: DateTime(2023, 9, 5, 15),
-    location: noA(floor: 4),
+    startTime: DateTime(2024, 9, 3, 13),
+    location: tbd,
     description: '''
-Join us in an enlightening workshop where we plunge into the realm of conversational AI and its harmonious fusion with Flutter apps. Traverse through real-world applications and unravel the toolkit and strategies that seamlessly weave voice interaction into your projects. Together we'll uncover how this innovation adds a 'dash' of futuristic charm to your creations while amplifying their accessibility and reach.
+Implementing the navigation for complex multi-platform applications can be challenging due to varied user interface patterns and navigation structures across different platforms. Flutter’s Navigator 2.0, designed to streamline these complexities, offers a robust framework that empowers developers to manage navigation declaratively. While the Navigator 2.0 API may initially seem advanced and complex, understanding its interplay with the Router and Navigator widgets unlocks powerful customization and flexibility options. In this hands-on workshop, participants will dive deep into integrating the Model-View-ViewModel (MVVM) pattern in a layered architecture with Flutter’s Navigator 2.0 to create clear and efficient navigation management within their apps.
 
-Voice-enabled apps offer an elevated user experience by minimizing the effort needed for typing and navigation, making them perfect companions for multitasking and accessibility. Let's explore how we can effortlessly achieve this and transform our apps.''',
+Workshop participants will embark on building a Flutter application from the ground up, learning to:
+
+🔵 Implement the MVVM architectural pattern in conjunction with Flutter's Router widget to achieve reactive and declarative navigation.
+
+🔵 Design and manage the application's navigation stack as an application state.
+
+🔵 Utilize both declarative and imperative approaches to control modal route visibility.
+
+🔵 Synchrozie the browser address bar and the app state for Flutter Web apps.
+
+🔵 Synchronize imperative calls and declarative state changes to maintain consistent application state.
+
+🔵 Integrate a bottom navigation bar selected tab management into the routing system.
+
+🔵 Handle Android specific user interactions like back swipes and operating system back button presses.
+
+🔵 Customize the SystemUIOverlayStyle to dynamically adjust UI elements like the status bar and navigation bar colors based on the active route.
+
+🔵 Apply a layered approach to software architecture using MVVM principles to separate the concerns and build a maintainable, testable, and scalable app.
+
+This workshop will equip developers with the skills to architect sophisticated navigation systems in Flutter applications, leveraging the advanced capabilities of Navigator 2.0 and the MVVM pattern for scalable and maintainable app development.''',
+  ),
+  Workshop(
+    name:
+        '''Flutter in the year 2044: Discussing a community plan for Flutter's next 20 years''',
+    speakers: const [],
+    duration: const Duration(minutes: 90),
+    startTime: DateTime(2024, 9, 3, 15, 30),
+    location: tbd,
+    description: '''
+Flutter is open source, but it's still mainly a Google-driven project. Around 85% of active Flutter team devs are Googlers. Should we change this? Can we? Should there be a "Mozilla foundation" for Flutter?
+To be clear, there is no indication that Google is dropping the ball. But since the projects has seen adoption so many businesses and people, maybe it's time for the community to take on a more active role?
+
+The output of this workshop is a publicly shared document with ideas and TODO items (mostly for us, the community).''',
+  ),
+  Workshop(
+    name:
+        '''Simplify Design Systems and Designer/Developer Collaboration with Widgetbook''',
+    speakers: const [lucasJosefiak, jensHorstmann],
+    duration: const Duration(minutes: 90),
+    startTime: DateTime(2024, 9, 3, 15, 30),
+    location: tbd,
+    description: '''
+Creating beautiful UI has never been easier with Flutter. However, managing and organizing widgets effectively can pose challenges for developers, particularly when it comes to organizing them, testing them in all their different use cases, and maintaining design-code consistency. This is where Widgetbook comes in.
+
+In this workshop, we will learn how to build our design system with the open-source Flutter package Widgetbook. We will combine it with Golden tests and Figma to establish a smooth UI review process with designers, developers, product managers and QA testers.
+
+Key takeaways:
+
+- How to build your own design system / widget library
+
+- How to automatically test your widgets on different device sizes, themes, languages, etc.
+
+- How to use Golden Tests without limitations
+
+- How to collaborate effectively with designers and product managers to keep design and code sync''',
+  ),
+  Workshop(
+    name: "Let's test it with Patrol!",
+    speakers: const [juliaBorkowska, mateuszWojtczak],
+    duration: const Duration(minutes: 90),
+    startTime: DateTime(2024, 9, 3, 15, 30),
+    location: tbd,
+    description: '''
+During the workshop, we will prepare the whole E2E testing scenario using Patrol. You will learn how you can use Patrol finders to supercharge your tests and how you can test native features with Patrol native automation. As an example, we will test our Patrol challenge app with Firebase native interactions
+
+At the end, we will show you how to run your tests on Firebase Test Lab.
+
+As Patrol authors, we like to help people use the tool properly. We’ll cover the setup, troubleshooting, testing Flutter widgets, and E2E testing native stuff.
+
+Preparation instructions:
+
+We require attendees to have the latest stable Flutter SDK installed and have at least Android support – that means you should be able to build a Flutter app on Android and run it on the emulator (API 33) or their physical device.''',
   ),
 ];
