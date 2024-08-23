@@ -8,18 +8,11 @@ class PuzzleListener extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocListener(
-      listeners: [
-        // listener to fetch leaderboard on new user
-        BlocListener<PuzzlesCubit, PuzzlesState>(
-          listenWhen: (previous, current) =>
-              previous.userVerificationStatus !=
-                  current.userVerificationStatus &&
-              current.userVerificationStatus == UserVerificationStatus.verified,
-          listener: (context, state) =>
-              context.read<PuzzlesCubit>().fetchPuzzles(),
-        ),
-      ],
+    return BlocListener<PuzzlesCubit, PuzzlesState>(
+      listenWhen: (previous, current) =>
+          previous.userVerificationStatus != current.userVerificationStatus &&
+          current.userVerificationStatus == UserVerificationStatus.verified,
+      listener: (context, state) => context.read<PuzzlesCubit>().fetchPuzzles(),
       child: child,
     );
   }
