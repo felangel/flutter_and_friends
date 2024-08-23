@@ -11,7 +11,7 @@ class PuzzlesCubit extends HydratedCubit<PuzzlesState> {
       : _puzzleRepository = puzzleRepository ??
             PuzzleRepository(
               puzzleApiClient: client.ArkrootPuzzleApiClient(
-                apiKey: '102934e85a7cec4769d8c08207f025e0f1e252bd',
+                apiKey: const String.fromEnvironment('API_KEY'),
               ),
             ),
         super(const PuzzlesState());

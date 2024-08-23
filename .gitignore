@@ -45,3 +45,5 @@ app.*.map.json
 
 # Secrets
 .secrets/
+
+config.json
