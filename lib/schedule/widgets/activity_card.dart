@@ -50,21 +50,28 @@ class ActivityCard extends StatelessWidget {
                 children: [
                   if (activity.image != null) ...[
                     CircleAvatar(
-                      radius: 24,
+                      radius: 32,
                       backgroundImage: AssetImage(activity.image!),
                     ),
                     const SizedBox(width: 16),
                   ],
-                  Expanded(
-                    child: Text(
-                      activity.name,
-                      style: theme.textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.w500,
-                      ),
+                  Text(
+                    activity.name,
+                    style: theme.textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                 ],
               ),
+              if (activity.description != null) ...[
+                const SizedBox(height: 16),
+                Text(
+                  activity.description!,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: theme.colorScheme.onSurfaceVariant,
+                  ),
+                ),
+              ],
               const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

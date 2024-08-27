@@ -4,8 +4,8 @@ const mainStage = Location(
   name: 'Main Stage',
   coordinates: (59.3318138, 18.0589957),
 );
-const lillaStudion = Location(
-  name: 'Lilla Studion',
+const studioStage = Location(
+  name: 'Studio Stage',
   coordinates: (59.3318138, 18.0589957),
 );
 
@@ -35,7 +35,7 @@ We will look at the Dart core libraries and how they implement jsonDecode. We wi
     speakers: const [kilianSchulte],
     duration: const Duration(minutes: 40),
     startTime: DateTime(2023, 9, 2, 10, 20),
-    location: lillaStudion,
+    location: studioStage,
     description: '''
 Join me to take an inside look into Jaspr, the web framework for Dart developers. We will dive into the intricate details of the framework and how it works under the hood.
 Learn how Jaspr is made and what it takes to develop a framework from scratch.
@@ -56,23 +56,9 @@ Understand how WASM compilation can turn the tables on the Flutter web performan
     speakers: const [majidHajian],
     duration: const Duration(minutes: 40),
     startTime: DateTime(2023, 9, 2, 11, 10),
-    location: lillaStudion,
+    location: studioStage,
     description: '''
 Design patterns, inspired by architectural principles and adapted for software development, are crucial for modern app architecture.Based on the "FlutterEngineering" book, this talk highlights essential design patterns in Flutter to help you build efficient and scalable apps.In this talk, we'll explore fundamental concepts and focus on key patterns like Singleton, Factory, and Observer. You'll learn how to implement these patterns effectively in your Flutter projects through practical insights and real-world examples.''',
-  ),
-  Talk(
-    name:
-        '''Embedded Flutter on Raspberry Pi 5: Simplification of Daily E-Commerce Operations''',
-    speakers: const [michalGapinski],
-    duration: const Duration(minutes: 40),
-    startTime: DateTime(2023, 9, 2, 13),
-    location: lillaStudion,
-    description: '''
-At Pineboards, we specialize in embedded solutions for the Raspberry Pi ecosystem, especially around PCI Express (NVMe, networking, AI Edge TPUs etc). Last year marked our venture into direct retail, pushing us from our engineering comfort zone into the realms of order fulfillment. Our journey from manual inefficiencies to streamlined processes was powered by a custom Flutter application, centralizing operations from order listing to shipping label generation.
-
-In this session, you will discover how to implement:* Barcode Scanning Implementation: Explore the integration of hardware barcode scanners to ensure accurate order fulfillment.* Direct Printing with Flutter: Gain insights into controlling ZPL/EPL printers directly from Flutter for efficient label printing.* Kiosk Mode: Understand how to deploy a Flutter application in Kiosk mode on a custom OS image, enhancing the user interface for industrial applications.
-
-Moreover, we'll take a look into how well Flutter behaves on the new Raspberry Pi 5 in comparison to macOS and provide a guideline for building custom hardware solutions powered by Flutter that are meant to last and work well in industrial environments.''',
   ),
   Talk(
     name:
@@ -83,6 +69,20 @@ Moreover, we'll take a look into how well Flutter behaves on the new Raspberry P
     location: mainStage,
     description: '''
 If you ask a developer whether they would prefer to fix a bug or develop a new feature, there is no doubt they will select the latter.Unfortunately, bugs are part of the development cycle and are inevitable.Fortunately, there are techniques to predict and prevent them, even without running the code: with the help of static code analysis.Static code analysis is a powerful tool for finding and fixing potential errors even before compiling your code, making the cycle much faster and developers more productive. Moreover, the flexibility of this tool allows you to configure it in a way to not only control bugs but also code style and specific team practices.In this talk, we will do a deep dive into the world of static code analysis, exploring strategies on how to set it up to work best in your project, possibilities beyond `flutter_lints`, such as other libraries and 3rd party services like Dart Code Metrics, as well as what it takes to create your own custom lints for your library or app with tools such as `custom_lint`. By the end of this talk, you will be fully equipped to set up a robust static analysis system in your project and make your projects more reliable, consistent, and performant.''',
+  ),
+  Talk(
+    name:
+        '''Embedded Flutter on Raspberry Pi 5: Simplification of Daily E-Commerce Operations''',
+    speakers: const [michalGapinski],
+    duration: const Duration(minutes: 40),
+    startTime: DateTime(2023, 9, 2, 13),
+    location: studioStage,
+    description: '''
+At Pineboards, we specialize in embedded solutions for the Raspberry Pi ecosystem, especially around PCI Express (NVMe, networking, AI Edge TPUs etc). Last year marked our venture into direct retail, pushing us from our engineering comfort zone into the realms of order fulfillment. Our journey from manual inefficiencies to streamlined processes was powered by a custom Flutter application, centralizing operations from order listing to shipping label generation.
+
+In this session, you will discover how to implement:* Barcode Scanning Implementation: Explore the integration of hardware barcode scanners to ensure accurate order fulfillment.* Direct Printing with Flutter: Gain insights into controlling ZPL/EPL printers directly from Flutter for efficient label printing.* Kiosk Mode: Understand how to deploy a Flutter application in Kiosk mode on a custom OS image, enhancing the user interface for industrial applications.
+
+Moreover, we'll take a look into how well Flutter behaves on the new Raspberry Pi 5 in comparison to macOS and provide a guideline for building custom hardware solutions powered by Flutter that are meant to last and work well in industrial environments.''',
   ),
   Talk(
     name: 'Making a 3D game with Flutter and Flame',
@@ -100,7 +100,7 @@ In this talk we will explore that functionality using the `flame_3d` package to 
     speakers: const [alexandreMoureaux],
     duration: const Duration(minutes: 40),
     startTime: DateTime(2023, 9, 2, 13, 50),
-    location: lillaStudion,
+    location: studioStage,
     description: '''
 Does multithreading, rasterization, or processor affinity sound like big fancy words you'd love to understand? We'll explore all those terms together and discover how Flutter builds frames under the hood! You'll learn how this impacts your app's performance and how to make the correct choices to ensure a smooth app, with concrete code examples and demonstrations. This beginner-friendly talk will demystify complex concepts, guiding you through the threading model and empowering you to create highly performant Flutter apps.''',
   ),
@@ -109,7 +109,7 @@ Does multithreading, rasterization, or processor affinity sound like big fancy w
     speakers: const [simonAuer],
     duration: const Duration(minutes: 20),
     startTime: DateTime(2023, 9, 2, 14, 40),
-    location: lillaStudion,
+    location: studioStage,
     description: '''
 Did you know that you can actually make more accessible apps in flutter easily? If yes, why are you not doing that?
 
@@ -139,6 +139,15 @@ The talk will cover code quality aspects:
 Code quality is important for projects of any size, but it's crucial for large-scale ones where tens of Flutter developers may work for years.''',
   ),
   Talk(
+    name: '''Native Background Processing with Flutter''',
+    speakers: const [dominikRoszkowski],
+    duration: const Duration(minutes: 40),
+    startTime: DateTime(2023, 9, 2, 15, 40),
+    location: studioStage,
+    description: '''
+Background processing tends to be one of the afterthoughts with Flutter apps, and I would love to change that. There are several ways to achieve it with Flutter or Dart, although some of them involve a bit of native platform understanding with a pinch of Kotlin or Swift. In this talk I’ll show you how to make it all work without losing your mind, even if you don't have any Android or iOS experience.This talk covers both iOS and Android background processing, with and without utilizing existing Flutter plugins. We'll try to look into desktop background processing as well.''',
+  ),
+  Talk(
     name: '''Automating Accessibility Adoption in Flutter using Gemini AI''',
     speakers: const [akankshaSingh],
     duration: const Duration(minutes: 40),
@@ -165,7 +174,7 @@ After a quick introduction into what creative coding is and how its visual feedb
     speakers: const [raoufRahiche],
     duration: const Duration(minutes: 20),
     startTime: DateTime(2023, 9, 2, 16, 30),
-    location: lillaStudion,
+    location: studioStage,
     description: '''
 Often, when we see a blur effect in designs, we just put in the values, add a backdrop widget, and copy those values, thinking it’s done. Since it’s blurry, it’s tricky to see if it’s right — but it’s “blurry,” so we move forward.
 
@@ -176,7 +185,7 @@ In this session, we'll dig deeper to understand what’s really going on behind 
     speakers: const [jochumVanDerPloeg],
     duration: const Duration(minutes: 20),
     startTime: DateTime(2023, 9, 2, 16, 50),
-    location: lillaStudion,
+    location: studioStage,
     description: '''
 This talk dives into the new experimental macro feature of the Dart language. What is it, what it can do and when to use it.''',
   ),
@@ -264,6 +273,13 @@ const akankshaSingh = Speaker(
   title: 'Software Engineer at JP Morgan Chase & Co.',
   avatar: 'assets/speakers/12_akanksha.jpg',
   twitter: 'coder_jedi',
+);
+
+const dominikRoszkowski = Speaker(
+  name: 'Dominik Roszkowski',
+  title: 'Tech Lead at Visible, GDE in Flutter',
+  avatar: 'assets/speakers/27_dominik.jpeg',
+  twitter: 'OrestesGaolin',
 );
 
 const roaaKhaddam = Speaker(

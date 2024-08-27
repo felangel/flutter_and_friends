@@ -1,17 +1,23 @@
 import 'package:flutter_and_friends/sponsors/sponsors.dart';
 
 const platinumSponsors = [
-  appShack,
   hackBerry,
+  appShack,
 ];
 
 const goldSponsors = [
+  flutter,
+  codemagic,
   invertase,
-  skandia,
-  dcm,
+  leanCode,
+  amplify,
 ];
 
-const silverSponsors = [flutter, tide, leanCode, appwrite, sas, pettersonApps];
+const silverSponsors = [
+  skandia,
+  dcm,
+  matpriskollen,
+];
 
 const streamingSponsor = rebelAppStudio;
 
@@ -20,19 +26,39 @@ const togetherWith = [
   done,
 ];
 
-const appShack = Sponsor(
-  logo: 'assets/sponsors/appshack.png',
-  url: 'https://appshack.se',
-);
-
 const hackBerry = Sponsor(
   logo: 'assets/sponsors/hackberry.png',
   url: 'https://hackberry.se',
 );
 
+const appShack = Sponsor(
+  logo: 'assets/sponsors/appshack.png',
+  url: 'https://appshack.se',
+);
+
+const flutter = Sponsor(
+  logo: 'assets/sponsors/flutter.png',
+  url: 'https://flutter.dev',
+);
+
+const codemagic = Sponsor(
+  logo: 'assets/sponsors/codemagic.png',
+  url: 'https://codemagic.io',
+);
+
 const invertase = Sponsor(
   logo: 'assets/sponsors/invertase.png',
   url: 'https://invertase.io',
+);
+
+const leanCode = Sponsor(
+  logo: 'assets/sponsors/leancode.png',
+  url: 'https://leancode.co',
+);
+
+const amplify = Sponsor(
+  logo: 'assets/sponsors/amplify.png',
+  url: 'https://aws.amazon.com/amplify',
 );
 
 const skandia = Sponsor(
@@ -45,34 +71,9 @@ const dcm = Sponsor(
   url: 'https://dcm.dev',
 );
 
-const flutter = Sponsor(
-  logo: 'assets/sponsors/flutter.png',
-  url: 'https://flutter.dev',
-);
-
-const tide = Sponsor(
-  logo: 'assets/sponsors/tide.png',
-  url: 'https://tide.co',
-);
-
-const leanCode = Sponsor(
-  logo: 'assets/sponsors/leancode.png',
-  url: 'https://leancode.co',
-);
-
-const appwrite = Sponsor(
-  logo: 'assets/sponsors/appwrite.png',
-  url: 'https://appwrite.io',
-);
-
-const sas = Sponsor(
-  logo: 'assets/sponsors/sas.png',
-  url: 'https://sas.se',
-);
-
-const pettersonApps = Sponsor(
-  logo: 'assets/sponsors/pettersonapps.png',
-  url: 'https://pettersonapps.com',
+const matpriskollen = Sponsor(
+  logo: 'assets/sponsors/matpriskollen.png',
+  url: 'https://matpriskollen.se',
 );
 
 const rebelAppStudio = Sponsor(

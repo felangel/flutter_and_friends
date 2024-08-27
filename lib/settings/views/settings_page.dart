@@ -79,6 +79,14 @@ class SettingsView extends StatelessWidget {
               ),
             ),
             ListTile(
+              title: const Text('Privacy Policy'),
+              subtitle: const Text('View the Privacy Policy'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => launchUrlString(
+                'https://github.com/felangel/flutter_and_friends/blob/main/privacy.md',
+              ),
+            ),
+            ListTile(
               title: const Row(
                 children: [
                   Text('Follow on'),
@@ -92,17 +100,10 @@ class SettingsView extends StatelessWidget {
               ),
             ),
             ListTile(
-              title: const Text('Developed By Felix Angelov'),
-              subtitle: const Text('Powered by Shorebird'),
+              title: const Text('Powered by Shorebird'),
+              subtitle: const Text('Code Push for Flutter'),
               trailing: const Icon(Icons.chevron_right),
               onTap: () => launchUrlString('https://shorebird.dev'),
-            ),
-            ListTile(
-              title: const Text('Privacy Policy'),
-              trailing: const Icon(Icons.chevron_right),
-              onTap: () => launchUrlString(
-                'https://github.com/felangel/flutter_and_friends/blob/main/privacy.md',
-              ),
             ),
           ],
         ),
