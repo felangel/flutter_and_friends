@@ -366,6 +366,13 @@ const jensHorstmann = Speaker(
   twitter: 'jens_hor',
 );
 
+const simonLightfoot = Speaker(
+  name: 'Simon Lightfoot',
+  title: 'CTO @ DevAngels',
+  avatar: 'assets/speakers/28_simon.jpeg',
+  twitter: 'devangelslondon',
+);
+
 const juliaBorkowska = Speaker(
   name: 'Julia Borkowska',
   title: 'Head of QA at LeanCode',
