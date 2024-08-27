@@ -23,7 +23,7 @@ Explore how Flutter developers can use the best qualities of our technology and 
     name: 'Learning something about Dart performance by optimizing jsonDecode',
     speakers: const [vyacheslavEgorov],
     duration: const Duration(minutes: 40),
-    startTime: DateTime(2023, 9, 2, 10, 20),
+    startTime: DateTime(2024, 9, 2, 10, 20),
     location: mainStage,
     description: '''
 This talks takes us on a journey through the layers of the cake called "Dart". We often hear that jsonDecode is slow in Dart - can we make it faster? Where do we start?
@@ -34,7 +34,7 @@ We will look at the Dart core libraries and how they implement jsonDecode. We wi
     name: 'Inside Jaspr: Building a Dart web framework from scratch',
     speakers: const [kilianSchulte],
     duration: const Duration(minutes: 40),
-    startTime: DateTime(2023, 9, 2, 10, 20),
+    startTime: DateTime(2024, 9, 2, 10, 20),
     location: studioStage,
     description: '''
 Join me to take an inside look into Jaspr, the web framework for Dart developers. We will dive into the intricate details of the framework and how it works under the hood.
@@ -46,7 +46,7 @@ Whether you are a seasoned developer or newcomer to Dart, this session lets you 
     name: 'Flutter web superfast: WASM',
     speakers: const [renanAraujo],
     duration: const Duration(minutes: 40),
-    startTime: DateTime(2023, 9, 2, 11, 10),
+    startTime: DateTime(2024, 9, 2, 11, 10),
     location: mainStage,
     description: '''
 Understand how WASM compilation can turn the tables on the Flutter web performance front.''',
@@ -55,7 +55,7 @@ Understand how WASM compilation can turn the tables on the Flutter web performan
     name: 'Practical Design Patterns for Flutter Development',
     speakers: const [majidHajian],
     duration: const Duration(minutes: 40),
-    startTime: DateTime(2023, 9, 2, 11, 10),
+    startTime: DateTime(2024, 9, 2, 11, 10),
     location: studioStage,
     description: '''
 Design patterns, inspired by architectural principles and adapted for software development, are crucial for modern app architecture.Based on the "FlutterEngineering" book, this talk highlights essential design patterns in Flutter to help you build efficient and scalable apps.In this talk, we'll explore fundamental concepts and focus on key patterns like Singleton, Factory, and Observer. You'll learn how to implement these patterns effectively in your Flutter projects through practical insights and real-world examples.''',
@@ -65,7 +65,7 @@ Design patterns, inspired by architectural principles and adapted for software d
         '''Zero runtime errors: Exploring Static Code Analysis techniques in Flutter''',
     speakers: const [darjaOrlova],
     duration: const Duration(minutes: 40),
-    startTime: DateTime(2023, 9, 2, 13),
+    startTime: DateTime(2024, 9, 2, 13),
     location: mainStage,
     description: '''
 If you ask a developer whether they would prefer to fix a bug or develop a new feature, there is no doubt they will select the latter.Unfortunately, bugs are part of the development cycle and are inevitable.Fortunately, there are techniques to predict and prevent them, even without running the code: with the help of static code analysis.Static code analysis is a powerful tool for finding and fixing potential errors even before compiling your code, making the cycle much faster and developers more productive. Moreover, the flexibility of this tool allows you to configure it in a way to not only control bugs but also code style and specific team practices.In this talk, we will do a deep dive into the world of static code analysis, exploring strategies on how to set it up to work best in your project, possibilities beyond `flutter_lints`, such as other libraries and 3rd party services like Dart Code Metrics, as well as what it takes to create your own custom lints for your library or app with tools such as `custom_lint`. By the end of this talk, you will be fully equipped to set up a robust static analysis system in your project and make your projects more reliable, consistent, and performant.''',
@@ -75,7 +75,7 @@ If you ask a developer whether they would prefer to fix a bug or develop a new f
         '''Embedded Flutter on Raspberry Pi 5: Simplification of Daily E-Commerce Operations''',
     speakers: const [michalGapinski],
     duration: const Duration(minutes: 40),
-    startTime: DateTime(2023, 9, 2, 13),
+    startTime: DateTime(2024, 9, 2, 13),
     location: studioStage,
     description: '''
 At Pineboards, we specialize in embedded solutions for the Raspberry Pi ecosystem, especially around PCI Express (NVMe, networking, AI Edge TPUs etc). Last year marked our venture into direct retail, pushing us from our engineering comfort zone into the realms of order fulfillment. Our journey from manual inefficiencies to streamlined processes was powered by a custom Flutter application, centralizing operations from order listing to shipping label generation.
@@ -88,7 +88,7 @@ Moreover, we'll take a look into how well Flutter behaves on the new Raspberry P
     name: 'Making a 3D game with Flutter and Flame',
     speakers: const [luanNico],
     duration: const Duration(minutes: 40),
-    startTime: DateTime(2023, 9, 2, 13, 50),
+    startTime: DateTime(2024, 9, 2, 13, 50),
     location: mainStage,
     description: '''
 One year after my first talk exploring the realm of 3D within Flame, Flutter now has experimental support for first class GPU access for 3D rendering with Impeler.
@@ -99,7 +99,7 @@ In this talk we will explore that functionality using the `flame_3d` package to 
     name: 'Flutter & Threads',
     speakers: const [alexandreMoureaux],
     duration: const Duration(minutes: 40),
-    startTime: DateTime(2023, 9, 2, 13, 50),
+    startTime: DateTime(2024, 9, 2, 13, 50),
     location: studioStage,
     description: '''
 Does multithreading, rasterization, or processor affinity sound like big fancy words you'd love to understand? We'll explore all those terms together and discover how Flutter builds frames under the hood! You'll learn how this impacts your app's performance and how to make the correct choices to ensure a smooth app, with concrete code examples and demonstrations. This beginner-friendly talk will demystify complex concepts, guiding you through the threading model and empowering you to create highly performant Flutter apps.''',
@@ -108,7 +108,7 @@ Does multithreading, rasterization, or processor affinity sound like big fancy w
     name: 'Quick Wins - how to make your app more accessible',
     speakers: const [simonAuer],
     duration: const Duration(minutes: 20),
-    startTime: DateTime(2023, 9, 2, 14, 40),
+    startTime: DateTime(2024, 9, 2, 14, 40),
     location: studioStage,
     description: '''
 Did you know that you can actually make more accessible apps in flutter easily? If yes, why are you not doing that?
@@ -125,7 +125,7 @@ And who knows? Maybe you fall in love with it and want to explore more afterward
     name: '''Code Quality Gates for Large-Scale Flutter Apps''',
     speakers: const [pavelSulimau],
     duration: const Duration(minutes: 20),
-    startTime: DateTime(2023, 9, 2, 14, 40),
+    startTime: DateTime(2024, 9, 2, 14, 40),
     location: mainStage,
     description: '''
 I'll share insights on guidelines and tools to maintain the quality of a Flutter app.
@@ -142,7 +142,7 @@ Code quality is important for projects of any size, but it's crucial for large-s
     name: '''Native Background Processing with Flutter''',
     speakers: const [dominikRoszkowski],
     duration: const Duration(minutes: 40),
-    startTime: DateTime(2023, 9, 2, 15, 40),
+    startTime: DateTime(2024, 9, 2, 15, 40),
     location: studioStage,
     description: '''
 Background processing tends to be one of the afterthoughts with Flutter apps, and I would love to change that. There are several ways to achieve it with Flutter or Dart, although some of them involve a bit of native platform understanding with a pinch of Kotlin or Swift. In this talk I’ll show you how to make it all work without losing your mind, even if you don't have any Android or iOS experience.This talk covers both iOS and Android background processing, with and without utilizing existing Flutter plugins. We'll try to look into desktop background processing as well.''',
@@ -151,7 +151,7 @@ Background processing tends to be one of the afterthoughts with Flutter apps, an
     name: '''Automating Accessibility Adoption in Flutter using Gemini AI''',
     speakers: const [akankshaSingh],
     duration: const Duration(minutes: 40),
-    startTime: DateTime(2023, 9, 2, 15, 40),
+    startTime: DateTime(2024, 9, 2, 15, 40),
     location: mainStage,
     description: '''
 For years, accessibility features and experiences were seen as nice to have when it came to app development. Shockingly, many developers overlook this vital aspect, inadvertently excluding a significant user base. The World Health Organization reveals that about 15% of the global population, over a billion people, live with disabilities. In a digital age, it's unjust to marginalize this substantial demographic based on abilities.
@@ -162,7 +162,7 @@ This talk emphasizes the critical role of accessibility in mobile apps. By intro
     name: 'Code Meets Art: Flutter for Creative Coding',
     speakers: const [roaaKhaddam],
     duration: const Duration(minutes: 40),
-    startTime: DateTime(2023, 9, 2, 16, 30),
+    startTime: DateTime(2024, 9, 2, 16, 30),
     location: mainStage,
     description: '''
 In this talk, I want to show you how you can blur the lines between code and art using Flutter!
@@ -173,7 +173,7 @@ After a quick introduction into what creative coding is and how its visual feedb
     name: 'A closer look at the blur effect in Flutter',
     speakers: const [raoufRahiche],
     duration: const Duration(minutes: 20),
-    startTime: DateTime(2023, 9, 2, 16, 30),
+    startTime: DateTime(2024, 9, 2, 16, 30),
     location: studioStage,
     description: '''
 Often, when we see a blur effect in designs, we just put in the values, add a backdrop widget, and copy those values, thinking it’s done. Since it’s blurry, it’s tricky to see if it’s right — but it’s “blurry,” so we move forward.
@@ -184,7 +184,7 @@ In this session, we'll dig deeper to understand what’s really going on behind 
     name: 'How big are macros really?',
     speakers: const [jochumVanDerPloeg],
     duration: const Duration(minutes: 20),
-    startTime: DateTime(2023, 9, 2, 16, 50),
+    startTime: DateTime(2024, 9, 2, 16, 50),
     location: studioStage,
     description: '''
 This talk dives into the new experimental macro feature of the Dart language. What is it, what it can do and when to use it.''',

@@ -105,7 +105,7 @@ It is both thrilling and requires you to think on your feet!''',
   ),
   Activity(
     name: '🍽️ Dinner with Strangers',
-    startTime: DateTime(2023, 9, 1, 18),
+    startTime: DateTime(2024, 9, 1, 18),
     duration: const Duration(hours: 2),
     description: '''
 Step out of your comfort zone and into a world of new connections. Dinner with Strangers splits you into groups for an unforgettable meal filled with conversation, laughter, and the chance to forge unexpected friendships. Are you ready to meet your new favorite people?''',
@@ -116,7 +116,7 @@ Step out of your comfort zone and into a world of new connections. Dinner with S
   ),
   Activity(
     name: '🎯 Flutter & Fun Pub Night',
-    startTime: DateTime(2023, 9, 1, 19, 30),
+    startTime: DateTime(2024, 9, 1, 19, 30),
     duration: const Duration(hours: 4),
     description: '''
 Join fellow Flutter enthusiasts for a night of great conversation, a challenging pub quiz, and beers. It's the perfect opportunity to network, relax, and have some fun!''',
@@ -150,7 +150,7 @@ final day2 = <Event>[
   ...talks.sublist(5, 11),
   Activity(
     name: '☕️ Fika',
-    startTime: DateTime(2023, 9, 2, 15),
+    startTime: DateTime(2024, 9, 2, 15),
     duration: const Duration(minutes: 40),
     location: const Location(
       name: 'Main Stage',
@@ -160,7 +160,7 @@ final day2 = <Event>[
   ...talks.sublist(11),
   Activity(
     name: '🎙️ Panel discussion',
-    startTime: DateTime(2023, 9, 2, 17, 20),
+    startTime: DateTime(2024, 9, 2, 17, 20),
     duration: const Duration(minutes: 30),
     location: const Location(
       name: 'Main Stage',
@@ -169,7 +169,7 @@ final day2 = <Event>[
   ),
   Activity(
     name: '🎬 Closing Remarks',
-    startTime: DateTime(2023, 9, 2, 17, 50),
+    startTime: DateTime(2024, 9, 2, 17, 50),
     duration: const Duration(minutes: 10),
     location: const Location(
       name: 'Main Stage',

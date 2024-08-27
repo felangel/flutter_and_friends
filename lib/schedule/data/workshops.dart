@@ -30,7 +30,7 @@ In this workshop, we will go through all the steps of porting your mobile app to
     name: 'Badge Hack',
     speakers: const [],
     duration: const Duration(hours: 6),
-    startTime: DateTime(2023, 9, 3, 10),
+    startTime: DateTime(2024, 9, 3, 10),
     location: tbd,
     description: '''
 Get together and hack something fun in Flutter with NFC! 👀
