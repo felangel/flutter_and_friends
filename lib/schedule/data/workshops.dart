@@ -127,7 +127,7 @@ This workshop will equip developers with the skills to architect sophisticated n
     name:
         '''Flutter in the year 2044: Discussing a community plan for Flutter's next 20 years''',
     speakers: const [simonLightfoot],
-    duration: const Duration(minutes: 90),
+    duration: const Duration(hours: 2),
     startTime: DateTime(2024, 9, 3, 15, 30),
     location: devoteam,
     description: '''
