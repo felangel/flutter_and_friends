@@ -97,6 +97,13 @@ class SettingsView extends StatelessWidget {
               trailing: const Icon(Icons.chevron_right),
               onTap: () => launchUrlString('https://shorebird.dev'),
             ),
+            ListTile(
+              title: const Text('Privacy Policy'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => launchUrlString(
+                'https://github.com/felangel/flutter_and_friends/blob/main/privacy.md',
+              ),
+            ),
           ],
         ),
       ),
