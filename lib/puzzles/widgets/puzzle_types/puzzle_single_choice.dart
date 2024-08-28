@@ -6,16 +6,21 @@ import 'package:flutter_and_friends/puzzles/widgets/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:puzzle_repository/puzzle_repository.dart';
 
-class PuzzleSingleChoice extends StatelessWidget {
+class PuzzleSingleChoice extends StatefulWidget {
   const PuzzleSingleChoice({required this.puzzle, super.key});
 
   final Puzzle puzzle;
 
   @override
-  Widget build(BuildContext context) {
-    final foxController = FoxController(audioType: AudioType.singleChoice);
-    String? selectedAnswer;
+  State<PuzzleSingleChoice> createState() => _PuzzleSingleChoiceState();
+}
 
+class _PuzzleSingleChoiceState extends State<PuzzleSingleChoice> {
+  final foxController = FoxController(audioType: AudioType.singleChoice);
+  String? selectedAnswer;
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
       children: [
         SizedBox(
@@ -29,7 +34,7 @@ class PuzzleSingleChoice extends StatelessWidget {
           ),
         ),
         PuzzleSingleChoiceChips(
-          values: puzzle.choices ?? [],
+          values: widget.puzzle.choices ?? [],
           onChanged: (answer) {
             selectedAnswer = answer;
             foxController.play();
@@ -45,7 +50,7 @@ class PuzzleSingleChoice extends StatelessWidget {
               onTap: () {
                 if (selectedAnswer != null) {
                   context.read<PuzzlesCubit>().submitAnswer(
-                        puzzleId: puzzle.id,
+                        puzzleId: widget.puzzle.id,
                         answer: selectedAnswer,
                       );
                 }
