@@ -56,15 +56,3 @@ flutter:
     - assets/audio/
     - shorebird.yaml
   uses-material-design: true
-
-  fonts:
-    - family: Poppins
-      fonts:
-        - asset: assets/fonts/poppins/Poppins-Black.ttf
-        - asset: assets/fonts/poppins/Poppins-Bold.ttf
-        - asset: assets/fonts/poppins/Poppins-ExtraBold.ttf
-        - asset: assets/fonts/poppins/Poppins-Light.ttf
-        - asset: assets/fonts/poppins/Poppins-Medium.ttf
-        - asset: assets/fonts/poppins/Poppins-Regular.ttf
-        - asset: assets/fonts/poppins/Poppins-SemiBold.ttf
-        - asset: assets/fonts/poppins/Poppins-Thin.ttf

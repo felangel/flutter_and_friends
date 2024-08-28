@@ -23,7 +23,6 @@ final lightTheme = ThemeData(
     backgroundColor: _lightColorScheme.primaryContainer,
   ),
   useMaterial3: true,
-  fontFamily: 'Poppins',
 );
 
 final darkTheme = ThemeData(
@@ -46,7 +45,6 @@ final darkTheme = ThemeData(
     backgroundColor: _darkColorScheme.primaryContainer,
   ),
   useMaterial3: true,
-  fontFamily: 'Poppins',
 );
 
 const _lightColorScheme = ColorScheme(
