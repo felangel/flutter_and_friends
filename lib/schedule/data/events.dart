@@ -180,6 +180,10 @@ Host: Mangirdas Kazlauskas ''',
     name: '🪩 Flutter in the Dark',
     startTime: DateTime(2024, 9, 2, 19, 30),
     duration: const Duration(minutes: 330),
+    description: '''
+Join us for a competition of Flutter in the Dark (inspired by Code in the Dark), where you can win great prizes and be crowned the first Flutter in the Dark champion! 🏆
+
+Some great DJs will play and there will also be an area with less music where it's easier to mingle.''',
     location: const Location(
       name: 'Stockholm Under Stjärnorna',
       coordinates: (59.3307344, 18.0669868),
