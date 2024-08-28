@@ -21,8 +21,8 @@ At Skansen you will get to see Swedish history, culture and wildlife in one capt
 You'll get to experience the thrill of climbing/bouldering at Klättercentret Telefonplan.''',
     image: 'assets/activities/bouldering.jpg',
     location: const Location(
-      name: 'Nils Ericson statue',
-      coordinates: (59.330482, 18.059049),
+      name: 'Klättercentret Telefonplan',
+      coordinates: (59.2990912, 17.9915368),
     ),
   ),
   Activity(
@@ -33,8 +33,8 @@ You'll get to experience the thrill of climbing/bouldering at Klättercentret Te
 A perfect opportunity to connect with nature. Throw frisbees towards targets and enjoy the beautiful outdoors.''',
     image: 'assets/activities/disc_golf.jpg',
     location: const Location(
-      name: 'Nils Ericson statue',
-      coordinates: (59.330482, 18.059049),
+      name: 'Kaknäs DiscGolfPark',
+      coordinates: (59.3341683, 18.1282904),
     ),
   ),
   Activity(
@@ -99,8 +99,8 @@ Get locked in a room together with a small group of people and try to get out in
 It is both thrilling and requires you to think on your feet!''',
     image: 'assets/activities/escape_room.jpg',
     location: const Location(
-      name: 'TBD',
-      coordinates: (59.3425689, 18.0497984),
+      name: 'Escape Stories',
+      coordinates: (59.3345765, 18.055558),
     ),
   ),
   Activity(
@@ -147,33 +147,42 @@ final day2 = <Event>[
       coordinates: (59.3318138, 18.0589957),
     ),
   ),
+  Activity(
+    name: '🎤 PowerPoint Karaoke',
+    startTime: DateTime(2024, 9, 2, 12, 30),
+    duration: const Duration(minutes: 20),
+    description: '''
+Test your improvisation skills in PowerPoint Karaoke, where participants give impromptu presentations using random, unseen slides. Whether you're presenting or in the audience, expect lots of laughs and surprises in this lively, unpredictable session!
+Host: Mangirdas Kazlauskas ''',
+    location: mainStage,
+  ),
   ...talks.sublist(5, 11),
   Activity(
     name: '☕️ Fika',
     startTime: DateTime(2024, 9, 2, 15),
     duration: const Duration(minutes: 40),
-    location: const Location(
-      name: 'Main Stage',
-      coordinates: (59.3318138, 18.0589957),
-    ),
+    location: mainStage,
   ),
   ...talks.sublist(11),
   Activity(
     name: '🎙️ Panel discussion',
     startTime: DateTime(2024, 9, 2, 17, 20),
     duration: const Duration(minutes: 30),
-    location: const Location(
-      name: 'Main Stage',
-      coordinates: (59.3318138, 18.0589957),
-    ),
+    location: mainStage,
   ),
   Activity(
     name: '🎬 Closing Remarks',
     startTime: DateTime(2024, 9, 2, 17, 50),
     duration: const Duration(minutes: 10),
+    location: mainStage,
+  ),
+  Activity(
+    name: '🪩 Flutter in the Dark',
+    startTime: DateTime(2024, 9, 2, 19, 30),
+    duration: const Duration(minutes: 330),
     location: const Location(
-      name: 'Main Stage',
-      coordinates: (59.3318138, 18.0589957),
+      name: 'Stockholm Under Stjärnorna',
+      coordinates: (59.3307344, 18.0669868),
     ),
   ),
 ];

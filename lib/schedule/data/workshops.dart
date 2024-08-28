@@ -4,13 +4,9 @@ const devoteam = Location(
   name: 'Devoteam',
   coordinates: (59.3308268, 18.0633923),
 );
+
 const noA = Location(
   name: 'NoA',
-  coordinates: (59.3422061, 18.0620781),
-);
-
-const tbd = Location(
-  name: 'TBD',
   coordinates: (59.3422061, 18.0620781),
 );
 
@@ -31,7 +27,10 @@ In this workshop, we will go through all the steps of porting your mobile app to
     speakers: const [],
     duration: const Duration(hours: 6),
     startTime: DateTime(2024, 9, 3, 10),
-    location: tbd,
+    location: const Location(
+      name: 'Generator Stockholm',
+      coordinates: (59.3358554, 18.0507304),
+    ),
     description: '''
 Get together and hack something fun in Flutter with NFC! 👀
 
