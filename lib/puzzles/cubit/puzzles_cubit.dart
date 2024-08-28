@@ -147,16 +147,8 @@ class PuzzlesCubit extends HydratedCubit<PuzzlesState> {
   }
 
   @override
-  PuzzlesState? fromJson(Map<String, dynamic> json) {
-    final puzzleState = PuzzlesState.fromJson(json);
-    return PuzzlesState(
-      user: puzzleState.user,
-      userVerificationStatus: puzzleState.userVerificationStatus,
-      puzzles: puzzleState.puzzles,
-      leaderboard: puzzleState.leaderboard,
-      nextLeaderboardPage: puzzleState.nextLeaderboardPage,
-    );
-  }
+  PuzzlesState? fromJson(Map<String, dynamic> json) =>
+      PuzzlesState.fromJson(json);
 
   @override
   Map<String, dynamic>? toJson(PuzzlesState state) => state.toJson();
