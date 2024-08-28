@@ -12,17 +12,6 @@ const noA = Location(
 
 final workshops = <Workshop>[
   Workshop(
-    name: 'Porting your mobile app to TV platforms',
-    speakers: const [sashaDenisov],
-    duration: const Duration(minutes: 90),
-    startTime: DateTime(2024, 9, 3, 10),
-    location: devoteam,
-    description: '''
-Flutter officially supports six platforms (iOS, Android, Web, MacOS, Linux, and Windows). But what if you need to run the Flutter app on the TV platform? Unfortunately, TV platforms have no official support yet. But the Flutter app can be launched on some TV platforms.
-
-In this workshop, we will go through all the steps of porting your mobile app to the big screen, discuss all the nuances of TV apps, such as controlling the app with a remote control, and finally launch the app on a TV platform, not only on Android TV, but also on Apple TV''',
-  ),
-  Workshop(
     name: 'Badge Hack',
     speakers: const [],
     duration: const Duration(hours: 6),
@@ -38,6 +27,17 @@ Do you want to make cool things like https://x.com/drcoderz/status/...?
 This year at Flutter & Friends you will get the opportunity to! We will provide NFC tags for you to hack around with during the third day at the conference.
 
 The sky is the limits to what you will be able to create with your friends 🎉💙''',
+  ),
+  Workshop(
+    name: 'Porting your mobile app to TV platforms',
+    speakers: const [sashaDenisov],
+    duration: const Duration(minutes: 90),
+    startTime: DateTime(2024, 9, 3, 10),
+    location: devoteam,
+    description: '''
+Flutter officially supports six platforms (iOS, Android, Web, MacOS, Linux, and Windows). But what if you need to run the Flutter app on the TV platform? Unfortunately, TV platforms have no official support yet. But the Flutter app can be launched on some TV platforms.
+
+In this workshop, we will go through all the steps of porting your mobile app to the big screen, discuss all the nuances of TV apps, such as controlling the app with a remote control, and finally launch the app on a TV platform, not only on Android TV, but also on Apple TV''',
   ),
   Workshop(
     name: 'Learn how to build real-time games with Flutter and Dart Frog',
