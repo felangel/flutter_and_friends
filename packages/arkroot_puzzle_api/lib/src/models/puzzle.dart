@@ -1,4 +1,4 @@
-import 'package:arkroot_puzzle_api/src/models/user_progress.dart';
+import 'package:arkroot_puzzle_api/arkroot_puzzle_api.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 

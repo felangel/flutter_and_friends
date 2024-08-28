@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_and_friends/puzzles/widgets/widgets.dart';
+import 'package:flutter_and_friends/puzzles/puzzles.dart';
 import 'package:puzzle_repository/puzzle_repository.dart';
 
 class PuzzleCard extends StatelessWidget {

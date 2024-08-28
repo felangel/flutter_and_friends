@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_and_friends/puzzles/cubit/puzzles_cubit.dart';
+import 'package:flutter_and_friends/puzzles/puzzles.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PuzzleListener extends StatelessWidget {

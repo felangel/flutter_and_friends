@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_and_friends/puzzle_completion/view/puzzle_completion.dart';
-import 'package:flutter_and_friends/puzzle_user/view/view.dart';
+import 'package:flutter_and_friends/puzzle_completion/puzzle_completion.dart';
+import 'package:flutter_and_friends/puzzle_user/puzzle_user.dart';
 import 'package:flutter_and_friends/puzzles/puzzles.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nested_scroll_views/material.dart';

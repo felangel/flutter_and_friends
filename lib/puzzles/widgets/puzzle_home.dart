@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/puzzle_leaderboard/puzzle_leaderboard.dart';
-import 'package:flutter_and_friends/puzzles/helper/puzzle_helper.dart';
-import 'package:flutter_and_friends/puzzles/widgets/fox_animation.dart';
-import 'package:flutter_and_friends/puzzles/widgets/widgets.dart';
+import 'package:flutter_and_friends/puzzles/puzzles.dart';
 import 'package:flutter_and_friends/theme/theme.dart';
 import 'package:lottie/lottie.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/puzzle_leaderboard/puzzle_leaderboard.dart';
 import 'package:flutter_and_friends/puzzles/puzzles.dart';
-import 'package:flutter_and_friends/theme/widgets/widgets.dart';
+import 'package:flutter_and_friends/theme/theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
 import 'package:puzzle_repository/puzzle_repository.dart';

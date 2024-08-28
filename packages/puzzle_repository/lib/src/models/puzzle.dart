@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:ntp/ntp.dart';
-import 'package:puzzle_repository/src/models/user_progress.dart';
+import 'package:puzzle_repository/puzzle_repository.dart';
 
 part 'puzzle.g.dart';
 

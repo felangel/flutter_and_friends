@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_and_friends/puzzle_leaderboard/view/leaderboard_page.dart';
-import 'package:flutter_and_friends/puzzles/helper/puzzle_helper.dart';
-import 'package:flutter_and_friends/puzzles/widgets/fox_animation.dart';
-import 'package:flutter_and_friends/puzzles/widgets/puzzle_button.dart';
-import 'package:flutter_and_friends/theme/widgets/widgets.dart';
+import 'package:flutter_and_friends/puzzle_leaderboard/puzzle_leaderboard.dart';
+import 'package:flutter_and_friends/puzzles/puzzles.dart';
+import 'package:flutter_and_friends/theme/theme.dart';
 import 'package:rive/rive.dart';
 
 class PuzzleCompletion extends StatelessWidget {
