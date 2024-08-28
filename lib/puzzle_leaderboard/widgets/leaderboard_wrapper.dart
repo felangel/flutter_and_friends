@@ -26,10 +26,7 @@ class LeaderboardItemWrapper extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         border: Border(
-          bottom: BorderSide(
-            width: 3,
-            color: color,
-          ),
+          bottom: BorderSide(width: 3, color: color),
           left: defaultBorderSide,
           right: defaultBorderSide,
           top: defaultBorderSide,

@@ -10,6 +10,14 @@ class FFAppBar extends AppBar {
           ),
           actions: [const _SettingsButton()],
         );
+
+  FFAppBar.empty({super.bottom, super.key})
+      : super(
+          title: Padding(
+            padding: const EdgeInsets.only(bottom: 8),
+            child: Image.asset('assets/logo.png', height: kToolbarHeight + 8),
+          ),
+        );
 }
 
 class _SettingsButton extends StatelessWidget {

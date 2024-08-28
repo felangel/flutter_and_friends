@@ -6,6 +6,7 @@ part 'puzzle_user_state.dart';
 class PuzzleUserCubit extends Cubit<PuzzleUserState> {
   PuzzleUserCubit() : super(const PuzzleUserState.initial());
 
-  void updateUsername(String username) =>
-      emit(PuzzleUserState(username: username));
+  void updateUsername(String username) {
+    emit(PuzzleUserState(username: username));
+  }
 }

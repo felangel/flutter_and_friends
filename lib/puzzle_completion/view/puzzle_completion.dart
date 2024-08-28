@@ -3,6 +3,7 @@ import 'package:flutter_and_friends/puzzle_leaderboard/view/leaderboard_page.dar
 import 'package:flutter_and_friends/puzzles/helper/puzzle_helper.dart';
 import 'package:flutter_and_friends/puzzles/widgets/fox_animation.dart';
 import 'package:flutter_and_friends/puzzles/widgets/puzzle_button.dart';
+import 'package:flutter_and_friends/theme/widgets/widgets.dart';
 import 'package:rive/rive.dart';
 
 class PuzzleCompletion extends StatelessWidget {
@@ -17,12 +18,7 @@ class PuzzleCompletion extends StatelessWidget {
     final theme = Theme.of(context);
     return Scaffold(
       backgroundColor: Theme.of(context).canvasColor,
-      appBar: AppBar(
-        elevation: 0,
-        scrolledUnderElevation: 0,
-        backgroundColor: Colors.transparent,
-        leading: const BackButton(),
-      ),
+      appBar: FFAppBar.empty(),
       body: Stack(
         children: [
           const RiveAnimation.asset(
@@ -52,8 +48,9 @@ class PuzzleCompletion extends StatelessWidget {
                 const SizedBox(height: 22),
                 PuzzleButton(
                   text: 'View leaderboard',
-                  onTap: () =>
-                      Navigator.of(context).push(LeaderboardPage.route()),
+                  onTap: () => Navigator.of(context).push(
+                    LeaderboardPage.route(),
+                  ),
                 ),
               ],
             ),

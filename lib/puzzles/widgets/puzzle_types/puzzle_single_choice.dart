@@ -7,17 +7,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:puzzle_repository/puzzle_repository.dart';
 
 class PuzzleSingleChoice extends StatelessWidget {
-  const PuzzleSingleChoice({
-    required this.puzzle,
-    super.key,
-  });
+  const PuzzleSingleChoice({required this.puzzle, super.key});
 
   final Puzzle puzzle;
 
   @override
   Widget build(BuildContext context) {
     final foxController = FoxController(audioType: AudioType.singleChoice);
-    final puzzlesCubit = context.read<PuzzlesCubit>();
     String? selectedAnswer;
 
     return Column(
@@ -48,10 +44,10 @@ class PuzzleSingleChoice extends StatelessWidget {
                   SubmissionStatus.submitting,
               onTap: () {
                 if (selectedAnswer != null) {
-                  puzzlesCubit.submitAnswer(
-                    puzzleId: puzzle.id,
-                    answer: selectedAnswer,
-                  );
+                  context.read<PuzzlesCubit>().submitAnswer(
+                        puzzleId: puzzle.id,
+                        answer: selectedAnswer,
+                      );
                 }
               },
             );

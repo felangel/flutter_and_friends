@@ -27,6 +27,7 @@ class _PuzzleInputState extends State<PuzzleInput> {
 
   @override
   void initState() {
+    super.initState();
     totalLength = widget.puzzle.inputFillers?.length ?? 0;
 
     focusNodes = List.generate(
@@ -44,8 +45,6 @@ class _PuzzleInputState extends State<PuzzleInput> {
         controllers[i].text = widget.puzzle.inputFillers![i];
       }
     }
-
-    super.initState();
   }
 
   @override
@@ -61,7 +60,6 @@ class _PuzzleInputState extends State<PuzzleInput> {
 
   @override
   Widget build(BuildContext context) {
-    final puzzlesCubit = context.read<PuzzlesCubit>();
     final theme = Theme.of(context);
     return Column(
       children: [
@@ -145,10 +143,10 @@ class _PuzzleInputState extends State<PuzzleInput> {
                 for (final controller in controllers) {
                   answer.write(controller.text);
                 }
-                puzzlesCubit.submitAnswer(
-                  puzzleId: widget.puzzle.id,
-                  answer: answer.toString(),
-                );
+                context.read<PuzzlesCubit>().submitAnswer(
+                      puzzleId: widget.puzzle.id,
+                      answer: '$answer',
+                    );
               },
             );
           },

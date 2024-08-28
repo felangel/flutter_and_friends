@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_and_friends/puzzle_leaderboard/helper/leader_board_helper.dart';
-import 'package:flutter_and_friends/puzzle_leaderboard/widgets/leaderboard_wrapper.dart';
+import 'package:flutter_and_friends/puzzle_leaderboard/puzzle_leaderboard.dart';
 import 'package:flutter_and_friends/puzzles/puzzles.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:puzzle_repository/puzzle_repository.dart';
@@ -34,7 +33,7 @@ class LeaderboardItem extends StatelessWidget {
             ),
             child: Center(
               child: Text(
-                LeaderBoardHelper.getRankEmoji(position),
+                position.rankEmoji,
                 style: theme.textTheme.titleMedium,
               ),
             ),
@@ -54,5 +53,11 @@ class LeaderboardItem extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+extension on int {
+  String get rankEmoji {
+    return switch (this) { 1 => '🏆', 2 => '🥈', 3 => '🥉', _ => '$this' };
   }
 }

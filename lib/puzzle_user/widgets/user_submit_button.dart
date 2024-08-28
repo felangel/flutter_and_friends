@@ -10,19 +10,15 @@ class UserSubmitButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
     return BlocBuilder<PuzzlesCubit, PuzzlesState>(
       buildWhen: (previous, current) =>
           previous.userVerificationStatus != current.userVerificationStatus,
-      builder: (context, puzzlesState) {
-        final puzzlesCubit = context.read<PuzzlesCubit>();
+      builder: (context, state) {
         return Column(
           children: [
-            if (puzzlesState.userVerificationStatus ==
+            if (state.userVerificationStatus ==
                 UserVerificationStatus.verifying)
-              const Center(
-                child: PuzzleLoading(),
-              )
+              const Center(child: PuzzleLoading())
             else
               BlocBuilder<PuzzleUserCubit, PuzzleUserState>(
                 builder: (context, puzzleUserState) {
@@ -45,37 +41,39 @@ class UserSubmitButton extends StatelessWidget {
                       PuzzleButton(
                         text: 'Submit',
                         disable: !puzzleUserState.isUsernameValid ||
-                            puzzlesState.userVerificationStatus ==
+                            state.userVerificationStatus ==
                                 UserVerificationStatus.verifying,
                         onTap: () {
-                          puzzlesCubit.verifyUser(
-                            username: puzzleUserState.username,
-                          );
+                          context
+                              .read<PuzzlesCubit>()
+                              .verifyUser(username: puzzleUserState.username);
                         },
                       ),
                     ],
                   );
                 },
               ),
-            if (puzzlesState.userVerificationStatus ==
+            if (state.userVerificationStatus ==
                 UserVerificationStatus.existingUsername)
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 child: Text(
                   'This username exists! Try a different name.',
-                  style: theme.textTheme.bodyMedium
-                      ?.copyWith(color: theme.colorScheme.error),
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: theme.colorScheme.error,
+                  ),
                   textAlign: TextAlign.center,
                 ),
               )
-            else if (puzzlesState.userVerificationStatus ==
+            else if (state.userVerificationStatus ==
                 UserVerificationStatus.failed)
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 child: Text(
                   'Something went wrong! Try again.',
-                  style: theme.textTheme.bodyMedium
-                      ?.copyWith(color: theme.colorScheme.error),
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: theme.colorScheme.error,
+                  ),
                   textAlign: TextAlign.center,
                 ),
               ),

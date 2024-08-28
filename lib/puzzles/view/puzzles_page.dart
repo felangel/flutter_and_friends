@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/puzzles/puzzles.dart';
+import 'package:flutter_and_friends/theme/widgets/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:particles_flutter/particles_flutter.dart';
+import 'package:puzzle_repository/puzzle_repository.dart';
 
 class PuzzlesPage extends StatelessWidget {
   const PuzzlesPage({super.key});
@@ -11,19 +14,26 @@ class PuzzlesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => PuzzlesCubit(
+        puzzleRepository: context.read<PuzzleRepository>(),
+      ),
+      child: const PuzzlesView(),
+    );
+  }
+}
+
+class PuzzlesView extends StatelessWidget {
+  const PuzzlesView({super.key});
+  @override
+  Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return PuzzleListener(
       child: Scaffold(
         backgroundColor: Theme.of(context).canvasColor,
-        appBar: AppBar(
-          elevation: 0,
-          scrolledUnderElevation: 0,
-          backgroundColor: Colors.transparent,
-          leading: const BackButton(),
-        ),
+        appBar: FFAppBar.empty(),
         body: Stack(
           children: [
-            // Background particles
             CircularParticle(
               key: UniqueKey(),
               height: MediaQuery.of(context).size.height,

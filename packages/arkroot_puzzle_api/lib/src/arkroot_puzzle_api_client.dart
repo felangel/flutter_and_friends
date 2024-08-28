@@ -15,32 +15,24 @@ class EmptyData implements Exception {}
 class UsernameAlreadyTaken implements Exception {}
 
 class ArkrootPuzzleApiClient {
-  final String _baseUrl;
-  final String _apiSecret;
+  const ArkrootPuzzleApiClient({required String apiKey}) : _apiSecret = apiKey;
 
-  ArkrootPuzzleApiClient({required String apiKey})
-      : _baseUrl = 'newsic.ai',
-        _apiSecret = apiKey;
+  static const String _baseUrl = 'newsic.ai';
+
+  final String _apiSecret;
 
   Future<User> verifyUser({
     required String username,
     required String deviceId,
   }) async {
-    final request = Uri.https(
-      _baseUrl,
-      'api/verify.php',
-    );
-
+    final request = Uri.https(_baseUrl, 'api/verify.php');
     final body = {
       'username': username,
       'deviceId': deviceId,
       'apiSecret': _apiSecret,
     };
 
-    final response = await http.post(
-      request,
-      body: body,
-    );
+    final response = await http.post(request, body: body);
 
     if (response.statusCode != 200) throw RequestFailure();
 
@@ -61,20 +53,10 @@ class ArkrootPuzzleApiClient {
   }
 
   Future<List<Puzzle>> fetchPuzzles({required int userId}) async {
-    final request = Uri.https(
-      _baseUrl,
-      'api/fetchQuizzes.php',
-    );
+    final request = Uri.https(_baseUrl, 'api/fetchQuizzes.php');
+    final body = {'userId': '$userId', 'apiSecret': _apiSecret};
 
-    final body = {
-      'userId': userId.toString(),
-      'apiSecret': _apiSecret,
-    };
-
-    final response = await http.post(
-      request,
-      body: body,
-    );
+    final response = await http.post(request, body: body);
 
     if (response.statusCode != 200) throw RequestFailure();
 
@@ -83,10 +65,9 @@ class ArkrootPuzzleApiClient {
     if (!responseDataJson.containsKey('data')) throw InvalidData();
 
     final puzzlesJsonList = responseDataJson['data'] as List;
-    final puzzles =
-        puzzlesJsonList.map((json) => Puzzle.fromJson(json)).toList();
-
-    return puzzles;
+    return puzzlesJsonList
+        .map((json) => Puzzle.fromJson(json as Map<String, dynamic>))
+        .toList();
   }
 
   Future<UserProgress> submitAnswer({
@@ -94,11 +75,7 @@ class ArkrootPuzzleApiClient {
     required int puzzleId,
     required dynamic answer,
   }) async {
-    final request = Uri.https(
-      _baseUrl,
-      'api/submitAnswer.php',
-    );
-
+    final request = Uri.https(_baseUrl, 'api/submitAnswer.php');
     final body = {
       'userId': userId.toString(),
       'questionId': puzzleId.toString(),
@@ -106,10 +83,7 @@ class ArkrootPuzzleApiClient {
       'apiSecret': _apiSecret,
     };
 
-    final response = await http.post(
-      request,
-      body: body,
-    );
+    final response = await http.post(request, body: body);
 
     if (response.statusCode != 200) throw RequestFailure();
 
@@ -118,27 +92,17 @@ class ArkrootPuzzleApiClient {
     if (!responseDataJson.containsKey('success')) throw InvalidData();
     if (!responseDataJson.containsKey('progress')) throw EmptyData();
 
-    final userProgressJson = responseDataJson['progress'];
+    final userProgressJson =
+        responseDataJson['progress'] as Map<String, dynamic>;
 
-    UserProgress userProgress = UserProgress.fromJson(userProgressJson);
-    return userProgress;
+    return UserProgress.fromJson(userProgressJson);
   }
 
   Future<List<User>> fetchLeaderboard({required int page}) async {
-    final request = Uri.https(
-      _baseUrl,
-      'api/fetchLeaderboard.php',
-    );
+    final request = Uri.https(_baseUrl, 'api/fetchLeaderboard.php');
+    final body = {'page': '$page', 'apiSecret': _apiSecret};
 
-    final body = {
-      'page': page.toString(),
-      'apiSecret': _apiSecret,
-    };
-
-    final response = await http.post(
-      request,
-      body: body,
-    );
+    final response = await http.post(request, body: body);
 
     if (response.statusCode != 200) throw RequestFailure();
 
@@ -147,9 +111,8 @@ class ArkrootPuzzleApiClient {
     if (!responseDataJson.containsKey('data')) throw InvalidData();
 
     final leaderboardJsonList = responseDataJson['data'] as List;
-    final leaderboard =
-        leaderboardJsonList.map((json) => User.fromJson(json)).toList();
-
-    return leaderboard;
+    return leaderboardJsonList
+        .map((json) => User.fromJson(json as Map<String, dynamic>))
+        .toList();
   }
 }

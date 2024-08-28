@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_and_friends/puzzles/helper/puzzle_helper.dart';
+import 'package:flutter_and_friends/puzzles/puzzles.dart';
 import 'package:rive/rive.dart';
 
 class FoxAnimation extends StatefulWidget {
@@ -31,15 +31,11 @@ class _FoxAnimationState extends State<FoxAnimation> {
 
   @override
   void initState() {
+    super.initState();
     controller = widget.controller;
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await controller.initialize(
-        widget.rivePath,
-        widget.audioPath,
-      );
-      setState(() {
-        initialised = true;
-      });
+      await controller.initialize(widget.rivePath, widget.audioPath);
+      setState(() => initialised = true);
       if (widget.startInitial) {
         if (widget.startDelayed) {
           await Future<void>.delayed(const Duration(seconds: 1));
@@ -47,7 +43,6 @@ class _FoxAnimationState extends State<FoxAnimation> {
         await controller.play();
       }
     });
-    super.initState();
   }
 
   @override

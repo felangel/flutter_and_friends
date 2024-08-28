@@ -1,9 +1,7 @@
 part of 'puzzle_user_cubit.dart';
 
 class PuzzleUserState extends Equatable {
-  const PuzzleUserState({
-    required this.username,
-  });
+  const PuzzleUserState({required this.username});
 
   const PuzzleUserState.initial() : username = '';
 

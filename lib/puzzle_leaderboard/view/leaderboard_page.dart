@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/puzzle_leaderboard/puzzle_leaderboard.dart';
 import 'package:flutter_and_friends/puzzles/puzzles.dart';
+import 'package:flutter_and_friends/theme/widgets/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
+import 'package:puzzle_repository/puzzle_repository.dart';
 import 'package:very_good_infinite_list/very_good_infinite_list.dart';
 
-class LeaderboardPage extends StatefulWidget {
+class LeaderboardPage extends StatelessWidget {
   const LeaderboardPage({super.key});
 
   static Route<void> route() {
@@ -13,38 +15,30 @@ class LeaderboardPage extends StatefulWidget {
   }
 
   @override
-  State<LeaderboardPage> createState() => _LeaderboardPageState();
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => PuzzlesCubit(
+        puzzleRepository: context.read<PuzzleRepository>(),
+      )..fetchLeaderboard(isNew: true),
+      child: const LeaderboardView(),
+    );
+  }
 }
 
-class _LeaderboardPageState extends State<LeaderboardPage> {
-  @override
-  void initState() {
-    context.read<PuzzlesCubit>().fetchLeaderboard(isNew: true);
-    super.initState();
-  }
+class LeaderboardView extends StatelessWidget {
+  const LeaderboardView({super.key});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
       backgroundColor: Theme.of(context).canvasColor,
-      appBar: AppBar(
-        elevation: 0,
-        scrolledUnderElevation: 0,
-        backgroundColor: Colors.transparent,
-        leading: const BackButton(),
-        centerTitle: false,
-        title: Text(
-          'Leaderboard',
-          style: theme.textTheme.titleLarge,
-        ),
-      ),
+      appBar: FFAppBar.empty(),
       body: BlocBuilder<PuzzlesCubit, PuzzlesState>(
         buildWhen: (previous, current) =>
             previous.leaderboardFetchingStatus !=
             current.leaderboardFetchingStatus,
         builder: (context, state) {
-          final puzzlesCubit = context.read<PuzzlesCubit>();
           if (state.initialLeaderboardFetched) {
             if (state.leaderboard!.isEmpty) {
               return Center(
@@ -65,17 +59,20 @@ class _LeaderboardPageState extends State<LeaderboardPage> {
                     const SizedBox(height: 12),
                     Text(
                       'Looks like you are the first one here.',
-                      style: theme.textTheme.bodyLarge
-                          ?.copyWith(fontWeight: FontWeight.w700),
+                      style: theme.textTheme.bodyLarge?.copyWith(
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                   ],
                 ),
               );
             }
+
             return InfiniteList(
               itemCount: state.leaderboard!.length,
               isLoading: state.fetchingLeaderboard,
-              onFetchData: puzzlesCubit.fetchLeaderboard,
+              onFetchData: () =>
+                  context.read<PuzzlesCubit>().fetchLeaderboard(),
               hasReachedMax: !state.hasMoreLeaderboardData,
               padding: const EdgeInsets.symmetric(horizontal: 20),
               itemBuilder: (context, index) => LeaderboardItem(
@@ -87,11 +84,8 @@ class _LeaderboardPageState extends State<LeaderboardPage> {
 
           return switch (state.leaderboardFetchingStatus) {
             FetchStatus.notFetched => const SizedBox.shrink(),
-            // handled in above if case
             FetchStatus.fetched => const SizedBox.shrink(),
-            FetchStatus.fetching => const Center(
-                child: PuzzleLoading(),
-              ),
+            FetchStatus.fetching => const Center(child: PuzzleLoading()),
             FetchStatus.failed => Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,

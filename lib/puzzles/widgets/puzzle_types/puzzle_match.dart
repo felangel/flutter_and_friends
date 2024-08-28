@@ -82,13 +82,13 @@ class _PuzzleMatchState extends State<PuzzleMatch> {
 
   @override
   void initState() {
+    super.initState();
     if (widget.puzzle.matches?.isNotEmpty ?? false) {
       left =
           widget.puzzle.matches!.keys.map((e) => MatchItem(text: e)).toList();
       right =
           widget.puzzle.matches!.values.map((e) => MatchItem(text: e)).toList();
     }
-    super.initState();
   }
 
   bool get completeness {
@@ -112,7 +112,6 @@ class _PuzzleMatchState extends State<PuzzleMatch> {
 
   @override
   Widget build(BuildContext context) {
-    final puzzlesCubit = context.read<PuzzlesCubit>();
     return Column(
       children: [
         SizedBox(
@@ -167,10 +166,10 @@ class _PuzzleMatchState extends State<PuzzleMatch> {
                       {element.text: right[element.valueIndex!].text},
                     );
                   }
-                  puzzlesCubit.submitAnswer(
-                    puzzleId: widget.puzzle.id,
-                    answer: answer.toString(),
-                  );
+                  context.read<PuzzlesCubit>().submitAnswer(
+                        puzzleId: widget.puzzle.id,
+                        answer: '$answer',
+                      );
                 }
               },
             );

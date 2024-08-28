@@ -1,4 +1,3 @@
-import 'package:arkroot_puzzle_api/arkroot_puzzle_api.dart' as client;
 import 'package:custom_platform_device_id/platform_device_id.dart';
 import 'package:equatable/equatable.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
@@ -9,13 +8,8 @@ part 'puzzles_state.dart';
 part 'puzzles_cubit.g.dart';
 
 class PuzzlesCubit extends HydratedCubit<PuzzlesState> {
-  PuzzlesCubit({PuzzleRepository? puzzleRepository})
-      : _puzzleRepository = puzzleRepository ??
-            PuzzleRepository(
-              puzzleApiClient: client.ArkrootPuzzleApiClient(
-                apiKey: const String.fromEnvironment('API_KEY'),
-              ),
-            ),
+  PuzzlesCubit({required PuzzleRepository puzzleRepository})
+      : _puzzleRepository = puzzleRepository,
         super(const PuzzlesState());
 
   final PuzzleRepository _puzzleRepository;
@@ -44,7 +38,7 @@ class PuzzlesCubit extends HydratedCubit<PuzzlesState> {
           userVerificationStatus: UserVerificationStatus.verified,
         ),
       );
-    } on client.UsernameAlreadyTaken catch (_) {
+    } on UsernameAlreadyTaken catch (_) {
       emit(
         state.copyWith(
           userVerificationStatus: UserVerificationStatus.existingUsername,
@@ -97,7 +91,7 @@ class PuzzlesCubit extends HydratedCubit<PuzzlesState> {
         puzzleId: puzzleId,
         userProgress: userProgress,
       );
-    } on client.EmptyData catch (_) {
+    } on EmptyData catch (_) {
       final userProgress = UserProgress(
         score: 0,
         userID: state.user!.userID.toString(),
@@ -165,7 +159,5 @@ class PuzzlesCubit extends HydratedCubit<PuzzlesState> {
   }
 
   @override
-  Map<String, dynamic>? toJson(PuzzlesState state) {
-    return state.toJson();
-  }
+  Map<String, dynamic>? toJson(PuzzlesState state) => state.toJson();
 }

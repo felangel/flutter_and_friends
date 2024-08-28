@@ -6,12 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/config/config.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
 import 'package:flutter_and_friends/launchpad/launchpad.dart';
-import 'package:flutter_and_friends/puzzles/cubit/puzzles_cubit.dart';
 import 'package:flutter_and_friends/theme/theme.dart';
 import 'package:flutter_and_friends/updater/updater.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:puzzle_repository/puzzle_repository.dart';
 import 'package:shorebird_code_push/shorebird_code_push.dart';
 
 Future<void> main() async {
@@ -29,14 +29,16 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RepositoryProvider(
-      create: (_) => ShorebirdCodePush(),
+    return MultiRepositoryProvider(
+      providers: [
+        RepositoryProvider(create: (_) => ShorebirdCodePush()),
+        RepositoryProvider(create: (_) => PuzzleRepository()),
+      ],
       child: MultiBlocProvider(
         providers: [
           BlocProvider(create: (_) => ThemeCubit()),
           BlocProvider(create: (_) => FavoritesCubit()),
           BlocProvider(create: (_) => UpdaterCubit()..init()),
-          BlocProvider(create: (_) => PuzzlesCubit()),
         ],
         child: const AppView(),
       ),

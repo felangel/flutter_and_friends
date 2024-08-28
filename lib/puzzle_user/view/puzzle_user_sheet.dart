@@ -19,7 +19,6 @@ class PuzzleUserSheetView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final puzzleUserCubit = context.read<PuzzleUserCubit>();
     final theme = Theme.of(context);
 
     return Center(
@@ -47,14 +46,13 @@ class PuzzleUserSheetView extends StatelessWidget {
             children: [
               const Text(
                 'Input username',
-                style: TextStyle(
-                  fontSize: 26,
-                  fontWeight: FontWeight.w700,
-                ),
+                style: TextStyle(fontSize: 26, fontWeight: FontWeight.w700),
               ),
               const SizedBox(height: 12),
               UsernameInput(
-                onChanged: puzzleUserCubit.updateUsername,
+                onChanged: (username) {
+                  context.read<PuzzleUserCubit>().updateUsername(username);
+                },
               ),
               const SizedBox(height: 12),
               const UserSubmitButton(),

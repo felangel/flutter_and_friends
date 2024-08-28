@@ -1,11 +1,12 @@
 import 'package:arkroot_puzzle_api/arkroot_puzzle_api.dart' as client;
 import 'package:puzzle_repository/puzzle_repository.dart';
 
-import 'models/models.dart';
-
 class PuzzleRepository {
-  PuzzleRepository({required client.ArkrootPuzzleApiClient puzzleApiClient})
-      : _puzzleApiClient = puzzleApiClient;
+  PuzzleRepository({client.ArkrootPuzzleApiClient? puzzleApiClient})
+      : _puzzleApiClient = puzzleApiClient ??
+            const client.ArkrootPuzzleApiClient(
+              apiKey: String.fromEnvironment('API_KEY'),
+            );
 
   final client.ArkrootPuzzleApiClient _puzzleApiClient;
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_and_friends/puzzles/view/puzzles_page.dart';
 import 'package:flutter_and_friends/settings/settings.dart';
 import 'package:flutter_and_friends/theme/theme.dart';
 import 'package:flutter_and_friends/updater/updater.dart';
@@ -51,6 +52,15 @@ class SettingsView extends StatelessWidget {
           children: [
             Text('Preferences', style: headingStyle),
             const ThemeToggle(),
+            const SizedBox(height: 16),
+            Text('Extras', style: headingStyle),
+            ListTile(
+              leading: const Icon(Icons.extension),
+              title: const Text('Flutter Puzzle'),
+              subtitle: const Text('Powered by ARKROOT GmbH'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => Navigator.of(context).push(PuzzlesPage.route()),
+            ),
             const SizedBox(height: 16),
             Text('About', style: headingStyle),
             ListTile(

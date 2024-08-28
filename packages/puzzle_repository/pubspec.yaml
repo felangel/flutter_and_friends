@@ -1,26 +1,19 @@
 name: puzzle_repository
-description: "Repository that handles puzzle"
+description: A dart repository which manages the puzzle domain
 version: 0.0.1
 publish_to: none
 
 environment:
-  sdk: ">=3.4.3 <4.0.0"
-  flutter: ">=1.17.0"
+  sdk: ">=3.5.0 <4.0.0"
 
 dependencies:
-  flutter:
-    sdk: flutter
-  json_annotation: ^4.9.0
   arkroot_puzzle_api:
     path: ../arkroot_puzzle_api
   equatable: ^2.0.5
+  json_annotation: ^4.9.0
   ntp: ^2.0.0
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  flutter_lints: ^3.0.0
-  json_serializable: ^6.8.0
   build_runner: ^2.4.11
-
-flutter:
+  json_serializable: ^6.8.0
+  very_good_analysis: ^6.0.0

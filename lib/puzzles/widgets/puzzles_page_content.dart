@@ -17,9 +17,9 @@ class _PuzzlesPageContentState extends State<PuzzlesPageContent> {
 
   @override
   void initState() {
+    super.initState();
     _pageController = PageController();
     fetchPuzzles();
-    super.initState();
   }
 
   void fetchPuzzles() {
@@ -44,8 +44,6 @@ class _PuzzlesPageContentState extends State<PuzzlesPageContent> {
           previous.puzzlesFetchingStatus != current.puzzlesFetchingStatus,
       builder: (context, state) {
         if (!state.hasUser) return const PuzzleUserSheet();
-
-        final puzzlesCubit = context.read<PuzzlesCubit>();
         return switch (state.puzzlesFetchingStatus) {
           FetchStatus.notFetched => const SizedBox.shrink(),
           FetchStatus.fetching => const Center(
@@ -62,7 +60,9 @@ class _PuzzlesPageContentState extends State<PuzzlesPageContent> {
                   ),
                   IconButton(
                     icon: const Icon(Icons.refresh),
-                    onPressed: puzzlesCubit.fetchPuzzles,
+                    onPressed: () {
+                      context.read<PuzzlesCubit>().fetchPuzzles();
+                    },
                   ),
                 ],
               ),

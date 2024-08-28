@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
 import 'package:flutter_and_friends/launchpad/launchpad.dart';
-import 'package:flutter_and_friends/puzzles/puzzles.dart';
 import 'package:flutter_and_friends/schedule/schedule.dart';
 import 'package:flutter_and_friends/sponsors/sponsors.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,10 +26,6 @@ class LaunchpadView extends StatelessWidget {
       appBar: AppBar(toolbarHeight: 0, shadowColor: Colors.transparent),
       body: const _LaunchpadBody(),
       bottomNavigationBar: const _BottomNavigationBar(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.of(context).push(PuzzlesPage.route()),
-        child: const Icon(Icons.extension),
-      ),
     );
   }
 }
