@@ -1,8 +1,8 @@
-import 'package:custom_platform_device_id/platform_device_id.dart';
 import 'package:equatable/equatable.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:puzzle_repository/puzzle_repository.dart';
+import 'package:uuid/uuid.dart';
 
 part 'puzzles_state.dart';
 part 'puzzles_cubit.g.dart';
@@ -21,13 +21,8 @@ class PuzzlesCubit extends HydratedCubit<PuzzlesState> {
           userVerificationStatus: UserVerificationStatus.verifying,
         ),
       );
-      final deviceId = await PlatformDeviceId.getDeviceId;
-      if (deviceId == null) {
-        emit(
-          state.copyWith(userVerificationStatus: UserVerificationStatus.failed),
-        );
-        return;
-      }
+
+      final deviceId = state.deviceId ?? const Uuid().v4();
       final user = await _puzzleRepository.verifyUser(
         username: username,
         deviceId: deviceId,

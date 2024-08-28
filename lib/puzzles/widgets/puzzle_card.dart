@@ -17,6 +17,7 @@ class PuzzleCard extends StatelessWidget {
     final theme = Theme.of(context);
     return Center(
       child: SingleChildScrollView(
+        physics: const ClampingScrollPhysics(),
         child: Container(
           width: double.infinity,
           padding: const EdgeInsets.all(32),

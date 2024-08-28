@@ -11,7 +11,6 @@ dependencies:
     path: packages/arkroot_puzzle_api
   audioplayers: ^6.0.0
   bloc: ^8.1.4
-  custom_platform_device_id: ^1.0.8
   equatable: ^2.0.5
   firebase_core: ^2.24.2
   flutter:
@@ -35,7 +34,9 @@ dependencies:
   rive: ^0.13.5
   shorebird_code_push: ^1.1.4
   url_launcher: ^6.3.0
+  uuid: ^3.0.7
   very_good_infinite_list: ^0.7.1
+
 
 dev_dependencies:
   build_runner: ^2.4.12

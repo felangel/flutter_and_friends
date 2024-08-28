@@ -33,12 +33,14 @@ class PuzzlesState extends Equatable {
     this.leaderboard,
     this.nextLeaderboardPage = 1,
     this.leaderboardFetchingStatus = FetchStatus.notFetched,
+    this.deviceId,
   });
 
   factory PuzzlesState.fromJson(Map<String, dynamic> json) =>
       _$PuzzlesStateFromJson(json);
 
   final User? user;
+  final String? deviceId;
   final UserVerificationStatus userVerificationStatus;
   final List<Puzzle>? puzzles;
   final FetchStatus puzzlesFetchingStatus;
@@ -56,6 +58,7 @@ class PuzzlesState extends Equatable {
     List<User>? leaderboard,
     int? nextLeaderboardPage,
     FetchStatus? leaderboardFetchingStatus,
+    String? deviceId,
   }) {
     return PuzzlesState(
       user: user ?? this.user,
@@ -70,11 +73,13 @@ class PuzzlesState extends Equatable {
       nextLeaderboardPage: nextLeaderboardPage ?? this.nextLeaderboardPage,
       leaderboardFetchingStatus:
           leaderboardFetchingStatus ?? this.leaderboardFetchingStatus,
+      deviceId: deviceId ?? this.deviceId,
     );
   }
 
   @override
   List<Object?> get props => [
+        deviceId,
         user,
         userVerificationStatus,
         puzzles,

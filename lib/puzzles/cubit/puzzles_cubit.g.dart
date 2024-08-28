@@ -33,22 +33,24 @@ PuzzlesState _$PuzzlesStateFromJson(Map<String, dynamic> json) => PuzzlesState(
       leaderboardFetchingStatus: $enumDecodeNullable(
               _$FetchStatusEnumMap, json['leaderboardFetchingStatus']) ??
           FetchStatus.notFetched,
+      deviceId: json['deviceId'] as String?,
     );
 
 Map<String, dynamic> _$PuzzlesStateToJson(PuzzlesState instance) =>
     <String, dynamic>{
       'user': instance.user,
+      'deviceId': instance.deviceId,
       'userVerificationStatus':
-          _$UserVerificationStatusEnumMap[instance.userVerificationStatus],
+          _$UserVerificationStatusEnumMap[instance.userVerificationStatus]!,
       'puzzles': instance.puzzles,
       'puzzlesFetchingStatus':
-          _$FetchStatusEnumMap[instance.puzzlesFetchingStatus],
+          _$FetchStatusEnumMap[instance.puzzlesFetchingStatus]!,
       'currentPuzzleSubmissionStatus':
-          _$SubmissionStatusEnumMap[instance.currentPuzzleSubmissionStatus],
+          _$SubmissionStatusEnumMap[instance.currentPuzzleSubmissionStatus]!,
       'leaderboard': instance.leaderboard,
       'nextLeaderboardPage': instance.nextLeaderboardPage,
       'leaderboardFetchingStatus':
-          _$FetchStatusEnumMap[instance.leaderboardFetchingStatus],
+          _$FetchStatusEnumMap[instance.leaderboardFetchingStatus]!,
     };
 
 const _$UserVerificationStatusEnumMap = {
