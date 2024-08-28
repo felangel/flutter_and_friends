@@ -1,3 +1,4 @@
+export 'fox_animation.dart';
 export 'puzzle_button.dart';
 export 'puzzle_card.dart';
 export 'puzzle_home.dart';
@@ -12,3 +13,4 @@ export 'puzzles_page_content.dart';
 export 'status_widgets/puzzle_completed.dart';
 export 'status_widgets/puzzle_locked.dart';
 export 'status_widgets/puzzle_unlocked.dart';
+export 'time_counter.dart';
