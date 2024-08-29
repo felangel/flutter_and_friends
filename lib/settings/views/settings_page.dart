@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_and_friends/puzzles/dialogs/warning_dialog.dart';
 import 'package:flutter_and_friends/puzzles/puzzles.dart';
 import 'package:flutter_and_friends/settings/settings.dart';
 import 'package:flutter_and_friends/theme/theme.dart';
@@ -59,7 +62,12 @@ class SettingsView extends StatelessWidget {
               title: const Text('Flutter Puzzle'),
               subtitle: const Text('Powered by ARKROOT GmbH'),
               trailing: const Icon(Icons.chevron_right),
-              onTap: () => Navigator.of(context).push(PuzzlesPage.route()),
+              onTap: () async {
+                final result = await showFuzzleWarningDialog(context);
+                if ((result ?? false) && context.mounted) {
+                  unawaited(Navigator.push(context, PuzzlesPage.route()));
+                }
+              },
             ),
             const SizedBox(height: 16),
             Text('About', style: headingStyle),
