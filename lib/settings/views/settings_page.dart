@@ -52,6 +52,17 @@ class SettingsView extends StatelessWidget {
             Text('Preferences', style: headingStyle),
             const ThemeToggle(),
             const SizedBox(height: 16),
+            Text('Extras', style: headingStyle),
+            ListTile(
+              leading: const Icon(Icons.map),
+              title: const Text('Activity Map'),
+              subtitle: const Text('View the locations of all activities'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => launchUrlString(
+                'https://www.google.com/maps/d/u/0/viewer?mid=102KWzlh5enCfJXbgTu8wN8FSfeOzsMw&femb=1&ll=59.32440113540593%2C18.059913600000016&z=13',
+              ),
+            ),
+            const SizedBox(height: 16),
             Text('About', style: headingStyle),
             ListTile(
               title: const Row(
