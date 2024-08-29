@@ -6,9 +6,11 @@ Future<bool?> showFuzzleWarningDialog(BuildContext context) async {
     builder: (BuildContext context) {
       return AlertDialog(
         title: const Text('Warning'),
-        content: const Text('Heads up! Please be aware that our quiz master might be quite lively,'
+        content: const Text('Heads up! Please be aware that our '
+            'quiz master might be quite lively,'
             ' with sound on - can be surprising especially during the event. '
-            'To ensure a smooth experience, we recommend using headphones or being in a safe environment.'),
+            'To ensure a smooth experience, we recommend using headphones '
+            'or being in a safe environment.'),
         actions: <Widget>[
           TextButton(
             child: const Text('OK'),

@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_and_friends/puzzles/dialogs/warning_dialog.dart';
 import 'package:flutter_and_friends/puzzles/puzzles.dart';
 import 'package:flutter_and_friends/settings/settings.dart';
 import 'package:flutter_and_friends/theme/theme.dart';
