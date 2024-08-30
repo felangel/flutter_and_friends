@@ -2,11 +2,11 @@ import 'package:flutter_and_friends/schedule/schedule.dart';
 
 const mainStage = Location(
   name: 'Main Stage',
-  coordinates: (59.3318138, 18.0589957),
+  coordinates: (59.3317657, 18.0637531),
 );
 const studioStage = Location(
   name: 'Studio Stage',
-  coordinates: (59.3318138, 18.0589957),
+  coordinates: (59.3317657, 18.0637531),
 );
 
 final talks = <Talk>[

@@ -1,5 +1,10 @@
 import 'package:flutter_and_friends/schedule/schedule.dart';
 
+const venue = Location(
+  name: 'Kulturhuset',
+  coordinates: (59.3318138, 18.0589957),
+);
+
 final day1 = <Event>[
   Activity(
     name: 'Skansen',
@@ -9,8 +14,8 @@ final day1 = <Event>[
 At Skansen you will get to see Swedish history, culture and wildlife in one captivating setting.''',
     image: 'assets/activities/zoo.jpg',
     location: const Location(
-      name: 'Skansen tram stop',
-      coordinates: (59.3240335, 18.0992596),
+      name: 'Skansenbutiken',
+      coordinates: (59.3244718, 18.100444),
     ),
   ),
   Activity(
@@ -48,7 +53,7 @@ You'll even get to do the classic pentathlon!''',
     image: 'assets/activities/pentathlon.jpg',
     location: const Location(
       name: 'Gröna Lund',
-      coordinates: (59.3232484, 18.0986932),
+      coordinates: (59.3233564, 18.0963901),
     ),
   ),
   Activity(
@@ -85,8 +90,8 @@ You'll get to kayak between the islands and under the bridges, experiencing Stoc
 You'll get to play arcade and VR games in the heart of Stockholm.''',
     image: 'assets/activities/arcade.jpg',
     location: const Location(
-      name: 'HeySthlm',
-      coordinates: (59.3425689, 18.0497984),
+      name: 'VREX City',
+      coordinates: (59.33216, 18.0653693),
     ),
   ),
   Activity(
@@ -122,29 +127,26 @@ Step out of your comfort zone and into a world of new connections. Dinner with S
 Join fellow Flutter enthusiasts for a night of great conversation, a challenging pub quiz, and beers. It's the perfect opportunity to network, relax, and have some fun!''',
     location: const Location(
       name: 'International Bar',
-      coordinates: (59.3355955, 18.0683371),
+      coordinates: (59.3355955, 18.070912),
     ),
   ),
 ];
 
 final day2 = <Event>[
   Activity(
-    name: '✅ Check-in at Kulturhuset',
+    name: '✅ Check-in',
     startTime: DateTime(2024, 9, 2, 8, 45),
     duration: const Duration(minutes: 45),
-    location: const Location(
-      name: 'Kulturhuset',
-      coordinates: (59.3318138, 18.0589957),
-    ),
+    location: venue,
   ),
   ...talks.sublist(0, 5),
   Activity(
     name: '🍽️ Lunch',
     startTime: DateTime(2024, 9, 2, 11, 50),
     duration: const Duration(minutes: 70),
-    location: const Location(
+    location: Location(
       name: 'Exhibition Area',
-      coordinates: (59.3318138, 18.0589957),
+      coordinates: venue.coordinates,
     ),
   ),
   Activity(
@@ -177,7 +179,7 @@ Host: Mangirdas Kazlauskas ''',
     location: mainStage,
   ),
   Activity(
-    name: '🪩 Flutter in the Dark',
+    name: '🪩 After Party',
     startTime: DateTime(2024, 9, 2, 19, 30),
     duration: const Duration(minutes: 330),
     description: '''
@@ -185,8 +187,8 @@ Join us for a competition of Flutter in the Dark (inspired by Code in the Dark),
 
 Some great DJs will play and there will also be an area with less music where it's easier to mingle.''',
     location: const Location(
-      name: 'Stockholm Under Stjärnorna',
-      coordinates: (59.3307344, 18.0669868),
+      name: 'Slaktkyrkan',
+      coordinates: (59.2924963, 18.0800201),
     ),
   ),
 ];
