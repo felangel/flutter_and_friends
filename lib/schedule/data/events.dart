@@ -1,10 +1,5 @@
 import 'package:flutter_and_friends/schedule/schedule.dart';
 
-const venue = Location(
-  name: 'Kulturhuset',
-  coordinates: (59.3318138, 18.0589957),
-);
-
 final day1 = <Event>[
   Activity(
     name: 'Skansen',
@@ -136,8 +131,20 @@ final day2 = <Event>[
   Activity(
     name: '✅ Check-in',
     startTime: DateTime(2024, 9, 2, 8, 45),
-    duration: const Duration(minutes: 45),
-    location: venue,
+    duration: const Duration(minutes: 35),
+    description: '''
+Try to be there early, since the check-in is pretty short.
+
+If you come early you will also get some extra swag. 😉''',
+    location: mainStage,
+  ),
+  Activity(
+    name: '👋 Intro',
+    startTime: DateTime(2024, 9, 2, 9, 20),
+    duration: const Duration(minutes: 10),
+    description: '''
+Your hosts Alek, Lukas & Johannes will tell you everything you need to know about the event, so that you can enjoy it to the fullest!''',
+    location: mainStage,
   ),
   ...talks.sublist(0, 5),
   Activity(
@@ -146,7 +153,7 @@ final day2 = <Event>[
     duration: const Duration(minutes: 70),
     location: Location(
       name: 'Exhibition Area',
-      coordinates: venue.coordinates,
+      coordinates: mainStage.coordinates,
     ),
   ),
   Activity(
@@ -179,13 +186,12 @@ Host: Mangirdas Kazlauskas ''',
     location: mainStage,
   ),
   Activity(
-    name: '🪩 After Party',
+    name: '🪩 Flutter & Friends Party',
     startTime: DateTime(2024, 9, 2, 19, 30),
     duration: const Duration(minutes: 330),
     description: '''
-Join us for a competition of Flutter in the Dark (inspired by Code in the Dark), where you can win great prizes and be crowned the first Flutter in the Dark champion! 🏆
-
-Some great DJs will play and there will also be an area with less music where it's easier to mingle.''',
+Unleash the Night! 🕺
+Get ready for an unforgettable evening with dazzling disco lights, refreshing drinks, awesome music, and the thrilling excitement of the competition Flutter in the Dark! 🌙 It's the perfect recipe for a night you won't forget. Don't miss out!''',
     location: const Location(
       name: 'Slaktkyrkan',
       coordinates: (59.2924963, 18.0800201),
