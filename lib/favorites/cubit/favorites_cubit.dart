@@ -16,9 +16,11 @@ class FavoritesCubit extends HydratedCubit<FavoritesState> {
 
   @override
   FavoritesState? fromJson(Map<String, dynamic> json) {
-    final events = (json['events'] as List)
-        .map((e) => Event.fromJson(e as Map<String, dynamic>))
-        .toList();
+    final events = [
+      ...(json['events'] as List).map(
+        (e) => Event.fromJson(e as Map<String, dynamic>),
+      ),
+    ]..removeWhere((e) => !allEvents.contains(e));
     return FavoritesState(events: events);
   }
 

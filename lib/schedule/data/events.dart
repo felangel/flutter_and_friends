@@ -1,5 +1,7 @@
 import 'package:flutter_and_friends/schedule/schedule.dart';
 
+final allEvents = <Event>[...day1, ...day2, ...day3];
+
 final day1 = <Event>[
   Activity(
     name: 'Skansen',
