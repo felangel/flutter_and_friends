@@ -27,12 +27,7 @@ jobs:
           cache: gradle
 
       - name: 🔐 Decode Keystore
-        env:
-          ENCODED_KEYSTORE: ${{ secrets.KEYSTORE }}
-          DECODED_KEYSTORE_PATH: ${{ secrets.KEYSTORE_PATH }}
-        run: |
-          echo $ENCODED_KEYSTORE > keystore_base64.txt
-          base64 -d keystore_base64.txt > $DECODED_KEYSTORE_PATH
+        run: echo ${{ secrets.KEYSTORE }} | base64 --decode > ${{ secrets.KEYSTORE_PATH }}
 
       - name: 🐦 Setup Shorebird
         uses: shorebirdtech/setup-shorebird@v1
