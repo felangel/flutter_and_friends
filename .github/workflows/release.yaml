@@ -11,6 +11,7 @@ env:
 
 jobs:
   release-android:
+    if: false
     runs-on: ubuntu-latest
 
     name: 🤖 Release Android
@@ -55,7 +56,6 @@ jobs:
           path: build/app/outputs/bundle/release/app-release.aab
 
   release-ios:
-    if: false # TODO: re-enable this
     runs-on: macos-latest
 
     name: 🍎 Release iOS
@@ -67,14 +67,49 @@ jobs:
       - name: 🐦 Setup Shorebird
         uses: shorebirdtech/setup-shorebird@v1
 
+      - name: ✍️ Setup XCode Signing
+        env:
+          CERTIFICATE: ${{ secrets.CERTIFICATE }}
+          CERTIFICATE_PASSWORD: ${{ secrets.CERTIFICATE_PASSWORD }}
+          PROVISIONING_PROFILE: ${{ secrets.PROVISIONING_PROFILE }}
+          KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+        # https://docs.github.com/en/actions/deployment/deploying-xcode-applications/installing-an-apple-certificate-on-macos-runners-for-xcode-development
+        # Also adds a uuid to the mobile provision so XCode can find it.
+        run: |
+          # create variables
+          CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
+          KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
+          PP_PATH=$RUNNER_TEMP/temp.mobileprovision
+
+          # import certificate and provisioning profile from secrets
+          echo -n "$CERTIFICATE" | base64 --decode -o $CERTIFICATE_PATH
+          echo -n "$PROVISIONING_PROFILE" | base64 --decode -o $PP_PATH
+
+          # create temporary keychain
+          security create-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
+          security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
+
+          # import certificate to keychain
+          security import $CERTIFICATE_PATH -P "$CERTIFICATE_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
+          security list-keychain -d user -s $KEYCHAIN_PATH
+          security find-identity -v
+
+          # use uuid for the name of provisioning profile
+          UUID=$(/usr/libexec/PlistBuddy -c "Print UUID" /dev/stdin <<< $(/usr/bin/security cms -D -i $PP_PATH))
+
+          # apply provisioning profile
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles/$UUID.mobileprovision
+
       - name: 🚀 Shorebird Release
         uses: shorebirdtech/shorebird-release@v0
         with:
           platform: ios
-          args: "--verbose"
+          args: "--export-options-plist ios/GHAExportOptions.plist --verbose"
 
       - name: 📦 Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ios-release-${{ github.ref_name }}
+          name: flutter_and_friends-${{ github.ref_name }}.ipa
           path: build/ios/ipa/flutter_and_friends.ipa
