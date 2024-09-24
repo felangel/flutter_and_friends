@@ -1,7 +1,6 @@
 name: release
 
 on:
-  workflow_dispatch:
   push:
     tags:
       - "v[0-9].[0-9]+.0" # e.g. v1.0.0, v1.1.0, v2.0.0, ...
@@ -11,7 +10,6 @@ env:
 
 jobs:
   release-android:
-    if: false
     runs-on: ubuntu-latest
 
     name: 🤖 Release Android
@@ -107,6 +105,13 @@ jobs:
         with:
           platform: ios
           args: "--export-options-plist ios/GHAExportOptions.plist --verbose"
+
+      - name: 🧹 Clean Up
+        if: ${{ always() }}
+        run: |
+          PP_PATH=$RUNNER_TEMP/temp.mobileprovision
+          security delete-keychain $RUNNER_TEMP/app-signing.keychain-db
+          rm $RUNNER_TEMP/temp.mobileprovision
 
       - name: 📦 Upload Artifact
         uses: actions/upload-artifact@v4
