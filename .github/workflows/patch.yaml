@@ -25,7 +25,7 @@ jobs:
         uses: shorebirdtech/shorebird-patch@v0
         with:
           platform: android
-          args: "--artifact=apk"
+          args: "--artifact=apk --staging"
 
       - name: 📦 Upload Artifact
         uses: actions/upload-artifact@v2
@@ -49,6 +49,7 @@ jobs:
         uses: shorebirdtech/shorebird-patch@v0
         with:
           platform: ios
+          args: "--staging"
 
       - name: 📦 Upload Artifact
         uses: actions/upload-artifact@v2
