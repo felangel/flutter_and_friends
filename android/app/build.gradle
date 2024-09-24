@@ -34,12 +34,6 @@ if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 }
 
-def keystoreFile = rootProject.file('keystore.jks')
-def storeFile = keystoreFile.exists() ? keystoreFile : keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
-def keyAlias = System.getenv("KEYSTORE_ALIAS") ?: keystoreProperties['keyAlias']
-def keyPassword = System.getenv("KEYSTORE_PASSWORD") ?: keystoreProperties['keyPassword']
-def storePassword = System.getenv("KEYSTORE_PASSWORD") ?: keystoreProperties['storePassword']
-
 android {
     namespace "com.felangel.flutter_and_friends"
     compileSdkVersion flutter.compileSdkVersion
@@ -68,10 +62,11 @@ android {
 
     signingConfigs {
        release {
-           keyAlias keyAlias
-           keyPassword keyPassword
-           storeFile storeFile
-           storePassword storePassword
+           def keystoreFile = rootProject.file('keystore.jks')
+           storeFile keystoreFile.exists() ? keystoreFile : keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+           keyAlias System.getenv("KEYSTORE_ALIAS") ?: keystoreProperties['keyAlias']
+           keyPassword System.getenv("KEYSTORE_PASSWORD") ?: keystoreProperties['keyPassword']
+           storePassword System.getenv("KEYSTORE_PASSWORD") ?: keystoreProperties['storePassword']
        }
    }
 
