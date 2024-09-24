@@ -1,0 +1,57 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v[0-9].[0-9]+.0" # e.g. v1.0.0, v1.1.0, v2.0.0, ...
+
+env:
+  SHOREBIRD_TOKEN: ${{ secrets.SHOREBIRD_TOKEN }}
+
+jobs:
+  release-android:
+    runs-on: ubuntu-latest
+
+    name: 🤖 Release Android
+
+    steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v3
+
+      - name: 🐦 Setup Shorebird
+        uses: shorebirdtech/setup-shorebird@v1
+
+      - name: 🚀 Shorebird Release
+        uses: shorebirdtech/shorebird-release@v0
+        with:
+          platform: android
+          args: "--artifact=apk"
+
+      - name: 📦 Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: android-release-${{ github.ref_name }}
+          patH: build/app/outputs/apk/release/app-release.apk
+
+  release-ios:
+    runs-on: ubuntu-latest
+
+    name: 🍎 Release iOS
+
+    steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v3
+
+      - name: 🐦 Setup Shorebird
+        uses: shorebirdtech/setup-shorebird@v1
+
+      - name: 🚀 Shorebird Release
+        uses: shorebirdtech/shorebird-release@v0
+        with:
+          platform: ios
+
+      - name: 📦 Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: ios-release-${{ github.ref_name }}
+          patH: build/ios/ipa/flutter_and_friends.ipa
