@@ -62,8 +62,7 @@ android {
 
     signingConfigs {
        release {
-           def keystoreFile = rootProject.file('keystore.jks')
-           storeFile keystoreFile.exists() ? keystoreFile : keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+           storeFile System.getenv("KEYSTORE") ? file(System.getenv("KEYSTORE")) : keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
            keyAlias System.getenv("KEYSTORE_ALIAS") ?: keystoreProperties['keyAlias']
            keyPassword System.getenv("KEYSTORE_PASSWORD") ?: keystoreProperties['keyPassword']
            storePassword System.getenv("KEYSTORE_PASSWORD") ?: keystoreProperties['storePassword']
