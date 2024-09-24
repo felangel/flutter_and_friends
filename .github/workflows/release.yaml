@@ -26,16 +26,16 @@ jobs:
           distribution: "temurin"
           cache: gradle
 
-      - name: 🔐 Decode Keystore
-        run: echo ${{ secrets.KEYSTORE }} | base64 --decode > $HOME/keystore.jks
-
       - name: 🐦 Setup Shorebird
         uses: shorebirdtech/setup-shorebird@v1
+
+      - name: 🔐 Decode Keystore
+        run: echo ${{ secrets.KEYSTORE }} | base64 --decode > ${{ github.workspace }}/keystore.jks
 
       - name: 🚀 Shorebird Release
         uses: shorebirdtech/shorebird-release@v0
         env:
-          KEYSTORE_PATH: $HOME/keystore.jks
+          KEYSTORE_FILE: ${{ github.workspace }}/keystore.jks
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
           KEYSTORE_ALIAS: ${{ secrets.KEYSTORE_ALIAS }}
         with:
