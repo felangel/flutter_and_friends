@@ -45,13 +45,13 @@ jobs:
       - name: 📦 Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: android-release-${{ github.ref_name }}
+          name: flutter_and_friends-${{ github.ref_name }}.apk
           path: build/app/outputs/apk/release/app-release.apk
 
       - name: 📦 Upload App Bundle
         uses: actions/upload-artifact@v4
         with:
-          name: android-release-${{ github.ref_name }}
+          name: flutter_and_friends-${{ github.ref_name }}.aab
           path: build/app/outputs/bundle/release/app-release.aab
 
   release-ios:
