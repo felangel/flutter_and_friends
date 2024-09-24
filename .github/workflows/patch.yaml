@@ -28,7 +28,7 @@ jobs:
           args: "--artifact=apk --staging"
 
       - name: 📦 Upload Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: android-release-${{ github.ref_name }}
           patH: build/app/outputs/apk/release/app-release.apk
@@ -52,7 +52,7 @@ jobs:
           args: "--staging"
 
       - name: 📦 Upload Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: ios-release-${{ github.ref_name }}
           patH: build/ios/ipa/flutter_and_friends.ipa
