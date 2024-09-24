@@ -26,13 +26,19 @@ jobs:
         uses: shorebirdtech/shorebird-release@v0
         with:
           platform: android
-          args: "--artifact=apk"
+          args: "--verbose --artifact=apk"
 
-      - name: 📦 Upload Artifact
+      - name: 📦 Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: android-release-${{ github.ref_name }}
-          patH: build/app/outputs/apk/release/app-release.apk
+          path: build/app/outputs/apk/release/app-release.apk
+
+      - name: 📦 Upload App Bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-release-${{ github.ref_name }}
+          path: build/app/outputs/bundle/release/app-release.aab
 
   release-ios:
     runs-on: macos-latest
@@ -50,9 +56,10 @@ jobs:
         uses: shorebirdtech/shorebird-release@v0
         with:
           platform: ios
+          args: "--verbose"
 
       - name: 📦 Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: ios-release-${{ github.ref_name }}
-          patH: build/ios/ipa/flutter_and_friends.ipa
+          path: build/ios/ipa/flutter_and_friends.ipa
