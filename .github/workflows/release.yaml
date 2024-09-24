@@ -41,6 +41,7 @@ jobs:
           path: build/app/outputs/bundle/release/app-release.aab
 
   release-ios:
+    if: false # TODO: re-enable this
     runs-on: macos-latest
 
     name: 🍎 Release iOS
