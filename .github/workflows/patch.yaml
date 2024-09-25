@@ -42,18 +42,6 @@ jobs:
           platform: android
           args: "--verbose --staging"
 
-      - name: 📦 Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: flutter_and_friends-${{ github.ref_name }}.apk
-          path: build/app/outputs/apk/release/app-release.apk
-
-      - name: 📦 Upload App Bundle
-        uses: actions/upload-artifact@v4
-        with:
-          name: flutter_and_friends-${{ github.ref_name }}(#${{ steps.shorebird-patch.outputs.patch-number }}).aab
-          path: build/app/outputs/bundle/release/app-release.aab
-
   patch-ios:
     runs-on: macos-latest
 
@@ -107,9 +95,3 @@ jobs:
         with:
           platform: ios
           args: "--export-options-plist ios/GHAExportOptions.plist --staging"
-
-      - name: 📦 Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: flutter_and_friends-${{ github.ref_name }}(#${{ steps.shorebird-patch.outputs.patch-number }}).ipa
-          path: build/ios/ipa/flutter_and_friends.ipa
