@@ -1,5 +1,8 @@
 <h1 align="center">Flutter & Friends</h1>
 <p align="center">
+  <a href="https://github.com/felangel/flutter_and_friends/actions/workflows/main.yaml">
+    <img alt="ci" src="https://github.com/felangel/flutter_and_friends/actions/workflows/main.yaml/badge.svg">
+  </a>
   <a href="https://pub.dev/packages/very_good_analysis">
     <img alt="style: very good analysis" src="https://img.shields.io/badge/style-very_good_analysis-B22C89.svg">
   </a>  
