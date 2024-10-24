@@ -27,6 +27,8 @@ jobs:
 
       - name: 🐦 Setup Shorebird
         uses: shorebirdtech/setup-shorebird@v1
+        with:
+          cache: true
 
       - name: 🔐 Decode Keystore
         run: echo ${{ secrets.KEYSTORE }} | base64 --decode > ${{ github.workspace }}/keystore.jks
@@ -64,6 +66,8 @@ jobs:
 
       - name: 🐦 Setup Shorebird
         uses: shorebirdtech/setup-shorebird@v1
+        with:
+          cache: true
 
       - name: ✍️ Setup XCode Signing
         env:
