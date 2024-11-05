@@ -21,7 +21,7 @@ dependencies:
   pub_semver: ^2.1.4
   pusher_beams: ^1.1.1
   restart_app: ^1.2.1
-  shorebird_code_push: ^1.1.4
+  shorebird_code_push: ^2.0.0-dev.1
   url_launcher: ^6.3.0
 
 dev_dependencies:

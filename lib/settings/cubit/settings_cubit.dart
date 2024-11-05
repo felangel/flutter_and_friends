@@ -7,14 +7,14 @@ import 'package:shorebird_code_push/shorebird_code_push.dart';
 part 'settings_state.dart';
 
 class SettingsCubit extends Cubit<SettingsState> {
-  SettingsCubit({ShorebirdCodePush? codePush})
-      : _codePush = codePush ?? ShorebirdCodePush(),
+  SettingsCubit({ShorebirdUpdater? updater})
+      : _updater = updater ?? ShorebirdUpdater(),
         super(SettingsState(version: version));
 
-  final ShorebirdCodePush _codePush;
+  final ShorebirdUpdater _updater;
 
   Future<void> init() async {
-    final patchNumber = await _codePush.currentPatchNumber();
-    emit(state.copyWith(patchNumber: patchNumber));
+    final patch = await _updater.readCurrentPatch();
+    emit(state.copyWith(patchNumber: patch?.number));
   }
 }
