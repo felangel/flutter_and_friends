@@ -6,11 +6,11 @@ import 'package:shorebird_code_push/shorebird_code_push.dart';
 part 'updater_state.dart';
 
 class UpdaterCubit extends Cubit<UpdaterState> {
-  UpdaterCubit({ShorebirdCodePush? codePush})
-      : _codePush = codePush ?? ShorebirdCodePush(),
+  UpdaterCubit({ShorebirdUpdater? updater})
+      : _updater = updater ?? ShorebirdUpdater(),
         super(const UpdaterState());
 
-  final ShorebirdCodePush _codePush;
+  final ShorebirdUpdater _updater;
 
   Future<void> init() async {
     await PusherBeams.instance.start('cdd88306-52d6-4264-b082-e62fd453cf25');
@@ -24,7 +24,8 @@ class UpdaterCubit extends Cubit<UpdaterState> {
   Future<void> checkForUpdates() async {
     emit(state.copyWith(status: UpdaterStatus.updateCheckInProgress));
     try {
-      final updateAvailable = await _codePush.isNewPatchAvailableForDownload();
+      final status = await _updater.checkForUpdate();
+      final updateAvailable = status == UpdateStatus.outdated;
       emit(
         state.copyWith(
           status: UpdaterStatus.idle,
@@ -41,16 +42,10 @@ class UpdaterCubit extends Cubit<UpdaterState> {
   Future<void> _downloadUpdate() async {
     emit(state.copyWith(status: UpdaterStatus.downloadInProgress));
     try {
-      await _codePush.downloadUpdateIfAvailable();
-    } catch (error, stackTrace) {
-      addError(error, stackTrace);
-    }
-    try {
-      final isNewPatchReadyToInstall =
-          await _codePush.isNewPatchReadyToInstall();
+      await _updater.update();
       emit(
         state.copyWith(
-          isNewPatchReadyToInstall: isNewPatchReadyToInstall,
+          isNewPatchReadyToInstall: true,
           status: UpdaterStatus.idle,
         ),
       );

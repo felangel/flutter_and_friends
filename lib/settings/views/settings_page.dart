@@ -4,6 +4,7 @@ import 'package:flutter_and_friends/theme/theme.dart';
 import 'package:flutter_and_friends/updater/updater.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shorebird_code_push/shorebird_code_push.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -16,7 +17,9 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => SettingsCubit()..init(),
+      create: (_) => SettingsCubit(
+        updater: context.read<ShorebirdUpdater>(),
+      )..init(),
       child: const SettingsView(),
     );
   }
