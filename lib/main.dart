@@ -15,8 +15,9 @@ import 'package:shorebird_code_push/shorebird_code_push.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  final temporaryDirectory = await getTemporaryDirectory();
   HydratedBloc.storage = await HydratedStorage.build(
-    storageDirectory: await getTemporaryDirectory(),
+    storageDirectory: HydratedStorageDirectory(temporaryDirectory.path),
   );
   if (kDebugMode) await HydratedBloc.storage.clear();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);

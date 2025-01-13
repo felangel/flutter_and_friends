@@ -33,7 +33,7 @@ class UpdaterCubit extends Cubit<UpdaterState> {
         ),
       );
       if (updateAvailable) await _downloadUpdate();
-    } catch (error, stackTrace) {
+    } on Exception catch (error, stackTrace) {
       addError(error, stackTrace);
       emit(state.copyWith(status: UpdaterStatus.idle));
     }
@@ -49,7 +49,7 @@ class UpdaterCubit extends Cubit<UpdaterState> {
           status: UpdaterStatus.idle,
         ),
       );
-    } catch (error, stackTrace) {
+    } on Exception catch (error, stackTrace) {
       addError(error, stackTrace);
       emit(
         state.copyWith(
