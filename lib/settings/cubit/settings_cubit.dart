@@ -8,8 +8,8 @@ part 'settings_state.dart';
 
 class SettingsCubit extends Cubit<SettingsState> {
   SettingsCubit({ShorebirdUpdater? updater})
-      : _updater = updater ?? ShorebirdUpdater(),
-        super(SettingsState(version: version));
+    : _updater = updater ?? ShorebirdUpdater(),
+      super(SettingsState(version: version));
 
   final ShorebirdUpdater _updater;
 

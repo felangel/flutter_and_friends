@@ -24,22 +24,13 @@ interface class Event {
 
   static Map<String, dynamic> toJson(Event event) {
     if (event is Activity) {
-      return {
-        'type': 'activity',
-        ...event.toJson(),
-      };
+      return {'type': 'activity', ...event.toJson()};
     }
     if (event is Talk) {
-      return {
-        'type': 'talk',
-        ...event.toJson(),
-      };
+      return {'type': 'talk', ...event.toJson()};
     }
     if (event is Workshop) {
-      return {
-        'type': 'workshop',
-        ...event.toJson(),
-      };
+      return {'type': 'workshop', ...event.toJson()};
     }
     throw UnsupportedError('Unsupported event type: "$event"');
   }

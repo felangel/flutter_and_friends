@@ -19,9 +19,10 @@ class LocationDetails extends StatelessWidget {
           color: theme.colorScheme.secondary,
         ),
         InkWell(
-          onTap: () => launchUrlString(
-            'https://maps.google.com/?q=${location.coordinates.$1},${location.coordinates.$2}',
-          ),
+          onTap:
+              () => launchUrlString(
+                'https://maps.google.com/?q=${location.coordinates.$1},${location.coordinates.$2}',
+              ),
           child: Text(
             location.name,
             style: theme.textTheme.labelMedium?.copyWith(

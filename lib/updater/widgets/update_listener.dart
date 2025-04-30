@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/updater/updater.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restart_app/restart_app.dart';
 
 class UpdateListener extends StatelessWidget {
   const UpdateListener({required this.child, super.key});
@@ -12,20 +11,27 @@ class UpdateListener extends StatelessWidget {
     return MultiBlocListener(
       listeners: [
         BlocListener<UpdaterCubit, UpdaterState>(
-          listenWhen: (previous, current) =>
-              previous.status == UpdaterStatus.downloadInProgress &&
-              current.status == UpdaterStatus.idle &&
-              current.isNewPatchReadyToInstall,
+          listenWhen:
+              (previous, current) =>
+                  previous.status == UpdaterStatus.downloadInProgress &&
+                  current.status == UpdaterStatus.idle &&
+                  current.isNewPatchReadyToInstall,
           listener: (context, state) {
             ScaffoldMessenger.of(context)
               ..hideCurrentMaterialBanner()
               ..showMaterialBanner(
-                const MaterialBanner(
-                  content: Text('An update is available!'),
+                MaterialBanner(
+                  content: const Text(
+                    'An update is available, please restart!',
+                  ),
                   actions: [
                     TextButton(
-                      onPressed: Restart.restartApp,
-                      child: Text('Restart Now'),
+                      onPressed: () {
+                        ScaffoldMessenger.of(
+                          context,
+                        ).hideCurrentMaterialBanner();
+                      },
+                      child: const Text('Dismiss'),
                     ),
                   ],
                 ),

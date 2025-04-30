@@ -15,10 +15,7 @@ class SponsorsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: FFAppBar(),
-      body: const SponsorsListView(),
-    );
+    return Scaffold(appBar: FFAppBar(), body: const SponsorsListView());
   }
 }
 
@@ -42,11 +39,7 @@ class SponsorsListView extends StatelessWidget {
         const SizedBox(height: 16),
         ...platinumSponsors.map((sponsor) => SponsorItem(sponsor: sponsor)),
         const SizedBox(height: 32),
-        Text(
-          'Gold Sponsors',
-          style: headingStyle,
-          textAlign: TextAlign.center,
-        ),
+        Text('Gold Sponsors', style: headingStyle, textAlign: TextAlign.center),
         const SizedBox(height: 16),
         ...goldSponsors.map((sponsor) => SponsorItem(sponsor: sponsor)),
         const SizedBox(height: 32),
@@ -65,11 +58,7 @@ class SponsorsListView extends StatelessWidget {
         const SizedBox(height: 16),
         const SponsorItem(sponsor: streamingSponsor),
         const SizedBox(height: 32),
-        Text(
-          'Together with',
-          style: headingStyle,
-          textAlign: TextAlign.center,
-        ),
+        Text('Together with', style: headingStyle, textAlign: TextAlign.center),
         const SizedBox(height: 16),
         ...togetherWith.map((sponsor) => SponsorItem(sponsor: sponsor)),
       ],
