@@ -28,8 +28,8 @@ final class UpdaterState extends Equatable {
 
   @override
   List<Object?> get props => [
-        status,
-        updateAvailable,
-        isNewPatchReadyToInstall,
-      ];
+    status,
+    updateAvailable,
+    isNewPatchReadyToInstall,
+  ];
 }

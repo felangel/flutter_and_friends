@@ -36,10 +36,7 @@ class TwitterIcon extends StatelessWidget {
       color: Colors.lightBlueAccent,
       child: IconButton(
         iconSize: iconSize,
-        icon: const Icon(
-          FontAwesomeIcons.twitter,
-          color: Colors.white,
-        ),
+        icon: const Icon(FontAwesomeIcons.twitter, color: Colors.white),
         onPressed: onPressed,
       ),
     );
@@ -47,11 +44,7 @@ class TwitterIcon extends StatelessWidget {
 }
 
 class XIcon extends StatelessWidget {
-  const XIcon({
-    required this.onPressed,
-    required this.iconSize,
-    super.key,
-  });
+  const XIcon({required this.onPressed, required this.iconSize, super.key});
 
   final VoidCallback onPressed;
   final double iconSize;
@@ -62,10 +55,7 @@ class XIcon extends StatelessWidget {
       color: Colors.black,
       child: IconButton(
         iconSize: iconSize,
-        icon: const Icon(
-          FontAwesomeIcons.xTwitter,
-          color: Colors.white,
-        ),
+        icon: const Icon(FontAwesomeIcons.xTwitter, color: Colors.white),
         onPressed: onPressed,
       ),
     );

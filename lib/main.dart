@@ -1,9 +1,7 @@
 import 'dart:async';
 
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_and_friends/config/config.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
 import 'package:flutter_and_friends/launchpad/launchpad.dart';
 import 'package:flutter_and_friends/theme/theme.dart';
@@ -20,7 +18,6 @@ Future<void> main() async {
     storageDirectory: HydratedStorageDirectory(temporaryDirectory.path),
   );
   if (kDebugMode) await HydratedBloc.storage.clear();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const App());
 }
 
@@ -36,9 +33,10 @@ class App extends StatelessWidget {
           BlocProvider(create: (_) => ThemeCubit()),
           BlocProvider(create: (_) => FavoritesCubit()),
           BlocProvider(
-            create: (context) => UpdaterCubit(
-              updater: context.read<ShorebirdUpdater>(),
-            )..init(),
+            create:
+                (context) =>
+                    UpdaterCubit(updater: context.read<ShorebirdUpdater>())
+                      ..init(),
           ),
         ],
         child: const AppView(),

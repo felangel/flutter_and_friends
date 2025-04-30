@@ -16,9 +16,10 @@ class WorkshopCard extends StatelessWidget {
     return Card(
       clipBehavior: Clip.hardEdge,
       child: InkWell(
-        onTap: () => Navigator.of(context).push(
-          WorkshopDetailsPage.route(workshop: workshop),
-        ),
+        onTap:
+            () => Navigator.of(
+              context,
+            ).push(WorkshopDetailsPage.route(workshop: workshop)),
         child: Padding(
           padding: const EdgeInsets.fromLTRB(18, 0, 18, 12),
           child: Column(

@@ -1,30 +1,14 @@
 import 'package:flutter_and_friends/sponsors/sponsors.dart';
 
-const platinumSponsors = [
-  hackBerry,
-  appShack,
-];
+const platinumSponsors = [hackBerry, appShack];
 
-const goldSponsors = [
-  flutter,
-  codemagic,
-  invertase,
-  leanCode,
-  amplify,
-];
+const goldSponsors = [flutter, codemagic, invertase, leanCode, amplify];
 
-const silverSponsors = [
-  skandia,
-  dcm,
-  matpriskollen,
-];
+const silverSponsors = [skandia, dcm, matpriskollen];
 
 const streamingSponsor = rebelAppStudio;
 
-const togetherWith = [
-  blueFire,
-  done,
-];
+const togetherWith = [blueFire, done];
 
 const hackBerry = Sponsor(
   logo: 'assets/sponsors/hackberry.png',
@@ -66,10 +50,7 @@ const skandia = Sponsor(
   url: 'https://skandia.se',
 );
 
-const dcm = Sponsor(
-  logo: 'assets/sponsors/dcm.png',
-  url: 'https://dcm.dev',
-);
+const dcm = Sponsor(logo: 'assets/sponsors/dcm.png', url: 'https://dcm.dev');
 
 const matpriskollen = Sponsor(
   logo: 'assets/sponsors/matpriskollen.png',

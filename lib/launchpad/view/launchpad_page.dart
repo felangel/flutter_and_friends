@@ -59,18 +59,12 @@ class _BottomNavigationBar extends StatelessWidget {
       onTap: (index) => context.read<LaunchpadCubit>().toggleTab(index),
       currentIndex: state.index,
       items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.favorite),
-          label: 'Favorites',
-        ),
+        BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Favorites'),
         BottomNavigationBarItem(
           icon: Icon(Icons.calendar_today),
           label: 'Schedule',
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.business),
-          label: 'Sponsors',
-        ),
+        BottomNavigationBarItem(icon: Icon(Icons.business), label: 'Sponsors'),
       ],
     );
   }

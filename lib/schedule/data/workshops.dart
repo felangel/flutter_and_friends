@@ -5,10 +5,7 @@ const devoteam = Location(
   coordinates: (59.3308268, 18.0633923),
 );
 
-const noA = Location(
-  name: 'NoA',
-  coordinates: (59.3422061, 18.0620781),
-);
+const noA = Location(name: 'NoA', coordinates: (59.3422061, 18.0620781));
 
 final workshops = <Workshop>[
   Workshop(

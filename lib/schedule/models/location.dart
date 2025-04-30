@@ -5,10 +5,7 @@ part 'location.g.dart';
 
 @JsonSerializable()
 class Location extends Equatable {
-  const Location({
-    required this.name,
-    required this.coordinates,
-  });
+  const Location({required this.name, required this.coordinates});
 
   factory Location.fromJson(Map<String, dynamic> json) =>
       _$LocationFromJson(json);

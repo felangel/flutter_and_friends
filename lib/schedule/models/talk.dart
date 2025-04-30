@@ -37,11 +37,11 @@ class Talk extends Equatable implements Event {
 
   @override
   List<Object> get props => [
-        name,
-        speakers,
-        duration,
-        startTime,
-        location,
-        description,
-      ];
+    name,
+    speakers,
+    duration,
+    startTime,
+    location,
+    description,
+  ];
 }

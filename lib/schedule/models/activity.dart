@@ -36,12 +36,12 @@ class Activity extends Equatable implements Event {
 
   @override
   List<Object?> get props => [
-        name,
-        duration,
-        startTime,
-        location,
-        image,
-        link,
-        description,
-      ];
+    name,
+    duration,
+    startTime,
+    location,
+    image,
+    link,
+    description,
+  ];
 }

@@ -17,9 +17,9 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => SettingsCubit(
-        updater: context.read<ShorebirdUpdater>(),
-      )..init(),
+      create:
+          (_) =>
+              SettingsCubit(updater: context.read<ShorebirdUpdater>())..init(),
       child: const SettingsView(),
     );
   }
@@ -33,17 +33,16 @@ class SettingsView extends StatelessWidget {
     final theme = Theme.of(context);
     final headingStyle = theme.textTheme.titleMedium;
     return BlocListener<UpdaterCubit, UpdaterState>(
-      listenWhen: (previous, current) =>
-          previous.status != current.status &&
-          current.status == UpdaterStatus.idle,
+      listenWhen:
+          (previous, current) =>
+              previous.status != current.status &&
+              current.status == UpdaterStatus.idle,
       listener: (context, state) {
         if (!state.updateAvailable) {
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(
-              const SnackBar(
-                content: Text('No update available'),
-              ),
+              const SnackBar(content: Text('No update available')),
             );
         }
       },
@@ -61,9 +60,10 @@ class SettingsView extends StatelessWidget {
               title: const Text('Activity Map'),
               subtitle: const Text('View the locations of all activities'),
               trailing: const Icon(Icons.chevron_right),
-              onTap: () => launchUrlString(
-                'https://www.google.com/maps/d/u/0/viewer?mid=102KWzlh5enCfJXbgTu8wN8FSfeOzsMw&femb=1&ll=59.32440113540593%2C18.059913600000016&z=13',
-              ),
+              onTap:
+                  () => launchUrlString(
+                    'https://www.google.com/maps/d/u/0/viewer?mid=102KWzlh5enCfJXbgTu8wN8FSfeOzsMw&femb=1&ll=59.32440113540593%2C18.059913600000016&z=13',
+                  ),
             ),
             const SizedBox(height: 16),
             Text('About', style: headingStyle),
@@ -78,40 +78,42 @@ class SettingsView extends StatelessWidget {
               title: const Text('Source Code'),
               subtitle: const Text('View the full source code on GitHub'),
               trailing: const Icon(Icons.chevron_right),
-              onTap: () => launchUrlString(
-                'https://github.com/felangel/flutter_and_friends',
-              ),
+              onTap:
+                  () => launchUrlString(
+                    'https://github.com/felangel/flutter_and_friends',
+                  ),
             ),
             ListTile(
               title: const Text('Licenses'),
               subtitle: const Text('View the licenses of the libraries used'),
               trailing: const Icon(Icons.chevron_right),
-              onTap: () => showLicensePage(
-                context: context,
-                applicationIcon: Image.asset('assets/logo.png', height: 120),
-                applicationName: 'Flutter & Friends',
-              ),
+              onTap:
+                  () => showLicensePage(
+                    context: context,
+                    applicationIcon: Image.asset(
+                      'assets/logo.png',
+                      height: 120,
+                    ),
+                    applicationName: 'Flutter & Friends',
+                  ),
             ),
             ListTile(
               title: const Text('Privacy Policy'),
               subtitle: const Text('View the Privacy Policy'),
               trailing: const Icon(Icons.chevron_right),
-              onTap: () => launchUrlString(
-                'https://github.com/felangel/flutter_and_friends/blob/main/privacy.md',
-              ),
+              onTap:
+                  () => launchUrlString(
+                    'https://github.com/felangel/flutter_and_friends/blob/main/privacy.md',
+                  ),
             ),
             ListTile(
               title: const Row(
-                children: [
-                  Text('Follow on'),
-                  Icon(FontAwesomeIcons.xTwitter),
-                ],
+                children: [Text('Follow on'), Icon(FontAwesomeIcons.xTwitter)],
               ),
               subtitle: const Text('Formerly known as Twitter'),
               trailing: const Icon(Icons.chevron_right),
-              onTap: () => launchUrlString(
-                'https://twitter.com/FlutterNFriends',
-              ),
+              onTap:
+                  () => launchUrlString('https://twitter.com/FlutterNFriends'),
             ),
             ListTile(
               title: const Text('Powered by Shorebird'),
@@ -131,17 +133,15 @@ class AppVersion extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final version = context.select(
-      (SettingsCubit cubit) {
-        final state = cubit.state;
-        final packageVersion =
-            '''${state.version.major}.${state.version.minor}.${state.version.patch}''';
-        final buildNumber = '${state.version.build.singleOrNull ?? 0}';
-        final patchNumber =
-            state.patchNumber != null ? ' #${state.patchNumber}' : '';
-        return '$packageVersion ($buildNumber)$patchNumber';
-      },
-    );
+    final version = context.select((SettingsCubit cubit) {
+      final state = cubit.state;
+      final packageVersion =
+          '''${state.version.major}.${state.version.minor}.${state.version.patch}''';
+      final buildNumber = '${state.version.build.singleOrNull ?? 0}';
+      final patchNumber =
+          state.patchNumber != null ? ' #${state.patchNumber}' : '';
+      return '$packageVersion ($buildNumber)$patchNumber';
+    });
     return Text(version);
   }
 }

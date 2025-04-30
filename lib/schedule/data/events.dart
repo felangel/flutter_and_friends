@@ -111,10 +111,7 @@ It is both thrilling and requires you to think on your feet!''',
     duration: const Duration(hours: 2),
     description: '''
 Step out of your comfort zone and into a world of new connections. Dinner with Strangers splits you into groups for an unforgettable meal filled with conversation, laughter, and the chance to forge unexpected friendships. Are you ready to meet your new favorite people?''',
-    location: const Location(
-      name: 'TBD',
-      coordinates: (59.326038, 17.8172502),
-    ),
+    location: const Location(name: 'TBD', coordinates: (59.326038, 17.8172502)),
   ),
   Activity(
     name: '🎯 Flutter & Fun Pub Night',
