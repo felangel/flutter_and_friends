@@ -1,8 +1,10 @@
 include:
-  - package:very_good_analysis/analysis_options.7.0.0.yaml
   - package:bloc_lint/recommended.yaml
+  - package:very_good_analysis/analysis_options.7.0.0.yaml
+
 analyzer:
   exclude: ["lib/**.g.dart"]
+
 linter:
   rules:
     public_member_api_docs: false
