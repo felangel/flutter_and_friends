@@ -5,6 +5,10 @@ include:
 analyzer:
   exclude: ["lib/**.g.dart"]
 
+formatter:
+  page_width: 80
+  trailing_commas: preserve
+
 linter:
   rules:
     public_member_api_docs: false

@@ -33,10 +33,9 @@ class App extends StatelessWidget {
           BlocProvider(create: (_) => ThemeCubit()),
           BlocProvider(create: (_) => FavoritesCubit()),
           BlocProvider(
-            create:
-                (context) =>
-                    UpdaterCubit(updater: context.read<ShorebirdUpdater>())
-                      ..init(),
+            create: (context) => UpdaterCubit(
+              updater: context.read<ShorebirdUpdater>(),
+            )..init(),
           ),
         ],
         child: const AppView(),

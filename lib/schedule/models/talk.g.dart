@@ -10,10 +10,9 @@ part of 'talk.dart';
 
 Talk _$TalkFromJson(Map<String, dynamic> json) => Talk(
   name: json['name'] as String,
-  speakers:
-      (json['speakers'] as List<dynamic>)
-          .map((e) => Speaker.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  speakers: (json['speakers'] as List<dynamic>)
+      .map((e) => Speaker.fromJson(e as Map<String, dynamic>))
+      .toList(),
   duration: Duration(microseconds: (json['duration'] as num).toInt()),
   startTime: DateTime.parse(json['startTime'] as String),
   location: Location.fromJson(json['location'] as Map<String, dynamic>),

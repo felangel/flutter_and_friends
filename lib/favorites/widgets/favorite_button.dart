@@ -13,17 +13,16 @@ class FavoriteButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocSelector<FavoritesCubit, FavoritesState, bool>(
       selector: (state) => state.events.contains(event),
-      builder:
-          (context, isFavorite) => IconButton(
-            icon: Icon(
-              isFavorite ? Icons.favorite : Icons.favorite_border,
-              color: isFavorite ? Colors.pinkAccent : null,
-            ),
-            onPressed: () {
-              context.read<FavoritesCubit>().toggleFavorite(event);
-              HapticFeedback.mediumImpact();
-            },
-          ),
+      builder: (context, isFavorite) => IconButton(
+        icon: Icon(
+          isFavorite ? Icons.favorite : Icons.favorite_border,
+          color: isFavorite ? Colors.pinkAccent : null,
+        ),
+        onPressed: () {
+          context.read<FavoritesCubit>().toggleFavorite(event);
+          HapticFeedback.mediumImpact();
+        },
+      ),
     );
   }
 }

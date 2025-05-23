@@ -16,8 +16,9 @@ class TalkCard extends StatelessWidget {
     return Card(
       clipBehavior: Clip.hardEdge,
       child: InkWell(
-        onTap:
-            () => Navigator.of(context).push(TalkDetailsPage.route(talk: talk)),
+        onTap: () => Navigator.of(context).push(
+          TalkDetailsPage.route(talk: talk),
+        ),
         child: Padding(
           padding: const EdgeInsets.fromLTRB(18, 0, 18, 12),
           child: Column(
