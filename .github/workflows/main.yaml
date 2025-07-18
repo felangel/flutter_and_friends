@@ -10,21 +10,21 @@ jobs:
   semantic_pull_request:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
 
-  # ci_checks:
-  #   runs-on: ubuntu-latest
+  ci_checks:
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #     - name: 📚 Git Checkout
-  #       uses: actions/checkout@v4
+    steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v4
 
-  #     - name: 🐦 Setup Flutter
-  #       uses: subosito/flutter-action@v2
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2
 
-  #     - name: 📦 Install Dependencies
-  #       run: flutter pub get
+      - name: 📦 Install Dependencies
+        run: flutter pub get
 
-  #     - name: ✨ Format
-  #       run: dart format --set-exit-if-changed .
+      - name: ✨ Format
+        run: dart format --set-exit-if-changed .
 
-  #     - name: 🔍 Analyze
-  #       run: dart analyze --fatal-warnings .
+      - name: 🔍 Analyze
+        run: dart analyze --fatal-warnings .
