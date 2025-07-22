@@ -28,10 +28,3 @@ jobs:
 
       - name: 🔍 Analyze
         run: dart analyze --fatal-warnings .
-
-  ci:
-    runs-on: ubuntu-latest
-    needs: ["flutter_and_friends"]
-
-    steps:
-      - run: echo Success
