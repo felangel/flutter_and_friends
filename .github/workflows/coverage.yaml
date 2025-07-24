@@ -1,6 +1,6 @@
 name: coverage
 
-on: [check_run]
+on: [check_run, check_suite]
 
 permissions:
   id-token: write
