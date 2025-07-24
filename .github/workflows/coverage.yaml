@@ -1,11 +1,6 @@
 name: coverage
 
-on: [check_run, check_suite]
-
-permissions:
-  id-token: write
-  checks: write
-  actions: read
+on: [check_run]
 
 jobs:
   upload_coverage:
