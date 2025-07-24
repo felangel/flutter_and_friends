@@ -1,0 +1,10 @@
+name: coverage
+
+on: [check_run]
+
+jobs:
+  upload_coverage:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo ${{ github.event.check_run.name }}
