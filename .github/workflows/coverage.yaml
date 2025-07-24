@@ -4,6 +4,8 @@ on: [check_run]
 
 permissions:
   id-token: write
+  checks: write
+  actions: read
 
 jobs:
   upload_coverage:
