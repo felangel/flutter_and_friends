@@ -1,12 +1,14 @@
 name: coverage
 
-on: [check_run]
+on:
+  check_run:
+    types: [created]
 
 permissions:
   id-token: write
 
 jobs:
-  upload_coverage:
+  upload:
     runs-on: ubuntu-latest
 
     steps:
