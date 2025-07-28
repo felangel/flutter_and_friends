@@ -1,10 +1,19 @@
 name: coverage
 
-on: [check_run]
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on: [push, check_run]
+
+permissions:
+  contents: read
+  id-token: write
 
 jobs:
   upload_coverage:
     runs-on: ubuntu-latest
 
     steps:
-      - run: echo ${{ github.event.check_run.name }}
+      - name: Upload Coverage
+        run: su -u worker "echo $(whoami)"
