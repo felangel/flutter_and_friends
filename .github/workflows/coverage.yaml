@@ -16,4 +16,6 @@ jobs:
 
     steps:
       - name: Upload Coverage
-        run: su - worker -c "echo $(whoami)"
+        run: |
+          adduser --disabled-password --gecos "" --uid 1001 worker
+          su - worker -c "echo $(whoami)"
