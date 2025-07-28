@@ -16,4 +16,4 @@ jobs:
 
     steps:
       - name: Upload Coverage
-        run: su -u worker "echo $(whoami)"
+        run: su - worker -c "echo $(whoami)"
