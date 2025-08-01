@@ -23,5 +23,6 @@
 - [ ] ❌ Breaking change (fix or feature that would cause existing functionality to change)
 - [ ] 🧹 Code refactor
 - [ ] ✅ Build configuration change
+- [ ] 🧪 Testing change
 - [ ] 📝 Documentation
 - [ ] 🗑️ Chore
