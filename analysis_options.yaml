@@ -12,4 +12,5 @@ formatter:
 linter:
   rules:
     public_member_api_docs: false
+    # Experimental and there are lots of false positives
     specify_nonobvious_property_types: false
