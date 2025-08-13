@@ -8,6 +8,7 @@ class Speaker extends Equatable {
   const Speaker({
     required this.name,
     required this.title,
+    required this.bio,
     required this.avatar,
     this.twitter,
   });
@@ -19,9 +20,10 @@ class Speaker extends Equatable {
 
   final String name;
   final String title;
+  final String bio;
   final String avatar;
   final String? twitter;
 
   @override
-  List<Object?> get props => [name, title, avatar, twitter];
+  List<Object?> get props => [name, title, bio, avatar, twitter];
 }

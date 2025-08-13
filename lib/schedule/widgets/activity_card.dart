@@ -46,7 +46,7 @@ class ActivityCard extends StatelessWidget {
                   FavoriteButton(event: activity),
                 ],
               ),
-              Row(
+              Wrap(
                 children: [
                   if (activity.image != null) ...[
                     CircleAvatar(
