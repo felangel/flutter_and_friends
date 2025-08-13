@@ -50,6 +50,11 @@ class SponsorsListView extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         ...silverSponsors.map((sponsor) => SponsorItem(sponsor: sponsor)),
+        const SizedBox(height: 32),
+        Text('Together with', style: headingStyle, textAlign: TextAlign.center),
+        const SizedBox(height: 16),
+        ...togetherWith.map((sponsor) => SponsorItem(sponsor: sponsor)),
+        const SizedBox(height: 32),
         Text(
           'Streaming Sponsor',
           style: headingStyle,
@@ -57,10 +62,6 @@ class SponsorsListView extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         const SponsorItem(sponsor: streamingSponsor),
-        const SizedBox(height: 32),
-        Text('Together with', style: headingStyle, textAlign: TextAlign.center),
-        const SizedBox(height: 16),
-        ...togetherWith.map((sponsor) => SponsorItem(sponsor: sponsor)),
       ],
     );
   }
