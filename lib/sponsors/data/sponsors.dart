@@ -1,19 +1,14 @@
 import 'package:flutter_and_friends/sponsors/sponsors.dart';
 
-const platinumSponsors = [hackBerry, appShack];
+const platinumSponsors = [appShack];
 
-const goldSponsors = [flutter, codemagic, invertase, leanCode, amplify];
+const goldSponsors = [flutter, serverpod, firebase];
 
-const silverSponsors = [skandia, dcm, matpriskollen];
+const silverSponsors = [skandia, leanCode, invertase, faire];
 
 const streamingSponsor = rebelAppStudio;
 
 const togetherWith = [blueFire, done];
-
-const hackBerry = Sponsor(
-  logo: 'assets/sponsors/hackberry.png',
-  url: 'https://hackberry.se',
-);
 
 const appShack = Sponsor(
   logo: 'assets/sponsors/appshack.png',
@@ -25,24 +20,14 @@ const flutter = Sponsor(
   url: 'https://flutter.dev',
 );
 
-const codemagic = Sponsor(
-  logo: 'assets/sponsors/codemagic.png',
-  url: 'https://codemagic.io',
+const serverpod = Sponsor(
+  logo: 'assets/sponsors/serverpod.png',
+  url: 'https://serverpod.dev',
 );
 
-const invertase = Sponsor(
-  logo: 'assets/sponsors/invertase.png',
-  url: 'https://invertase.io',
-);
-
-const leanCode = Sponsor(
-  logo: 'assets/sponsors/leancode.png',
-  url: 'https://leancode.co',
-);
-
-const amplify = Sponsor(
-  logo: 'assets/sponsors/amplify.png',
-  url: 'https://aws.amazon.com/amplify',
+const firebase = Sponsor(
+  logo: 'assets/sponsors/firebase.png',
+  url: 'https://firebase.google.com',
 );
 
 const skandia = Sponsor(
@@ -50,11 +35,19 @@ const skandia = Sponsor(
   url: 'https://skandia.se',
 );
 
-const dcm = Sponsor(logo: 'assets/sponsors/dcm.png', url: 'https://dcm.dev');
+const leanCode = Sponsor(
+  logo: 'assets/sponsors/leancode.png',
+  url: 'https://leancode.co',
+);
 
-const matpriskollen = Sponsor(
-  logo: 'assets/sponsors/matpriskollen.png',
-  url: 'https://matpriskollen.se',
+const invertase = Sponsor(
+  logo: 'assets/sponsors/invertase.png',
+  url: 'https://invertase.io',
+);
+
+const faire = Sponsor(
+  logo: 'assets/sponsors/faire.png',
+  url: 'https://faire.com',
 );
 
 const rebelAppStudio = Sponsor(
