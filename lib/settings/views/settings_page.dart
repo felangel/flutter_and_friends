@@ -113,7 +113,7 @@ class SettingsView extends StatelessWidget {
             ),
             ListTile(
               title: const Text('Powered by Shorebird'),
-              subtitle: const Text('Code Push for Flutter'),
+              subtitle: const Text('Helping businesses succeed with Flutter'),
               trailing: const Icon(Icons.chevron_right),
               onTap: () => launchUrlString('https://shorebird.dev'),
             ),

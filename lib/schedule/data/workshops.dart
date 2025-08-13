@@ -1,174 +1,138 @@
 import 'package:flutter_and_friends/schedule/schedule.dart';
 
-const devoteam = Location(
-  name: 'Devoteam',
+const aiTrack = Location(
+  name: 'AI Track',
   coordinates: (59.3308268, 18.0633923),
 );
 
-const noA = Location(name: 'NoA', coordinates: (59.3422061, 18.0620781));
+const dashTrack = Location(
+  name: 'Dash Track',
+  coordinates: (59.3308268, 18.0633923),
+);
 
 final workshops = <Workshop>[
   Workshop(
-    name: 'Badge Hack',
-    speakers: const [],
-    duration: const Duration(hours: 6),
-    startTime: DateTime(2024, 9, 3, 10),
-    location: const Location(
-      name: 'Generator Stockholm',
-      coordinates: (59.3358554, 18.0507304),
-    ),
+    name: 'Build Your Own Flutter AI Sidekick',
+    speakers: const [moritzTheis],
+    duration: const Duration(minutes: 90),
+    startTime: DateTime(2025, 9, 2, 10),
+    location: aiTrack,
     description: '''
-Get together and hack something fun in Flutter with NFC! 👀
+In this hands-on workshop, we'll build a tiny AI assistant that lives inside a Flutter app—think of it as a “mini ChatGPT” tailored to a specific theme like travel, cooking, or even Flutter documentation.
 
-Do you want to make cool things like https://x.com/drcoderz/status/...?
-This year at Flutter & Friends you will get the opportunity to! We will provide NFC tags for you to hack around with during the third day at the conference.
+We'll kick things off with the basics, set everyone up with cloud credits, and provide boilerplate code to help you hit the ground running. The entire workshop will be built using the Google tech stack—including Flutter, Firebase, and Vertex AI—so you'll get practical experience with powerful, production-ready tools.
 
-The sky is the limits to what you will be able to create with your friends 🎉💙''',
+From there, it's up to you: each participant will create their own personal AI sidekick for a unique purpose.
+
+At the end, we'll showcase our creations and vote on the most impressive, weirdest, or funniest sidekick. Prizes await the winners!
+
+What You'll Learn:
+
+How to integrate AI capabilities into a Flutter app on basis of the Google-AI-Tech-Stack
+
+Basics of using Vertex AI and Firebase for custom LLM-powered experiences
+
+Structuring conversational UI and managing AI prompts effectively
+
+Tips for building fun, useful, or just plain weird AI sidekicks''',
   ),
   Workshop(
-    name: 'Porting your mobile app to TV platforms',
+    name: 'Building Flutter Packages & Modules Visually',
+    speakers: const [poojaBhaumik],
+    duration: const Duration(minutes: 90),
+    startTime: DateTime(2025, 9, 2, 10),
+    location: dashTrack,
+    description: '''
+Developers often rely on packages and modules to extend functionality and keep projects modular. In this workshop, we'll showcase how pub package authors and Flutter teams can create reusable modules or packages with FlutterFlow and DreamFlow and add them to existing Flutter projects.
+
+We'll explore:
+
+- How to edit an existing Flutter project using DreamFlow, a browser-based dev environment tailored for Flutter workflows, offering multiple ways to work, whether through code, visual editing, or AI-assisted prompts.
+
+- How to encapsulate UI components and business logic into reusable libraries using FlutterFlow, a visual development environment for building Flutter apps and modules, that can be added as dependencies in existing Flutter projects.
+
+- How Flutter teams building hybrid apps with add-to-app functionality can leverage FlutterFlow Libraries to create and reuse modules.
+
+- How pub package authors can monetise their existing or future pub.dev packages by creating package wrappers and monetising them on the FlutterFlow Marketplace.
+
+This workshop is targeted at Flutter developers, UI/UX designers, and open-source contributors looking to build scalable reusable solutions more efficiently and also unlock new monetisation opportunities in the Flutter ecosystem.''',
+  ),
+  Workshop(
+    name: 'Build, organize, and review your widgets with Widgetbook',
+    speakers: const [lucasJosefiak],
+    duration: const Duration(minutes: 90),
+    startTime: DateTime(2025, 9, 2, 13),
+    location: dashTrack,
+    description: '''
+In this hands-on workshop, you'll learn how to build your widgets in isolation and organize them in your own widget library by using the open-source package Widgetbook. Disover how you can automatically detect and review all visual changes of your pull request with Widgetbook Cloud.''',
+  ),
+  Workshop(
+    name: 'Hosting an AI Debate Club',
     speakers: const [sashaDenisov],
     duration: const Duration(minutes: 90),
-    startTime: DateTime(2024, 9, 3, 10),
-    location: devoteam,
+    startTime: DateTime(2025, 9, 2, 13),
+    location: aiTrack,
     description: '''
-Flutter officially supports six platforms (iOS, Android, Web, MacOS, Linux, and Windows). But what if you need to run the Flutter app on the TV platform? Unfortunately, TV platforms have no official support yet. But the Flutter app can be launched on some TV platforms.
+Welcome to the most exclusive club in tech: The AI Debate Club, hosted right inside your Flutter app! This workshop is your all-access pass to setting up lively (and autonomous) debates between different AI models. Forget boring integrations; we're building an arena for intelligent discourse, moderated only by code!
 
-In this workshop, we will go through all the steps of porting your mobile app to the big screen, discuss all the nuances of TV apps, such as controlling the app with a remote control, and finally launch the app on a TV platform, not only on Android TV, but also on Apple TV''',
+First, we'll construct the debate stage. Discover all the ways to bring your AI debaters into the Flutter ring: leveraging the Google SDK, Firebase Vertex AI, Firebase Genkit, and versatile REST APIs for powerful cloud-based contenders. We'll also explore setting up ringside seats using Edge AI with on-device models like Gemma, Deepseek, and Mistral Small, allowing debates to happen directly within the app, lightning-fast and even offline!
+
+No debate club is complete without its opinionated members! We'll invite today's top AI debaters like Gemini, ChatGPT, Gemma, and Claude to join. We'll analyze their unique debating styles (capabilities) and potential membership fees (pricing) to figure out who argues best for your specific app's needs and topics.
+
+For the grand finale -- the main event! Together, we'll build and unleash the ultimate AI Debate Club application. Witness multiple AI models autonomously interact, respond to each other, and perhaps even "argue" their points – all orchestrated within Flutter, with no human intervention required once the debate begins!
+
+Expect plenty of fun and 'aha!' moments as we push the boundaries of AI collaboration in Flutter. You'll leave not just inspired, but fully equipped to host your own AI debates and bring truly dynamic, cutting-edge, and maybe even slightly chaotic AI experiences to your users.''',
   ),
   Workshop(
-    name: 'Learn how to build real-time games with Flutter and Dart Frog',
-    speakers: const [mikeDiarmid, jochumVanDerPloeg],
+    name: 'Flutter Vibes Only: Join Us for the Flutter Vibe-Coding Workshop',
+    speakers: const [ivannaKacevica, esraKadah],
     duration: const Duration(minutes: 90),
-    startTime: DateTime(2024, 9, 3, 10),
-    location: noA,
+    startTime: DateTime(2025, 9, 2, 15),
+    location: aiTrack,
     description: '''
-In this workshop you'll discover how fun it is to build a game with Flutter while also exploring real-time communication with Dart Frog.
+What is the state of vibe-coding with Flutter in late 2025?
 
-You will learn the power of a unified tech stack, where your front-end shares logic with your back-end, using our favourite language Dart. Add a great developer experience to that and you have a recipe for success.
+Let's find out together in this 120-minute speed hackathon, organized by two Flutteristas and active contributors in the Flutter x AI space—Ivanna and Esra!
 
-And the best part? You will have a fun game at the end of it that you can play with your friends! If that isn't the true meaning of Flutter & Friends, we don't know what is.''',
-  ),
-  Workshop(
-    name: 'Beyond Mobile: Powering Embedded Devices with Flutter',
-    speakers: const [moritzTheis, payamZahedi],
-    duration: const Duration(minutes: 90),
-    startTime: DateTime(2024, 9, 3, 10),
-    location: noA,
-    description: '''
-This workshop dives into running Flutter on embedded devices, specifically setting it up on the brand new Raspberry Pi 5.
+For anyone curious about how AI can transform their Flutter workflow (welcoming both vibe-coding veterans and total first-timers), this is a playful, high-energy session focused on experimentation, collaboration, and pushing your limits. During the session, you'll race against the clock to build a specific target app using AI prompts to generate your code. Whether you're just starting out or already experimenting with AI, you'll leave with real hands-on experience.
 
-In 3 small groups we will set up Flutter on a Raspberry Pi 5, write our first small App for it and learn to control an externally connected servo-motor to dispense some delicious M&M's trough our Flutter-Application.
-
-I will bring 3 Raspberry Pi 5's and touchscreens for the audience with me so that small groups can work interactively along while we go trough everything.
-
-While the first 90 minutes are the same for all of the audience, the last 30 minutes can be used to explore and build something individual with the servo engines and the Raspberry Pi's for each group.''',
-  ),
-  Workshop(
-    name: 'Flutter + Gemini: Your AI App Development Launchpad',
-    speakers: const [alfredoBautistaSantos],
-    duration: const Duration(minutes: 90),
-    startTime: DateTime(2024, 9, 3, 13),
-    location: devoteam,
-    description: '''
-Supercharge your Flutter apps with AI!
-
-This workshop dives into Gemini, Google's cutting-edge large language model (LLM), and shows you how to seamlessly integrate it with Flutter. We'll break down LLMs, explore Gemini's multimodality, and build a real AI-powered Flutter app prototype – all from scratch! No prior experience needed, just bring your app idea and walk away with the skills to make it a reality.''',
-  ),
-  Workshop(
-    name: 'Building a Cloud-Powered Diary Application with Flutter',
-    speakers: const [muhammedSalihGuler],
-    duration: const Duration(minutes: 90),
-    startTime: DateTime(2024, 9, 3, 13),
-    location: noA,
-    description: '''
-In today's world, having an idea is important, but going to market quickly is as important as having an idea. To achieve this, you need to support iOS, Android, Web, and even Desktop. Fortunately, Flutter is there to help you with that. However, an app without a backend is never enough. To power up your application with a scalable backend, AWS Amplify is there to help you out.
-
-In this workshop, you will build a diary application in Flutter that targets iOS, Android, Web, and Desktop. The application will include Authentication, a GraphQL API with database connection, and File Storage. Additionally, there will be a bonus feature at the end, related to the hot topic of our times (starts with A and ends with I)! :)
-
-Come join us and discover a new technology!''',
-  ),
-  Workshop(
-    name: 'Advanced Flutter Navigation: Mastering Declarative Navigation',
-    speakers: const [cagatayUlusoy],
-    duration: const Duration(minutes: 90),
-    startTime: DateTime(2024, 9, 3, 13),
-    location: noA,
-    description: '''
-Implementing the navigation for complex multi-platform applications can be challenging due to varied user interface patterns and navigation structures across different platforms. Flutter’s Navigator 2.0, designed to streamline these complexities, offers a robust framework that empowers developers to manage navigation declaratively. While the Navigator 2.0 API may initially seem advanced and complex, understanding its interplay with the Router and Navigator widgets unlocks powerful customization and flexibility options. In this hands-on workshop, participants will dive deep into integrating the Model-View-ViewModel (MVVM) pattern in a layered architecture with Flutter’s Navigator 2.0 to create clear and efficient navigation management within their apps.
-
-Workshop participants will embark on building a Flutter application from the ground up, learning to:
-
-🔵 Implement the MVVM architectural pattern in conjunction with Flutter's Router widget to achieve reactive and declarative navigation.
-
-🔵 Design and manage the application's navigation stack as an application state.
-
-🔵 Utilize both declarative and imperative approaches to control modal route visibility.
-
-🔵 Synchrozie the browser address bar and the app state for Flutter Web apps.
-
-🔵 Synchronize imperative calls and declarative state changes to maintain consistent application state.
-
-🔵 Integrate a bottom navigation bar selected tab management into the routing system.
-
-🔵 Handle Android specific user interactions like back swipes and operating system back button presses.
-
-🔵 Customize the SystemUIOverlayStyle to dynamically adjust UI elements like the status bar and navigation bar colors based on the active route.
-
-🔵 Apply a layered approach to software architecture using MVVM principles to separate the concerns and build a maintainable, testable, and scalable app.
-
-This workshop will equip developers with the skills to architect sophisticated navigation systems in Flutter applications, leveraging the advanced capabilities of Navigator 2.0 and the MVVM pattern for scalable and maintainable app development.''',
-  ),
-  Workshop(
-    name:
-        '''Flutter in the year 2044: Discussing a community plan for Flutter's next 20 years''',
-    speakers: const [simonLightfoot],
-    duration: const Duration(hours: 2),
-    startTime: DateTime(2024, 9, 3, 15, 30),
-    location: devoteam,
-    description: '''
-Flutter is open source, but it's still mainly a Google-driven project. Around 85% of active Flutter team devs are Googlers. Should we change this? Can we? Should there be a "Mozilla foundation" for Flutter?
-To be clear, there is no indication that Google is dropping the ball. But since the projects has seen adoption so many businesses and people, maybe it's time for the community to take on a more active role?
-
-The output of this workshop is a publicly shared document with ideas and TODO items (mostly for us, the community).''',
-  ),
-  Workshop(
-    name: "Let's test it with Patrol!",
-    speakers: const [juliaBorkowska, mateuszWojtczak],
-    duration: const Duration(minutes: 90),
-    startTime: DateTime(2024, 9, 3, 15, 30),
-    location: noA,
-    description: '''
-During the workshop, we will prepare the whole E2E testing scenario using Patrol. You will learn how you can use Patrol finders to supercharge your tests and how you can test native features with Patrol native automation. As an example, we will test our Patrol challenge app with Firebase native interactions
-
-At the end, we will show you how to run your tests on Firebase Test Lab.
-
-As Patrol authors, we like to help people use the tool properly. We’ll cover the setup, troubleshooting, testing Flutter widgets, and E2E testing native stuff.
-
-Preparation instructions:
-
-We require attendees to have the latest stable Flutter SDK installed and have at least Android support – that means you should be able to build a Flutter app on Android and run it on the emulator (API 33) or their physical device.''',
-  ),
-  Workshop(
-    name:
-        '''Simplify Design Systems and Designer/Developer Collaboration with Widgetbook''',
-    speakers: const [lucasJosefiak, jensHorstmann],
-    duration: const Duration(minutes: 90),
-    startTime: DateTime(2024, 9, 3, 15, 30),
-    location: noA,
-    description: '''
-Creating beautiful UI has never been easier with Flutter. However, managing and organizing widgets effectively can pose challenges for developers, particularly when it comes to organizing them, testing them in all their different use cases, and maintaining design-code consistency. This is where Widgetbook comes in.
-
-In this workshop, we will learn how to build our design system with the open-source Flutter package Widgetbook. We will combine it with Golden tests and Figma to establish a smooth UI review process with designers, developers, product managers and QA testers.
+Is Flutter already "there" when it comes to vibe-coding possibilities? Bring your laptop, your curiosity, and your best vibes, and let's find out.
 
 Key takeaways:
 
-- How to build your own design system / widget library
+- Learn how to prototype Flutter apps rapidly using AI prompts
 
-- How to automatically test your widgets on different device sizes, themes, languages, etc.
+- Get inspired by real-time collaboration and peer feedback
 
-- How to use Golden Tests without limitations
+- Rethink your Flutter workflow—code without actually coding
 
-- How to collaborate effectively with designers and product managers to keep design and code sync''',
+- Understand the current limitations of LLMs when coding in Dart''',
+  ),
+  Workshop(
+    name: 'Flame 3D - Hands-On Workshop',
+    speakers: const [luanNico, jochumVanDerPloeg],
+    duration: const Duration(minutes: 90),
+    startTime: DateTime(2025, 9, 2, 15),
+    location: dashTrack,
+    description: '''
+Carefully crafted by the minds behind the project, Jochum (wolfenrain) and Luan (luanpotter), this is an introductory workshop to teach you the very basics to get you up and running with our new package `flame_3d` which allows you to build 3D games with Flame. This is intended for people with little to no prior experience with 3D games, in Flame or otherwise, but with maybe some experience with Flutter and Dart. The workshop will be focused on a practical and hands-on getting-something-done approach, rather than focusing on background math and theory that is handled for you by flame_3d.
+
+We will walk you over how the basics and how to implement main concepts for your prototype, including:
+
+* coordinate systems
+
+* camera and projections
+
+* objects and components
+
+* meshes and materials
+
+* lights
+
+* bone animations
+
+By the end of this workshop, you will build a very simple playground-style 3D third-person platformer game, using free assets from the internet, and incorporating basic lighting, control, and animations.
+
+`flame_3d` is new and experimental, and there is lots to be done! This workshop will equip you to get up and running with the project, enabling you to actually contribute on GitHub and create something awesome with us.''',
   ),
 ];
