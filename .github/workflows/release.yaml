@@ -63,9 +63,7 @@ jobs:
           path: build/app/outputs/bundle/release/app-release.aab
 
   release-ios:
-    # Pin to macOS 15 until macOS latest is stable
-    # https://github.com/actions/runner-images/issues/12757
-    runs-on: macos-15
+    runs-on: macos-latest
 
     name: 🍎 Release iOS
 
@@ -87,6 +85,9 @@ jobs:
         # https://docs.github.com/en/actions/deployment/deploying-xcode-applications/installing-an-apple-certificate-on-macos-runners-for-xcode-development
         # Also adds a uuid to the mobile provision so XCode can find it.
         run: |
+          # install the required platform
+          xcodebuild -downloadPlatform iOS
+
           # create variables
           CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
           KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
