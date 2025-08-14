@@ -61,7 +61,9 @@ jobs:
           path: build/app/outputs/bundle/release/app-release.aab
 
   release-ios:
-    runs-on: macos-latest
+    # Pin to macOS 14 until macOS 15 is stable
+    # https://github.com/actions/runner-images/issues/12757
+    runs-on: macos-14
 
     name: 🍎 Release iOS
 
