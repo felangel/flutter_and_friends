@@ -76,6 +76,11 @@ jobs:
         with:
           cache: true
 
+      - name: 🛠️ Setup Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
       - name: ✍️ Setup XCode Signing
         env:
           CERTIFICATE: ${{ secrets.CERTIFICATE }}
@@ -85,9 +90,6 @@ jobs:
         # https://docs.github.com/en/actions/deployment/deploying-xcode-applications/installing-an-apple-certificate-on-macos-runners-for-xcode-development
         # Also adds a uuid to the mobile provision so XCode can find it.
         run: |
-          # install the required platform
-          xcodebuild -downloadPlatform iOS
-
           # create variables
           CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
           KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
