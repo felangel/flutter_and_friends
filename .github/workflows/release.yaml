@@ -1,13 +1,13 @@
 name: release
 
 on:
-  pull_request:
   push:
     tags:
       - "v[0-9].[0-9]+.[0-9]+" # e.g. v1.0.0
 
 env:
   SHOREBIRD_TOKEN: ${{ secrets.SHOREBIRD_TOKEN }}
+  FLUTTER_VERSION: 3.32.8
 
 jobs:
   release-android:
@@ -44,7 +44,7 @@ jobs:
       - name: 🚀 Shorebird Release
         uses: shorebirdtech/shorebird-release@v1
         with:
-          flutter-version: latest
+          flutter-version: ${{ env.FLUTTER_VERSION }}
           platform: android
           args: "--verbose --artifact=apk"
 
@@ -112,7 +112,7 @@ jobs:
       - name: 🚀 Shorebird Release
         uses: shorebirdtech/shorebird-release@v1
         with:
-          flutter-version: latest
+          flutter-version: ${{ env.FLUTTER_VERSION }}
           platform: ios
           args: "--export-options-plist ios/GHAExportOptions.plist --verbose"
 
