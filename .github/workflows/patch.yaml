@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: 📚 Git Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: ☕️ Setup Java
         uses: actions/setup-java@v4
@@ -33,14 +33,18 @@ jobs:
       - name: 🔐 Decode Keystore
         run: echo ${{ secrets.KEYSTORE }} | base64 --decode > ${{ github.workspace }}/keystore.jks
 
+      - name: ✍️ Assemble Key Properties
+        run: |
+          echo "keyAlias=${{ secrets.KEYSTORE_ALIAS }}" >> ${{ github.workspace }}/android/key.properties
+          echo "keyPassword=${{ secrets.KEYSTORE_PASSWORD }}" >> ${{ github.workspace }}/android/key.properties
+          echo "storeFile=${{ github.workspace }}/keystore.jks" >> ${{ github.workspace }}/android/key.properties
+          echo "storePassword=${{ secrets.KEYSTORE_PASSWORD }}" >> ${{ github.workspace }}/android/key.properties
+
       - name: 🧩 Shorebird Patch
-        uses: shorebirdtech/shorebird-patch@v0
+        uses: shorebirdtech/shorebird-patch@v1
         id: shorebird-patch
-        env:
-          KEYSTORE_FILE: ${{ github.workspace }}/keystore.jks
-          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
-          KEYSTORE_ALIAS: ${{ secrets.KEYSTORE_ALIAS }}
         with:
+          release-version: latest
           platform: android
           args: "--verbose --staging"
 
@@ -51,14 +55,19 @@ jobs:
 
     steps:
       - name: 📚 Git Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: 🐦 Setup Shorebird
         uses: shorebirdtech/setup-shorebird@v1
         with:
           cache: true
 
-      - name: ✍️ Setup XCode Signing
+      - name: 🛠️ Setup Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: ✍️ Setup Xcode Signing
         env:
           CERTIFICATE: ${{ secrets.CERTIFICATE }}
           CERTIFICATE_PASSWORD: ${{ secrets.CERTIFICATE_PASSWORD }}
@@ -94,8 +103,9 @@ jobs:
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles/$UUID.mobileprovision
 
       - name: 🧩 Shorebird Patch
-        uses: shorebirdtech/shorebird-patch@v0
+        uses: shorebirdtech/shorebird-patch@v1
         id: shorebird-patch
         with:
+          release-version: latest
           platform: ios
           args: "--export-options-plist ios/GHAExportOptions.plist --staging"

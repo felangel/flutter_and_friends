@@ -1,7 +1,6 @@
 name: release
 
 on:
-  pull_request:
   push:
     tags:
       - "v[0-9].[0-9]+.[0-9]+" # e.g. v1.0.0
@@ -12,14 +11,13 @@ env:
 
 jobs:
   release-android:
-    if: false
     runs-on: ubuntu-latest
 
     name: 🤖 Release Android
 
     steps:
       - name: 📚 Git Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: ☕️ Setup Java
         uses: actions/setup-java@v4
@@ -69,7 +67,7 @@ jobs:
 
     steps:
       - name: 📚 Git Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: 🐦 Setup Shorebird
         uses: shorebirdtech/setup-shorebird@v1
@@ -81,7 +79,7 @@ jobs:
         with:
           xcode-version: latest-stable
 
-      - name: ✍️ Setup XCode Signing
+      - name: ✍️ Setup Xcode Signing
         env:
           CERTIFICATE: ${{ secrets.CERTIFICATE }}
           CERTIFICATE_PASSWORD: ${{ secrets.CERTIFICATE_PASSWORD }}
