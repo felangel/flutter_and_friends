@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: 📚 Git Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: ☕️ Setup Java
         uses: actions/setup-java@v4
@@ -61,22 +61,25 @@ jobs:
           path: build/app/outputs/bundle/release/app-release.aab
 
   release-ios:
-    # Pin to macOS 14 until macOS 15 is stable
-    # https://github.com/actions/runner-images/issues/12757
-    runs-on: macos-14
+    runs-on: macos-latest
 
     name: 🍎 Release iOS
 
     steps:
       - name: 📚 Git Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: 🐦 Setup Shorebird
         uses: shorebirdtech/setup-shorebird@v1
         with:
           cache: true
 
-      - name: ✍️ Setup XCode Signing
+      - name: 🛠️ Setup Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: ✍️ Setup Xcode Signing
         env:
           CERTIFICATE: ${{ secrets.CERTIFICATE }}
           CERTIFICATE_PASSWORD: ${{ secrets.CERTIFICATE_PASSWORD }}
