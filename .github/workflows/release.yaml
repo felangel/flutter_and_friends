@@ -7,6 +7,7 @@ on:
 
 env:
   SHOREBIRD_TOKEN: ${{ secrets.SHOREBIRD_TOKEN }}
+  FLUTTER_VERSION: 3.32.8
 
 jobs:
   release-android:
@@ -33,13 +34,17 @@ jobs:
       - name: 🔐 Decode Keystore
         run: echo ${{ secrets.KEYSTORE }} | base64 --decode > ${{ github.workspace }}/keystore.jks
 
+      - name: ✍️ Assemble Key Properties
+        run: |
+          echo "keyAlias=${{ secrets.KEYSTORE_ALIAS }}" >> ${{ github.workspace }}/android/key.properties
+          echo "keyPassword=${{ secrets.KEYSTORE_PASSWORD }}" >> ${{ github.workspace }}/android/key.properties
+          echo "storeFile=${{ github.workspace }}/keystore.jks" >> ${{ github.workspace }}/android/key.properties
+          echo "storePassword=${{ secrets.KEYSTORE_PASSWORD }}" >> ${{ github.workspace }}/android/key.properties
+
       - name: 🚀 Shorebird Release
-        uses: shorebirdtech/shorebird-release@v0
-        env:
-          KEYSTORE_FILE: ${{ github.workspace }}/keystore.jks
-          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
-          KEYSTORE_ALIAS: ${{ secrets.KEYSTORE_ALIAS }}
+        uses: shorebirdtech/shorebird-release@v1
         with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
           platform: android
           args: "--verbose --artifact=apk"
 
@@ -105,8 +110,9 @@ jobs:
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles/$UUID.mobileprovision
 
       - name: 🚀 Shorebird Release
-        uses: shorebirdtech/shorebird-release@v0
+        uses: shorebirdtech/shorebird-release@v1
         with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
           platform: ios
           args: "--export-options-plist ios/GHAExportOptions.plist --verbose"
 
