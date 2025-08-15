@@ -38,7 +38,7 @@ class SpeakerAvatar extends StatelessWidget {
             Text(
               speaker.title,
               textAlign: TextAlign.center,
-              maxLines: 2,
+              maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: theme.textTheme.titleSmall?.copyWith(
                 color: theme.colorScheme.onSurfaceVariant,
