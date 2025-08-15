@@ -31,13 +31,22 @@ class SpeakersListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: context.crossAxisCount,
         mainAxisSpacing: 12,
       ),
       padding: const EdgeInsets.all(12),
       itemCount: speakers.length,
       itemBuilder: (context, index) => SpeakerAvatar(speaker: speakers[index]),
     );
+  }
+}
+
+extension on BuildContext {
+  int get crossAxisCount {
+    final width = MediaQuery.of(this).size.width;
+    if (width < 600) return 2;
+    if (width < 800) return 3;
+    return 4;
   }
 }
