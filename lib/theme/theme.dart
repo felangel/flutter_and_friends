@@ -18,6 +18,7 @@ final lightTheme = ThemeData(
     showUnselectedLabels: true,
     type: BottomNavigationBarType.fixed,
   ),
+  cardTheme: CardThemeData(surfaceTintColor: _lightColorScheme.primary),
   colorScheme: _lightColorScheme,
   bannerTheme: MaterialBannerThemeData(
     backgroundColor: _lightColorScheme.primaryContainer,
@@ -40,6 +41,7 @@ final darkTheme = ThemeData(
     type: BottomNavigationBarType.fixed,
     showUnselectedLabels: true,
   ),
+  cardTheme: CardThemeData(surfaceTintColor: _darkColorScheme.primary),
   colorScheme: _darkColorScheme,
   bannerTheme: MaterialBannerThemeData(
     backgroundColor: _darkColorScheme.primaryContainer,

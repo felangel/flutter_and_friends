@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
 import 'package:flutter_and_friends/location/location.dart';
 import 'package:flutter_and_friends/schedule/schedule.dart';
+import 'package:flutter_and_friends/speaker_details/speaker_details.dart';
 import 'package:flutter_and_friends/speakers/speakers.dart';
 import 'package:flutter_and_friends/twitter/twitter.dart';
 import 'package:intl/intl.dart';
@@ -40,16 +41,16 @@ class WorkshopDetailsView extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 18),
         children: [
-          ...workshop.speakers.map((speaker) => SpeakerInfo(speaker: speaker)),
-          const SizedBox(height: 32),
           Text(
             workshop.name,
-            style: theme.textTheme.headlineSmall?.copyWith(
-              fontWeight: FontWeight.bold,
+            style: theme.textTheme.headlineMedium?.copyWith(
+              fontWeight: FontWeight.w900,
             ),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 24),
+          ...workshop.speakers.map((speaker) => SpeakerInfo(speaker: speaker)),
+          const SizedBox(height: 32),
           Wrap(
             alignment: WrapAlignment.center,
             spacing: 16,
@@ -98,39 +99,36 @@ class SpeakerInfo extends StatelessWidget {
     const avatarSize = 192.0;
     final theme = Theme.of(context);
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
+      padding: const EdgeInsets.symmetric(vertical: 12),
       child: Column(
         children: [
           Stack(
             alignment: Alignment.center,
             children: [
-              CircleAvatar(
-                radius: avatarSize / 2,
-                backgroundColor: Colors.white,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(avatarSize / 2),
-                  child: Image.asset(
-                    speaker.avatar,
-                    width: avatarSize,
-                    height: avatarSize,
-                    fit: BoxFit.cover,
+              InkWell(
+                onTap: () => Navigator.of(context).push(
+                  SpeakerDetailsPage.route(speaker: speaker),
+                ),
+                child: Hero(
+                  tag: speaker.name,
+                  child: CircleAvatar(
+                    radius: avatarSize / 2 + 4,
+                    backgroundColor: theme.colorScheme.primary.withAlpha(100),
+                    child: CircleAvatar(
+                      radius: avatarSize / 2,
+                      backgroundImage: AssetImage(speaker.avatar),
+                    ),
                   ),
                 ),
               ),
-              if (speaker.twitter != null)
-                Positioned(
-                  bottom: 0,
-                  child: Transform.translate(
-                    offset: const Offset(avatarSize / 3, 0),
-                    child: TwitterIconButton(handle: speaker.twitter!),
-                  ),
-                ),
             ],
           ),
           const SizedBox(height: 24),
           Text(
             speaker.name,
-            style: theme.textTheme.titleLarge,
+            style: theme.textTheme.titleLarge?.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 8),
@@ -139,6 +137,8 @@ class SpeakerInfo extends StatelessWidget {
             style: theme.textTheme.titleMedium,
             textAlign: TextAlign.center,
           ),
+          if (speaker.twitter != null)
+            TwitterIconButton(handle: speaker.twitter!),
         ],
       ),
     );
