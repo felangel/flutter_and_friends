@@ -11,6 +11,7 @@ formatter:
 
 linter:
   rules:
+    # This is an app, not a package that will be consumed
     public_member_api_docs: false
     # Experimental and there are lots of false positives
     specify_nonobvious_property_types: false
