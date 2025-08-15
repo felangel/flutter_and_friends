@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
 import 'package:flutter_and_friends/launchpad/launchpad.dart';
 import 'package:flutter_and_friends/schedule/schedule.dart';
+import 'package:flutter_and_friends/speakers/speakers.dart';
 import 'package:flutter_and_friends/sponsors/sponsors.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -41,6 +43,8 @@ class _LaunchpadBody extends StatelessWidget {
         return const FavoritesPage();
       case LaunchpadState.schedule:
         return const SchedulePage();
+      case LaunchpadState.speakers:
+        return const SpeakersPage();
       case LaunchpadState.sponsors:
         return const SponsorsPage();
     }
@@ -55,14 +59,20 @@ class _BottomNavigationBar extends StatelessWidget {
     final state = context.watch<LaunchpadCubit>().state;
     return BottomNavigationBar(
       useLegacyColorScheme: false,
-      enableFeedback: true,
-      onTap: (index) => context.read<LaunchpadCubit>().toggleTab(index),
+      onTap: (index) {
+        context.read<LaunchpadCubit>().toggleTab(index);
+        HapticFeedback.mediumImpact();
+      },
       currentIndex: state.index,
       items: const [
         BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Favorites'),
         BottomNavigationBarItem(
           icon: Icon(Icons.calendar_today),
           label: 'Schedule',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.people_alt_rounded),
+          label: 'Speakers',
         ),
         BottomNavigationBarItem(icon: Icon(Icons.business), label: 'Sponsors'),
       ],

@@ -1,4 +1,5 @@
 import 'package:flutter_and_friends/schedule/schedule.dart';
+import 'package:flutter_and_friends/speakers/speakers.dart';
 
 const aiTrack = Location(
   name: 'AI Track',
