@@ -172,8 +172,8 @@ If you come early you will also get some extra swag 😉''',
   ),
   Activity(
     name: '🪩 Flutter & Friends Party',
-    startTime: DateTime(2025, 9, 1, 19, 30),
-    duration: const Duration(minutes: 330),
+    startTime: DateTime(2025, 9, 1, 19),
+    duration: const Duration(hours: 5),
     description: '''
 Unleash the Night! 🕺
 Get ready for an unforgettable evening with dazzling disco lights, refreshing drinks, awesome music, and the thrilling excitement of the competition Flutter in the Dark! 🌙 It's the perfect recipe for a night you won't forget. Don't miss out!''',
