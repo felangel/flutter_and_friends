@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
 import 'package:flutter_and_friends/location/location.dart';
 import 'package:flutter_and_friends/schedule/schedule.dart';
+import 'package:flutter_and_friends/speakers/speakers.dart';
 import 'package:flutter_and_friends/twitter/twitter.dart';
 import 'package:intl/intl.dart';
 

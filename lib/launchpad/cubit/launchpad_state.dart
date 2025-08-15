@@ -1,3 +1,3 @@
 part of 'launchpad_cubit.dart';
 
-enum LaunchpadState { favorites, schedule, sponsors }
+enum LaunchpadState { favorites, schedule, speakers, sponsors }
