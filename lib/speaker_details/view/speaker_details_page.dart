@@ -59,33 +59,25 @@ class SpeakerInfo extends StatelessWidget {
           Stack(
             alignment: Alignment.center,
             children: [
-              CircleAvatar(
-                radius: avatarSize / 2,
-                backgroundColor: Colors.white,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(avatarSize / 2),
-                  child: Image.asset(
-                    speaker.avatar,
-                    width: avatarSize,
-                    height: avatarSize,
-                    fit: BoxFit.cover,
+              Hero(
+                tag: speaker.name,
+                child: CircleAvatar(
+                  radius: avatarSize / 2 + 4,
+                  backgroundColor: theme.colorScheme.primary.withAlpha(100),
+                  child: CircleAvatar(
+                    radius: avatarSize / 2,
+                    backgroundImage: AssetImage(speaker.avatar),
                   ),
                 ),
               ),
-              if (speaker.twitter != null)
-                Positioned(
-                  bottom: 0,
-                  child: Transform.translate(
-                    offset: const Offset(avatarSize / 3, 0),
-                    child: TwitterIconButton(handle: speaker.twitter!),
-                  ),
-                ),
             ],
           ),
           const SizedBox(height: 24),
           Text(
             speaker.name,
-            style: theme.textTheme.titleLarge,
+            style: theme.textTheme.titleLarge?.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 8),
@@ -94,6 +86,8 @@ class SpeakerInfo extends StatelessWidget {
             style: theme.textTheme.titleMedium,
             textAlign: TextAlign.center,
           ),
+          if (speaker.twitter != null)
+            TwitterIconButton(handle: speaker.twitter!),
         ],
       ),
     );

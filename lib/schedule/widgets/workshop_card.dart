@@ -61,9 +61,12 @@ class WorkshopCard extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 4),
                   child: Row(
                     children: [
-                      CircleAvatar(
-                        radius: 24,
-                        backgroundImage: AssetImage(speaker.avatar),
+                      Hero(
+                        tag: speaker.name,
+                        child: CircleAvatar(
+                          radius: 24,
+                          backgroundImage: AssetImage(speaker.avatar),
+                        ),
                       ),
                       const SizedBox(width: 16),
                       Expanded(

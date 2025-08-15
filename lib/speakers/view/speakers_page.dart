@@ -30,11 +30,14 @@ class SpeakersListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      separatorBuilder: (_, _) => const SizedBox(height: 16),
+    return GridView.builder(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisSpacing: 12,
+      ),
       padding: const EdgeInsets.all(12),
       itemCount: speakers.length,
-      itemBuilder: (context, index) => SpeakerCard(speaker: speakers[index]),
+      itemBuilder: (context, index) => SpeakerAvatar(speaker: speakers[index]),
     );
   }
 }

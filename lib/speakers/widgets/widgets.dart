@@ -1,1 +1,1 @@
-export 'speaker_card.dart';
+export 'speaker_avatar.dart';
