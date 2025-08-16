@@ -13,38 +13,45 @@ class SpeakerAvatar extends StatelessWidget {
     return Column(
       spacing: 16,
       children: [
-        InkWell(
-          onTap: () => Navigator.of(context).push(
-            SpeakerDetailsPage.route(speaker: speaker),
-          ),
-          child: Hero(
-            tag: speaker.name,
-            child: CircleAvatar(
-              radius: 60,
-              backgroundImage: AssetImage(speaker.avatar),
+        Expanded(
+          flex: 2,
+          child: InkWell(
+            onTap: () => Navigator.of(context).push(
+              SpeakerDetailsPage.route(speaker: speaker),
+            ),
+            child: Hero(
+              tag: speaker.name,
+              child: CircleAvatar(
+                radius: 60,
+                backgroundImage: AssetImage(speaker.avatar),
+              ),
             ),
           ),
         ),
-        Column(
-          children: [
-            Text(
-              speaker.name,
-              textAlign: TextAlign.center,
-              style: theme.textTheme.titleMedium?.copyWith(
-                color: theme.colorScheme.onSurfaceVariant,
-                fontWeight: FontWeight.bold,
+        Flexible(
+          child: Column(
+            children: [
+              Text(
+                speaker.name,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.center,
+                style: theme.textTheme.titleMedium?.copyWith(
+                  color: theme.colorScheme.onSurfaceVariant,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            Text(
-              speaker.title,
-              textAlign: TextAlign.center,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: theme.textTheme.titleSmall?.copyWith(
-                color: theme.colorScheme.onSurfaceVariant,
+              Text(
+                speaker.title,
+                textAlign: TextAlign.center,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: theme.textTheme.titleSmall?.copyWith(
+                  color: theme.colorScheme.onSurfaceVariant,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ],
     );
