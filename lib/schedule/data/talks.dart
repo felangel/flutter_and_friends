@@ -1,13 +1,17 @@
 import 'package:flutter_and_friends/schedule/schedule.dart';
 import 'package:flutter_and_friends/speakers/speakers.dart';
 
+const kulturhuset = Location(
+  name: 'Kulturhuset Stadsteatern',
+  coordinates: (59.332042, 18.0649439),
+);
 const mainStage = Location(
   name: 'Main Stage',
-  coordinates: (59.3317657, 18.0637531),
+  coordinates: (59.332042, 18.0649439),
 );
 const studioStage = Location(
   name: 'Studio Stage',
-  coordinates: (59.3317657, 18.0637531),
+  coordinates: (59.332042, 18.0649439),
 );
 
 final talks = <Talk>[
@@ -85,17 +89,6 @@ Is it worth taking the time to pepper the "const" keyword everywhere possible, a
 The audience will learn what using "const" results in a code-level, whether there is a benefit to doing so (spoiler: there is), and where the improvements come from.''',
   ),
   Talk(
-    name: 'Using the MultiChildRenderObjectWidget',
-    speakers: const [ingvildSandstad],
-    duration: const Duration(minutes: 20),
-    startTime: DateTime(2025, 9, 1, 13, 30),
-    location: mainStage,
-    description: '''
-The talk will focus on how we can make quite simple use of the MultiChildRenderObjectWidget to solve having your own, specific layout rules for a set of widgets. We will look at some use cases where it could be useful, analyse some code and output of the results.
-
-MultiChildRenderObjectWidget can help you take control of all sorts of layout issues and positioning widgets. This is particularly useful when working with accessibility and having to handle your layouts for portrait, landscape and enlarged display/text sizes. And with a little look at its inner workings you get to know how Flutter works a little better, and see that it really is quite simple to use, and very powerful.''',
-  ),
-  Talk(
     name: 'Behind the @ - Dart Annotations in Depth',
     speakers: const [annaLeushchenko],
     duration: const Duration(minutes: 20),
@@ -105,6 +98,17 @@ MultiChildRenderObjectWidget can help you take control of all sorts of layout is
 As Flutter developers, you've almost certainly encountered annotations like `@override` and `@deprecated`. But Dart's annotation system offers much more than just these built-in cases, yet this feature remains underused in the majority of projects.
 
 In this talk, we'll explore what annotations are, how to create custom ones, and how they can serve as code documentation, drive analyzer warnings, and power code generators. You'll learn to apply Dart annotations in ways that improve developer experience and code maintainability.''',
+  ),
+  Talk(
+    name: 'Using the MultiChildRenderObjectWidget',
+    speakers: const [ingvildSandstad],
+    duration: const Duration(minutes: 20),
+    startTime: DateTime(2025, 9, 1, 13, 30),
+    location: studioStage,
+    description: '''
+The talk will focus on how we can make quite simple use of the MultiChildRenderObjectWidget to solve having your own, specific layout rules for a set of widgets. We will look at some use cases where it could be useful, analyse some code and output of the results.
+
+MultiChildRenderObjectWidget can help you take control of all sorts of layout issues and positioning widgets. This is particularly useful when working with accessibility and having to handle your layouts for portrait, landscape and enlarged display/text sizes. And with a little look at its inner workings you get to know how Flutter works a little better, and see that it really is quite simple to use, and very powerful.''',
   ),
   Talk(
     name: 'Architecting for 15 Million Users',
@@ -158,7 +162,7 @@ The new post-processing API on Flame promises to allow Flutter-based games to lo
   Talk(
     name: 'Either This or That: Expressive Error Handling in Dart',
     speakers: const [eliasElfarri],
-    duration: const Duration(minutes: 15),
+    duration: const Duration(minutes: 20),
     startTime: DateTime(2025, 9, 1, 15, 45),
     location: studioStage,
     description: '''

@@ -32,7 +32,7 @@ You'll even get to do the classic pentathlon!''',
     ),
   ),
   Activity(
-    name: 'Skansen Zoo & History Village Tour',
+    name: 'Skansen Zoo & Village Tour',
     startTime: DateTime(2025, 8, 31, 13),
     duration: const Duration(hours: 2),
     description: '''
@@ -146,7 +146,7 @@ final day2 = <Event>[
 Try to be there early, since the check-in is pretty short.
 
 If you come early you will also get some extra swag 😉''',
-    location: mainStage,
+    location: kulturhuset,
   ),
   ...talks.sublist(0, 5),
   Activity(
@@ -161,13 +161,13 @@ If you come early you will also get some extra swag 😉''',
   Activity(
     name: '🎙️ Panel discussion',
     startTime: DateTime(2025, 9, 1, 17, 30),
-    duration: const Duration(minutes: 30),
+    duration: const Duration(minutes: 25),
     location: mainStage,
   ),
   Activity(
     name: '🎬 Closing Words',
     startTime: DateTime(2025, 9, 1, 17, 55),
-    duration: const Duration(minutes: 10),
+    duration: const Duration(minutes: 20),
     location: mainStage,
   ),
   Activity(
