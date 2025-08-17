@@ -1,3 +1,3 @@
 import 'package:pub_semver/pub_semver.dart';
 
-final version = Version(1, 1, 9, build: '19');
+final version = Version(1, 1, 10, build: '20');
