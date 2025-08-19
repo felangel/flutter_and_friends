@@ -64,6 +64,39 @@ class SettingsView extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
+            Text('Socials', style: headingStyle),
+            ListTile(
+              leading: const Icon(
+                FontAwesomeIcons.linkedin,
+                color: Colors.indigo,
+              ),
+              title: const Text('LinkedIn'),
+              subtitle: const Text('@flutter-friends'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => launchUrlString(
+                'https://www.linkedin.com/company/flutter-friends',
+              ),
+            ),
+            ListTile(
+              leading: const Icon(FontAwesomeIcons.xTwitter),
+              title: const Text('X.com'),
+              subtitle: const Text('@FlutterNFriends'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => launchUrlString('https://x.com/FlutterNFriends'),
+            ),
+            ListTile(
+              leading: const Icon(
+                FontAwesomeIcons.bluesky,
+                color: Colors.blueAccent,
+              ),
+              title: const Text('Bluesky'),
+              subtitle: const Text('@flutterfriends.dev'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => launchUrlString(
+                'https://bsky.app/profile/flutterfriends.dev',
+              ),
+            ),
+            const SizedBox(height: 16),
             Text('About', style: headingStyle),
             ListTile(
               title: const Row(
@@ -81,6 +114,14 @@ class SettingsView extends StatelessWidget {
               ),
             ),
             ListTile(
+              title: const Text('Website'),
+              subtitle: const Text('View the official website'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => launchUrlString(
+                'https://www.flutterfriends.dev',
+              ),
+            ),
+            ListTile(
               title: const Text('Licenses'),
               subtitle: const Text('View the licenses of the libraries used'),
               trailing: const Icon(Icons.chevron_right),
@@ -95,20 +136,10 @@ class SettingsView extends StatelessWidget {
             ),
             ListTile(
               title: const Text('Privacy Policy'),
-              subtitle: const Text('View the Privacy Policy'),
+              subtitle: const Text('View the privacy policy'),
               trailing: const Icon(Icons.chevron_right),
               onTap: () => launchUrlString(
                 'https://github.com/felangel/flutter_and_friends/blob/main/privacy.md',
-              ),
-            ),
-            ListTile(
-              title: const Row(
-                children: [Text('Follow on'), Icon(FontAwesomeIcons.xTwitter)],
-              ),
-              subtitle: const Text('Formerly known as Twitter'),
-              trailing: const Icon(Icons.chevron_right),
-              onTap: () => launchUrlString(
-                'https://twitter.com/FlutterNFriends',
               ),
             ),
             ListTile(
