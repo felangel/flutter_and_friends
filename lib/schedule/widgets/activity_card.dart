@@ -47,6 +47,8 @@ class ActivityCard extends StatelessWidget {
                 ],
               ),
               Wrap(
+                alignment: WrapAlignment.center,
+                crossAxisAlignment: WrapCrossAlignment.center,
                 children: [
                   if (activity.image != null) ...[
                     CircleAvatar(
