@@ -1,5 +1,6 @@
 <h1 align="center">Flutter & Friends</h1>
 <p align="center">
+  <a href="https://bloclibrary.dev"><img src="https://tinyurl.com/bloc-library?style=for-the-badge&color=black&labelColor=black" alt="Bloc Library"></a>
   <a href="https://shorebird.dev">    
     <img alt="Powered by Shorebird" src="https://img.shields.io/endpoint?url=https://tinyurl.com/shorebirddev&style=for-the-badge">
   </a>
