@@ -26,4 +26,8 @@ class FriendsBadgeCubit extends Cubit<FriendsBadgeState?> {
     
     emit(FriendsBadgeState(image: state.image, ditherKernel: ditherKernel));
   }
+
+  void clearImage() {
+    emit(null);
+  }
 }

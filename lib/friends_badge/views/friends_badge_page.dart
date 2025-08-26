@@ -20,7 +20,19 @@ class FavoritesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Update your Friends Badge')),
+      appBar: AppBar(
+        title: const Text('Update your Friends Badge'),
+        actions: [
+          if (context.watch<FriendsBadgeCubit>().state != null)
+            IconButton(
+              tooltip: 'Clear image',
+              onPressed: () {
+                context.read<FriendsBadgeCubit>().clearImage();
+              },
+              icon: const Icon(Icons.delete),
+            ),
+        ],
+      ),
       floatingActionButton: const PickImageButton(),
       body: BlocBuilder<FriendsBadgeCubit, FriendsBadgeState?>(
         builder: (context, state) {

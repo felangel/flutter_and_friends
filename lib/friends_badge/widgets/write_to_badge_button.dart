@@ -14,7 +14,7 @@ class WriteToBadgeButton extends StatelessWidget {
       onPressed: () async {
         await WaitingForNfcTap.showLoading(
           context: context,
-          job: FriendsBadge.nfcBadgeRepository.writeOverNfc(
+          job: FriendsBadge.writeOverNfc(
             state.image,
             kernel: state.ditherKernel,
           ),
