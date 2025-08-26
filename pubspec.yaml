@@ -14,7 +14,10 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^9.0.0
   font_awesome_flutter: ^10.7.0
+  friends_badge: ^0.1.2
   hydrated_bloc: ^10.0.0
+  image: ^4.5.4
+  image_picker: ^1.2.0
   intl: ^0.20.0
   json_annotation: ^4.9.0
   path_provider: ^2.0.0
