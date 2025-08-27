@@ -20,7 +20,7 @@ class WriteToBadgeButton extends StatelessWidget {
               kernel: state.ditherKernel,
             ),
           );
-        } on PlatformException catch (e) {
+        } on PlatformException {
           if (!context.mounted) return;
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
