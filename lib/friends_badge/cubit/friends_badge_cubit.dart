@@ -17,13 +17,13 @@ class FriendsBadgeCubit extends Cubit<FriendsBadgeState?> {
       emit(null);
       return;
     }
-    emit(FriendsBadgeState(image: FriendsBadge.createBadgeImage(image)));
+    emit(FriendsBadgeState(image: BadgeImage(image)));
   }
 
   void setDitherKernel(DitherKernel ditherKernel) {
     final state = this.state;
-    if(state == null) return;
-    
+    if (state == null) return;
+
     emit(FriendsBadgeState(image: state.image, ditherKernel: ditherKernel));
   }
 

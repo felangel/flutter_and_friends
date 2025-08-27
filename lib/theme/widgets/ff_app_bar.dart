@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/friends_badge/friends_badge.dart';
 import 'package:flutter_and_friends/settings/settings.dart';
-import 'package:friends_badge/friends_badge.dart';
 
 class FFAppBar extends AppBar {
   FFAppBar({super.bottom, super.key})
@@ -11,7 +10,7 @@ class FFAppBar extends AppBar {
           child: Image.asset('assets/logo.png', height: kToolbarHeight + 8),
         ),
         actions: [
-          if (FriendsBadge.isNfcSupported) const _FriendsBadgeButton(),
+          const _FriendsBadgeButton(),
           const _SettingsButton(),
         ],
       );
