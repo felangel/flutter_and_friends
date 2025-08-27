@@ -11,8 +11,7 @@ class FFAppBar extends AppBar {
           child: Image.asset('assets/logo.png', height: kToolbarHeight + 8),
         ),
         actions: [
-          if (FriendsBadge.nfcBadgeRepository.isSupported)
-            const _FriendsBadgeButton(),
+          if (FriendsBadge.isNfcSupported) const _FriendsBadgeButton(),
           const _SettingsButton(),
         ],
       );
