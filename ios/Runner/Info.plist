@@ -51,5 +51,11 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+    <key>NFCReaderUsageDescription</key>
+    <string>We use Near Field Communication (NFC) to wirelessly transfer your selected image to the e-ink display. Access is required to update the screen.</string>
+    <key>com.apple.developer.nfc.readersession.iso7816.select-identifiers</key>
+    <array>
+        <string>A0000002471001</string>
+    </array>
 </dict>
 </plist>

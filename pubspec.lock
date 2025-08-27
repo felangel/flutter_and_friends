@@ -379,10 +379,11 @@ packages:
   friends_badge:
     dependency: "direct main"
     description:
-      path: "/Users/lohnn/Programming/friends_badge"
-      relative: false
-    source: path
-    version: "0.1.1"
+      name: friends_badge
+      sha256: ddc76d3fe653f3306fe93ae201e8335377d2e9819abbf14c10a5ae80582c50e1
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.2"
   frontend_server_client:
     dependency: transitive
     description:
@@ -640,12 +641,13 @@ packages:
     source: hosted
     version: "1.0.0"
   nfc_manager:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: nfc_manager
-      sha256: "164cc0223dee528d4d05a542da921f0b3a31ca0312400701c93ebf4ce757f676"
-      url: "https://pub.dev"
-    source: hosted
+      path: "packages/nfc_manager"
+      ref: FixIosBackgroundIsolateError
+      resolved-ref: "8b5223edcd7d81eb75f9bc99970f8891a0251c8c"
+      url: "https://github.com/SuperMari000/flutter-nfc-manager.git"
+    source: git
     version: "4.0.2"
   package_config:
     dependency: transitive
