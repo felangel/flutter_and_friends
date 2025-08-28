@@ -7,7 +7,12 @@ class FriendsBadgePage extends StatelessWidget {
   const FriendsBadgePage({super.key});
 
   static Route<void> route() {
-    return MaterialPageRoute(builder: (_) => const FriendsBadgePage());
+    return MaterialPageRoute(
+      builder: (_) => BlocProvider(
+        create: (_) => FriendsBadgeCubit(),
+        child: const FriendsBadgePage(),
+      ),
+    );
   }
 
   @override
@@ -19,36 +24,29 @@ class FriendsBadgeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => FriendsBadgeCubit(),
-      child: Builder(
-        builder: (context) {
-          return Scaffold(
-            appBar: AppBar(
-              title: const Text('Update your Friends Badge'),
-              actions: [
-                if (context.watch<FriendsBadgeCubit>().state != null)
-                  IconButton(
-                    tooltip: 'Clear image',
-                    onPressed: () {
-                      context.read<FriendsBadgeCubit>().clearImage();
-                    },
-                    icon: const Icon(Icons.delete),
-                  ),
-              ],
-            ),
-            floatingActionButton: const PickImageButton(),
-            body: BlocBuilder<FriendsBadgeCubit, FriendsBadgeState?>(
-              builder: (context, state) {
-                if (state == null) {
-                  return const Center(
-                    child: Text('Pick an image to get started'),
-                  );
-                }
-                return BadgeTemplateEditor(state: state);
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Update your Friends Badge'),
+        actions: [
+          if (context.watch<FriendsBadgeCubit>().state != null)
+            IconButton(
+              tooltip: 'Clear image',
+              onPressed: () {
+                context.read<FriendsBadgeCubit>().clearImage();
               },
+              icon: const Icon(Icons.delete),
             ),
-          );
+        ],
+      ),
+      floatingActionButton: const PickImageButton(),
+      body: BlocBuilder<FriendsBadgeCubit, FriendsBadgeState?>(
+        builder: (context, state) {
+          if (state == null) {
+            return const Center(
+              child: Text('Pick an image to get started'),
+            );
+          }
+          return BadgeTemplateEditor(state: state);
         },
       ),
     );
