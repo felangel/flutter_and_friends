@@ -41,13 +41,15 @@ class FriendsBadgeView extends StatelessWidget {
             body: BlocBuilder<FriendsBadgeCubit, FriendsBadgeState?>(
               builder: (context, state) {
                 if (state == null) {
-                  return const Center(child: Text('Pick an image to get started'));
+                  return const Center(
+                    child: Text('Pick an image to get started'),
+                  );
                 }
                 return BadgeTemplateEditor(state: state);
               },
             ),
           );
-        }
+        },
       ),
     );
   }
