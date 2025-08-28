@@ -27,7 +27,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NFCReaderUsageDescription</key>
-	<string>We use Near Field Communication (NFC) to wirelessly transfer your selected image to the e-ink display. Access is required to update the screen.</string>
+	<string>We use Near Field Communication (NFC) to wirelessly transfer your selected image to the e-ink display of the conference badge. Access is required to update the screen.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>
