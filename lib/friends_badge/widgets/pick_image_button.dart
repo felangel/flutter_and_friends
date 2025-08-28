@@ -21,22 +21,9 @@ class PickImageButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      tooltip: 'Pick image from gallery',
+      tooltip: 'Pick an image from gallery',
       onPressed: () => pickImage(context),
       child: const Icon(Icons.image_search),
     );
-    // return BlocSelector<FriendsBadgeCubit, FriendsBadgeState, bool>(
-    //   selector: (state) => state.events.contains(event),
-    //   builder: (context, isFavorite) => IconButton(
-    //     icon: Icon(
-    //       isFavorite ? Icons.favorite : Icons.favorite_border,
-    //       color: isFavorite ? Colors.pinkAccent : null,
-    //     ),
-    //     onPressed: () {
-    //       context.read<FavoritesCubit>().toggleFavorite(event);
-    //       HapticFeedback.mediumImpact();
-    //     },
-    //   ),
-    // );
   }
 }

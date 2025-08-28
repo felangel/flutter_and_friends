@@ -11,36 +11,43 @@ class FriendsBadgePage extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) => const FavoritesView();
+  Widget build(BuildContext context) => const FriendsBadgeView();
 }
 
-class FavoritesView extends StatelessWidget {
-  const FavoritesView({super.key});
+class FriendsBadgeView extends StatelessWidget {
+  const FriendsBadgeView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Update your Friends Badge'),
-        actions: [
-          if (context.watch<FriendsBadgeCubit>().state != null)
-            IconButton(
-              tooltip: 'Clear image',
-              onPressed: () {
-                context.read<FriendsBadgeCubit>().clearImage();
-              },
-              icon: const Icon(Icons.delete),
+    return BlocProvider(
+      create: (_) => FriendsBadgeCubit(),
+      child: Builder(
+        builder: (context) {
+          return Scaffold(
+            appBar: AppBar(
+              title: const Text('Update your Friends Badge'),
+              actions: [
+                if (context.watch<FriendsBadgeCubit>().state != null)
+                  IconButton(
+                    tooltip: 'Clear image',
+                    onPressed: () {
+                      context.read<FriendsBadgeCubit>().clearImage();
+                    },
+                    icon: const Icon(Icons.delete),
+                  ),
+              ],
             ),
-        ],
-      ),
-      floatingActionButton: const PickImageButton(),
-      body: BlocBuilder<FriendsBadgeCubit, FriendsBadgeState?>(
-        builder: (context, state) {
-          if (state == null) {
-            return const Center(child: Text('Pick an image to get started'));
-          }
-          return BadgeTemplateEditor(state: state);
-        },
+            floatingActionButton: const PickImageButton(),
+            body: BlocBuilder<FriendsBadgeCubit, FriendsBadgeState?>(
+              builder: (context, state) {
+                if (state == null) {
+                  return const Center(child: Text('Pick an image to get started'));
+                }
+                return BadgeTemplateEditor(state: state);
+              },
+            ),
+          );
+        }
       ),
     );
   }

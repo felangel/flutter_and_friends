@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/favorites/favorites.dart';
-import 'package:flutter_and_friends/friends_badge/cubit/friends_badge_cubit.dart';
 import 'package:flutter_and_friends/launchpad/launchpad.dart';
 import 'package:flutter_and_friends/theme/theme.dart';
 import 'package:flutter_and_friends/updater/updater.dart';
@@ -33,7 +32,6 @@ class App extends StatelessWidget {
         providers: [
           BlocProvider(create: (_) => ThemeCubit()),
           BlocProvider(create: (_) => FavoritesCubit()),
-          BlocProvider(create: (_) => FriendsBadgeCubit()),
           BlocProvider(
             create: (context) => UpdaterCubit(
               updater: context.read<ShorebirdUpdater>(),
