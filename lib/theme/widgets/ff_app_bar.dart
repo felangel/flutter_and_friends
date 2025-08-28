@@ -8,9 +8,7 @@ class FFAppBar extends AppBar {
           padding: const EdgeInsets.only(bottom: 8),
           child: Image.asset('assets/logo.png', height: kToolbarHeight + 8),
         ),
-        actions: [
-          const _SettingsButton(),
-        ],
+        actions: [const _SettingsButton()],
       );
 }
 
