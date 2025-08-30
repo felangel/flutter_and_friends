@@ -15,12 +15,15 @@ class PickImageButton extends StatelessWidget {
     );
 
     if (pickedFile == null || !context.mounted) return;
-    await context.read<FriendsBadgeCubit>().updateImage(File(pickedFile.path));
+    await context.read<FriendsBadgeCubit>().updateImage(
+      File(pickedFile.path),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
+      heroTag: 'PickImageButton',
       tooltip: 'Pick an image from gallery',
       onPressed: () => pickImage(context),
       child: const Icon(Icons.image_search),

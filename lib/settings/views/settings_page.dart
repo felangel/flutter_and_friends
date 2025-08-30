@@ -56,9 +56,9 @@ class SettingsView extends StatelessWidget {
             const SizedBox(height: 16),
             Text('Extras', style: headingStyle),
             ListTile(
-              leading: const Icon(Icons.add_to_home_screen),
-              title: const Text('Write image to Friends Badge'),
-              subtitle: const Text('Make the Friends Badge yours'),
+              leading: const Icon(Icons.badge_outlined),
+              title: const Text('Friends Badge'),
+              subtitle: const Text('Customize your badge'),
               trailing: const Icon(Icons.chevron_right),
               onTap: () => Navigator.of(context).push(FriendsBadgePage.route()),
             ),

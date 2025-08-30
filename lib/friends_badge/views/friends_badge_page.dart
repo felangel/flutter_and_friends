@@ -6,17 +6,15 @@ import 'package:friends_badge/friends_badge.dart';
 class FriendsBadgePage extends StatelessWidget {
   const FriendsBadgePage({super.key});
 
-  static Route<void> route() {
-    return MaterialPageRoute(
-      builder: (_) => BlocProvider(
-        create: (_) => FriendsBadgeCubit(),
-        child: const FriendsBadgePage(),
-      ),
-    );
-  }
+  static Route<void> route() => MaterialPageRoute(
+    builder: (_) => const FriendsBadgePage(),
+  );
 
   @override
-  Widget build(BuildContext context) => const FriendsBadgeView();
+  Widget build(BuildContext context) => BlocProvider(
+    create: (_) => FriendsBadgeCubit(),
+    child: const FriendsBadgeView(),
+  );
 }
 
 class FriendsBadgeView extends StatelessWidget {
@@ -24,147 +22,115 @@ class FriendsBadgeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Update your Friends Badge'),
-        actions: [
-          if (context.watch<FriendsBadgeCubit>().state != null)
-            IconButton(
-              tooltip: 'Clear image',
-              onPressed: () {
-                context.read<FriendsBadgeCubit>().clearImage();
-              },
-              icon: const Icon(Icons.delete),
+    final theme = Theme.of(context);
+    final badge = context.watch<FriendsBadgeCubit>().state.badge;
+    final body = badge == null
+        ? Center(
+            child: Text(
+              'Pick an image to get started',
+              textAlign: TextAlign.center,
+              style: theme.textTheme.headlineMedium,
             ),
+          )
+        : _BadgeEditor(badge: badge);
+
+    return Scaffold(
+      appBar: AppBar(title: const Text('Friends Badge')),
+      floatingActionButton: Row(
+        spacing: 8,
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          if (badge != null) WriteToBadgeButton(badge),
+          const PickImageButton(),
         ],
       ),
-      floatingActionButton: const PickImageButton(),
-      body: BlocBuilder<FriendsBadgeCubit, FriendsBadgeState?>(
-        builder: (context, state) {
-          if (state == null) {
-            return const Center(
-              child: Text('Pick an image to get started'),
-            );
-          }
-          return BadgeTemplateEditor(state: state);
-        },
-      ),
+      body: body,
     );
   }
 }
 
-class BadgeTemplateEditor extends StatelessWidget {
-  const BadgeTemplateEditor({required this.state, super.key});
+class _BadgeEditor extends StatelessWidget {
+  const _BadgeEditor({required this.badge});
 
-  final FriendsBadgeState state;
+  final FriendsBadge badge;
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Padding(
       padding: const EdgeInsets.all(16),
-      children: [
-        _PreviewImage(state),
-        const SizedBox(height: 16),
-        _PeekImages(state),
-      ],
-    );
-  }
-}
-
-class _PreviewImage extends StatefulWidget {
-  const _PreviewImage(this.state);
-
-  final FriendsBadgeState state;
-
-  @override
-  State<_PreviewImage> createState() => _PreviewImageState();
-}
-
-class _PreviewImageState extends State<_PreviewImage> {
-  bool isRevealingUnditheredImage = false;
-
-  @override
-  Widget build(BuildContext context) {
-    final previewKernel = isRevealingUnditheredImage
-        ? null
-        : widget.state.ditherKernel;
-    return GestureDetector(
-      onTapDown: (_) {
-        setState(() => isRevealingUnditheredImage = true);
-      },
-      onTapUp: (_) {
-        setState(() => isRevealingUnditheredImage = false);
-      },
-      onTapCancel: () {
-        setState(() => isRevealingUnditheredImage = false);
-      },
-      child: SizedBox(
-        height: 420,
-        child: Stack(
-          children: [
-            Positioned.fill(
-              bottom: null,
-              child: Center(
-                child: Image.memory(
-                  widget.state.image.getImageBytes(previewKernel),
-                  height: 400,
-                ),
-              ),
-            ),
-            if (!isRevealingUnditheredImage)
-              Positioned(
-                bottom: 0,
-                left: 0,
-                right: 0,
-                child: Center(
-                  child: WriteToBadgeButton(widget.state),
-                ),
-              ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _PeekImages extends StatelessWidget {
-  const _PeekImages(this.state);
-
-  final FriendsBadgeState state;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 100,
-      child: ListView.separated(
-        scrollDirection: Axis.horizontal,
-        itemCount: BadgeImage.allSupportedKernels.length,
-        separatorBuilder: (context, index) => const SizedBox(width: 8),
-        itemBuilder: (context, index) {
-          final kernel = BadgeImage.allSupportedKernels[index];
-          return Container(
-            foregroundDecoration: kernel == state.ditherKernel
-                ? BoxDecoration(
-                    color: Colors.blue.withValues(alpha: 0.4),
-                    border: Border.all(
-                      width: 3,
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          return SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: constraints.maxHeight),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                spacing: 16,
+                children: [
+                  SizedBox(
+                    height: constraints.maxHeight * 1 / 6,
+                    child: Center(
+                      child: _BadgeDitherKernelCarousel(badge: badge),
                     ),
-                  )
-                : null,
-            child: InkWell(
-              onTap: () {
-                context.read<FriendsBadgeCubit>().setDitherKernel(
-                  kernel,
-                );
-              },
-              child: Image.memory(
-                state.image.getPeekImageBytes(kernel),
-                width: 50,
+                  ),
+                  ConstrainedBox(
+                    constraints: BoxConstraints(
+                      maxHeight: constraints.maxHeight * 4 / 6,
+                    ),
+                    child: Center(child: _BadgePreview(badge: badge)),
+                  ),
+                ],
               ),
             ),
           );
         },
       ),
+    );
+  }
+}
+
+class _BadgePreview extends StatelessWidget {
+  const _BadgePreview({required this.badge});
+
+  final FriendsBadge badge;
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.memory(badge.image.getImageBytes(badge.ditherKernel));
+  }
+}
+
+class _BadgeDitherKernelCarousel extends StatelessWidget {
+  const _BadgeDitherKernelCarousel({required this.badge});
+
+  final FriendsBadge badge;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+      shrinkWrap: true,
+      scrollDirection: Axis.horizontal,
+      itemCount: BadgeImage.allSupportedKernels.length,
+      separatorBuilder: (context, index) => const SizedBox(width: 8),
+      itemBuilder: (context, index) {
+        final kernel = [...BadgeImage.allSupportedKernels.reversed][index];
+        final decoration = kernel == badge.ditherKernel
+            ? BoxDecoration(
+                color: Colors.blue.withValues(alpha: 0.4),
+                border: Border.all(width: 3),
+              )
+            : const BoxDecoration();
+        return DecoratedBox(
+          position: DecorationPosition.foreground,
+          decoration: decoration,
+          child: InkWell(
+            onTap: () {
+              context.read<FriendsBadgeCubit>().updateDitherKernel(kernel);
+            },
+            child: Image.memory(badge.image.getPeekImageBytes(kernel)),
+          ),
+        );
+      },
     );
   }
 }
