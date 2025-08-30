@@ -37,6 +37,7 @@ class FriendsBadgeView extends StatelessWidget {
         : _BadgeEditor(badge: badge);
 
     return BlocListener<FriendsBadgeCubit, FriendsBadgeState>(
+      listenWhen: (previous, current) => previous.status != current.status,
       listener: (context, state) {
         if (state.status == FriendsBadgeStatus.failed) {
           ScaffoldMessenger.of(context).showSnackBar(
