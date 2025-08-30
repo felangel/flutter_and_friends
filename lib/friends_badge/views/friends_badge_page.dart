@@ -25,7 +25,6 @@ class FriendsBadgeView extends StatelessWidget {
     final theme = Theme.of(context);
     final state = context.watch<FriendsBadgeCubit>().state;
     final badge = state.badge;
-    final status = state.status;
     final body = badge == null
         ? Center(
             child: Text(
@@ -54,7 +53,7 @@ class FriendsBadgeView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             if (badge != null) WriteToBadgeButton(badge),
-            if (status == FriendsBadgeStatus.loading)
+            if (state.status == FriendsBadgeStatus.loading)
               const FloatingActionButton(
                 heroTag: 'ImageLoading',
                 tooltip: 'Image loading',
