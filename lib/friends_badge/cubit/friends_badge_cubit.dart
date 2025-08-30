@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:isolate';
 
 import 'package:equatable/equatable.dart';
 import 'package:friends_badge/friends_badge.dart';
@@ -11,12 +12,25 @@ class FriendsBadgeCubit extends Cubit<FriendsBadgeState> {
   FriendsBadgeCubit() : super(const FriendsBadgeState());
 
   Future<void> updateImage(File file) async {
+    emit(state.copyWith(status: FriendsBadgeStatus.loading));
+
     try {
-      final image = decodeImage(await file.readAsBytes());
-      if (image == null) return;
-      emit(FriendsBadgeState(badge: FriendsBadge(image: BadgeImage(image))));
+      final image = await Isolate.run<Image?>(
+        () async => decodeImage(await file.readAsBytes()),
+      );
+
+      if (image == null) {
+        return emit(state.copyWith(status: FriendsBadgeStatus.failed));
+      }
+
+      emit(
+        FriendsBadgeState(
+          badge: FriendsBadge(image: BadgeImage(image)),
+          status: FriendsBadgeStatus.loaded,
+        ),
+      );
     } on Exception {
-      return;
+      return emit(state.copyWith(status: FriendsBadgeStatus.failed));
     }
   }
 

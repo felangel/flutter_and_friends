@@ -23,7 +23,8 @@ class FriendsBadgeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final badge = context.watch<FriendsBadgeCubit>().state.badge;
+    final state = context.watch<FriendsBadgeCubit>().state;
+    final badge = state.badge;
     final body = badge == null
         ? Center(
             child: Text(
@@ -34,17 +35,37 @@ class FriendsBadgeView extends StatelessWidget {
           )
         : _BadgeEditor(badge: badge);
 
-    return Scaffold(
-      appBar: AppBar(title: const Text('Friends Badge')),
-      floatingActionButton: Row(
-        spacing: 8,
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          if (badge != null) WriteToBadgeButton(badge),
-          const PickImageButton(),
-        ],
+    return BlocListener<FriendsBadgeCubit, FriendsBadgeState>(
+      listenWhen: (previous, current) => previous.status != current.status,
+      listener: (context, state) {
+        if (state.status == FriendsBadgeStatus.failed) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Failed to decode image. Please try again.'),
+            ),
+          );
+        }
+      },
+      child: Scaffold(
+        appBar: AppBar(title: const Text('Friends Badge')),
+        floatingActionButton: Row(
+          spacing: 8,
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            if (badge != null) WriteToBadgeButton(badge),
+            if (state.status == FriendsBadgeStatus.loading)
+              const FloatingActionButton(
+                heroTag: 'ImageLoading',
+                tooltip: 'Image loading',
+                onPressed: null,
+                child: CircularProgressIndicator(),
+              )
+            else
+              const PickImageButton(),
+          ],
+        ),
+        body: body,
       ),
-      body: body,
     );
   }
 }
