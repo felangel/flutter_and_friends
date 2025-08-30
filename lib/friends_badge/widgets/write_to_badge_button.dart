@@ -16,7 +16,7 @@ class WriteToBadgeButton extends StatelessWidget {
       tooltip: 'Write to badge',
       onPressed: () async {
         try {
-          await writeToBadge(context: context, badge: badge);
+          await _writeToBadge(context: context, badge: badge);
         } on PlatformException catch (e) {
           if (!context.mounted) return;
           ScaffoldMessenger.of(context).showSnackBar(
@@ -35,7 +35,7 @@ Error: $e''',
   }
 }
 
-Future<void> writeToBadge({
+Future<void> _writeToBadge({
   required BuildContext context,
   required FriendsBadge badge,
 }) async {
