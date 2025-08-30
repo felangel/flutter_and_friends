@@ -19,12 +19,12 @@ class SpeakersView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SpeakersListView(speakers: speakers);
+    return const SpeakersGridView(speakers: speakers);
   }
 }
 
-class SpeakersListView extends StatelessWidget {
-  const SpeakersListView({required this.speakers, super.key});
+class SpeakersGridView extends StatelessWidget {
+  const SpeakersGridView({required this.speakers, super.key});
 
   final List<Speaker> speakers;
 
