@@ -13,8 +13,29 @@ const dashTrack = Location(
 
 final workshops = <Workshop>[
   Workshop(
+    name: 'Building Flutter Packages & Modules Visually',
+    speakers: const [poojaBhaumik],
+    duration: const Duration(minutes: 90),
+    startTime: DateTime(2025, 9, 2, 10),
+    location: dashTrack,
+    description: '''
+Developers often rely on packages and modules to extend functionality and keep projects modular. In this workshop, we'll showcase how pub package authors and Flutter teams can create reusable modules or packages with FlutterFlow and DreamFlow and add them to existing Flutter projects.
+
+We'll explore:
+
+- How to edit an existing Flutter project using DreamFlow, a browser-based dev environment tailored for Flutter workflows, offering multiple ways to work, whether through code, visual editing, or AI-assisted prompts.
+
+- How to encapsulate UI components and business logic into reusable libraries using FlutterFlow, a visual development environment for building Flutter apps and modules, that can be added as dependencies in existing Flutter projects.
+
+- How Flutter teams building hybrid apps with add-to-app functionality can leverage FlutterFlow Libraries to create and reuse modules.
+
+- How pub package authors can monetise their existing or future pub.dev packages by creating package wrappers and monetising them on the FlutterFlow Marketplace.
+
+This workshop is targeted at Flutter developers, UI/UX designers, and open-source contributors looking to build scalable reusable solutions more efficiently and also unlock new monetisation opportunities in the Flutter ecosystem.''',
+  ),
+  Workshop(
     name: 'Build Your Own Flutter AI Sidekick',
-    speakers: const [moritzTheis],
+    speakers: const [moritzTheis, alexanderThiele],
     duration: const Duration(minutes: 90),
     startTime: DateTime(2025, 9, 2, 10),
     location: aiTrack,
@@ -38,34 +59,14 @@ Structuring conversational UI and managing AI prompts effectively
 Tips for building fun, useful, or just plain weird AI sidekicks''',
   ),
   Workshop(
-    name: 'Building Flutter Packages & Modules Visually',
-    speakers: const [poojaBhaumik],
-    duration: const Duration(minutes: 90),
-    startTime: DateTime(2025, 9, 2, 10),
-    location: dashTrack,
-    description: '''
-Developers often rely on packages and modules to extend functionality and keep projects modular. In this workshop, we'll showcase how pub package authors and Flutter teams can create reusable modules or packages with FlutterFlow and DreamFlow and add them to existing Flutter projects.
-
-We'll explore:
-
-- How to edit an existing Flutter project using DreamFlow, a browser-based dev environment tailored for Flutter workflows, offering multiple ways to work, whether through code, visual editing, or AI-assisted prompts.
-
-- How to encapsulate UI components and business logic into reusable libraries using FlutterFlow, a visual development environment for building Flutter apps and modules, that can be added as dependencies in existing Flutter projects.
-
-- How Flutter teams building hybrid apps with add-to-app functionality can leverage FlutterFlow Libraries to create and reuse modules.
-
-- How pub package authors can monetise their existing or future pub.dev packages by creating package wrappers and monetising them on the FlutterFlow Marketplace.
-
-This workshop is targeted at Flutter developers, UI/UX designers, and open-source contributors looking to build scalable reusable solutions more efficiently and also unlock new monetisation opportunities in the Flutter ecosystem.''',
-  ),
-  Workshop(
-    name: 'Build, organize, and review your widgets with Widgetbook',
+    name:
+        '''Translate Figma Designs to maintainable Flutter Code with Widgetbook MCP''',
     speakers: const [lucasJosefiak],
     duration: const Duration(minutes: 90),
     startTime: DateTime(2025, 9, 2, 13),
     location: dashTrack,
     description: '''
-In this hands-on workshop, you'll learn how to build your widgets in isolation and organize them in your own widget library by using the open-source package Widgetbook. Disover how you can automatically detect and review all visual changes of your pull request with Widgetbook Cloud.''',
+Learn how to finally generate maintainable Flutter code from your Figma designs. In this hands-on workshop, you will use code generation to implement a Figma component in an existing Flutter project by using the Widgetbook MCP server. You can apply this workflow to any Flutter project afterward.''',
   ),
   Workshop(
     name: 'Hosting an AI Debate Club',

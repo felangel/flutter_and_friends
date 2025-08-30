@@ -2,6 +2,7 @@ import 'package:flutter_and_friends/speakers/speakers.dart';
 
 const speakers = [
   albertWolszon,
+  alexanderThiele,
   annaLeushchenko,
   eliasElfarri,
   enzoConty,
@@ -255,4 +256,13 @@ const moritzTheis = Speaker(
       '''Moritz is a GDE for Flutter & Dart, Organizer of Flutter Munich and the Founder of Snapp X.''',
   avatar: 'assets/speakers/moritz_theis.jpeg',
   twitter: 'MoritzTheis',
+);
+
+const alexanderThiele = Speaker(
+  name: 'Alexander Thiele',
+  title: 'Head of Engineering',
+  bio:
+      '''Alex has over 15 years of experience in mobile development. He started his career with Android and then explored other cross-platform frameworks like Phonegap and others over the years. He started to use Flutter/Dart when it was in beta and has been using it ever since. He is one of the hosts of the Flutter Munich Meetup group and enjoys sharing his knowledge and enthusiasm for Flutter. Since 2023 Alex is a Google Developer Expert in Flutter.''',
+  avatar: 'assets/speakers/alexander_thiele.jpeg',
+  twitter: 'athiele_',
 );

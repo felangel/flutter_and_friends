@@ -10,6 +10,8 @@ const streamingSponsor = rebelAppStudio;
 
 const togetherWith = [blueFire, done];
 
+const partySponsors = [posthog, widgetbook];
+
 const appShack = Sponsor(
   logo: 'assets/sponsors/appshack.png',
   url: 'https://appshack.se',
@@ -63,4 +65,14 @@ const blueFire = Sponsor(
 const done = Sponsor(
   logo: 'assets/sponsors/done.png',
   url: 'https://doneservices.se',
+);
+
+const posthog = Sponsor(
+  logo: 'assets/sponsors/posthog.png',
+  url: 'https://posthog.com',
+);
+
+const widgetbook = Sponsor(
+  logo: 'assets/sponsors/widgetbook.png',
+  url: 'https://widgetbook.io',
 );

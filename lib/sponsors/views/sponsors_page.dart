@@ -62,6 +62,14 @@ class SponsorsListView extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         const SponsorItem(sponsor: streamingSponsor),
+        const SizedBox(height: 32),
+        Text(
+          'Party Sponsors',
+          style: headingStyle,
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(height: 16),
+        ...partySponsors.map((sponsor) => SponsorItem(sponsor: sponsor)),
       ],
     );
   }

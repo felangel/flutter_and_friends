@@ -184,4 +184,21 @@ Get ready for an unforgettable evening with dazzling disco lights, refreshing dr
   ),
 ];
 
-final day3 = <Event>[...workshops];
+final day3 = <Event>[
+  ...workshops,
+  Activity(
+    name: '🌃 Optional Afterparty',
+    startTime: DateTime(2025, 9, 2, 16, 30),
+    duration: const Duration(minutes: 90),
+    description: '''
+For the ones who just feel like you didn't get enough of the "Friends" part of Flutter and Friends. Join the unofficial afterparty at Sthlm under Stjärnorna, a rooftop bar with a great view.
+
+You'll get time to wind down with your newfound friends with a drink in your hand, talking about everything that happened during these three hectic days.
+
+Maybe you'll find even more new friends. Who knows?''',
+    location: const Location(
+      name: 'Stockholm Under Stjärnorna',
+      coordinates: (59.3307371, 18.0644119),
+    ),
+  ),
+];
