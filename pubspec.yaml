@@ -40,5 +40,6 @@ flutter:
     - assets/activities/
     - assets/speakers/
     - assets/sponsors/
+    - assets/organizers/
     - shorebird.yaml
   uses-material-design: true

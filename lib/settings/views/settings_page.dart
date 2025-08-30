@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_and_friends/friends_badge/friends_badge.dart';
+import 'package:flutter_and_friends/organizers/organizers.dart';
 import 'package:flutter_and_friends/settings/settings.dart';
 import 'package:flutter_and_friends/theme/theme.dart';
 import 'package:flutter_and_friends/updater/updater.dart';
@@ -114,19 +115,25 @@ class SettingsView extends StatelessWidget {
               onTap: () => context.read<UpdaterCubit>().checkForUpdates(),
             ),
             ListTile(
-              title: const Text('Source Code'),
-              subtitle: const Text('View the full source code on GitHub'),
-              trailing: const Icon(Icons.chevron_right),
-              onTap: () => launchUrlString(
-                'https://github.com/felangel/flutter_and_friends',
-              ),
-            ),
-            ListTile(
               title: const Text('Website'),
               subtitle: const Text('View the official website'),
               trailing: const Icon(Icons.chevron_right),
               onTap: () => launchUrlString(
                 'https://www.flutterfriends.dev',
+              ),
+            ),
+            ListTile(
+              title: const Text('Organizers'),
+              subtitle: const Text('View the conference organizers'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => Navigator.of(context).push(OrganizersPage.route()),
+            ),
+            ListTile(
+              title: const Text('Source Code'),
+              subtitle: const Text('View the full source code on GitHub'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => launchUrlString(
+                'https://github.com/felangel/flutter_and_friends',
               ),
             ),
             ListTile(
@@ -152,7 +159,7 @@ class SettingsView extends StatelessWidget {
             ),
             ListTile(
               title: const Text('Powered by Shorebird'),
-              subtitle: const Text('Helping businesses succeed with Flutter'),
+              subtitle: const Text('Learn more about Shorebird'),
               trailing: const Icon(Icons.chevron_right),
               onTap: () => launchUrlString('https://shorebird.dev'),
             ),
