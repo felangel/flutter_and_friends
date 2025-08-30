@@ -1,12 +1,30 @@
 part of 'friends_badge_cubit.dart';
 
+enum FriendsBadgeStatus {
+  idle,
+  loading,
+  loaded,
+  failed,
+}
+
 class FriendsBadgeState extends Equatable {
-  const FriendsBadgeState({this.badge});
+  const FriendsBadgeState({this.badge, this.status = FriendsBadgeStatus.idle});
 
   final FriendsBadge? badge;
+  final FriendsBadgeStatus status;
+
+  FriendsBadgeState copyWith({
+    FriendsBadge? badge,
+    FriendsBadgeStatus? status,
+  }) {
+    return FriendsBadgeState(
+      badge: badge ?? this.badge,
+      status: status ?? this.status,
+    );
+  }
 
   @override
-  List<Object?> get props => [badge];
+  List<Object?> get props => [badge, status];
 }
 
 class FriendsBadge extends Equatable {

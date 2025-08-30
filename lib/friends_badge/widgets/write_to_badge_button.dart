@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_and_friends/friends_badge/friends_badge.dart';
 import 'package:friends_badge/friends_badge.dart';
+import 'package:nfc_manager/nfc_manager.dart';
 
 class WriteToBadgeButton extends StatelessWidget {
   const WriteToBadgeButton(this.badge, {super.key});
@@ -15,11 +16,7 @@ class WriteToBadgeButton extends StatelessWidget {
       tooltip: 'Write to badge',
       onPressed: () async {
         try {
-          if (!context.mounted) return;
-          await WaitingForNfcTap.showLoading(
-            context: context,
-            job: badge.image.writeToBadge(kernel: badge.ditherKernel),
-          );
+          await writeToBadge(context: context, badge: badge);
         } on PlatformException catch (e) {
           if (!context.mounted) return;
           ScaffoldMessenger.of(context).showSnackBar(
@@ -35,5 +32,31 @@ Error: $e''',
       },
       child: const Icon(Icons.nfc),
     );
+  }
+}
+
+Future<void> writeToBadge({
+  required BuildContext context,
+  required FriendsBadge badge,
+}) async {
+  try {
+    await WaitingForNfcTap.showLoading(
+      context: context,
+      job: badge.image.writeToBadge(kernel: badge.ditherKernel),
+    );
+  } on PlatformException catch (e) {
+    // On iOS for some reason previous nfc sessions aren't automatically
+    // cancelled. If we encounter this error, we explicitly try to manually
+    // stop any existing sessions and automatically retry.
+    if (e.code == 'session_already_exists') {
+      await NfcManager.instance.stopSession();
+      if (!context.mounted) return;
+      await WaitingForNfcTap.showLoading(
+        context: context,
+        job: badge.image.writeToBadge(kernel: badge.ditherKernel),
+      );
+      return;
+    }
+    rethrow;
   }
 }
