@@ -16,7 +16,9 @@ class WriteToBadgeButton extends StatelessWidget {
       tooltip: 'Write to badge',
       onPressed: () async {
         try {
-          await NfcManager.instance.stopSession();
+          if (await NfcManager.instance.isAvailable()) {
+            await NfcManager.instance.stopSession();
+          }
           if (!context.mounted) return;
           await WaitingForNfcTap.showLoading(
             context: context,
